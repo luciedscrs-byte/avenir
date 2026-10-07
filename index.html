@@ -43,6 +43,7 @@
   #limites li { margin-bottom: 0.4rem; }
   footer { color: var(--muted); font-size: 0.8rem; margin-top: 2rem; }
   #erreur { color: #b91c1c; }
+  .note { color: var(--muted); font-size: 0.85rem; margin: 0.75rem 0 0; }
 </style>
 </head>
 <body>
@@ -65,6 +66,25 @@
     <div class="carte"><h2>Compétences les plus citées</h2><div id="competences"></div></div>
   </div>
 
+  <div class="grille">
+    <div class="carte"><h2>Régions</h2><div id="regions"></div><p class="note" id="geo-note"></p></div>
+    <div class="carte"><h2>Outils cités dans les annonces</h2><div id="outils"></div><p class="note" id="outils-note"></p></div>
+  </div>
+
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Salaires affichés (brut mensuel)</h2>
+    <table>
+      <thead><tr><th>Groupe</th><th class="num">Offres</th><th class="num">Salaire affiché</th><th class="num">Médiane</th><th class="num">Min – max</th></tr></thead>
+      <tbody id="salaires"></tbody>
+    </table>
+    <p class="note" id="salaires-note"></p>
+  </div>
+
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Évolution des outils cités (nombre d'offres)</h2>
+    <div id="evolution"></div>
+  </div>
+
   <div class="carte" style="margin-bottom:1.5rem">
     <h2>Extractions datées</h2>
     <table>
@@ -77,8 +97,10 @@
     <h2>Limites de ces chiffres</h2>
     <ul>
       <li>Un seul canal : l'API France Travail « Offres d'emploi v2 ». Les offres publiées uniquement ailleurs n'y sont pas.</li>
-      <li>La Bonne Alternance reprend des offres France Travail : les deux canaux se recoupent en partie, et le recoupement exact reste à établir.</li>
-      <li>Les entreprises du haut de classement publient parfois la même annonce plusieurs fois : le nombre d'offres n'est pas le nombre de postes.</li>
+      <li id="lim-canaux">La Bonne Alternance reprend des offres France Travail : les deux canaux se recoupent en partie.</li>
+      <li id="lim-concentration"></li>
+      <li>Un salaire affiché n'est pas un salaire versé, et les médianes reposent sur très peu d'offres : lis-les avec le nombre d'offres à côté.</li>
+      <li>Les outils sont repérés par des mots-clés dans le texte des annonces : un outil cité n'est pas forcément exigé, et un outil absent de la liste n'est pas compté.</li>
       <li>Le code ROME M1620 regroupe des intitulés proches mais pas identiques (assistant marketing, assistant commercial, chef de produit junior…).</li>
     </ul>
   </div>
@@ -128,6 +150,51 @@ fetch('data/resume.json')
     barres('departements', x.departements);
     barres('entreprises', x.entreprises);
     barres('competences', x.competences);
+
+    barres('regions', x.regions);
+    document.getElementById('geo-note').textContent =
+      'Puy-de-Dôme : ' + x.n_puy_de_dome + ' offre(s). Le télétravail est mentionné dans ' + x.teletravail.offres +
+      ' annonces sur ' + x.teletravail.sur + ' (une mention peut aussi l\'exclure).';
+
+    barres('outils', x.outils.liste.slice(0, 12).map(o => ({ nom: o.nom + ' · ' + o.offres + ' offre' + (o.offres > 1 ? 's' : ''), n: o.entreprises })));
+    document.getElementById('outils-note').textContent =
+      'Classés par nombre d\'entreprises différentes qui les citent (annonces lues : ' + x.outils.avec_texte + '), pour qu\'un employeur qui répète la même annonce ne fausse pas le classement.';
+
+    const sal = document.getElementById('salaires');
+    x.salaires.groupes.forEach(g => sal.appendChild(el('tr', {}, [
+      el('td', { textContent: g.nom }),
+      el('td', { className: 'num', textContent: g.total }),
+      el('td', { className: 'num', textContent: g.affichent }),
+      el('td', { className: 'num', textContent: g.affichent ? g.mediane + ' €' : '–' }),
+      el('td', { className: 'num', textContent: g.affichent ? g.min + ' – ' + g.max + ' €' : '–' }),
+    ])));
+    document.getElementById('salaires-note').textContent =
+      'Repère : ' + x.salaires.mediane_insertion + ' € brut (médiane d\'insertion à un an citée dans le cours). Annuel ÷ 12, horaire × 35 h × 52 ÷ 12. ' +
+      'Seules ' + x.part_salaire_affiche + ' % des offres affichent un salaire.';
+
+    if (x.canaux) {
+      document.getElementById('lim-canaux').textContent =
+        'Deuxième canal, La Bonne Alternance : ' + x.canaux.lba_distinctes + ' offres distinctes, dont ' + x.canaux.lba_deja_dans_ft +
+        ' déjà présentes dans l\'extraction France Travail (même identifiant). Les chiffres de cette page ne comptent que France Travail.';
+    }
+
+    const c2 = x.concentration_top2;
+    document.getElementById('lim-concentration').textContent =
+      c2.noms.join(' et ') + ' publient ' + c2.part + ' % des offres, souvent avec le même gabarit d\'annonce : le nombre d\'offres n\'est pas le nombre de postes.';
+
+    const evo = document.getElementById('evolution');
+    const so = d.serie_outils;
+    if (so.length < 2) {
+      evo.appendChild(el('p', { className: 'note', textContent:
+        'Une seule extraction avec le texte des annonces pour l\'instant (' + (so[0] ? dateFr(so[0].date) : '–') +
+        ') : la comparaison démarre à la prochaine extraction, la veille tourne chaque matin.' }));
+    } else {
+      const entete = el('tr', {}, [el('th', { textContent: 'Outil' })].concat(so.map(s => el('th', { className: 'num', textContent: dateFr(s.date) }))));
+      const lignes = x.outils.liste.slice(0, 10).map(o => el('tr', {}, [el('td', { textContent: o.nom })].concat(
+        so.map(s => el('td', { className: 'num', textContent: s.outils[o.nom] || 0 })))));
+      const tab = el('table', {}, [el('thead', {}, [entete]), el('tbody', {}, lignes)]);
+      evo.appendChild(tab);
+    }
     const tbody = document.getElementById('serie');
     d.serie.slice().reverse().forEach(s => tbody.appendChild(el('tr', {}, [
       el('td', { textContent: dateFr(s.date) }),

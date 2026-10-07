@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-07T19:09:01+00:00",
+  "genere_le": "2026-10-07T19:13:06+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -13,6 +13,37 @@
       "date": "2026-10-07",
       "total": 136,
       "alternance": 60
+    }
+  ],
+  "serie_outils": [
+    {
+      "date": "2026-10-07",
+      "avec_texte": 136,
+      "outils": {
+        "Emailing / newsletter": 29,
+        "Anglais": 22,
+        "Excel": 19,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 17,
+        "PowerPoint": 13,
+        "Pack Office": 14,
+        "Canva": 14,
+        "CRM": 9,
+        "Facebook": 8,
+        "Word": 7,
+        "Instagram": 11,
+        "SEO": 11,
+        "LinkedIn": 10,
+        "TikTok": 5,
+        "WordPress": 5,
+        "IA (ChatGPT, IA générative…)": 5,
+        "Meta Ads / Facebook Ads": 3,
+        "Google Analytics / GA4": 2,
+        "Google Ads": 2,
+        "HubSpot": 2,
+        "YouTube": 1,
+        "SEA": 1,
+        "Prestashop": 1
+      }
     }
   ],
   "derniere": {
@@ -50,7 +81,7 @@
     ],
     "departements": [
       {
-        "nom": "Non précisé",
+        "nom": "Région seule",
         "n": 23
       },
       {
@@ -90,6 +121,57 @@
         "n": 3
       }
     ],
+    "regions": [
+      {
+        "nom": "Île-de-France",
+        "n": 41
+      },
+      {
+        "nom": "Hauts-de-France",
+        "n": 15
+      },
+      {
+        "nom": "Auvergne-Rhône-Alpes",
+        "n": 15
+      },
+      {
+        "nom": "Provence-Alpes-Côte d'Azur",
+        "n": 11
+      },
+      {
+        "nom": "Grand Est",
+        "n": 11
+      },
+      {
+        "nom": "Outre-mer",
+        "n": 9
+      },
+      {
+        "nom": "Normandie",
+        "n": 7
+      },
+      {
+        "nom": "Nouvelle-Aquitaine",
+        "n": 6
+      },
+      {
+        "nom": "Pays de la Loire",
+        "n": 5
+      },
+      {
+        "nom": "Bourgogne-Franche-Comté",
+        "n": 5
+      }
+    ],
+    "canaux": {
+      "lba_distinctes": 24,
+      "lba_deja_dans_ft": 7
+    },
+    "n_puy_de_dome": 1,
+    "teletravail": {
+      "offres": 9,
+      "sur": 136
+    },
     "entreprises": [
       {
         "nom": "EFC CONSULTING",
@@ -132,6 +214,13 @@
         "n": 1
       }
     ],
+    "concentration_top2": {
+      "noms": [
+        "EFC CONSULTING",
+        "ISCOD"
+      ],
+      "part": 32
+    },
     "competences": [
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
@@ -173,6 +262,163 @@
         "nom": "communication intelligence artificielle",
         "n": 1
       }
-    ]
+    ],
+    "salaires": {
+      "mediane_insertion": 2433,
+      "groupes": [
+        {
+          "nom": "Alternance",
+          "total": 60,
+          "affichent": 4,
+          "mediane": 1292,
+          "min": 625,
+          "max": 1450
+        },
+        {
+          "nom": "CDI",
+          "total": 56,
+          "affichent": 15,
+          "mediane": 2292,
+          "min": 1350,
+          "max": 3625
+        },
+        {
+          "nom": "Intérim",
+          "total": 12,
+          "affichent": 5,
+          "mediane": 2058,
+          "min": 1042,
+          "max": 2500
+        },
+        {
+          "nom": "CDD",
+          "total": 8,
+          "affichent": 3,
+          "mediane": 2250,
+          "min": 1867,
+          "max": 2292
+        }
+      ]
+    },
+    "outils": {
+      "avec_texte": 136,
+      "liste": [
+        {
+          "nom": "Emailing / newsletter",
+          "offres": 29,
+          "entreprises": 20
+        },
+        {
+          "nom": "Anglais",
+          "offres": 22,
+          "entreprises": 18
+        },
+        {
+          "nom": "Excel",
+          "offres": 19,
+          "entreprises": 16
+        },
+        {
+          "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
+          "offres": 17,
+          "entreprises": 14
+        },
+        {
+          "nom": "PowerPoint",
+          "offres": 13,
+          "entreprises": 12
+        },
+        {
+          "nom": "Pack Office",
+          "offres": 14,
+          "entreprises": 11
+        },
+        {
+          "nom": "Canva",
+          "offres": 14,
+          "entreprises": 10
+        },
+        {
+          "nom": "CRM",
+          "offres": 9,
+          "entreprises": 7
+        },
+        {
+          "nom": "Facebook",
+          "offres": 8,
+          "entreprises": 6
+        },
+        {
+          "nom": "Word",
+          "offres": 7,
+          "entreprises": 6
+        },
+        {
+          "nom": "Instagram",
+          "offres": 11,
+          "entreprises": 5
+        },
+        {
+          "nom": "SEO",
+          "offres": 11,
+          "entreprises": 5
+        },
+        {
+          "nom": "LinkedIn",
+          "offres": 10,
+          "entreprises": 5
+        },
+        {
+          "nom": "TikTok",
+          "offres": 5,
+          "entreprises": 5
+        },
+        {
+          "nom": "WordPress",
+          "offres": 5,
+          "entreprises": 5
+        },
+        {
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 5,
+          "entreprises": 5
+        },
+        {
+          "nom": "Meta Ads / Facebook Ads",
+          "offres": 3,
+          "entreprises": 3
+        },
+        {
+          "nom": "Google Analytics / GA4",
+          "offres": 2,
+          "entreprises": 2
+        },
+        {
+          "nom": "Google Ads",
+          "offres": 2,
+          "entreprises": 2
+        },
+        {
+          "nom": "HubSpot",
+          "offres": 2,
+          "entreprises": 2
+        },
+        {
+          "nom": "YouTube",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "SEA",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "Prestashop",
+          "offres": 1,
+          "entreprises": 1
+        }
+      ]
+    }
   }
 }
