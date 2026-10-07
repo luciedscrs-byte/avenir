@@ -32,7 +32,7 @@ def extraire_champs_offre(job):
     offer = job.get("offer", {})
     workplace = job.get("workplace", {})
     contract = job.get("contract", {})
-    skills = ", ".join(offer.get("desired_skills") or [])
+    skills = " | ".join(offer.get("desired_skills") or [])
 
     return {
         "intitule": html.unescape(offer.get("title", "")),

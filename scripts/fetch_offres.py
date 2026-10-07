@@ -69,7 +69,7 @@ def extraire_champs(offre):
     lieu = offre.get("lieuTravail", {}).get("libelle", "")
     entreprise = offre.get("entreprise", {}).get("nom", "Non précisé")
     salaire = offre.get("salaire", {}).get("libelle", "Non précisé")
-    competences = ", ".join(c.get("libelle", "") for c in offre.get("competences", []))
+    competences = " | ".join(c.get("libelle", "") for c in offre.get("competences", []))
 
     return {
         "intitule": offre.get("intitule", ""),

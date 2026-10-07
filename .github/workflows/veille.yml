@@ -1,0 +1,50 @@
+name: Veille quotidienne
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # 6 h UTC = 7 h à Paris l'hiver, 8 h l'été
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Extraction France Travail
+        run: python scripts/fetch_offres.py
+        env:
+          FRANCE_TRAVAIL_CLIENT_ID: ${{ secrets.FRANCE_TRAVAIL_CLIENT_ID }}
+          FRANCE_TRAVAIL_CLIENT_SECRET: ${{ secrets.FRANCE_TRAVAIL_CLIENT_SECRET }}
+
+      - name: Extraction La Bonne Alternance
+        run: python scripts/fetch_offres_alternance.py
+        continue-on-error: true
+        env:
+          LABONNEALTERNANCE_API_KEY: ${{ secrets.LABONNEALTERNANCE_API_KEY }}
+
+      - name: Résumé pour le site
+        run: python scripts/resumer.py
+
+      - name: Enregistrer les nouvelles données
+        run: |
+          git config user.name "veille-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Rien de nouveau."
+          else
+            N=$(python -c "import json; print(json.load(open('data/resume.json'))['derniere']['total'])")
+            git commit -m "extraction France Travail, $N offres, $(date +%F)"
+            git push
+          fi

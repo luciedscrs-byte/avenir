@@ -1,0 +1,173 @@
+{
+  "genere_le": "2026-10-07T18:41:16+00:00",
+  "metier": "Assistant / Assistante marketing",
+  "code_rome": "M1620",
+  "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
+  "serie": [
+    {
+      "date": "2026-09-22",
+      "total": 150,
+      "alternance": 69
+    }
+  ],
+  "derniere": {
+    "date": "2026-09-22",
+    "total": 150,
+    "alternance": 69,
+    "part_salaire_affiche": 23,
+    "contrats": [
+      {
+        "nom": "CDD",
+        "n": 79
+      },
+      {
+        "nom": "CDI",
+        "n": 63
+      },
+      {
+        "nom": "Intérim",
+        "n": 8
+      }
+    ],
+    "natures": [
+      {
+        "nom": "Contrat travail",
+        "n": 81
+      },
+      {
+        "nom": "Contrat apprentissage",
+        "n": 53
+      },
+      {
+        "nom": "Cont. professionnalisation",
+        "n": 16
+      }
+    ],
+    "departements": [
+      {
+        "nom": "Non précisé",
+        "n": 23
+      },
+      {
+        "nom": "75",
+        "n": 14
+      },
+      {
+        "nom": "92",
+        "n": 13
+      },
+      {
+        "nom": "93",
+        "n": 7
+      },
+      {
+        "nom": "974",
+        "n": 7
+      },
+      {
+        "nom": "94",
+        "n": 5
+      },
+      {
+        "nom": "44",
+        "n": 5
+      },
+      {
+        "nom": "06",
+        "n": 4
+      },
+      {
+        "nom": "13",
+        "n": 4
+      },
+      {
+        "nom": "60",
+        "n": 4
+      }
+    ],
+    "entreprises": [
+      {
+        "nom": "EFC CONSULTING",
+        "n": 23
+      },
+      {
+        "nom": "ISCOD",
+        "n": 16
+      },
+      {
+        "nom": "AUREIS FORMATION",
+        "n": 5
+      },
+      {
+        "nom": "BOEHRINGER INGELHEIM ANIMAL HEALTH FRANC",
+        "n": 2
+      },
+      {
+        "nom": "MATERNA OPERATIONS",
+        "n": 2
+      },
+      {
+        "nom": "Tetranergy Business School Réunion",
+        "n": 2
+      },
+      {
+        "nom": "SAINT MAIXENT DISTRIBUTION",
+        "n": 2
+      },
+      {
+        "nom": "COMPAGNIE DES ALPES",
+        "n": 2
+      },
+      {
+        "nom": "BERRY DISTRIBUTION",
+        "n": 1
+      },
+      {
+        "nom": "GOLDEN PALACE CASINO BSM",
+        "n": 1
+      }
+    ],
+    "competences": [
+      {
+        "nom": "Analyser les performances de l'équipe et proposer des améliorations",
+        "n": 27
+      },
+      {
+        "nom": "Mettre en place des solutions d'amélioration de la performance",
+        "n": 25
+      },
+      {
+        "nom": "Mettre en oeuvre des actions commerciales et promotionnelles",
+        "n": 3
+      },
+      {
+        "nom": "Rédiger un rapport",
+        "n": 3
+      },
+      {
+        "nom": "un compte rendu d'activité",
+        "n": 3
+      },
+      {
+        "nom": "Marketing des réseaux sociaux",
+        "n": 2
+      },
+      {
+        "nom": "Utiliser les outils numériques",
+        "n": 2
+      },
+      {
+        "nom": "Elaborer un plan marketing",
+        "n": 2
+      },
+      {
+        "nom": "une stratégie de marque et de communication",
+        "n": 2
+      },
+      {
+        "nom": "#TDFE2026",
+        "n": 1
+      }
+    ]
+  }
+}
