@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>avenir — Le marché caché</title>
+<link rel="stylesheet" href="assets/commun.css">
+</head>
+<body>
+<main>
+  <nav><a href="index.html">Les offres</a><a href="entreprises.html" aria-current="page">Les entreprises (marché caché)</a></nav>
+  <h1>Le marché caché : les entreprises, pas seulement les offres</h1>
+  <p class="sub" id="requete"></p>
+  <p id="erreur"></p>
+
+  <div class="chiffres">
+    <div class="carte"><p class="gros" id="total">–</p><p class="legende">entreprises recensées</p></div>
+    <div class="carte"><p class="gros" id="n-principale">–</p><p class="legende">cibles principales</p></div>
+    <div class="carte"><p class="gros" id="n-agences">–</p><p class="legende">agences (à part)</p></div>
+    <div class="carte"><p class="gros" id="n-nord">–</p><p class="legende">villes du nord (à part)</p></div>
+  </div>
+
+  <div class="carte" style="margin-bottom:1.5rem">
+    <div class="onglets" id="onglets"></div>
+    <div class="filtres">
+      <label>Grande ville<select id="f-ville"></select></label>
+      <label>Secteur<select id="f-groupe"></select></label>
+      <label>Taille minimum<select id="f-taille"></select></label>
+      <label>Nom contient<input id="f-nom" type="search" placeholder="ex. studio"></label>
+    </div>
+    <p class="note" id="compte"></p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Entreprise</th><th>Type</th><th>Secteur</th><th>Commune</th><th class="num">Salariés</th><th class="num">Créée</th></tr></thead>
+        <tbody id="lignes"></tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <button id="prec">Précédent</button><span id="page"></span><button id="suiv">Suivant</button>
+      <a href="data/entreprises.csv" download style="margin-left:auto;color:var(--accent)">Télécharger le CSV complet</a>
+    </div>
+  </div>
+
+  <div class="carte" id="limites">
+    <h2>Comment lire cette liste</h2>
+    <ul>
+      <li><strong>Sections.</strong> « Cibles principales » = entreprises hors agences, hors villes du nord. « Agences » = publicité, communication, études de marché, design : récoltées mais séparées. « Villes du nord » = villes plus hautes que Paris et hors Île-de-France (Lille, Reims, Le Havre, Rouen, Amiens, Metz, Caen), tous types confondus.</li>
+      <li><strong>Périmètre.</strong> Entreprises actives d'au moins 6 salariés, dont le siège est dans un département abritant une commune de plus de 100 000 habitants. Elles sont choisies par leur code d'activité (NAF) : une entreprise de ces secteurs n'a pas forcément un poste marketing, et beaucoup d'entreprises qui en ont un sont dans d'autres secteurs.</li>
+      <li><strong>Ce que l'API ne donne pas.</strong> Ni site web, ni téléphone, ni e-mail : ces colonnes viendront d'une autre source.</li>
+      <li><strong>Données personnelles.</strong> Cette liste ne contient que des données d'entreprises, aucun nom de personne. Un contact éventuel se cherche ensuite à la main, en lien avec sa fonction, pour une finalité claire (une candidature), avec droit d'opposition, et la liste n'est jamais revendue.</li>
+    </ul>
+  </div>
+
+  <footer>Source : API Recherche d'entreprises (data.gouv.fr), licence ouverte. Extraction du <span id="genere"></span>.</footer>
+</main>
+
+<script>
+const PAR_PAGE = 100;
+const SECTIONS = [
+  { cle: 'principale', nom: 'Cibles principales' },
+  { cle: 'agences', nom: 'Agences' },
+  { cle: 'nord', nom: 'Villes du nord' },
+];
+const SEUILS = [['0', 'Toutes (6 et plus)'], ['10', '10 et plus'], ['20', '20 et plus'], ['50', '50 et plus'], ['250', '250 et plus']];
+const BORNE_BASSE = { '03': 6, '11': 10, '12': 20, '21': 50, '22': 100, '31': 200, '32': 250, '41': 500, '42': 1000, '51': 2000, '52': 5000, '53': 10000 };
+
+let toutes = [], section = 'principale', page = 0;
+
+function el(tag, props, children) {
+  const e = document.createElement(tag);
+  Object.assign(e, props || {});
+  (children || []).forEach(c => e.appendChild(c));
+  return e;
+}
+
+function lireCsv(texte) {
+  const lignes = [], texteSansBom = texte.replace(/^﻿/, '');
+  let champ = '', ligne = [], guillemets = false;
+  for (let i = 0; i < texteSansBom.length; i++) {
+    const c = texteSansBom[i];
+    if (guillemets) {
+      if (c === '"' && texteSansBom[i + 1] === '"') { champ += '"'; i++; }
+      else if (c === '"') guillemets = false;
+      else champ += c;
+    } else if (c === '"') guillemets = true;
+    else if (c === ',') { ligne.push(champ); champ = ''; }
+    else if (c === '\n') { ligne.push(champ); lignes.push(ligne); ligne = []; champ = ''; }
+    else if (c !== '\r') champ += c;
+  }
+  if (champ || ligne.length) { ligne.push(champ); lignes.push(ligne); }
+  const [entete, ...corps] = lignes;
+  return corps.filter(l => l.length === entete.length).map(l => Object.fromEntries(entete.map((k, i) => [k, l[i]])));
+}
+
+function remplir(id, valeurs) {
+  const s = document.getElementById(id);
+  valeurs.forEach(v => s.appendChild(el('option', { value: v[0], textContent: v[1] })));
+}
+
+function filtrees() {
+  const ville = document.getElementById('f-ville').value;
+  const groupe = document.getElementById('f-groupe').value;
+  const seuil = Number(document.getElementById('f-taille').value);
+  const nom = document.getElementById('f-nom').value.trim().toLowerCase();
+  return toutes.filter(e => e.section === section
+    && (!ville || e.grande_ville === ville)
+    && (!groupe || e.groupe === groupe)
+    && (BORNE_BASSE[e.effectif] || 0) >= seuil
+    && (!nom || e.nom.toLowerCase().includes(nom)));
+}
+
+function afficher() {
+  const liste = filtrees();
+  const pages = Math.max(1, Math.ceil(liste.length / PAR_PAGE));
+  page = Math.min(page, pages - 1);
+  document.getElementById('compte').textContent = liste.length.toLocaleString('fr-FR') + ' entreprise(s), les plus grandes d\'abord.';
+  const corps = document.getElementById('lignes');
+  corps.replaceChildren();
+  liste.slice(page * PAR_PAGE, (page + 1) * PAR_PAGE).forEach(e => corps.appendChild(el('tr', {}, [
+    el('td', {}, [el('a', { href: e.fiche, target: '_blank', rel: 'noopener', textContent: e.nom })]),
+    el('td', { textContent: e.type }),
+    el('td', { textContent: e.groupe }),
+    el('td', { textContent: e.commune + ' (' + e.departement + ')' }),
+    el('td', { className: 'num', textContent: e.taille }),
+    el('td', { className: 'num', textContent: e.date_creation.slice(0, 4) }),
+  ])));
+  document.getElementById('page').textContent = 'Page ' + (page + 1) + ' / ' + pages;
+  document.getElementById('prec').disabled = page === 0;
+  document.getElementById('suiv').disabled = page >= pages - 1;
+  document.querySelectorAll('#onglets button').forEach(b => b.setAttribute('aria-pressed', b.dataset.cle === section));
+}
+
+Promise.all([
+  fetch('data/entreprises.csv').then(r => { if (!r.ok) throw new Error(r.status); return r.text(); }),
+  fetch('data/entreprises_resume.json').then(r => r.json()),
+]).then(([csv, resume]) => {
+  toutes = lireCsv(csv);
+  document.getElementById('requete').textContent = 'Requête : API Recherche d\'entreprises, entreprises actives de ' + resume.taille_min + ' et plus, dans ' +
+    Object.keys(resume.par_ville).length + ' grandes villes ou agglomérations.';
+  document.getElementById('total').textContent = resume.total.toLocaleString('fr-FR');
+  SECTIONS.forEach(s => {
+    document.getElementById('n-' + s.cle).textContent = (resume.sections[s.cle] || 0).toLocaleString('fr-FR');
+    const b = el('button', { textContent: s.nom + ' (' + (resume.sections[s.cle] || 0).toLocaleString('fr-FR') + ')' });
+    b.dataset.cle = s.cle;
+    b.onclick = () => { section = s.cle; page = 0; afficher(); };
+    document.getElementById('onglets').appendChild(b);
+  });
+  remplir('f-ville', [['', 'Toutes']].concat(Object.keys(resume.par_ville).sort().map(v => [v, v])));
+  remplir('f-groupe', [['', 'Tous']].concat(Object.keys(resume.par_groupe).sort().map(g => [g, g])));
+  remplir('f-taille', SEUILS);
+  document.getElementById('genere').textContent = new Date(resume.genere_le + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+  ['f-ville', 'f-groupe', 'f-taille'].forEach(id => document.getElementById(id).onchange = () => { page = 0; afficher(); });
+  document.getElementById('f-nom').oninput = () => { page = 0; afficher(); };
+  document.getElementById('prec').onclick = () => { page--; afficher(); };
+  document.getElementById('suiv').onclick = () => { page++; afficher(); };
+  afficher();
+}).catch(() => {
+  document.getElementById('erreur').textContent =
+    'Impossible de charger data/entreprises.csv. En local, ouvre la page via un petit serveur (python3 -m http.server).';
+});
+</script>
+</body>
+</html>

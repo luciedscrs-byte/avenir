@@ -1,0 +1,58 @@
+  :root {
+    --bg: #fafafa; --card: #ffffff; --text: #1a1a2e; --muted: #5b5b6b;
+    --line: #e4e4ea; --accent: #4338ca; --accent-soft: #e0e7ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12121a; --card: #1b1b27; --text: #ececf3; --muted: #a0a0b4;
+      --line: #2e2e3f; --accent: #8b8bf5; --accent-soft: #2a2a52;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--text); line-height: 1.5;
+  }
+  main { max-width: 960px; margin: 0 auto; padding: 2.5rem 16px 4rem; }
+  h1 { font-size: 1.7rem; margin: 0 0 0.25rem; }
+  h2 { font-size: 1.05rem; margin: 0 0 1rem; }
+  .sub { color: var(--muted); margin: 0 0 2rem; }
+  .sub code { background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; font-size: 0.85em; }
+  .chiffres { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+  .carte { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; }
+  .gros { font-size: 2.6rem; font-weight: 700; color: var(--accent); margin: 0; line-height: 1.1; }
+  .legende { color: var(--muted); font-size: 0.9rem; margin: 0.25rem 0 0; }
+  .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+  .barre { display: grid; grid-template-columns: minmax(0, 1fr) 2.5rem; gap: 0.25rem 0.75rem; align-items: center; margin-bottom: 0.6rem; font-size: 0.9rem; }
+  .barre .nom { overflow-wrap: anywhere; }
+  .barre .n { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .barre .piste { grid-column: 1 / -1; height: 6px; background: var(--accent-soft); border-radius: 3px; }
+  .barre .piste span { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 500; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  #limites ul { margin: 0; padding-left: 1.2rem; color: var(--muted); font-size: 0.9rem; }
+  #limites li { margin-bottom: 0.4rem; }
+  footer { color: var(--muted); font-size: 0.8rem; margin-top: 2rem; }
+  #erreur { color: #b91c1c; }
+  .note { color: var(--muted); font-size: 0.85rem; margin: 0.75rem 0 0; }
+  nav { display: flex; gap: 1.25rem; margin-bottom: 1.75rem; font-size: 0.95rem; }
+  nav a { color: var(--muted); text-decoration: none; padding-bottom: 2px; }
+  nav a[aria-current="page"] { color: var(--accent); border-bottom: 2px solid var(--accent); }
+  .onglets { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  .onglets button, .pagination button {
+    font: inherit; font-size: 0.9rem; padding: 0.45rem 0.9rem; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--card); color: var(--text);
+  }
+  .onglets button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .filtres { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; }
+  .filtres label { display: grid; gap: 2px; font-size: 0.8rem; color: var(--muted); }
+  .filtres select, .filtres input {
+    font: inherit; font-size: 0.9rem; padding: 0.4rem 0.5rem; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--card); color: var(--text); min-width: 160px;
+  }
+  .pagination { display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
+  .pagination button:disabled { opacity: 0.4; cursor: default; }
+  .tableau { overflow-x: auto; }
+  td a { color: var(--accent); }
