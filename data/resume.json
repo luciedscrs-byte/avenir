@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-07T18:57:23+00:00",
+  "genere_le": "2026-10-07T19:09:01+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -11,14 +11,14 @@
     },
     {
       "date": "2026-10-07",
-      "total": 137,
-      "alternance": 61
+      "total": 136,
+      "alternance": 60
     }
   ],
   "derniere": {
     "date": "2026-10-07",
-    "total": 137,
-    "alternance": 61,
+    "total": 136,
+    "alternance": 60,
     "part_salaire_affiche": 20,
     "contrats": [
       {
@@ -27,7 +27,7 @@
       },
       {
         "nom": "CDI",
-        "n": 57
+        "n": 56
       },
       {
         "nom": "Intérim",
@@ -41,7 +41,7 @@
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 47
+        "n": 46
       },
       {
         "nom": "Cont. professionnalisation",
@@ -78,15 +78,15 @@
         "n": 5
       },
       {
-        "nom": "93",
-        "n": 4
-      },
-      {
         "nom": "69",
         "n": 4
       },
       {
         "nom": "83",
+        "n": 3
+      },
+      {
+        "nom": "93",
         "n": 3
       }
     ],
@@ -135,11 +135,11 @@
     "competences": [
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 22
+        "n": 21
       },
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 21
+        "n": 20
       },
       {
         "nom": "Mettre en oeuvre des actions commerciales et promotionnelles",

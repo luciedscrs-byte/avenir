@@ -9,6 +9,8 @@ from datetime import date
 import requests
 from dotenv import load_dotenv
 
+import textes
+
 load_dotenv()
 
 CLIENT_ID = os.environ["FRANCE_TRAVAIL_CLIENT_ID"]
@@ -81,6 +83,8 @@ def extraire_champs(offre):
         "salaire": salaire,
         "date_publication": offre.get("dateCreation", ""),
         "competences": competences,
+        "id": offre.get("id", ""),
+        "url": (offre.get("origineOffre") or {}).get("urlOrigine", ""),
     }
 
 
@@ -92,6 +96,12 @@ def main():
     offres_brutes, total = fetch_all_offres(token)
 
     lignes = [extraire_champs(o) for o in offres_brutes]
+
+    nouveaux_textes = textes.enregistrer(
+        {"id": o.get("id"), "source": "France Travail", "intitule": o.get("intitule", ""),
+         "description": o.get("description", "")}
+        for o in offres_brutes
+    )
 
     os.makedirs("data", exist_ok=True)
     chemin_csv = f"data/offres_{CODE_ROME}_{date.today().isoformat()}.csv"
@@ -106,6 +116,7 @@ def main():
     print(f"\nTotal d'offres déclaré par l'API : {total}")
     print(f"Total d'offres récupérées et enregistrées : {len(lignes)}")
     print(f"Dont alternance : {nb_alternance}")
+    print(f"Textes d'annonces ajoutés à data/textes.jsonl : {nouveaux_textes}")
     print(f"Fichier : {chemin_csv}\n")
 
     print("Aperçu des 5 premières offres :")
