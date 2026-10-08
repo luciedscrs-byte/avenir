@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-07T19:13:06+00:00",
+  "genere_le": "2026-10-08T12:27:57+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -13,6 +13,11 @@
       "date": "2026-10-07",
       "total": 136,
       "alternance": 60
+    },
+    {
+      "date": "2026-10-08",
+      "total": 136,
+      "alternance": 61
     }
   ],
   "serie_outils": [
@@ -44,35 +49,64 @@
         "SEA": 1,
         "Prestashop": 1
       }
+    },
+    {
+      "date": "2026-10-08",
+      "avec_texte": 136,
+      "outils": {
+        "Emailing / newsletter": 31,
+        "Anglais": 24,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 20,
+        "Excel": 18,
+        "Canva": 16,
+        "Pack Office": 14,
+        "PowerPoint": 13,
+        "SEO": 13,
+        "Facebook": 9,
+        "WordPress": 7,
+        "Instagram": 12,
+        "LinkedIn": 10,
+        "CRM": 8,
+        "Word": 7,
+        "IA (ChatGPT, IA générative…)": 6,
+        "TikTok": 5,
+        "Google Analytics / GA4": 4,
+        "Google Ads": 3,
+        "SEA": 2,
+        "Meta Ads / Facebook Ads": 2,
+        "HubSpot": 2,
+        "Prestashop": 2,
+        "YouTube": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "total": 136,
-    "alternance": 60,
-    "part_salaire_affiche": 20,
+    "alternance": 61,
+    "part_salaire_affiche": 21,
     "contrats": [
       {
         "nom": "CDD",
-        "n": 68
+        "n": 69
       },
       {
         "nom": "CDI",
-        "n": 56
+        "n": 54
       },
       {
         "nom": "Intérim",
-        "n": 12
+        "n": 13
       }
     ],
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 76
+        "n": 75
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 46
+        "n": 47
       },
       {
         "nom": "Cont. professionnalisation",
@@ -89,19 +123,15 @@
         "n": 15
       },
       {
+        "nom": "02",
+        "n": 7
+      },
+      {
         "nom": "974",
         "n": 7
       },
       {
-        "nom": "02",
-        "n": 6
-      },
-      {
         "nom": "94",
-        "n": 6
-      },
-      {
-        "nom": "92",
         "n": 6
       },
       {
@@ -109,15 +139,19 @@
         "n": 5
       },
       {
-        "nom": "69",
+        "nom": "92",
+        "n": 5
+      },
+      {
+        "nom": "44",
+        "n": 4
+      },
+      {
+        "nom": "78",
         "n": 4
       },
       {
         "nom": "83",
-        "n": 3
-      },
-      {
-        "nom": "93",
         "n": 3
       }
     ],
@@ -132,7 +166,7 @@
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
-        "n": 15
+        "n": 13
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
@@ -151,12 +185,12 @@
         "n": 7
       },
       {
-        "nom": "Nouvelle-Aquitaine",
+        "nom": "Pays de la Loire",
         "n": 6
       },
       {
-        "nom": "Pays de la Loire",
-        "n": 5
+        "nom": "Nouvelle-Aquitaine",
+        "n": 6
       },
       {
         "nom": "Bourgogne-Franche-Comté",
@@ -164,12 +198,12 @@
       }
     ],
     "canaux": {
-      "lba_distinctes": 24,
-      "lba_deja_dans_ft": 7
+      "lba_distinctes": 17,
+      "lba_deja_dans_ft": 3
     },
     "n_puy_de_dome": 1,
     "teletravail": {
-      "offres": 9,
+      "offres": 10,
       "sur": 136
     },
     "entreprises": [
@@ -206,11 +240,11 @@
         "n": 2
       },
       {
-        "nom": "FABRIQUE DE MEUBLES DE COULOMBS",
+        "nom": "INTERACTION PICARDIE",
         "n": 1
       },
       {
-        "nom": "MATCHMAKER RECRUTEMENT",
+        "nom": "LA D I",
         "n": 1
       }
     ],
@@ -224,43 +258,43 @@
     "competences": [
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 21
+        "n": 22
       },
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 20
+        "n": 21
       },
       {
         "nom": "Mettre en oeuvre des actions commerciales et promotionnelles",
+        "n": 4
+      },
+      {
+        "nom": "Rédiger un rapport, un compte rendu d'activité",
         "n": 3
       },
       {
         "nom": "Utiliser les outils numériques",
+        "n": 3
+      },
+      {
+        "nom": "Développement de stratégies de fidélisation de la clientèle",
         "n": 2
       },
       {
-        "nom": "Rédiger un rapport, un compte rendu d'activité",
+        "nom": "Marketing des réseaux sociaux",
         "n": 2
       },
       {
         "nom": "Concevoir des supports de communication et d'image",
-        "n": 1
-      },
-      {
-        "nom": "Définir une stratégie de développement d'une activité ou de produits",
-        "n": 1
+        "n": 2
       },
       {
         "nom": "Mener une campagne d'e-mailing",
-        "n": 1
+        "n": 2
       },
       {
         "nom": "Optimiser le référencement naturel (SEO) des sites web",
-        "n": 1
-      },
-      {
-        "nom": "communication intelligence artificielle",
-        "n": 1
+        "n": 2
       }
     ],
     "salaires": {
@@ -268,25 +302,25 @@
       "groupes": [
         {
           "nom": "Alternance",
-          "total": 60,
-          "affichent": 4,
-          "mediane": 1292,
+          "total": 61,
+          "affichent": 5,
+          "mediane": 1300,
           "min": 625,
-          "max": 1450
+          "max": 1958
         },
         {
           "nom": "CDI",
-          "total": 56,
+          "total": 54,
           "affichent": 15,
-          "mediane": 2292,
+          "mediane": 2350,
           "min": 1350,
           "max": 3625
         },
         {
           "nom": "Intérim",
-          "total": 12,
-          "affichent": 5,
-          "mediane": 2058,
+          "total": 13,
+          "affichent": 6,
+          "mediane": 2129,
           "min": 1042,
           "max": 2500
         },
@@ -305,23 +339,33 @@
       "liste": [
         {
           "nom": "Emailing / newsletter",
-          "offres": 29,
-          "entreprises": 20
+          "offres": 31,
+          "entreprises": 21
         },
         {
           "nom": "Anglais",
-          "offres": 22,
-          "entreprises": 18
-        },
-        {
-          "nom": "Excel",
-          "offres": 19,
-          "entreprises": 16
+          "offres": 24,
+          "entreprises": 20
         },
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 17,
-          "entreprises": 14
+          "offres": 20,
+          "entreprises": 17
+        },
+        {
+          "nom": "Excel",
+          "offres": 18,
+          "entreprises": 15
+        },
+        {
+          "nom": "Canva",
+          "offres": 16,
+          "entreprises": 12
+        },
+        {
+          "nom": "Pack Office",
+          "offres": 14,
+          "entreprises": 12
         },
         {
           "nom": "PowerPoint",
@@ -329,22 +373,32 @@
           "entreprises": 12
         },
         {
-          "nom": "Pack Office",
-          "offres": 14,
-          "entreprises": 11
-        },
-        {
-          "nom": "Canva",
-          "offres": 14,
-          "entreprises": 10
-        },
-        {
-          "nom": "CRM",
-          "offres": 9,
+          "nom": "SEO",
+          "offres": 13,
           "entreprises": 7
         },
         {
           "nom": "Facebook",
+          "offres": 9,
+          "entreprises": 7
+        },
+        {
+          "nom": "WordPress",
+          "offres": 7,
+          "entreprises": 7
+        },
+        {
+          "nom": "Instagram",
+          "offres": 12,
+          "entreprises": 6
+        },
+        {
+          "nom": "LinkedIn",
+          "offres": 10,
+          "entreprises": 6
+        },
+        {
+          "nom": "CRM",
           "offres": 8,
           "entreprises": 6
         },
@@ -354,19 +408,9 @@
           "entreprises": 6
         },
         {
-          "nom": "Instagram",
-          "offres": 11,
-          "entreprises": 5
-        },
-        {
-          "nom": "SEO",
-          "offres": 11,
-          "entreprises": 5
-        },
-        {
-          "nom": "LinkedIn",
-          "offres": 10,
-          "entreprises": 5
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 6,
+          "entreprises": 6
         },
         {
           "nom": "TikTok",
@@ -374,27 +418,22 @@
           "entreprises": 5
         },
         {
-          "nom": "WordPress",
-          "offres": 5,
-          "entreprises": 5
+          "nom": "Google Analytics / GA4",
+          "offres": 4,
+          "entreprises": 4
         },
         {
-          "nom": "IA (ChatGPT, IA générative…)",
-          "offres": 5,
-          "entreprises": 5
-        },
-        {
-          "nom": "Meta Ads / Facebook Ads",
+          "nom": "Google Ads",
           "offres": 3,
           "entreprises": 3
         },
         {
-          "nom": "Google Analytics / GA4",
+          "nom": "SEA",
           "offres": 2,
           "entreprises": 2
         },
         {
-          "nom": "Google Ads",
+          "nom": "Meta Ads / Facebook Ads",
           "offres": 2,
           "entreprises": 2
         },
@@ -404,17 +443,12 @@
           "entreprises": 2
         },
         {
-          "nom": "YouTube",
-          "offres": 1,
-          "entreprises": 1
-        },
-        {
-          "nom": "SEA",
-          "offres": 1,
-          "entreprises": 1
-        },
-        {
           "nom": "Prestashop",
+          "offres": 2,
+          "entreprises": 2
+        },
+        {
+          "nom": "YouTube",
           "offres": 1,
           "entreprises": 1
         }
