@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-09T12:16:57+00:00",
+  "genere_le": "2026-10-10T11:34:45+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -23,6 +23,11 @@
       "date": "2026-10-09",
       "total": 130,
       "alternance": 59
+    },
+    {
+      "date": "2026-10-10",
+      "total": 130,
+      "alternance": 58
     }
   ],
   "serie_outils": [
@@ -112,21 +117,50 @@
         "Prestashop": 2,
         "YouTube": 1
       }
+    },
+    {
+      "date": "2026-10-10",
+      "avec_texte": 130,
+      "outils": {
+        "Emailing / newsletter": 28,
+        "Anglais": 23,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 20,
+        "Canva": 16,
+        "Excel": 14,
+        "Pack Office": 14,
+        "PowerPoint": 11,
+        "SEO": 13,
+        "Facebook": 9,
+        "CRM": 8,
+        "WordPress": 7,
+        "Instagram": 12,
+        "LinkedIn": 10,
+        "Word": 6,
+        "TikTok": 5,
+        "Google Analytics / GA4": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Google Ads": 3,
+        "SEA": 2,
+        "Meta Ads / Facebook Ads": 2,
+        "HubSpot": 2,
+        "Prestashop": 2,
+        "YouTube": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-09",
+    "date": "2026-10-10",
     "total": 130,
-    "alternance": 59,
+    "alternance": 58,
     "part_salaire_affiche": 21,
     "contrats": [
       {
         "nom": "CDD",
-        "n": 66
+        "n": 65
       },
       {
         "nom": "CDI",
-        "n": 51
+        "n": 52
       },
       {
         "nom": "Intérim",
@@ -136,11 +170,11 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 71
+        "n": 72
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 46
+        "n": 45
       },
       {
         "nom": "Cont. professionnalisation",
@@ -154,14 +188,14 @@
       },
       {
         "nom": "75",
-        "n": 15
-      },
-      {
-        "nom": "02",
-        "n": 7
+        "n": 14
       },
       {
         "nom": "94",
+        "n": 8
+      },
+      {
+        "nom": "02",
         "n": 7
       },
       {
@@ -169,11 +203,11 @@
         "n": 6
       },
       {
-        "nom": "91",
-        "n": 5
+        "nom": "78",
+        "n": 4
       },
       {
-        "nom": "78",
+        "nom": "91",
         "n": 4
       },
       {
@@ -181,25 +215,25 @@
         "n": 4
       },
       {
-        "nom": "69",
+        "nom": "44",
         "n": 3
       },
       {
-        "nom": "74",
+        "nom": "69",
         "n": 3
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 40
-      },
-      {
-        "nom": "Hauts-de-France",
-        "n": 14
+        "n": 39
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
+        "n": 15
+      },
+      {
+        "nom": "Hauts-de-France",
         "n": 14
       },
       {
@@ -208,7 +242,7 @@
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
-        "n": 10
+        "n": 9
       },
       {
         "nom": "Outre-mer",
@@ -223,11 +257,11 @@
         "n": 6
       },
       {
-        "nom": "Bourgogne-Franche-Comté",
+        "nom": "Pays de la Loire",
         "n": 5
       },
       {
-        "nom": "Occitanie",
+        "nom": "Bourgogne-Franche-Comté",
         "n": 5
       }
     ],
@@ -237,7 +271,7 @@
     },
     "n_puy_de_dome": 1,
     "teletravail": {
-      "offres": 9,
+      "offres": 8,
       "sur": 130
     },
     "entreprises": [
@@ -247,7 +281,7 @@
       },
       {
         "nom": "ISCOD",
-        "n": 21
+        "n": 20
       },
       {
         "nom": "SCI Pro immo",
@@ -266,6 +300,10 @@
         "n": 2
       },
       {
+        "nom": "HARRY HOPE",
+        "n": 2
+      },
+      {
         "nom": "Tetranergy Business School Réunion",
         "n": 2
       },
@@ -276,10 +314,6 @@
       {
         "nom": "INTERACTION PICARDIE",
         "n": 1
-      },
-      {
-        "nom": "LA D I",
-        "n": 1
       }
     ],
     "concentration_top2": {
@@ -287,16 +321,16 @@
         "EFC CONSULTING",
         "ISCOD"
       ],
-      "part": 34
+      "part": 33
     },
     "competences": [
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 19
+        "n": 18
       },
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 18
+        "n": 17
       },
       {
         "nom": "Mettre en oeuvre des actions commerciales et promotionnelles",
@@ -336,7 +370,7 @@
       "groupes": [
         {
           "nom": "Alternance",
-          "total": 59,
+          "total": 58,
           "affichent": 5,
           "mediane": 1300,
           "min": 625,
@@ -344,11 +378,11 @@
         },
         {
           "nom": "CDI",
-          "total": 51,
+          "total": 52,
           "affichent": 14,
           "mediane": 2279,
           "min": 1350,
-          "max": 3625
+          "max": 7500
         },
         {
           "nom": "Intérim",
@@ -379,7 +413,7 @@
         {
           "nom": "Anglais",
           "offres": 23,
-          "entreprises": 20
+          "entreprises": 19
         },
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
@@ -387,13 +421,13 @@
           "entreprises": 17
         },
         {
-          "nom": "Excel",
-          "offres": 15,
-          "entreprises": 13
-        },
-        {
           "nom": "Canva",
           "offres": 16,
+          "entreprises": 12
+        },
+        {
+          "nom": "Excel",
+          "offres": 14,
           "entreprises": 12
         },
         {
@@ -447,12 +481,12 @@
           "entreprises": 5
         },
         {
-          "nom": "IA (ChatGPT, IA générative…)",
-          "offres": 5,
-          "entreprises": 5
+          "nom": "Google Analytics / GA4",
+          "offres": 4,
+          "entreprises": 4
         },
         {
-          "nom": "Google Analytics / GA4",
+          "nom": "IA (ChatGPT, IA générative…)",
           "offres": 4,
           "entreprises": 4
         },
