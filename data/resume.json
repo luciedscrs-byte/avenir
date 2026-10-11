@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-10T11:34:45+00:00",
+  "genere_le": "2026-10-11T11:48:29+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -27,6 +27,11 @@
     {
       "date": "2026-10-10",
       "total": 130,
+      "alternance": 58
+    },
+    {
+      "date": "2026-10-11",
+      "total": 132,
       "alternance": 58
     }
   ],
@@ -146,13 +151,42 @@
         "Prestashop": 2,
         "YouTube": 1
       }
+    },
+    {
+      "date": "2026-10-11",
+      "avec_texte": 132,
+      "outils": {
+        "Emailing / newsletter": 28,
+        "Anglais": 23,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 21,
+        "Excel": 16,
+        "Pack Office": 16,
+        "Canva": 16,
+        "PowerPoint": 11,
+        "SEO": 13,
+        "Facebook": 9,
+        "CRM": 8,
+        "WordPress": 7,
+        "Instagram": 12,
+        "LinkedIn": 10,
+        "Word": 8,
+        "TikTok": 5,
+        "Google Analytics / GA4": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Google Ads": 3,
+        "Prestashop": 3,
+        "SEA": 2,
+        "Meta Ads / Facebook Ads": 2,
+        "HubSpot": 2,
+        "YouTube": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-10",
-    "total": 130,
+    "date": "2026-10-11",
+    "total": 132,
     "alternance": 58,
-    "part_salaire_affiche": 21,
+    "part_salaire_affiche": 20,
     "contrats": [
       {
         "nom": "CDD",
@@ -160,7 +194,7 @@
       },
       {
         "nom": "CDI",
-        "n": 52
+        "n": 54
       },
       {
         "nom": "Intérim",
@@ -170,7 +204,7 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 72
+        "n": 74
       },
       {
         "nom": "Contrat apprentissage",
@@ -253,15 +287,15 @@
         "n": 7
       },
       {
+        "nom": "Bourgogne-Franche-Comté",
+        "n": 6
+      },
+      {
         "nom": "Nouvelle-Aquitaine",
         "n": 6
       },
       {
         "nom": "Pays de la Loire",
-        "n": 5
-      },
-      {
-        "nom": "Bourgogne-Franche-Comté",
         "n": 5
       }
     ],
@@ -272,7 +306,7 @@
     "n_puy_de_dome": 1,
     "teletravail": {
       "offres": 8,
-      "sur": 130
+      "sur": 132
     },
     "entreprises": [
       {
@@ -378,7 +412,7 @@
         },
         {
           "nom": "CDI",
-          "total": 52,
+          "total": 54,
           "affichent": 14,
           "mediane": 2279,
           "min": 1350,
@@ -403,7 +437,7 @@
       ]
     },
     "outils": {
-      "avec_texte": 130,
+      "avec_texte": 132,
       "liste": [
         {
           "nom": "Emailing / newsletter",
@@ -417,22 +451,22 @@
         },
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 20,
+          "offres": 21,
           "entreprises": 17
         },
         {
-          "nom": "Canva",
+          "nom": "Excel",
           "offres": 16,
           "entreprises": 12
         },
         {
-          "nom": "Excel",
-          "offres": 14,
+          "nom": "Pack Office",
+          "offres": 16,
           "entreprises": 12
         },
         {
-          "nom": "Pack Office",
-          "offres": 14,
+          "nom": "Canva",
+          "offres": 16,
           "entreprises": 12
         },
         {
@@ -472,7 +506,7 @@
         },
         {
           "nom": "Word",
-          "offres": 6,
+          "offres": 8,
           "entreprises": 6
         },
         {
@@ -496,6 +530,11 @@
           "entreprises": 3
         },
         {
+          "nom": "Prestashop",
+          "offres": 3,
+          "entreprises": 2
+        },
+        {
           "nom": "SEA",
           "offres": 2,
           "entreprises": 2
@@ -507,11 +546,6 @@
         },
         {
           "nom": "HubSpot",
-          "offres": 2,
-          "entreprises": 2
-        },
-        {
-          "nom": "Prestashop",
           "offres": 2,
           "entreprises": 2
         },
