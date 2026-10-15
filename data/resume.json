@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-14T10:51:18+00:00",
+  "genere_le": "2026-10-15T10:33:47+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -48,6 +48,11 @@
       "date": "2026-10-14",
       "total": 119,
       "alternance": 53
+    },
+    {
+      "date": "2026-10-15",
+      "total": 119,
+      "alternance": 49
     }
   ],
   "serie_outils": [
@@ -281,21 +286,49 @@
         "HubSpot": 2,
         "YouTube": 1
       }
+    },
+    {
+      "date": "2026-10-15",
+      "avec_texte": 119,
+      "outils": {
+        "Anglais": 18,
+        "Emailing / newsletter": 17,
+        "Excel": 12,
+        "PowerPoint": 11,
+        "Canva": 13,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 13,
+        "Pack Office": 11,
+        "SEO": 12,
+        "Facebook": 8,
+        "Instagram": 10,
+        "TikTok": 5,
+        "CRM": 5,
+        "LinkedIn": 7,
+        "Word": 4,
+        "WordPress": 4,
+        "Google Analytics / GA4": 3,
+        "Google Ads": 2,
+        "Meta Ads / Facebook Ads": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "YouTube": 1,
+        "SEA": 1,
+        "HubSpot": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-14",
+    "date": "2026-10-15",
     "total": 119,
-    "alternance": 53,
+    "alternance": 49,
     "part_salaire_affiche": 17,
     "contrats": [
       {
         "nom": "CDD",
-        "n": 60
+        "n": 55
       },
       {
         "nom": "CDI",
-        "n": 46
+        "n": 51
       },
       {
         "nom": "Intérim",
@@ -305,25 +338,25 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 66
+        "n": 70
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 42
+        "n": 37
       },
       {
         "nom": "Cont. professionnalisation",
-        "n": 11
+        "n": 12
       }
     ],
     "departements": [
       {
         "nom": "Région seule",
-        "n": 24
+        "n": 23
       },
       {
         "nom": "75",
-        "n": 14
+        "n": 11
       },
       {
         "nom": "94",
@@ -334,46 +367,46 @@
         "n": 7
       },
       {
-        "nom": "78",
-        "n": 4
-      },
-      {
-        "nom": "91",
-        "n": 4
-      },
-      {
-        "nom": "44",
-        "n": 3
-      },
-      {
-        "nom": "59",
-        "n": 3
-      },
-      {
         "nom": "74",
-        "n": 3
+        "n": 5
+      },
+      {
+        "nom": "78",
+        "n": 5
+      },
+      {
+        "nom": "93",
+        "n": 4
       },
       {
         "nom": "974",
+        "n": 4
+      },
+      {
+        "nom": "34",
+        "n": 3
+      },
+      {
+        "nom": "91",
         "n": 3
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 39
-      },
-      {
-        "nom": "Hauts-de-France",
-        "n": 14
+        "n": 35
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
-        "n": 11
+        "n": 15
+      },
+      {
+        "nom": "Hauts-de-France",
+        "n": 13
       },
       {
         "nom": "Nouvelle-Aquitaine",
-        "n": 8
+        "n": 9
       },
       {
         "nom": "Grand Est",
@@ -388,16 +421,16 @@
         "n": 7
       },
       {
+        "nom": "Outre-mer",
+        "n": 6
+      },
+      {
         "nom": "Occitanie",
         "n": 6
       },
       {
-        "nom": "Outre-mer",
+        "nom": "Bourgogne-Franche-Comté",
         "n": 5
-      },
-      {
-        "nom": "Pays de la Loire",
-        "n": 4
       }
     ],
     "canaux": {
@@ -406,7 +439,7 @@
     },
     "n_puy_de_dome": 1,
     "teletravail": {
-      "offres": 8,
+      "offres": 7,
       "sur": 119
     },
     "entreprises": [
@@ -419,12 +452,16 @@
         "n": 18
       },
       {
+        "nom": "TalenX",
+        "n": 3
+      },
+      {
         "nom": "COMPAGNIE DES ALPES",
         "n": 3
       },
       {
-        "nom": "AUREIS FORMATION",
-        "n": 3
+        "nom": "HERTA",
+        "n": 2
       },
       {
         "nom": "HARRY HOPE",
@@ -445,10 +482,6 @@
       {
         "nom": "CARS ROCHETTE",
         "n": 1
-      },
-      {
-        "nom": "ANTILLES RECRUTEMENT",
-        "n": 1
       }
     ],
     "concentration_top2": {
@@ -461,11 +494,11 @@
     "competences": [
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 18
+        "n": 17
       },
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 16
+        "n": 15
       },
       {
         "nom": "Mettre en oeuvre des actions commerciales et promotionnelles",
@@ -504,20 +537,20 @@
       "mediane_insertion": 2433,
       "groupes": [
         {
+          "nom": "CDI",
+          "total": 51,
+          "affichent": 8,
+          "mediane": 2771,
+          "min": 1350,
+          "max": 7500
+        },
+        {
           "nom": "Alternance",
-          "total": 53,
+          "total": 49,
           "affichent": 3,
           "mediane": 1450,
           "min": 1300,
           "max": 1867
-        },
-        {
-          "nom": "CDI",
-          "total": 46,
-          "affichent": 8,
-          "mediane": 2771,
-          "min": 2100,
-          "max": 7500
         },
         {
           "nom": "Intérim",
@@ -529,7 +562,7 @@
         },
         {
           "nom": "CDD",
-          "total": 7,
+          "total": 6,
           "affichent": 3,
           "mediane": 1935,
           "min": 1867,
@@ -541,44 +574,39 @@
       "avec_texte": 119,
       "liste": [
         {
-          "nom": "Emailing / newsletter",
-          "offres": 22,
-          "entreprises": 15
+          "nom": "Anglais",
+          "offres": 18,
+          "entreprises": 14
         },
         {
-          "nom": "Anglais",
-          "offres": 19,
-          "entreprises": 15
+          "nom": "Emailing / newsletter",
+          "offres": 17,
+          "entreprises": 11
         },
         {
           "nom": "Excel",
-          "offres": 14,
-          "entreprises": 13
-        },
-        {
-          "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 15,
-          "entreprises": 12
+          "offres": 12,
+          "entreprises": 11
         },
         {
           "nom": "PowerPoint",
-          "offres": 12,
-          "entreprises": 12
-        },
-        {
-          "nom": "Pack Office",
-          "offres": 12,
-          "entreprises": 10
+          "offres": 11,
+          "entreprises": 11
         },
         {
           "nom": "Canva",
-          "offres": 12,
-          "entreprises": 9
+          "offres": 13,
+          "entreprises": 10
         },
         {
-          "nom": "CRM",
-          "offres": 8,
-          "entreprises": 8
+          "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
+          "offres": 13,
+          "entreprises": 10
+        },
+        {
+          "nom": "Pack Office",
+          "offres": 11,
+          "entreprises": 10
         },
         {
           "nom": "SEO",
@@ -596,19 +624,19 @@
           "entreprises": 5
         },
         {
-          "nom": "LinkedIn",
-          "offres": 8,
-          "entreprises": 5
-        },
-        {
           "nom": "TikTok",
           "offres": 5,
           "entreprises": 5
         },
         {
-          "nom": "WordPress",
+          "nom": "CRM",
           "offres": 5,
           "entreprises": 5
+        },
+        {
+          "nom": "LinkedIn",
+          "offres": 7,
+          "entreprises": 4
         },
         {
           "nom": "Word",
@@ -616,7 +644,7 @@
           "entreprises": 4
         },
         {
-          "nom": "IA (ChatGPT, IA générative…)",
+          "nom": "WordPress",
           "offres": 4,
           "entreprises": 4
         },
@@ -624,11 +652,6 @@
           "nom": "Google Analytics / GA4",
           "offres": 3,
           "entreprises": 3
-        },
-        {
-          "nom": "SEA",
-          "offres": 2,
-          "entreprises": 2
         },
         {
           "nom": "Google Ads",
@@ -641,12 +664,22 @@
           "entreprises": 2
         },
         {
-          "nom": "HubSpot",
+          "nom": "IA (ChatGPT, IA générative…)",
           "offres": 2,
           "entreprises": 2
         },
         {
           "nom": "YouTube",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "SEA",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "HubSpot",
           "offres": 1,
           "entreprises": 1
         }
