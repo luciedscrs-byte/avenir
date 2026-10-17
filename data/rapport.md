@@ -1,68 +1,68 @@
 # Le marché de « Assistant / Assistante marketing » (ROME M1620)
 
 - **Requête** : API France Travail — Offres d'emploi v2, codeROME=M1620, France entière
-- **Date d'extraction** : 2026-10-16 · **123 offres** · dont 55 en alternance
-- **Extractions disponibles** : 2026-09-22, 2026-10-07, 2026-10-08, 2026-10-09, 2026-10-10, 2026-10-11, 2026-10-12, 2026-10-13, 2026-10-14, 2026-10-15, 2026-10-16
+- **Date d'extraction** : 2026-10-17 · **126 offres** · dont 54 en alternance
+- **Extractions disponibles** : 2026-09-22, 2026-10-07, 2026-10-08, 2026-10-09, 2026-10-10, 2026-10-11, 2026-10-12, 2026-10-13, 2026-10-14, 2026-10-15, 2026-10-16, 2026-10-17
 
 ## Où
 
 | Région | Offres |
 |---|---|
 | Île-de-France | 40 |
-| Auvergne-Rhône-Alpes | 14 |
+| Auvergne-Rhône-Alpes | 16 |
 | Hauts-de-France | 11 |
 | Nouvelle-Aquitaine | 9 |
+| Provence-Alpes-Côte d'Azur | 8 |
 | Grand Est | 7 |
-| Provence-Alpes-Côte d'Azur | 7 |
 | Normandie | 7 |
 | Outre-mer | 6 |
 | Occitanie | 6 |
 | Centre-Val de Loire | 5 |
 
-Puy-de-Dôme (63) : **1** offre(s). Mentionnent le télétravail dans le texte : **7** sur 123 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
+Puy-de-Dôme (63) : **1** offre(s). Mentionnent le télétravail dans le texte : **7** sur 126 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
 
 ## Contrats
 
 | Contrat | Offres |
 |---|---|
-| CDD | 61 |
-| CDI | 51 |
-| Intérim | 11 |
+| CDD | 62 |
+| CDI | 52 |
+| Intérim | 12 |
 
 ## Salaires affichés (brut mensuel)
 
-Seules 15 % des offres affichent un salaire. Annuel ÷ 12, horaire × 35 h × 52 ÷ 12. Repère du cours : 2433 € brut (médiane d'insertion à un an). Un salaire affiché n'est pas un salaire versé.
+Seules 17 % des offres affichent un salaire. Annuel ÷ 12, horaire × 35 h × 52 ÷ 12. Repère du cours : 2433 € brut (médiane d'insertion à un an). Un salaire affiché n'est pas un salaire versé.
 
 | Groupe | Offres | Avec salaire affiché | Médiane | Min – max |
 |---|---|---|---|---|
-| Alternance | 55 | 3 | 1450 € | 1300 – 1867 € |
-| CDI | 51 | 8 | 2529 € | 1350 – 3583 € |
-| Intérim | 11 | 5 | 2058 € | 1042 – 2500 € |
-| CDD | 6 | 3 | 2250 € | 1867 – 2300 € |
+| Alternance | 54 | 3 | 1450 € | 1300 – 1867 € |
+| CDI | 52 | 9 | 2708 € | 1350 – 3583 € |
+| Intérim | 12 | 6 | 2129 € | 1042 – 2833 € |
+| CDD | 8 | 4 | 2187 € | 1867 – 2300 € |
 
 ## Outils et compétences cités dans les annonces
 
-Texte lu pour 123 annonces. Classés par nombre d'**entreprises** distinctes qui les citent (pour ne pas laisser un employeur qui publie le même gabarit vingt fois peser sur le classement).
+Texte lu pour 126 annonces. Classés par nombre d'**entreprises** distinctes qui les citent (pour ne pas laisser un employeur qui publie le même gabarit vingt fois peser sur le classement).
 
 | Outil | Entreprises | Offres |
 |---|---|---|
-| Anglais | 15 | 19 |
-| Emailing / newsletter | 13 | 19 |
+| Anglais | 16 | 20 |
+| Emailing / newsletter | 15 | 21 |
+| Excel | 14 | 15 |
+| Canva | 12 | 15 |
 | Adobe (Photoshop, Illustrator, InDesign…) | 12 | 15 |
-| Excel | 12 | 13 |
-| Canva | 11 | 14 |
-| PowerPoint | 11 | 11 |
+| PowerPoint | 12 | 12 |
 | Pack Office | 9 | 10 |
-| SEO | 7 | 12 |
-| CRM | 7 | 7 |
+| SEO | 8 | 13 |
+| CRM | 8 | 8 |
 | LinkedIn | 6 | 9 |
 | Instagram | 5 | 10 |
 | Facebook | 5 | 7 |
-| Word | 4 | 4 |
+| Word | 5 | 5 |
 | TikTok | 4 | 4 |
 | WordPress | 4 | 4 |
+| IA (ChatGPT, IA générative…) | 4 | 4 |
 | Google Analytics / GA4 | 3 | 3 |
-| IA (ChatGPT, IA générative…) | 3 | 3 |
 | Google Ads | 2 | 2 |
 | Meta Ads / Facebook Ads | 2 | 2 |
 | YouTube | 1 | 1 |
@@ -84,5 +84,5 @@ Les deux premiers employeurs (EFC CONSULTING et ISCOD) publient **33 %** des off
 | HERTA | 2 |
 | Tetranergy Business School Réunion | 2 |
 | SAINT MAIXENT DISTRIBUTION | 2 |
-| SYNNEO | 1 |
-| NANTEUROP FL | 1 |
+| DCG FORMATIONS | 1 |
+| L&W | 1 |
