@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-18T10:05:36+00:00",
+  "genere_le": "2026-10-19T11:33:54+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -68,6 +68,11 @@
       "date": "2026-10-18",
       "total": 123,
       "alternance": 49
+    },
+    {
+      "date": "2026-10-19",
+      "total": 118,
+      "alternance": 46
     }
   ],
   "serie_outils": [
@@ -416,21 +421,50 @@
         "HubSpot": 1,
         "Mailchimp, Brevo, Sendinblue, Klaviyo": 1
       }
+    },
+    {
+      "date": "2026-10-19",
+      "avec_texte": 118,
+      "outils": {
+        "Emailing / newsletter": 23,
+        "Anglais": 18,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 17,
+        "Excel": 13,
+        "Canva": 14,
+        "PowerPoint": 11,
+        "SEO": 13,
+        "Pack Office": 9,
+        "CRM": 8,
+        "LinkedIn": 8,
+        "Instagram": 10,
+        "Facebook": 7,
+        "Word": 5,
+        "TikTok": 4,
+        "WordPress": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Google Analytics / GA4": 3,
+        "Google Ads": 2,
+        "Meta Ads / Facebook Ads": 2,
+        "YouTube": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-18",
-    "total": 123,
-    "alternance": 49,
-    "part_salaire_affiche": 18,
+    "date": "2026-10-19",
+    "total": 118,
+    "alternance": 46,
+    "part_salaire_affiche": 20,
     "contrats": [
       {
         "nom": "CDD",
-        "n": 57
+        "n": 54
       },
       {
         "nom": "CDI",
-        "n": 54
+        "n": 52
       },
       {
         "nom": "Intérim",
@@ -440,11 +474,11 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 74
+        "n": 72
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 38
+        "n": 35
       },
       {
         "nom": "Cont. professionnalisation",
@@ -462,7 +496,7 @@
       },
       {
         "nom": "94",
-        "n": 7
+        "n": 6
       },
       {
         "nom": "02",
@@ -473,7 +507,7 @@
         "n": 5
       },
       {
-        "nom": "93",
+        "nom": "91",
         "n": 4
       },
       {
@@ -481,22 +515,22 @@
         "n": 4
       },
       {
-        "nom": "74",
-        "n": 4
-      },
-      {
-        "nom": "01",
+        "nom": "69",
         "n": 3
       },
       {
-        "nom": "34",
+        "nom": "93",
+        "n": 3
+      },
+      {
+        "nom": "01",
         "n": 3
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 40
+        "n": 38
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
@@ -508,14 +542,10 @@
       },
       {
         "nom": "Nouvelle-Aquitaine",
-        "n": 10
+        "n": 9
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
-        "n": 7
-      },
-      {
-        "nom": "Grand Est",
         "n": 7
       },
       {
@@ -523,8 +553,12 @@
         "n": 7
       },
       {
-        "nom": "Occitanie",
+        "nom": "Grand Est",
         "n": 6
+      },
+      {
+        "nom": "Occitanie",
+        "n": 5
       },
       {
         "nom": "Centre-Val de Loire",
@@ -536,13 +570,13 @@
       }
     ],
     "canaux": {
-      "lba_distinctes": 16,
-      "lba_deja_dans_ft": 2
+      "lba_distinctes": 13,
+      "lba_deja_dans_ft": 1
     },
     "n_puy_de_dome": 1,
     "teletravail": {
-      "offres": 7,
-      "sur": 123
+      "offres": 6,
+      "sur": 118
     },
     "entreprises": [
       {
@@ -551,11 +585,11 @@
       },
       {
         "nom": "ISCOD",
-        "n": 15
+        "n": 14
       },
       {
         "nom": "AUREIS FORMATION",
-        "n": 4
+        "n": 3
       },
       {
         "nom": "TalenX",
@@ -574,15 +608,15 @@
         "n": 2
       },
       {
+        "nom": "LES EMAUX DE BRIARE",
+        "n": 1
+      },
+      {
+        "nom": "JANUS CESSION KONSULT & KAPITALINVEST",
+        "n": 1
+      },
+      {
         "nom": "DCG FORMATIONS",
-        "n": 1
-      },
-      {
-        "nom": "L&W",
-        "n": 1
-      },
-      {
-        "nom": "TIM FRANCE",
         "n": 1
       }
     ],
@@ -600,15 +634,23 @@
       },
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 17
+        "n": 19
+      },
+      {
+        "nom": "#TDFE2026",
+        "n": 2
+      },
+      {
+        "nom": "Illustrator, Photoshop, Indesign",
+        "n": 1
+      },
+      {
+        "nom": "logiciels de création ADOBE",
+        "n": 1
       },
       {
         "nom": "Mettre en oeuvre des actions commerciales et promotionnelles",
-        "n": 3
-      },
-      {
-        "nom": "Rédiger un rapport, un compte rendu d'activité",
-        "n": 2
+        "n": 1
       },
       {
         "nom": "Concevoir des supports de communication et d'image",
@@ -625,14 +667,6 @@
       {
         "nom": "Optimiser le référencement naturel (SEO) des sites web",
         "n": 1
-      },
-      {
-        "nom": "Utiliser les outils numériques",
-        "n": 1
-      },
-      {
-        "nom": "communication intelligence artificielle",
-        "n": 1
       }
     ],
     "salaires": {
@@ -640,15 +674,15 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 54,
-          "affichent": 9,
-          "mediane": 2708,
+          "total": 52,
+          "affichent": 11,
+          "mediane": 2350,
           "min": 1350,
           "max": 3583
         },
         {
           "nom": "Alternance",
-          "total": 49,
+          "total": 46,
           "affichent": 3,
           "mediane": 1450,
           "min": 1300,
@@ -673,27 +707,27 @@
       ]
     },
     "outils": {
-      "avec_texte": 123,
+      "avec_texte": 118,
       "liste": [
         {
-          "nom": "Anglais",
-          "offres": 19,
-          "entreprises": 16
-        },
-        {
           "nom": "Emailing / newsletter",
-          "offres": 21,
-          "entreprises": 15
+          "offres": 23,
+          "entreprises": 17
         },
         {
-          "nom": "Excel",
-          "offres": 15,
-          "entreprises": 14
+          "nom": "Anglais",
+          "offres": 18,
+          "entreprises": 17
         },
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 15,
-          "entreprises": 12
+          "offres": 17,
+          "entreprises": 14
+        },
+        {
+          "nom": "Excel",
+          "offres": 13,
+          "entreprises": 13
         },
         {
           "nom": "Canva",
@@ -702,17 +736,17 @@
         },
         {
           "nom": "PowerPoint",
-          "offres": 12,
-          "entreprises": 12
-        },
-        {
-          "nom": "Pack Office",
-          "offres": 10,
-          "entreprises": 9
+          "offres": 11,
+          "entreprises": 11
         },
         {
           "nom": "SEO",
           "offres": 13,
+          "entreprises": 8
+        },
+        {
+          "nom": "Pack Office",
+          "offres": 9,
           "entreprises": 8
         },
         {
