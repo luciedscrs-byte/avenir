@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-20T10:38:50+00:00",
+  "genere_le": "2026-10-21T10:49:41+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -78,6 +78,11 @@
       "date": "2026-10-20",
       "total": 114,
       "alternance": 44
+    },
+    {
+      "date": "2026-10-21",
+      "total": 116,
+      "alternance": 45
     }
   ],
   "serie_outils": [
@@ -483,21 +488,50 @@
         "Mailchimp, Brevo, Sendinblue, Klaviyo": 2,
         "WordPress": 1
       }
+    },
+    {
+      "date": "2026-10-21",
+      "avec_texte": 116,
+      "outils": {
+        "Anglais": 19,
+        "Emailing / newsletter": 23,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 17,
+        "Excel": 13,
+        "Canva": 12,
+        "LinkedIn": 11,
+        "PowerPoint": 9,
+        "CRM": 8,
+        "Instagram": 12,
+        "Pack Office": 8,
+        "Facebook": 8,
+        "SEO": 10,
+        "Word": 5,
+        "IA (ChatGPT, IA générative…)": 5,
+        "TikTok": 4,
+        "YouTube": 2,
+        "SEA": 2,
+        "Google Ads": 2,
+        "Meta Ads / Facebook Ads": 2,
+        "HubSpot": 2,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 2,
+        "WordPress": 1,
+        "Shopify": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-20",
-    "total": 114,
-    "alternance": 44,
-    "part_salaire_affiche": 21,
+    "date": "2026-10-21",
+    "total": 116,
+    "alternance": 45,
+    "part_salaire_affiche": 22,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 53
+        "n": 54
       },
       {
         "nom": "CDD",
-        "n": 51
+        "n": 52
       },
       {
         "nom": "Intérim",
@@ -507,11 +541,11 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 70
+        "n": 71
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 33
+        "n": 34
       },
       {
         "nom": "Cont. professionnalisation",
@@ -525,7 +559,7 @@
       },
       {
         "nom": "75",
-        "n": 12
+        "n": 11
       },
       {
         "nom": "94",
@@ -540,15 +574,15 @@
         "n": 5
       },
       {
-        "nom": "19",
-        "n": 3
-      },
-      {
         "nom": "69",
-        "n": 3
+        "n": 4
       },
       {
         "nom": "93",
+        "n": 4
+      },
+      {
+        "nom": "19",
         "n": 3
       },
       {
@@ -563,11 +597,11 @@
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 39
+        "n": 40
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
-        "n": 14
+        "n": 16
       },
       {
         "nom": "Nouvelle-Aquitaine",
@@ -586,19 +620,19 @@
         "n": 7
       },
       {
-        "nom": "Occitanie",
-        "n": 6
-      },
-      {
-        "nom": "Centre-Val de Loire",
-        "n": 5
-      },
-      {
         "nom": "Grand Est",
         "n": 5
       },
       {
-        "nom": "Bourgogne-Franche-Comté",
+        "nom": "Occitanie",
+        "n": 5
+      },
+      {
+        "nom": "Outre-mer",
+        "n": 4
+      },
+      {
+        "nom": "Centre-Val de Loire",
         "n": 4
       }
     ],
@@ -609,7 +643,7 @@
     "n_puy_de_dome": 1,
     "teletravail": {
       "offres": 6,
-      "sur": 114
+      "sur": 116
     },
     "entreprises": [
       {
@@ -641,15 +675,15 @@
         "n": 2
       },
       {
-        "nom": "SO+",
+        "nom": "K-TEX",
         "n": 1
       },
       {
-        "nom": "EXTENCIA BORDEAUX GIRONDE",
+        "nom": "CIMALPES",
         "n": 1
       },
       {
-        "nom": "GRANDE PHARMACIE DE FLEURY",
+        "nom": "GROUPEMENT D EMPLOYEURS DES CAVES PERR",
         "n": 1
       }
     ],
@@ -658,16 +692,16 @@
         "EFC CONSULTING",
         "ISCOD"
       ],
-      "part": 31
+      "part": 30
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 19
+        "n": 21
       },
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 17
+        "n": 16
       },
       {
         "nom": "Concevoir des supports de communication et d'image",
@@ -707,18 +741,18 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 53,
-          "affichent": 14,
-          "mediane": 2350,
+          "total": 54,
+          "affichent": 15,
+          "mediane": 2325,
           "min": 1350,
           "max": 3583
         },
         {
           "nom": "Alternance",
-          "total": 44,
-          "affichent": 3,
-          "mediane": 1450,
-          "min": 1300,
+          "total": 45,
+          "affichent": 4,
+          "mediane": 1659,
+          "min": 1350,
           "max": 1867
         },
         {
@@ -740,31 +774,31 @@
       ]
     },
     "outils": {
-      "avec_texte": 114,
+      "avec_texte": 116,
       "liste": [
+        {
+          "nom": "Anglais",
+          "offres": 19,
+          "entreprises": 18
+        },
         {
           "nom": "Emailing / newsletter",
           "offres": 23,
           "entreprises": 17
         },
         {
-          "nom": "Anglais",
-          "offres": 18,
-          "entreprises": 16
-        },
-        {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 16,
-          "entreprises": 13
+          "offres": 17,
+          "entreprises": 14
         },
         {
           "nom": "Excel",
-          "offres": 12,
-          "entreprises": 12
+          "offres": 13,
+          "entreprises": 13
         },
         {
           "nom": "Canva",
-          "offres": 13,
+          "offres": 12,
           "entreprises": 11
         },
         {
@@ -788,13 +822,13 @@
           "entreprises": 7
         },
         {
-          "nom": "Facebook",
+          "nom": "Pack Office",
           "offres": 8,
-          "entreprises": 6
+          "entreprises": 7
         },
         {
-          "nom": "Pack Office",
-          "offres": 7,
+          "nom": "Facebook",
+          "offres": 8,
           "entreprises": 6
         },
         {
@@ -803,14 +837,14 @@
           "entreprises": 5
         },
         {
-          "nom": "IA (ChatGPT, IA générative…)",
+          "nom": "Word",
           "offres": 5,
           "entreprises": 5
         },
         {
-          "nom": "Word",
-          "offres": 4,
-          "entreprises": 4
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 5,
+          "entreprises": 5
         },
         {
           "nom": "TikTok",
@@ -849,6 +883,11 @@
         },
         {
           "nom": "WordPress",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "Shopify",
           "offres": 1,
           "entreprises": 1
         }
