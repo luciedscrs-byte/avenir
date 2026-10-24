@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-23T10:42:39+00:00",
+  "genere_le": "2026-10-24T09:59:15+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -93,6 +93,11 @@
       "date": "2026-10-23",
       "total": 106,
       "alternance": 42
+    },
+    {
+      "date": "2026-10-24",
+      "total": 113,
+      "alternance": 43
     }
   ],
   "serie_outils": [
@@ -585,31 +590,59 @@
         "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
         "Shopify": 1
       }
+    },
+    {
+      "date": "2026-10-24",
+      "avec_texte": 113,
+      "outils": {
+        "Anglais": 17,
+        "Emailing / newsletter": 20,
+        "Excel": 14,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 14,
+        "LinkedIn": 13,
+        "Canva": 11,
+        "SEO": 13,
+        "PowerPoint": 8,
+        "Instagram": 12,
+        "CRM": 7,
+        "Pack Office": 7,
+        "Word": 6,
+        "IA (ChatGPT, IA générative…)": 6,
+        "Facebook": 6,
+        "SEA": 4,
+        "TikTok": 3,
+        "YouTube": 3,
+        "WordPress": 3,
+        "HubSpot": 2,
+        "Meta Ads / Facebook Ads": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Shopify": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-23",
-    "total": 106,
-    "alternance": 42,
-    "part_salaire_affiche": 20,
+    "date": "2026-10-24",
+    "total": 113,
+    "alternance": 43,
+    "part_salaire_affiche": 19,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 49
+        "n": 54
       },
       {
         "nom": "CDD",
-        "n": 48
+        "n": 49
       },
       {
         "nom": "Intérim",
-        "n": 9
+        "n": 10
       }
     ],
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 64
+        "n": 70
       },
       {
         "nom": "Contrat apprentissage",
@@ -617,29 +650,41 @@
       },
       {
         "nom": "Cont. professionnalisation",
-        "n": 8
+        "n": 9
       }
     ],
     "departements": [
       {
         "nom": "Région seule",
-        "n": 24
+        "n": 23
       },
       {
         "nom": "94",
-        "n": 7
+        "n": 8
       },
       {
         "nom": "75",
-        "n": 7
+        "n": 8
+      },
+      {
+        "nom": "69",
+        "n": 5
       },
       {
         "nom": "93",
+        "n": 5
+      },
+      {
+        "nom": "13",
         "n": 4
       },
       {
         "nom": "34",
-        "n": 3
+        "n": 4
+      },
+      {
+        "nom": "91",
+        "n": 4
       },
       {
         "nom": "73",
@@ -648,47 +693,35 @@
       {
         "nom": "19",
         "n": 3
-      },
-      {
-        "nom": "69",
-        "n": 3
-      },
-      {
-        "nom": "74",
-        "n": 3
-      },
-      {
-        "nom": "78",
-        "n": 3
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 30
+        "n": 32
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
-        "n": 14
+        "n": 15
+      },
+      {
+        "nom": "Provence-Alpes-Côte d'Azur",
+        "n": 11
       },
       {
         "nom": "Nouvelle-Aquitaine",
         "n": 11
       },
       {
-        "nom": "Provence-Alpes-Côte d'Azur",
+        "nom": "Hauts-de-France",
         "n": 8
       },
       {
-        "nom": "Hauts-de-France",
+        "nom": "Occitanie",
         "n": 7
       },
       {
         "nom": "Normandie",
-        "n": 7
-      },
-      {
-        "nom": "Occitanie",
         "n": 6
       },
       {
@@ -710,8 +743,8 @@
     },
     "n_puy_de_dome": 1,
     "teletravail": {
-      "offres": 5,
-      "sur": 106
+      "offres": 7,
+      "sur": 113
     },
     "entreprises": [
       {
@@ -735,10 +768,6 @@
         "n": 2
       },
       {
-        "nom": "AUREIS FORMATION",
-        "n": 2
-      },
-      {
         "nom": "SAINT MAIXENT DISTRIBUTION",
         "n": 2
       },
@@ -753,6 +782,10 @@
       {
         "nom": "DALKIA",
         "n": 1
+      },
+      {
+        "nom": "LASERA - CENTRE ESTHETIQUE",
+        "n": 1
       }
     ],
     "concentration_top2": {
@@ -760,16 +793,16 @@
         "EFC CONSULTING",
         "ISCOD"
       ],
-      "part": 35
+      "part": 33
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 20
+        "n": 21
       },
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 14
+        "n": 13
       },
       {
         "nom": "Elaborer un plan marketing, une stratégie de marque et de communication",
@@ -809,15 +842,15 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 49,
-          "affichent": 12,
-          "mediane": 2350,
+          "total": 54,
+          "affichent": 13,
+          "mediane": 2208,
           "min": 1350,
           "max": 2958
         },
         {
           "nom": "Alternance",
-          "total": 42,
+          "total": 43,
           "affichent": 4,
           "mediane": 1659,
           "min": 1350,
@@ -825,7 +858,7 @@
         },
         {
           "nom": "Intérim",
-          "total": 9,
+          "total": 10,
           "affichent": 3,
           "mediane": 2275,
           "min": 1867,
@@ -835,49 +868,49 @@
           "nom": "CDD",
           "total": 6,
           "affichent": 2,
-          "mediane": 1995,
+          "mediane": 2184,
           "min": 1867,
-          "max": 2123
+          "max": 2500
         }
       ]
     },
     "outils": {
-      "avec_texte": 106,
+      "avec_texte": 113,
       "liste": [
         {
           "nom": "Anglais",
-          "offres": 16,
-          "entreprises": 15
+          "offres": 17,
+          "entreprises": 16
         },
         {
           "nom": "Emailing / newsletter",
           "offres": 20,
-          "entreprises": 13
+          "entreprises": 14
         },
         {
           "nom": "Excel",
-          "offres": 12,
-          "entreprises": 12
+          "offres": 14,
+          "entreprises": 14
         },
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 15,
+          "offres": 14,
           "entreprises": 11
         },
         {
+          "nom": "LinkedIn",
+          "offres": 13,
+          "entreprises": 10
+        },
+        {
           "nom": "Canva",
-          "offres": 10,
-          "entreprises": 9
+          "offres": 11,
+          "entreprises": 10
         },
         {
           "nom": "SEO",
           "offres": 13,
-          "entreprises": 8
-        },
-        {
-          "nom": "LinkedIn",
-          "offres": 11,
-          "entreprises": 8
+          "entreprises": 9
         },
         {
           "nom": "PowerPoint",
@@ -885,39 +918,44 @@
           "entreprises": 8
         },
         {
+          "nom": "Instagram",
+          "offres": 12,
+          "entreprises": 7
+        },
+        {
           "nom": "CRM",
           "offres": 7,
           "entreprises": 7
         },
         {
-          "nom": "Instagram",
-          "offres": 11,
+          "nom": "Pack Office",
+          "offres": 7,
           "entreprises": 6
         },
         {
-          "nom": "Pack Office",
-          "offres": 6,
-          "entreprises": 5
-        },
-        {
           "nom": "Word",
-          "offres": 5,
-          "entreprises": 5
+          "offres": 6,
+          "entreprises": 6
         },
         {
           "nom": "IA (ChatGPT, IA générative…)",
-          "offres": 5,
-          "entreprises": 5
+          "offres": 6,
+          "entreprises": 6
         },
         {
           "nom": "Facebook",
           "offres": 6,
-          "entreprises": 4
+          "entreprises": 5
         },
         {
           "nom": "SEA",
           "offres": 4,
           "entreprises": 4
+        },
+        {
+          "nom": "TikTok",
+          "offres": 3,
+          "entreprises": 3
         },
         {
           "nom": "YouTube",
@@ -930,22 +968,12 @@
           "entreprises": 3
         },
         {
-          "nom": "TikTok",
-          "offres": 2,
-          "entreprises": 2
-        },
-        {
-          "nom": "Meta Ads / Facebook Ads",
-          "offres": 2,
-          "entreprises": 2
-        },
-        {
           "nom": "HubSpot",
           "offres": 2,
           "entreprises": 2
         },
         {
-          "nom": "Google Ads",
+          "nom": "Meta Ads / Facebook Ads",
           "offres": 1,
           "entreprises": 1
         },
