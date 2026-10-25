@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-24T09:59:15+00:00",
+  "genere_le": "2026-10-25T10:23:36+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -98,6 +98,11 @@
       "date": "2026-10-24",
       "total": 113,
       "alternance": 43
+    },
+    {
+      "date": "2026-10-25",
+      "total": 113,
+      "alternance": 44
     }
   ],
   "serie_outils": [
@@ -618,12 +623,40 @@
         "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
         "Shopify": 1
       }
+    },
+    {
+      "date": "2026-10-25",
+      "avec_texte": 113,
+      "outils": {
+        "Anglais": 16,
+        "Emailing / newsletter": 20,
+        "Excel": 15,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 14,
+        "LinkedIn": 14,
+        "Canva": 11,
+        "SEO": 13,
+        "PowerPoint": 8,
+        "CRM": 8,
+        "Instagram": 12,
+        "Pack Office": 8,
+        "Word": 6,
+        "IA (ChatGPT, IA générative…)": 6,
+        "Facebook": 6,
+        "SEA": 4,
+        "TikTok": 3,
+        "YouTube": 3,
+        "WordPress": 3,
+        "HubSpot": 2,
+        "Meta Ads / Facebook Ads": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Shopify": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-24",
+    "date": "2026-10-25",
     "total": 113,
-    "alternance": 43,
+    "alternance": 44,
     "part_salaire_affiche": 19,
     "contrats": [
       {
@@ -632,17 +665,17 @@
       },
       {
         "nom": "CDD",
-        "n": 49
+        "n": 50
       },
       {
         "nom": "Intérim",
-        "n": 10
+        "n": 9
       }
     ],
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 70
+        "n": 69
       },
       {
         "nom": "Contrat apprentissage",
@@ -650,7 +683,7 @@
       },
       {
         "nom": "Cont. professionnalisation",
-        "n": 9
+        "n": 10
       }
     ],
     "departements": [
@@ -668,7 +701,7 @@
       },
       {
         "nom": "69",
-        "n": 5
+        "n": 6
       },
       {
         "nom": "93",
@@ -710,11 +743,11 @@
       },
       {
         "nom": "Nouvelle-Aquitaine",
-        "n": 11
+        "n": 10
       },
       {
         "nom": "Hauts-de-France",
-        "n": 8
+        "n": 9
       },
       {
         "nom": "Occitanie",
@@ -743,7 +776,7 @@
     },
     "n_puy_de_dome": 1,
     "teletravail": {
-      "offres": 7,
+      "offres": 8,
       "sur": 113
     },
     "entreprises": [
@@ -850,7 +883,7 @@
         },
         {
           "nom": "Alternance",
-          "total": 43,
+          "total": 44,
           "affichent": 4,
           "mediane": 1659,
           "min": 1350,
@@ -858,7 +891,7 @@
         },
         {
           "nom": "Intérim",
-          "total": 10,
+          "total": 9,
           "affichent": 3,
           "mediane": 2275,
           "min": 1867,
@@ -879,8 +912,8 @@
       "liste": [
         {
           "nom": "Anglais",
-          "offres": 17,
-          "entreprises": 16
+          "offres": 16,
+          "entreprises": 15
         },
         {
           "nom": "Emailing / newsletter",
@@ -889,7 +922,7 @@
         },
         {
           "nom": "Excel",
-          "offres": 14,
+          "offres": 15,
           "entreprises": 14
         },
         {
@@ -899,7 +932,7 @@
         },
         {
           "nom": "LinkedIn",
-          "offres": 13,
+          "offres": 14,
           "entreprises": 10
         },
         {
@@ -918,18 +951,18 @@
           "entreprises": 8
         },
         {
+          "nom": "CRM",
+          "offres": 8,
+          "entreprises": 8
+        },
+        {
           "nom": "Instagram",
           "offres": 12,
           "entreprises": 7
         },
         {
-          "nom": "CRM",
-          "offres": 7,
-          "entreprises": 7
-        },
-        {
           "nom": "Pack Office",
-          "offres": 7,
+          "offres": 8,
           "entreprises": 6
         },
         {

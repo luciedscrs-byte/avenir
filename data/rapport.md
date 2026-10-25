@@ -1,8 +1,8 @@
 # Le marché de « Assistant / Assistante marketing » (ROME M1620)
 
 - **Requête** : API France Travail — Offres d'emploi v2, codeROME=M1620, France entière
-- **Date d'extraction** : 2026-10-24 · **113 offres** · dont 43 en alternance
-- **Extractions disponibles** : 2026-09-22, 2026-10-07, 2026-10-08, 2026-10-09, 2026-10-10, 2026-10-11, 2026-10-12, 2026-10-13, 2026-10-14, 2026-10-15, 2026-10-16, 2026-10-17, 2026-10-18, 2026-10-19, 2026-10-20, 2026-10-21, 2026-10-22, 2026-10-23, 2026-10-24
+- **Date d'extraction** : 2026-10-25 · **113 offres** · dont 44 en alternance
+- **Extractions disponibles** : 2026-09-22, 2026-10-07, 2026-10-08, 2026-10-09, 2026-10-10, 2026-10-11, 2026-10-12, 2026-10-13, 2026-10-14, 2026-10-15, 2026-10-16, 2026-10-17, 2026-10-18, 2026-10-19, 2026-10-20, 2026-10-21, 2026-10-22, 2026-10-23, 2026-10-24, 2026-10-25
 
 ## Où
 
@@ -11,23 +11,23 @@
 | Île-de-France | 32 |
 | Auvergne-Rhône-Alpes | 15 |
 | Provence-Alpes-Côte d'Azur | 11 |
-| Nouvelle-Aquitaine | 11 |
-| Hauts-de-France | 8 |
+| Nouvelle-Aquitaine | 10 |
+| Hauts-de-France | 9 |
 | Occitanie | 7 |
 | Normandie | 6 |
 | Outre-mer | 5 |
 | Centre-Val de Loire | 5 |
 | Grand Est | 5 |
 
-Puy-de-Dôme (63) : **1** offre(s). Mentionnent le télétravail dans le texte : **7** sur 113 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
+Puy-de-Dôme (63) : **1** offre(s). Mentionnent le télétravail dans le texte : **8** sur 113 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
 
 ## Contrats
 
 | Contrat | Offres |
 |---|---|
 | CDI | 54 |
-| CDD | 49 |
-| Intérim | 10 |
+| CDD | 50 |
+| Intérim | 9 |
 
 ## Salaires affichés (brut mensuel)
 
@@ -36,8 +36,8 @@ Seules 19 % des offres affichent un salaire. Annuel ÷ 12, horaire × 35 h × 52
 | Groupe | Offres | Avec salaire affiché | Médiane | Min – max |
 |---|---|---|---|---|
 | CDI | 54 | 13 | 2208 € | 1350 – 2958 € |
-| Alternance | 43 | 4 | 1659 € | 1350 – 1867 € |
-| Intérim | 10 | 3 | 2275 € | 1867 – 2833 € |
+| Alternance | 44 | 4 | 1659 € | 1350 – 1867 € |
+| Intérim | 9 | 3 | 2275 € | 1867 – 2833 € |
 | CDD | 6 | 2 | 2184 € | 1867 – 2500 € |
 
 ## Outils et compétences cités dans les annonces
@@ -46,17 +46,17 @@ Texte lu pour 113 annonces. Classés par nombre d'**entreprises** distinctes qui
 
 | Outil | Entreprises | Offres |
 |---|---|---|
-| Anglais | 16 | 17 |
+| Anglais | 15 | 16 |
 | Emailing / newsletter | 14 | 20 |
-| Excel | 14 | 14 |
+| Excel | 14 | 15 |
 | Adobe (Photoshop, Illustrator, InDesign…) | 11 | 14 |
-| LinkedIn | 10 | 13 |
+| LinkedIn | 10 | 14 |
 | Canva | 10 | 11 |
 | SEO | 9 | 13 |
 | PowerPoint | 8 | 8 |
+| CRM | 8 | 8 |
 | Instagram | 7 | 12 |
-| CRM | 7 | 7 |
-| Pack Office | 6 | 7 |
+| Pack Office | 6 | 8 |
 | Word | 6 | 6 |
 | IA (ChatGPT, IA générative…) | 6 | 6 |
 | Facebook | 5 | 6 |
