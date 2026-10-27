@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-26T11:51:58+00:00",
+  "genere_le": "2026-10-27T11:16:04+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -108,6 +108,11 @@
       "date": "2026-10-26",
       "total": 106,
       "alternance": 38
+    },
+    {
+      "date": "2026-10-27",
+      "total": 108,
+      "alternance": 39
     }
   ],
   "serie_outils": [
@@ -684,13 +689,40 @@
         "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
         "Shopify": 1
       }
+    },
+    {
+      "date": "2026-10-27",
+      "avec_texte": 108,
+      "outils": {
+        "Anglais": 17,
+        "Excel": 15,
+        "Emailing / newsletter": 16,
+        "LinkedIn": 13,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 11,
+        "SEO": 10,
+        "PowerPoint": 8,
+        "Canva": 8,
+        "CRM": 8,
+        "IA (ChatGPT, IA générative…)": 8,
+        "Pack Office": 7,
+        "Word": 6,
+        "Instagram": 10,
+        "Facebook": 5,
+        "TikTok": 4,
+        "SEA": 3,
+        "YouTube": 2,
+        "WordPress": 2,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Shopify": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-26",
-    "total": 106,
-    "alternance": 38,
-    "part_salaire_affiche": 20,
+    "date": "2026-10-27",
+    "total": 108,
+    "alternance": 39,
+    "part_salaire_affiche": 19,
     "contrats": [
       {
         "nom": "CDI",
@@ -698,7 +730,7 @@
       },
       {
         "nom": "CDD",
-        "n": 44
+        "n": 46
       },
       {
         "nom": "Intérim",
@@ -708,11 +740,11 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 68
+        "n": 69
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 28
+        "n": 29
       },
       {
         "nom": "Cont. professionnalisation",
@@ -725,24 +757,20 @@
         "n": 23
       },
       {
+        "nom": "75",
+        "n": 8
+      },
+      {
         "nom": "94",
         "n": 7
       },
       {
-        "nom": "75",
-        "n": 6
-      },
-      {
         "nom": "69",
-        "n": 5
+        "n": 6
       },
       {
         "nom": "93",
         "n": 5
-      },
-      {
-        "nom": "34",
-        "n": 4
       },
       {
         "nom": "13",
@@ -759,16 +787,20 @@
       {
         "nom": "91",
         "n": 3
+      },
+      {
+        "nom": "06",
+        "n": 3
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 28
+        "n": 31
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
-        "n": 15
+        "n": 14
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
@@ -776,19 +808,19 @@
       },
       {
         "nom": "Nouvelle-Aquitaine",
-        "n": 9
+        "n": 10
       },
       {
         "nom": "Outre-mer",
         "n": 7
       },
       {
-        "nom": "Occitanie",
+        "nom": "Hauts-de-France",
         "n": 7
       },
       {
-        "nom": "Hauts-de-France",
-        "n": 7
+        "nom": "Occitanie",
+        "n": 6
       },
       {
         "nom": "Normandie",
@@ -809,8 +841,8 @@
     },
     "n_puy_de_dome": 1,
     "teletravail": {
-      "offres": 8,
-      "sur": 106
+      "offres": 7,
+      "sur": 108
     },
     "entreprises": [
       {
@@ -819,11 +851,7 @@
       },
       {
         "nom": "ISCOD",
-        "n": 6
-      },
-      {
-        "nom": "COMPAGNIE DES ALPES",
-        "n": 3
+        "n": 8
       },
       {
         "nom": "TalenX",
@@ -852,6 +880,10 @@
       {
         "nom": "DALKIA",
         "n": 1
+      },
+      {
+        "nom": "K-TEX",
+        "n": 1
       }
     ],
     "concentration_top2": {
@@ -859,12 +891,12 @@
         "EFC CONSULTING",
         "ISCOD"
       ],
-      "part": 27
+      "part": 29
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 20
+        "n": 19
       },
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
@@ -916,7 +948,7 @@
         },
         {
           "nom": "Alternance",
-          "total": 38,
+          "total": 39,
           "affichent": 4,
           "mediane": 1659,
           "min": 1350,
@@ -932,7 +964,7 @@
         },
         {
           "nom": "CDD",
-          "total": 6,
+          "total": 7,
           "affichent": 2,
           "mediane": 2184,
           "min": 1867,
@@ -941,22 +973,27 @@
       ]
     },
     "outils": {
-      "avec_texte": 106,
+      "avec_texte": 108,
       "liste": [
         {
           "nom": "Anglais",
-          "offres": 16,
+          "offres": 17,
           "entreprises": 16
         },
         {
           "nom": "Excel",
-          "offres": 14,
-          "entreprises": 14
+          "offres": 15,
+          "entreprises": 15
         },
         {
           "nom": "Emailing / newsletter",
-          "offres": 17,
-          "entreprises": 13
+          "offres": 16,
+          "entreprises": 12
+        },
+        {
+          "nom": "LinkedIn",
+          "offres": 13,
+          "entreprises": 10
         },
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
@@ -964,14 +1001,9 @@
           "entreprises": 10
         },
         {
-          "nom": "LinkedIn",
-          "offres": 12,
-          "entreprises": 9
-        },
-        {
           "nom": "SEO",
-          "offres": 11,
-          "entreprises": 9
+          "offres": 10,
+          "entreprises": 8
         },
         {
           "nom": "PowerPoint",
@@ -985,13 +1017,13 @@
         },
         {
           "nom": "CRM",
-          "offres": 7,
-          "entreprises": 7
+          "offres": 8,
+          "entreprises": 8
         },
         {
-          "nom": "Instagram",
-          "offres": 10,
-          "entreprises": 6
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 8,
+          "entreprises": 8
         },
         {
           "nom": "Pack Office",
@@ -1004,27 +1036,22 @@
           "entreprises": 6
         },
         {
-          "nom": "IA (ChatGPT, IA générative…)",
-          "offres": 6,
-          "entreprises": 6
+          "nom": "Instagram",
+          "offres": 10,
+          "entreprises": 5
         },
         {
           "nom": "Facebook",
           "offres": 5,
-          "entreprises": 4
-        },
-        {
-          "nom": "SEA",
-          "offres": 4,
-          "entreprises": 4
-        },
-        {
-          "nom": "TikTok",
-          "offres": 3,
           "entreprises": 3
         },
         {
-          "nom": "WordPress",
+          "nom": "TikTok",
+          "offres": 4,
+          "entreprises": 3
+        },
+        {
+          "nom": "SEA",
           "offres": 3,
           "entreprises": 3
         },
@@ -1034,9 +1061,9 @@
           "entreprises": 2
         },
         {
-          "nom": "Meta Ads / Facebook Ads",
-          "offres": 1,
-          "entreprises": 1
+          "nom": "WordPress",
+          "offres": 2,
+          "entreprises": 2
         },
         {
           "nom": "HubSpot",
