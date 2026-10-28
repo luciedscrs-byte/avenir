@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-27T11:16:04+00:00",
+  "genere_le": "2026-10-28T11:49:43+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -113,6 +113,11 @@
       "date": "2026-10-27",
       "total": 108,
       "alternance": 39
+    },
+    {
+      "date": "2026-10-28",
+      "total": 112,
+      "alternance": 38
     }
   ],
   "serie_outils": [
@@ -716,21 +721,47 @@
         "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
         "Shopify": 1
       }
+    },
+    {
+      "date": "2026-10-28",
+      "avec_texte": 112,
+      "outils": {
+        "Anglais": 16,
+        "Excel": 16,
+        "Emailing / newsletter": 16,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 13,
+        "LinkedIn": 12,
+        "SEO": 9,
+        "Canva": 8,
+        "CRM": 8,
+        "IA (ChatGPT, IA générative…)": 8,
+        "PowerPoint": 7,
+        "Pack Office": 8,
+        "Word": 5,
+        "Instagram": 9,
+        "SEA": 3,
+        "Facebook": 5,
+        "TikTok": 4,
+        "WordPress": 3,
+        "YouTube": 2,
+        "HubSpot": 1,
+        "Shopify": 1
+      }
     }
   ],
   "derniere": {
-    "date": "2026-10-27",
-    "total": 108,
-    "alternance": 39,
+    "date": "2026-10-28",
+    "total": 112,
+    "alternance": 38,
     "part_salaire_affiche": 19,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 54
+        "n": 56
       },
       {
         "nom": "CDD",
-        "n": 46
+        "n": 48
       },
       {
         "nom": "Intérim",
@@ -740,11 +771,11 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 69
+        "n": 74
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 29
+        "n": 28
       },
       {
         "nom": "Cont. professionnalisation",
@@ -758,7 +789,7 @@
       },
       {
         "nom": "75",
-        "n": 8
+        "n": 9
       },
       {
         "nom": "94",
@@ -774,6 +805,14 @@
       },
       {
         "nom": "13",
+        "n": 4
+      },
+      {
+        "nom": "06",
+        "n": 4
+      },
+      {
+        "nom": "33",
         "n": 3
       },
       {
@@ -781,41 +820,33 @@
         "n": 3
       },
       {
-        "nom": "19",
-        "n": 3
-      },
-      {
-        "nom": "91",
-        "n": 3
-      },
-      {
-        "nom": "06",
+        "nom": "59",
         "n": 3
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 31
-      },
-      {
-        "nom": "Auvergne-Rhône-Alpes",
-        "n": 14
+        "n": 32
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
-        "n": 10
+        "n": 13
+      },
+      {
+        "nom": "Auvergne-Rhône-Alpes",
+        "n": 13
       },
       {
         "nom": "Nouvelle-Aquitaine",
-        "n": 10
-      },
-      {
-        "nom": "Outre-mer",
-        "n": 7
+        "n": 9
       },
       {
         "nom": "Hauts-de-France",
+        "n": 8
+      },
+      {
+        "nom": "Outre-mer",
         "n": 7
       },
       {
@@ -841,13 +872,13 @@
     },
     "n_puy_de_dome": 1,
     "teletravail": {
-      "offres": 7,
-      "sur": 108
+      "offres": 6,
+      "sur": 112
     },
     "entreprises": [
       {
-        "nom": "EFC CONSULTING",
-        "n": 23
+        "nom": "EFC",
+        "n": 22
       },
       {
         "nom": "ISCOD",
@@ -856,6 +887,10 @@
       {
         "nom": "TalenX",
         "n": 3
+      },
+      {
+        "nom": "Forums Talents Handicap",
+        "n": 2
       },
       {
         "nom": "Tetranergy Business School Réunion",
@@ -870,60 +905,48 @@
         "n": 2
       },
       {
+        "nom": "CBU GRANITS",
+        "n": 1
+      },
+      {
+        "nom": "YORK",
+        "n": 1
+      },
+      {
         "nom": "RANDSTAD PROFESSIONAL",
-        "n": 1
-      },
-      {
-        "nom": "O'MY EMPLOI",
-        "n": 1
-      },
-      {
-        "nom": "DALKIA",
-        "n": 1
-      },
-      {
-        "nom": "K-TEX",
         "n": 1
       }
     ],
     "concentration_top2": {
       "noms": [
-        "EFC CONSULTING",
+        "EFC",
         "ISCOD"
       ],
-      "part": 29
+      "part": 27
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 19
+        "n": 20
       },
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 13
-      },
-      {
-        "nom": "Elaborer un plan marketing, une stratégie de marque et de communication",
-        "n": 2
+        "n": 12
       },
       {
         "nom": "Concevoir des supports de communication et d'image",
         "n": 2
       },
       {
-        "nom": "Utiliser les outils numériques",
+        "nom": "Elaborer un plan marketing, une stratégie de marque et de communication",
         "n": 2
       },
       {
-        "nom": "Gestion des budgets marketing",
+        "nom": "Assurer la gestion administrative d'une activité",
         "n": 1
       },
       {
-        "nom": "Concevoir et gérer un projet",
-        "n": 1
-      },
-      {
-        "nom": "Intérêt et connaissances en automobiles",
+        "nom": "Développer l'image et la notoriété de la structure",
         "n": 1
       },
       {
@@ -933,6 +956,14 @@
       {
         "nom": "Mettre en oeuvre des actions commerciales et promotionnelles",
         "n": 1
+      },
+      {
+        "nom": "Définir une stratégie de développement d'une activité ou de produits",
+        "n": 1
+      },
+      {
+        "nom": "Mener une campagne d'e-mailing",
+        "n": 1
       }
     ],
     "salaires": {
@@ -940,50 +971,50 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 54,
-          "affichent": 12,
-          "mediane": 2279,
+          "total": 56,
+          "affichent": 13,
+          "mediane": 2208,
           "min": 1350,
           "max": 2958
         },
         {
           "nom": "Alternance",
-          "total": 39,
+          "total": 38,
           "affichent": 4,
           "mediane": 1659,
           "min": 1350,
           "max": 1867
         },
         {
-          "nom": "Intérim",
-          "total": 8,
-          "affichent": 3,
-          "mediane": 2275,
-          "min": 1867,
-          "max": 2833
-        },
-        {
           "nom": "CDD",
-          "total": 7,
+          "total": 10,
           "affichent": 2,
           "mediane": 2184,
           "min": 1867,
           "max": 2500
+        },
+        {
+          "nom": "Intérim",
+          "total": 8,
+          "affichent": 2,
+          "mediane": 2554,
+          "min": 2275,
+          "max": 2833
         }
       ]
     },
     "outils": {
-      "avec_texte": 108,
+      "avec_texte": 112,
       "liste": [
         {
           "nom": "Anglais",
-          "offres": 17,
-          "entreprises": 16
+          "offres": 16,
+          "entreprises": 15
         },
         {
           "nom": "Excel",
-          "offres": 15,
-          "entreprises": 15
+          "offres": 16,
+          "entreprises": 14
         },
         {
           "nom": "Emailing / newsletter",
@@ -991,23 +1022,18 @@
           "entreprises": 12
         },
         {
-          "nom": "LinkedIn",
-          "offres": 13,
-          "entreprises": 10
-        },
-        {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 11,
-          "entreprises": 10
+          "offres": 13,
+          "entreprises": 12
         },
         {
-          "nom": "SEO",
-          "offres": 10,
+          "nom": "LinkedIn",
+          "offres": 12,
           "entreprises": 8
         },
         {
-          "nom": "PowerPoint",
-          "offres": 8,
+          "nom": "SEO",
+          "offres": 9,
           "entreprises": 8
         },
         {
@@ -1026,29 +1052,24 @@
           "entreprises": 8
         },
         {
-          "nom": "Pack Office",
+          "nom": "PowerPoint",
           "offres": 7,
+          "entreprises": 7
+        },
+        {
+          "nom": "Pack Office",
+          "offres": 8,
           "entreprises": 6
         },
         {
           "nom": "Word",
-          "offres": 6,
-          "entreprises": 6
-        },
-        {
-          "nom": "Instagram",
-          "offres": 10,
+          "offres": 5,
           "entreprises": 5
         },
         {
-          "nom": "Facebook",
-          "offres": 5,
-          "entreprises": 3
-        },
-        {
-          "nom": "TikTok",
-          "offres": 4,
-          "entreprises": 3
+          "nom": "Instagram",
+          "offres": 9,
+          "entreprises": 4
         },
         {
           "nom": "SEA",
@@ -1056,22 +1077,27 @@
           "entreprises": 3
         },
         {
+          "nom": "Facebook",
+          "offres": 5,
+          "entreprises": 2
+        },
+        {
+          "nom": "TikTok",
+          "offres": 4,
+          "entreprises": 2
+        },
+        {
+          "nom": "WordPress",
+          "offres": 3,
+          "entreprises": 2
+        },
+        {
           "nom": "YouTube",
           "offres": 2,
           "entreprises": 2
         },
         {
-          "nom": "WordPress",
-          "offres": 2,
-          "entreprises": 2
-        },
-        {
           "nom": "HubSpot",
-          "offres": 1,
-          "entreprises": 1
-        },
-        {
-          "nom": "Mailchimp, Brevo, Sendinblue, Klaviyo",
           "offres": 1,
           "entreprises": 1
         },
