@@ -3,11 +3,13 @@
  "sources": [
   {
    "nom": "Page de la formation",
-   "url": "https://iae.uca.fr/formation/master/master-marketing-vente"
+   "url": "https://iae.uca.fr/formation/master/master-marketing-vente",
+   "libelle": "la page de la formation"
   },
   {
    "nom": "Descriptif formation M2 MOD 2026-2027 (PDF)",
-   "url": "https://iae.uca.fr/medias/fichier/descriptif-formation-m2-mod-2026-2027_1774366885504-pdf"
+   "url": "https://iae.uca.fr/medias/fichier/descriptif-formation-m2-mod-2026-2027_1774366885504-pdf",
+   "libelle": "le descriptif PDF du M2 MOD 2026-2027"
   }
  ],
  "lu_le": "2026-10-30",
@@ -285,6 +287,6 @@
    }
   }
  },
- "limites": "Colonne « Dans le descriptif » : d'après le texte public du descriptif ; les pages du PDF qui détaillent les cours sont des images, seuls les intitulés des unités sont lisibles, et un outil « non nommé » peut être enseigné sans être cité. Colonne « Ce que j'en ai vu » : mon propre bilan au 30 octobre 2026, en cours de M2, donc susceptible d'évoluer d'ici la fin de l'année.",
+ "limites": "Colonne « Ce que j'en ai vu » : mon propre bilan au 30 octobre 2026, en cours de M2, susceptible d'évoluer d'ici la fin de l'année. Le programme public du M2 MOD ne détaille pas les cours : seuls les intitulés des unités y sont lisibles.",
  "vu_le": "2026-10-30"
 }

@@ -33,12 +33,12 @@
   </div>
 
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Ce que le M2 nomme, et ce qu'il ne nomme pas</h2>
+    <h2>Ce que le M2 m'a appris, et ce qu'il me reste à acquérir</h2>
     <p id="a-acquerir"></p>
     <p class="note" id="bases"></p>
     <div class="tableau">
       <table>
-        <thead><tr><th>Outil dans les annonces</th><th class="num">Entreprises</th><th>Dans le descriptif du M2 MOD</th><th>Ce que j'en ai vu</th></tr></thead>
+        <thead><tr><th>Outil dans les annonces</th><th class="num">Entreprises</th><th>Ce que j'en ai vu</th></tr></thead>
         <tbody id="formation"></tbody>
       </table>
     </div>
@@ -116,11 +116,10 @@ fetch('data/resume.json')
     fetch('data/formation.json').then(r => r.json()).then(f => {
       const corps = document.getElementById('formation');
       x.outils.liste.slice(0, 14).forEach(o => {
-        const info = f.outils[o.nom] || { statut: 'non nommé', extrait: '' };
+        const info = f.outils[o.nom] || {};
         corps.appendChild(el('tr', {}, [
           el('td', { textContent: o.nom }),
           el('td', { className: 'num', textContent: o.entreprises }),
-          el('td', {}, [el('strong', { textContent: info.statut }), el('div', { className: 'note', style: 'margin:0', textContent: info.extrait })]),
           el('td', {}, info.vu ? [
             el('strong', { textContent: info.vu.niveau }),
             el('div', { className: 'note', style: 'margin:0', textContent: info.vu.precision }),
@@ -137,8 +136,10 @@ fetch('data/resume.json')
         ? 'À acquérir cette année : ' + aAcquerir.map(o => o.nom.replace(/ \(.*\)$/, '') + ' (' + o.entreprises + ' entreprises)').join(', ') +
           '. Ce sont des outils cités par au moins ' + SEUIL_ENTREPRISES + ' entreprises que je n\'ai vus qu\'en théorie ou un peu en cours.'
         : '';
-      document.getElementById('formation-note').textContent =
-        f.limites + ' Sources : page de la formation et descriptif PDF 2026-2027 de l\'IAE Clermont Auvergne, lus le ' + dateFr(f.lu_le) + '.';
+      const note = document.getElementById('formation-note');
+      note.append(f.limites + ' Sources : ');
+      f.sources.forEach((s, i) => { if (i) note.append(' et '); note.appendChild(el('a', { href: s.url, target: '_blank', rel: 'noopener', textContent: s.libelle })); });
+      note.append(', lus le ' + dateFr(f.lu_le) + '.');
     });
 
     const sal = document.getElementById('salaires');
