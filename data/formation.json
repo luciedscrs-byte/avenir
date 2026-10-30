@@ -170,8 +170,8 @@
    "statut": "famille citée",
    "extrait": "« médias sociaux », « supports digitaux » : la plateforme n'est pas citée",
    "vu": {
-    "niveau": "pas vu en cours",
-    "precision": "Je le pratique, mais pas en cours.",
+    "niveau": "notion de base, non enseignée",
+    "precision": "Je l'utilise déjà ; non enseigné en cours, comme pour tous les étudiants.",
     "a_chercher": false
    }
   },
@@ -234,8 +234,8 @@
    "statut": "non nommé",
    "extrait": "aucune mention dans le descriptif",
    "vu": {
-    "niveau": "pas vu en cours",
-    "precision": "Connu depuis le lycée.",
+    "niveau": "notion de base, non enseignée",
+    "precision": "Connu depuis le lycée ; non enseigné, car supposé acquis comme pour tous les étudiants.",
     "a_chercher": false
    }
   },
@@ -243,8 +243,8 @@
    "statut": "non nommé",
    "extrait": "aucune mention dans le descriptif",
    "vu": {
-    "niveau": "pas vu en cours",
-    "precision": "Je le connais.",
+    "niveau": "notion de base, non enseignée",
+    "precision": "Je le maîtrise déjà ; non enseigné, car supposé acquis comme pour tous les étudiants.",
     "a_chercher": false
    }
   },
@@ -252,8 +252,8 @@
    "statut": "non nommé",
    "extrait": "aucune mention dans le descriptif",
    "vu": {
-    "niveau": "pas vu en cours",
-    "precision": "Je le connais.",
+    "niveau": "notion de base, non enseignée",
+    "precision": "Je le maîtrise déjà ; non enseigné, car supposé acquis comme pour tous les étudiants.",
     "a_chercher": false
    }
   },
@@ -261,8 +261,8 @@
    "statut": "non nommé",
    "extrait": "aucune mention dans le descriptif",
    "vu": {
-    "niveau": "pas vu en cours",
-    "precision": "Je le connais.",
+    "niveau": "notion de base, non enseignée",
+    "precision": "Je le maîtrise déjà ; non enseigné, car supposé acquis comme pour tous les étudiants.",
     "a_chercher": false
    }
   },

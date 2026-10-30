@@ -35,6 +35,7 @@
   <div class="carte" style="margin-bottom:1.5rem">
     <h2>Ce que le M2 nomme, et ce qu'il ne nomme pas</h2>
     <p id="a-chercher"></p>
+    <p class="note" id="bases"></p>
     <div class="tableau">
       <table>
         <thead><tr><th>Outil dans les annonces</th><th class="num">Entreprises</th><th>Dans le descriptif du M2 MOD</th><th>Ce que j'en ai vu</th></tr></thead>
@@ -127,6 +128,10 @@ fetch('data/resume.json')
           ] : []),
         ]));
       });
+      const bases = x.outils.liste.filter(o => (f.outils[o.nom]?.vu || {}).niveau === 'notion de base, non enseignée');
+      document.getElementById('bases').textContent = bases.length
+        ? 'Notions de base non enseignées mais déjà acquises, comme pour tous les étudiants : ' + bases.map(o => o.nom + ' (' + o.entreprises + ')').join(', ') + '. Elles ne sont pas un manque.'
+        : '';
       const aChercher = x.outils.liste.filter(o => (f.outils[o.nom]?.vu || {}).a_chercher && o.entreprises >= SEUIL_ENTREPRISES);
       document.getElementById('a-chercher').textContent = aChercher.length
         ? 'À aller chercher cette année : ' + aChercher.map(o => o.nom.replace(/ \(.*\)$/, '') + ' (' + o.entreprises + ' entreprises)').join(', ') +
