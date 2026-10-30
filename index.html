@@ -42,7 +42,7 @@
   </div>
 
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Évolution des outils cités (nombre d'offres)</h2>
+    <h2>Évolution des outils cités</h2>
     <div id="evolution"></div>
   </div>
 
@@ -89,6 +89,10 @@ function barres(id, lignes) {
       piste,
     ]));
   });
+}
+
+function dateCourte(iso) {
+  return new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
 }
 
 function dateFr(iso) {
@@ -150,11 +154,45 @@ fetch('data/resume.json')
         'Une seule extraction avec le texte des annonces pour l\'instant (' + (so[0] ? dateFr(so[0].date) : '–') +
         ') : la comparaison démarre à la prochaine extraction, la veille tourne chaque matin.' }));
     } else {
-      const entete = el('tr', {}, [el('th', { textContent: 'Outil' })].concat(so.map(s => el('th', { className: 'num', textContent: dateFr(s.date) }))));
-      const lignes = x.outils.liste.slice(0, 10).map(o => el('tr', {}, [el('td', { textContent: o.nom })].concat(
-        so.map(s => el('td', { className: 'num', textContent: s.outils[o.nom] || 0 })))));
-      const tab = el('table', {}, [el('thead', {}, [entete]), el('tbody', {}, lignes)]);
-      evo.appendChild(tab);
+      const part = (s, nom) => 100 * (s.outils[nom] || 0) / s.avec_texte;
+      const premiere = so[0], derniere = so[so.length - 1];
+      const courbe = nom => {
+        const ns = 'http://www.w3.org/2000/svg';
+        const vals = so.map(s => part(s, nom));
+        const max = Math.max(...vals, 1);
+        const pts = vals.map((v, i) => (i * 120 / (vals.length - 1)).toFixed(1) + ',' + (26 - 24 * v / max).toFixed(1)).join(' ');
+        const svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('viewBox', '0 0 120 28'); svg.setAttribute('width', '120'); svg.setAttribute('height', '28');
+        svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Part des annonces citant ' + nom + ' au fil des extractions');
+        const ligne = document.createElementNS(ns, 'polyline');
+        ligne.setAttribute('points', pts); ligne.setAttribute('fill', 'none'); ligne.setAttribute('stroke', 'currentColor'); ligne.setAttribute('stroke-width', '1.5');
+        svg.appendChild(ligne);
+        return svg;
+      };
+      const lignes = x.outils.liste.slice(0, 12).map(o => {
+        const a = part(premiere, o.nom), b = part(derniere, o.nom), ecart = Math.round(b - a);
+        return el('tr', {}, [
+          el('td', { textContent: o.nom }),
+          el('td', { className: 'num', textContent: Math.round(a) + ' %' }),
+          el('td', { className: 'num', textContent: Math.round(b) + ' %' }),
+          el('td', { className: 'num', textContent: (ecart > 0 ? '+' : '') + ecart + ' pt' }),
+          el('td', { style: 'color: var(--accent)' }, [courbe(o.nom)]),
+        ]);
+      });
+      const tab = el('table', {}, [
+        el('thead', {}, [el('tr', {}, [
+          el('th', { textContent: 'Outil' }),
+          el('th', { className: 'num', textContent: dateCourte(premiere.date) }),
+          el('th', { className: 'num', textContent: dateCourte(derniere.date) }),
+          el('th', { className: 'num', textContent: 'Écart' }),
+          el('th', { textContent: 'Courbe' }),
+        ])]),
+        el('tbody', {}, lignes),
+      ]);
+      evo.appendChild(el('div', { className: 'tableau' }, [tab]));
+      evo.appendChild(el('p', { className: 'note', textContent:
+        'Part des annonces dont le texte cite l\'outil (le marché a rétréci : on compare des parts, pas des nombres). ' +
+        'Chaque jour ne compte qu\'une centaine d\'annonces : un écart de quelques points peut n\'être que du bruit.' }));
     }
     const tbody = document.getElementById('serie');
     d.serie.slice().reverse().forEach(s => tbody.appendChild(el('tr', {}, [
