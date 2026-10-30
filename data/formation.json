@@ -108,7 +108,12 @@
  "outils": {
   "Emailing / newsletter": {
    "statut": "nommé",
-   "extrait": "« outils marketing 2.0 (gestionnaire e-mailing ; blogs ; CRM) »"
+   "extrait": "« outils marketing 2.0 (gestionnaire e-mailing ; blogs ; CRM) »",
+   "vu": {
+    "niveau": "théorie seulement",
+    "precision": "On en parle en cours, sans démonstration ni pratique. Pratiqué en stage chez Mapache (segmentation de clients pour les newsletters).",
+    "a_chercher": true
+   }
   },
   "Mailchimp, Brevo, Sendinblue, Klaviyo": {
    "statut": "famille citée",
@@ -116,7 +121,12 @@
   },
   "CRM": {
    "statut": "nommé",
-   "extrait": "« outils marketing 2.0 (gestionnaire e-mailing ; blogs ; CRM) » ; unité « Relation client »"
+   "extrait": "« outils marketing 2.0 (gestionnaire e-mailing ; blogs ; CRM) » ; unité « Relation client »",
+   "vu": {
+    "niveau": "vu en cours",
+    "precision": "",
+    "a_chercher": false
+   }
   },
   "HubSpot": {
    "statut": "famille citée",
@@ -128,11 +138,21 @@
   },
   "SEO": {
    "statut": "famille citée",
-   "extrait": "« optimisation de sites internet […] acquisition de trafic et de référencement »"
+   "extrait": "« optimisation de sites internet […] acquisition de trafic et de référencement »",
+   "vu": {
+    "niveau": "vu en cours",
+    "precision": "Pratiqué aussi en stage (SEO sur Shopify).",
+    "a_chercher": false
+   }
   },
   "SEA": {
    "statut": "famille citée",
-   "extrait": "« acquisition de trafic » ; unité « Stratégies d'acquisition marketing »"
+   "extrait": "« acquisition de trafic » ; unité « Stratégies d'acquisition marketing »",
+   "vu": {
+    "niveau": "pas vu en cours",
+    "precision": "Je le connais, vu en stage ; pas encore de pratique en cours.",
+    "a_chercher": true
+   }
   },
   "Google Ads": {
    "statut": "famille citée",
@@ -148,11 +168,21 @@
   },
   "Instagram": {
    "statut": "famille citée",
-   "extrait": "« médias sociaux », « supports digitaux » : la plateforme n'est pas citée"
+   "extrait": "« médias sociaux », « supports digitaux » : la plateforme n'est pas citée",
+   "vu": {
+    "niveau": "pas vu en cours",
+    "precision": "Je le pratique, mais pas en cours.",
+    "a_chercher": false
+   }
   },
   "LinkedIn": {
    "statut": "famille citée",
-   "extrait": "« médias sociaux » : la plateforme n'est pas citée"
+   "extrait": "« médias sociaux » : la plateforme n'est pas citée",
+   "vu": {
+    "niveau": "théorie seulement",
+    "precision": "On en parle en cours, sans plus.",
+    "a_chercher": true
+   }
   },
   "Facebook": {
    "statut": "famille citée",
@@ -168,11 +198,21 @@
   },
   "Canva": {
    "statut": "famille citée",
-   "extrait": "« concevoir des outils et supports marketing et publicitaires » : l'outil n'est pas cité"
+   "extrait": "« concevoir des outils et supports marketing et publicitaires » : l'outil n'est pas cité",
+   "vu": {
+    "niveau": "vu en cours",
+    "precision": "",
+    "a_chercher": false
+   }
   },
   "Adobe (Photoshop, Illustrator, InDesign…)": {
    "statut": "famille citée",
-   "extrait": "« concevoir des outils et supports marketing et publicitaires » : l'outil n'est pas cité"
+   "extrait": "« concevoir des outils et supports marketing et publicitaires » : l'outil n'est pas cité",
+   "vu": {
+    "niveau": "un peu",
+    "precision": "Vu en cours, mais peu.",
+    "a_chercher": true
+   }
   },
   "Figma": {
    "statut": "famille citée",
@@ -192,28 +232,59 @@
   },
   "Excel": {
    "statut": "non nommé",
-   "extrait": "aucune mention dans le descriptif"
+   "extrait": "aucune mention dans le descriptif",
+   "vu": {
+    "niveau": "pas vu en cours",
+    "precision": "Connu depuis le lycée.",
+    "a_chercher": false
+   }
   },
   "PowerPoint": {
    "statut": "non nommé",
-   "extrait": "aucune mention dans le descriptif"
+   "extrait": "aucune mention dans le descriptif",
+   "vu": {
+    "niveau": "pas vu en cours",
+    "precision": "Je le connais.",
+    "a_chercher": false
+   }
   },
   "Word": {
    "statut": "non nommé",
-   "extrait": "aucune mention dans le descriptif"
+   "extrait": "aucune mention dans le descriptif",
+   "vu": {
+    "niveau": "pas vu en cours",
+    "precision": "Je le connais.",
+    "a_chercher": false
+   }
   },
   "Pack Office": {
    "statut": "non nommé",
-   "extrait": "aucune mention dans le descriptif"
+   "extrait": "aucune mention dans le descriptif",
+   "vu": {
+    "niveau": "pas vu en cours",
+    "precision": "Je le connais.",
+    "a_chercher": false
+   }
   },
   "Anglais": {
    "statut": "nommé",
-   "extrait": "unités « Business English » (UE 5) et « International marketing » (UE 9)"
+   "extrait": "unités « Business English » (UE 5) et « International marketing » (UE 9)",
+   "vu": {
+    "niveau": "vu en cours",
+    "precision": "",
+    "a_chercher": false
+   }
   },
   "IA (ChatGPT, IA générative…)": {
    "statut": "à confirmer",
-   "extrait": "unité « Marketing augmenté » (UE 7) : seul l'intitulé est public, pas le contenu"
+   "extrait": "unité « Marketing augmenté » (UE 7) : seul l'intitulé est public, pas le contenu",
+   "vu": {
+    "niveau": "vu en cours",
+    "precision": "",
+    "a_chercher": false
+   }
   }
  },
- "limites": "D'après le texte public du descriptif. Les pages du PDF qui détaillent les cours sont des images : seuls les intitulés des unités sont lisibles. Un outil « non nommé » peut être enseigné sans être cité : ce tableau mesure ce que le descriptif affiche, pas ce qui est enseigné."
+ "limites": "Colonne « Dans le descriptif » : d'après le texte public du descriptif ; les pages du PDF qui détaillent les cours sont des images, seuls les intitulés des unités sont lisibles, et un outil « non nommé » peut être enseigné sans être cité. Colonne « Ce que j'en ai vu » : mon propre bilan au 30 octobre 2026, en cours de M2, donc susceptible d'évoluer d'ici la fin de l'année.",
+ "vu_le": "2026-10-30"
 }
