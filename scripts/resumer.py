@@ -79,6 +79,7 @@ VARIANTES = [
     ("Assistant(e) chef de produit", r"(?i)chef\S*\s+de\s+produit"),
 ]
 VARIANTES = [(nom, re.compile(motif)) for nom, motif in VARIANTES]
+PUB_FORMATION = re.compile(r"(?i)en suivant la formation|formation .{0,40}à distance")
 TELETRAVAIL = re.compile(r"(?i)télétravail|teletravail|\bremote\b|travail à distance|home ?office|hybride")
 
 
@@ -249,6 +250,7 @@ def main():
     regions = Counter(region(o["lieu"]) for o in offres)
     outils, n_texte = compter_outils(offres, textes)
     mots, _ = compter_outils(offres, textes, MOTS)
+    pub = [o for o in offres if textes.get(o.get("id")) and PUB_FORMATION.search(textes[o["id"]])]
     teletravail = sum(1 for o in offres if textes.get(o.get("id")) and TELETRAVAIL.search(textes[o["id"]]))
 
     resume = {
@@ -270,6 +272,7 @@ def main():
             "regions": top(regions),
             "canaux": canaux,
             "n_puy_de_dome": depts.get("63", 0),
+            "annonces_formation": {"n": len(pub), "noms": sorted({o["entreprise"] for o in pub})},
             "teletravail": {"offres": teletravail, "sur": n_texte},
             "entreprises": top(entreprises),
             "concentration_top2": {"noms": [n for n, _ in top2], "part": round(100 * sum(n for _, n in top2) / total)},

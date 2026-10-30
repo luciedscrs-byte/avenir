@@ -14,7 +14,7 @@
   <p id="erreur"></p>
 
   <div class="chiffres">
-    <div class="carte"><p class="gros" id="total">–</p><p class="legende">offres actives en France</p></div>
+    <div class="carte"><p class="gros" id="total">–</p><p class="legende" id="total-legende">offres actives en France</p></div>
     <div class="carte"><p class="gros" id="alternance">–</p><p class="legende">dont en alternance</p></div>
     <div class="carte"><p class="gros" id="salaire">–</p><p class="legende">affichent un salaire</p></div>
     <div class="carte"><p class="gros" id="date">–</p><p class="legende">date de la dernière extraction</p></div>
@@ -70,6 +70,7 @@
       <li>Un seul canal : l'API France Travail « Offres d'emploi v2 ». Les offres publiées uniquement ailleurs n'y sont pas.</li>
       <li id="lim-canaux">La Bonne Alternance reprend des offres France Travail : les deux canaux se recoupent en partie.</li>
       <li id="lim-concentration"></li>
+      <li id="lim-formation"></li>
       <li>Un salaire affiché n'est pas un salaire versé, et les médianes reposent sur très peu d'offres : lis-les avec le nombre d'offres à côté.</li>
       <li>Les outils sont repérés par des mots-clés dans le texte des annonces : un outil cité n'est pas forcément exigé, et un outil absent de la liste n'est pas compté.</li>
       <li>Le code ROME M1620 regroupe des intitulés proches mais pas identiques (assistant marketing, assistant commercial, chef de produit junior…).</li>
@@ -158,6 +159,14 @@ fetch('data/resume.json')
       document.getElementById('lim-canaux').textContent =
         'Deuxième canal, La Bonne Alternance : ' + x.canaux.lba_distinctes + ' offres distinctes, dont ' + x.canaux.lba_deja_dans_ft +
         ' déjà présentes dans l\'extraction France Travail (même identifiant). Les chiffres de cette page ne comptent que France Travail.';
+    }
+
+    const pf = x.annonces_formation;
+    if (pf && pf.n) {
+      document.getElementById('lim-formation').textContent =
+        pf.n + ' annonces sur ' + x.total + ' (' + Math.round(100 * pf.n / x.total) + ' %) font la promotion d\'une formation à distance plutôt que d\'un emploi (publiées par : ' +
+        pf.noms.join(', ') + ') : elles sont comptées dans le total, car France Travail les classe comme des offres.';
+      document.getElementById('total-legende').textContent = 'offres actives en France, dont ' + pf.n + ' annonces de formation (voir les limites)';
     }
 
     const c2 = x.concentration_top2;

@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-30T11:51:40+00:00",
+  "genere_le": "2026-10-30T14:43:14+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -1234,6 +1234,13 @@
       "lba_deja_dans_ft": 2
     },
     "n_puy_de_dome": 1,
+    "annonces_formation": {
+      "n": 23,
+      "noms": [
+        "EFC",
+        "EFC CONSULTING"
+      ]
+    },
     "teletravail": {
       "offres": 7,
       "sur": 106
