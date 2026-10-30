@@ -29,6 +29,12 @@
   </div>
 
   <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Ce que ma formation vise</h2>
+    <p id="formation-vise"></p>
+    <p class="note" id="formation-source"></p>
+  </div>
+
+  <div class="carte" style="margin-bottom:1.5rem">
     <h2>Les questions que je pose à ce marché</h2>
     <ol class="questions" id="questions"></ol>
     <p class="note" id="chiffres-note"></p>
@@ -54,7 +60,8 @@ function question(titre, reponse, lien, texteLien) {
 Promise.all([
   fetch('data/resume.json').then(r => r.json()),
   fetch('data/entreprises_resume.json').then(r => r.json()),
-]).then(([d, ent]) => {
+  fetch('data/formation.json').then(r => r.json()),
+]).then(([d, ent, f]) => {
   const x = d.derniere, v = x.variantes, jour = dateFr(x.date);
 
   barres('variantes', v.liste.map(l => ({ nom: l.nom, n: l.n })));
@@ -66,6 +73,15 @@ Promise.all([
   document.getElementById('regroupe').textContent =
     v.sans_marketing + ' intitulés sur ' + v.titres + ' ne contiennent pas le mot « marketing » (par exemple : ' +
     v.exemples_sans_marketing.join(' ; ') + '). Le code M1620 est plus large que l\'intitulé : mes chiffres comptent aussi ces postes proches.';
+
+  document.getElementById('formation-vise').textContent =
+    'Le M2 Marketing opérationnel et digital de l\'IAE Clermont Auvergne vise surtout des postes de responsable : ' +
+    f.metiers_vises_descriptif.slice(0, 6).join(', ') + '… Les codes ROME cités dans son descriptif sont ' + f.codes_rome_vises_descriptif.join(', ') +
+    ' ; M1620 n\'en fait pas partie. La page de la formation cite en revanche « Assistant-e marketing » parmi les métiers visés. ' +
+    'Selon sa fiche France Travail, M1620 est accessible dès Bac+2 / Bac+3, alors que le diplôme est de niveau Bac+5.';
+  document.getElementById('formation-source').textContent =
+    'Sources : page de la formation et descriptif PDF 2026-2027, lus le ' + dateFr(f.lu_le) + '. Les unités du parcours : ' +
+    f.unites.map(u => u.nom).join(', ') + '.';
 
   const regions = x.regions.slice(0, 3).map(r => r.nom + ' (' + r.n + ')').join(', ');
   question('Combien d\'offres, et où ?',

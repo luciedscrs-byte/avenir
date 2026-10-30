@@ -1,0 +1,219 @@
+{
+ "formation": "Master Marketing vente, parcours Marketing opérationnel et digital (M2 MOD), IAE Clermont Auvergne",
+ "sources": [
+  {
+   "nom": "Page de la formation",
+   "url": "https://iae.uca.fr/formation/master/master-marketing-vente"
+  },
+  {
+   "nom": "Descriptif formation M2 MOD 2026-2027 (PDF)",
+   "url": "https://iae.uca.fr/medias/fichier/descriptif-formation-m2-mod-2026-2027_1774366885504-pdf"
+  }
+ ],
+ "lu_le": "2026-10-30",
+ "unites": [
+  {
+   "semestre": 3,
+   "ue": "UE 1",
+   "nom": "Stratégie marketing avancées",
+   "credits": 6
+  },
+  {
+   "semestre": 3,
+   "ue": "UE 2",
+   "nom": "Marketing multicanal",
+   "credits": 9
+  },
+  {
+   "semestre": 3,
+   "ue": "UE 3",
+   "nom": "Relation client",
+   "credits": 6
+  },
+  {
+   "semestre": 3,
+   "ue": "UE 4",
+   "nom": "Applications professionnelles 1",
+   "credits": 6
+  },
+  {
+   "semestre": 3,
+   "ue": "UE 5",
+   "nom": "Business English",
+   "credits": 3
+  },
+  {
+   "semestre": 4,
+   "ue": "UE 6",
+   "nom": "Stratégies d'acquisition marketing",
+   "credits": 6
+  },
+  {
+   "semestre": 4,
+   "ue": "UE 7",
+   "nom": "Marketing augmenté",
+   "credits": 6
+  },
+  {
+   "semestre": 4,
+   "ue": "UE 8",
+   "nom": "Séminaire thématique",
+   "credits": 3
+  },
+  {
+   "semestre": 4,
+   "ue": "UE 9",
+   "nom": "International marketing",
+   "credits": 3
+  },
+  {
+   "semestre": 4,
+   "ue": "UE 10",
+   "nom": "Applications professionnelles 2",
+   "credits": 12
+  }
+ ],
+ "metiers_vises_descriptif": [
+  "Responsable marketing digital",
+  "Chef de projet marketing",
+  "Chef de produit web",
+  "Chef de produit",
+  "Responsable marketing et communication",
+  "Digital Brand Manager",
+  "Responsable marketing relationnel et CRM",
+  "Responsable de stratégie mobile",
+  "Responsable de marketing opérationnel",
+  "Webmarketer",
+  "Community manager",
+  "Chargé de communication interne / externe"
+ ],
+ "codes_rome_vises_descriptif": [
+  "E1401",
+  "M1703",
+  "M1705",
+  "M1707",
+  "E1103"
+ ],
+ "metiers_vises_page": [
+  "Chef de produit / Chef de projet marketing",
+  "Assistant-e marketing",
+  "Responsable de marché",
+  "Directeur-trice marketing",
+  "Responsable de relation client-CRM",
+  "Webmarketer",
+  "Responsable de stratégie mobile",
+  "Responsable e-commerce",
+  "Digital Brand Manager"
+ ],
+ "outils": {
+  "Emailing / newsletter": {
+   "statut": "nommé",
+   "extrait": "« outils marketing 2.0 (gestionnaire e-mailing ; blogs ; CRM) »"
+  },
+  "Mailchimp, Brevo, Sendinblue, Klaviyo": {
+   "statut": "famille citée",
+   "extrait": "« gestionnaire e-mailing » : l'outil précis n'est pas cité"
+  },
+  "CRM": {
+   "statut": "nommé",
+   "extrait": "« outils marketing 2.0 (gestionnaire e-mailing ; blogs ; CRM) » ; unité « Relation client »"
+  },
+  "HubSpot": {
+   "statut": "famille citée",
+   "extrait": "« CRM » : le logiciel n'est pas cité"
+  },
+  "Salesforce": {
+   "statut": "famille citée",
+   "extrait": "« CRM » : le logiciel n'est pas cité"
+  },
+  "SEO": {
+   "statut": "famille citée",
+   "extrait": "« optimisation de sites internet […] acquisition de trafic et de référencement »"
+  },
+  "SEA": {
+   "statut": "famille citée",
+   "extrait": "« acquisition de trafic » ; unité « Stratégies d'acquisition marketing »"
+  },
+  "Google Ads": {
+   "statut": "famille citée",
+   "extrait": "« acquisition de trafic » : l'outil n'est pas cité"
+  },
+  "Meta Ads / Facebook Ads": {
+   "statut": "famille citée",
+   "extrait": "« acquisition de trafic » : l'outil n'est pas cité"
+  },
+  "Google Analytics / GA4": {
+   "statut": "famille citée",
+   "extrait": "« outils de reporting qualitatifs et quantitatifs » : l'outil n'est pas cité"
+  },
+  "Instagram": {
+   "statut": "famille citée",
+   "extrait": "« médias sociaux », « supports digitaux » : la plateforme n'est pas citée"
+  },
+  "LinkedIn": {
+   "statut": "famille citée",
+   "extrait": "« médias sociaux » : la plateforme n'est pas citée"
+  },
+  "Facebook": {
+   "statut": "famille citée",
+   "extrait": "« médias sociaux » : la plateforme n'est pas citée"
+  },
+  "TikTok": {
+   "statut": "famille citée",
+   "extrait": "« médias sociaux » : la plateforme n'est pas citée"
+  },
+  "YouTube": {
+   "statut": "famille citée",
+   "extrait": "« médias sociaux » : la plateforme n'est pas citée"
+  },
+  "Canva": {
+   "statut": "famille citée",
+   "extrait": "« concevoir des outils et supports marketing et publicitaires » : l'outil n'est pas cité"
+  },
+  "Adobe (Photoshop, Illustrator, InDesign…)": {
+   "statut": "famille citée",
+   "extrait": "« concevoir des outils et supports marketing et publicitaires » : l'outil n'est pas cité"
+  },
+  "Figma": {
+   "statut": "famille citée",
+   "extrait": "« concevoir des outils et supports marketing et publicitaires » : l'outil n'est pas cité"
+  },
+  "WordPress": {
+   "statut": "famille citée",
+   "extrait": "« gérer l'optimisation de sites internet » : l'outil n'est pas cité"
+  },
+  "Shopify": {
+   "statut": "famille citée",
+   "extrait": "« gérer l'optimisation de sites internet » : l'outil n'est pas cité"
+  },
+  "Prestashop": {
+   "statut": "famille citée",
+   "extrait": "« gérer l'optimisation de sites internet » : l'outil n'est pas cité"
+  },
+  "Excel": {
+   "statut": "non nommé",
+   "extrait": "aucune mention dans le descriptif"
+  },
+  "PowerPoint": {
+   "statut": "non nommé",
+   "extrait": "aucune mention dans le descriptif"
+  },
+  "Word": {
+   "statut": "non nommé",
+   "extrait": "aucune mention dans le descriptif"
+  },
+  "Pack Office": {
+   "statut": "non nommé",
+   "extrait": "aucune mention dans le descriptif"
+  },
+  "Anglais": {
+   "statut": "nommé",
+   "extrait": "unités « Business English » (UE 5) et « International marketing » (UE 9)"
+  },
+  "IA (ChatGPT, IA générative…)": {
+   "statut": "à confirmer",
+   "extrait": "unité « Marketing augmenté » (UE 7) : seul l'intitulé est public, pas le contenu"
+  }
+ },
+ "limites": "D'après le texte public du descriptif. Les pages du PDF qui détaillent les cours sont des images : seuls les intitulés des unités sont lisibles. Un outil « non nommé » peut être enseigné sans être cité : ce tableau mesure ce que le descriptif affiche, pas ce qui est enseigné."
+}

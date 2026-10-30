@@ -33,6 +33,17 @@
   </div>
 
   <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Ce que le M2 nomme, et ce qu'il ne nomme pas</h2>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Outil dans les annonces</th><th class="num">Entreprises</th><th>Dans le descriptif du M2 MOD</th></tr></thead>
+        <tbody id="formation"></tbody>
+      </table>
+    </div>
+    <p class="note" id="formation-note"></p>
+  </div>
+
+  <div class="carte" style="margin-bottom:1.5rem">
     <h2>Salaires affichés (brut mensuel)</h2>
     <table>
       <thead><tr><th>Groupe</th><th class="num">Offres</th><th class="num">Salaire affiché</th><th class="num">Médiane</th><th class="num">Min – max</th></tr></thead>
@@ -98,6 +109,20 @@ fetch('data/resume.json')
     barres('outils', x.outils.liste.slice(0, 12).map(o => ({ nom: o.nom + ' · ' + o.offres + ' offre' + (o.offres > 1 ? 's' : ''), n: o.entreprises })));
     document.getElementById('outils-note').textContent =
       'Classés par nombre d\'entreprises différentes qui les citent (annonces lues : ' + x.outils.avec_texte + '), pour qu\'un employeur qui répète la même annonce ne fausse pas le classement.';
+
+    fetch('data/formation.json').then(r => r.json()).then(f => {
+      const corps = document.getElementById('formation');
+      x.outils.liste.slice(0, 14).forEach(o => {
+        const info = f.outils[o.nom] || { statut: 'non nommé', extrait: '' };
+        corps.appendChild(el('tr', {}, [
+          el('td', { textContent: o.nom }),
+          el('td', { className: 'num', textContent: o.entreprises }),
+          el('td', {}, [el('strong', { textContent: info.statut }), el('div', { className: 'note', style: 'margin:0', textContent: info.extrait })]),
+        ]));
+      });
+      document.getElementById('formation-note').textContent =
+        f.limites + ' Sources : page de la formation et descriptif PDF 2026-2027 de l\'IAE Clermont Auvergne, lus le ' + dateFr(f.lu_le) + '.';
+    });
 
     const sal = document.getElementById('salaires');
     x.salaires.groupes.forEach(g => sal.appendChild(el('tr', {}, [
