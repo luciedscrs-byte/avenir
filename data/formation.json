@@ -112,7 +112,7 @@
    "vu": {
     "niveau": "théorie seulement",
     "precision": "On en parle en cours, sans démonstration ni pratique. Pratiqué en stage chez Mapache (segmentation de clients pour les newsletters).",
-    "a_chercher": true
+    "a_acquerir": true
    }
   },
   "Mailchimp, Brevo, Sendinblue, Klaviyo": {
@@ -125,7 +125,7 @@
    "vu": {
     "niveau": "vu en cours",
     "precision": "",
-    "a_chercher": false
+    "a_acquerir": false
    }
   },
   "HubSpot": {
@@ -142,7 +142,7 @@
    "vu": {
     "niveau": "vu en cours",
     "precision": "Pratiqué aussi en stage (SEO sur Shopify).",
-    "a_chercher": false
+    "a_acquerir": false
    }
   },
   "SEA": {
@@ -151,7 +151,7 @@
    "vu": {
     "niveau": "pas vu en cours",
     "precision": "Je le connais, vu en stage ; pas encore de pratique en cours.",
-    "a_chercher": true
+    "a_acquerir": true
    }
   },
   "Google Ads": {
@@ -172,7 +172,7 @@
    "vu": {
     "niveau": "notion de base, non enseignée",
     "precision": "Je l'utilise déjà ; non enseigné en cours, comme pour tous les étudiants.",
-    "a_chercher": false
+    "a_acquerir": false
    }
   },
   "LinkedIn": {
@@ -181,7 +181,7 @@
    "vu": {
     "niveau": "théorie seulement",
     "precision": "On en parle en cours, sans plus.",
-    "a_chercher": true
+    "a_acquerir": true
    }
   },
   "Facebook": {
@@ -202,7 +202,7 @@
    "vu": {
     "niveau": "vu en cours",
     "precision": "",
-    "a_chercher": false
+    "a_acquerir": false
    }
   },
   "Adobe (Photoshop, Illustrator, InDesign…)": {
@@ -211,7 +211,7 @@
    "vu": {
     "niveau": "un peu",
     "precision": "Vu en cours, mais peu.",
-    "a_chercher": true
+    "a_acquerir": true
    }
   },
   "Figma": {
@@ -236,7 +236,7 @@
    "vu": {
     "niveau": "notion de base, non enseignée",
     "precision": "Connu depuis le lycée ; non enseigné, car supposé acquis comme pour tous les étudiants.",
-    "a_chercher": false
+    "a_acquerir": false
    }
   },
   "PowerPoint": {
@@ -245,7 +245,7 @@
    "vu": {
     "niveau": "notion de base, non enseignée",
     "precision": "Je le maîtrise déjà ; non enseigné, car supposé acquis comme pour tous les étudiants.",
-    "a_chercher": false
+    "a_acquerir": false
    }
   },
   "Word": {
@@ -254,7 +254,7 @@
    "vu": {
     "niveau": "notion de base, non enseignée",
     "precision": "Je le maîtrise déjà ; non enseigné, car supposé acquis comme pour tous les étudiants.",
-    "a_chercher": false
+    "a_acquerir": false
    }
   },
   "Pack Office": {
@@ -263,7 +263,7 @@
    "vu": {
     "niveau": "notion de base, non enseignée",
     "precision": "Je le maîtrise déjà ; non enseigné, car supposé acquis comme pour tous les étudiants.",
-    "a_chercher": false
+    "a_acquerir": false
    }
   },
   "Anglais": {
@@ -272,7 +272,7 @@
    "vu": {
     "niveau": "vu en cours",
     "precision": "",
-    "a_chercher": false
+    "a_acquerir": false
    }
   },
   "IA (ChatGPT, IA générative…)": {
@@ -281,7 +281,7 @@
    "vu": {
     "niveau": "vu en cours",
     "precision": "",
-    "a_chercher": false
+    "a_acquerir": false
    }
   }
  },

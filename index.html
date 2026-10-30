@@ -34,7 +34,7 @@
 
   <div class="carte" style="margin-bottom:1.5rem">
     <h2>Ce que le M2 nomme, et ce qu'il ne nomme pas</h2>
-    <p id="a-chercher"></p>
+    <p id="a-acquerir"></p>
     <p class="note" id="bases"></p>
     <div class="tableau">
       <table>
@@ -124,7 +124,7 @@ fetch('data/resume.json')
           el('td', {}, info.vu ? [
             el('strong', { textContent: info.vu.niveau }),
             el('div', { className: 'note', style: 'margin:0', textContent: info.vu.precision }),
-            ...(info.vu.a_chercher && o.entreprises >= SEUIL_ENTREPRISES ? [el('div', { style: 'color: var(--accent); font-size: 0.85rem; font-weight: 600', textContent: '→ à aller chercher' })] : []),
+            ...(info.vu.a_acquerir && o.entreprises >= SEUIL_ENTREPRISES ? [el('div', { style: 'color: var(--accent); font-size: 0.85rem; font-weight: 600', textContent: '→ à acquérir cette année' })] : []),
           ] : []),
         ]));
       });
@@ -132,9 +132,9 @@ fetch('data/resume.json')
       document.getElementById('bases').textContent = bases.length
         ? 'Notions de base non enseignées mais déjà acquises, comme pour tous les étudiants : ' + bases.map(o => o.nom + ' (' + o.entreprises + ')').join(', ') + '. Elles ne sont pas un manque.'
         : '';
-      const aChercher = x.outils.liste.filter(o => (f.outils[o.nom]?.vu || {}).a_chercher && o.entreprises >= SEUIL_ENTREPRISES);
-      document.getElementById('a-chercher').textContent = aChercher.length
-        ? 'À aller chercher cette année : ' + aChercher.map(o => o.nom.replace(/ \(.*\)$/, '') + ' (' + o.entreprises + ' entreprises)').join(', ') +
+      const aAcquerir = x.outils.liste.filter(o => (f.outils[o.nom]?.vu || {}).a_acquerir && o.entreprises >= SEUIL_ENTREPRISES);
+      document.getElementById('a-acquerir').textContent = aAcquerir.length
+        ? 'À acquérir cette année : ' + aAcquerir.map(o => o.nom.replace(/ \(.*\)$/, '') + ' (' + o.entreprises + ' entreprises)').join(', ') +
           '. Ce sont des outils cités par au moins ' + SEUIL_ENTREPRISES + ' entreprises que je n\'ai vus qu\'en théorie ou un peu en cours.'
         : '';
       document.getElementById('formation-note').textContent =
