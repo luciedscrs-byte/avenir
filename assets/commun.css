@@ -37,7 +37,7 @@
   footer { color: var(--muted); font-size: 0.8rem; margin-top: 2rem; }
   #erreur { color: #b91c1c; }
   .note { color: var(--muted); font-size: 0.85rem; margin: 0.75rem 0 0; }
-  nav { display: flex; gap: 1.25rem; margin-bottom: 1.75rem; font-size: 0.95rem; }
+  nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; margin-bottom: 1.75rem; font-size: 0.95rem; }
   nav a { color: var(--muted); text-decoration: none; padding-bottom: 2px; }
   nav a[aria-current="page"] { color: var(--accent); border-bottom: 2px solid var(--accent); }
   .onglets { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
@@ -56,3 +56,13 @@
   .pagination button:disabled { opacity: 0.4; cursor: default; }
   .tableau { overflow-x: auto; }
   td a { color: var(--accent); }
+  .carte a { color: var(--accent); }
+  ol.questions { padding-left: 1.25rem; margin: 0; }
+  ol.questions li { margin-bottom: 1rem; }
+  ol.questions .reponse { color: var(--muted); font-size: 0.92rem; margin: 0.25rem 0 0; }
+  .source { border-left: 3px solid var(--accent); padding: 0.1rem 0 0.1rem 1rem; margin: 1rem 0; }
+  .source .valeur { font-size: 1.6rem; font-weight: 700; color: var(--accent); margin: 0; line-height: 1.2; }
+  .source p { margin: 0.25rem 0; }
+  .legende-graphique { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+  .legende-graphique i { display: inline-block; width: 18px; border-top: 2px solid var(--accent); vertical-align: middle; margin-right: 6px; }
+  .legende-graphique i.pointille { border-top: 2px dashed var(--muted); }

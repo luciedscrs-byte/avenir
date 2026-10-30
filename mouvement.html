@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>avenir — Comment le métier bouge</title>
+<link rel="stylesheet" href="assets/commun.css">
+</head>
+<body>
+<main>
+  <nav id="nav"></nav>
+  <h1>Comment le métier bouge</h1>
+  <p class="sub" id="sous-titre"></p>
+  <p id="erreur"></p>
+
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Le nombre d'offres, extraction après extraction</h2>
+    <div id="graphique"></div>
+    <div class="legende-graphique"><span><i></i>Toutes les offres</span><span><i class="pointille"></i>Dont alternance</span></div>
+    <p class="note" id="graphique-note"></p>
+  </div>
+
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Offres nouvelles et disparues</h2>
+    <p id="flux-resume"></p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Extraction du</th><th class="num">Offres</th><th class="num">Nouvelles</th><th class="num">Disparues</th></tr></thead>
+        <tbody id="flux"></tbody>
+      </table>
+    </div>
+    <p class="note" id="flux-note"></p>
+  </div>
+
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Les outils et les mots qu'on suit</h2>
+    <h3 style="font-size:0.95rem;margin:0 0 0.5rem">Outils</h3>
+    <div class="tableau"><table id="t-outils"></table></div>
+    <h3 style="font-size:0.95rem;margin:1.25rem 0 0.5rem">Mots surveillés</h3>
+    <div class="tableau"><table id="t-mots"></table></div>
+    <p class="note" id="evolution-note"></p>
+  </div>
+
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Une source qui observe l'emploi : l'Apec</h2>
+    <p class="note" style="margin:0 0 0.5rem">Apec, <em>L'intelligence artificielle en commercial-marketing</em>, mars 2026 (article du 03/09/2026) —
+      <a href="https://www.apec.fr/tendances-emploi-cadre/evolution-des-metiers-et-competences/quel-impact-de-l-ia-sur-les-competences-des-metiers-du-commercial-et-du-marketing-.html" target="_blank" rel="noopener">lire la page</a>.</p>
+    <div class="source"><p class="valeur">13 %</p><p>des offres d'emploi <strong>cadre</strong> mentionnant l'intelligence artificielle, publiées sur apec.fr en 2025, sont des offres commercial-marketing : deuxième rang, derrière l'informatique.</p></div>
+    <div class="source"><p class="valeur">2 %</p><p>seulement des offres cadre de la fonction commercial-marketing mentionnent l'IA.</p></div>
+    <div class="source"><p>Compétences liées à l'IA attendues des marketeurs dans ces offres : campagnes personnalisées (emailing, marketing automation, retargeting), segmentation et scoring, automatisation de campagnes en no-code / low-code, intégration d'IA génératives. Côté formation, les besoins portent surtout sur des compétences transversales d'IA générative, comme la rédaction de prompts.</p></div>
+    <p><strong>Ce que ça autorise à conclure.</strong> L'IA est encore peu citée mais elle entre dans les offres marketing, et les compétences attendues (emailing personnalisé, segmentation, automatisation) sont proches de ce que je pratique avec les newsletters.
+      <span id="ia-nous"></span></p>
+    <p><strong>Limites.</strong> L'étude porte sur des offres de <em>cadres</em> ; mon métier, assistant, l'est rarement. Ces pourcentages ne se comparent pas aux miens : ni la population, ni l'année, ni la façon de compter ne sont les mêmes. C'est une seule étude, utile pour la direction, pas pour mesurer mon marché.</p>
+  </div>
+
+  <div class="carte" id="limites">
+    <h2>Ce que j'ai essayé, et écarté</h2>
+    <ul>
+      <li>Repérer automatiquement, dans tout le texte des annonces, les mots qui montent et qui reculent : le résultat est inexploitable. Entre la première et la dernière semaine, les mots qui « montent » le plus sont « d'une » et « d'un », parce que d'une semaine à l'autre ce ne sont pas les mêmes soixante entreprises qui publient. Je suis donc une liste de mots choisis.</li>
+      <li>Quand un mot n'apparaît que dans une à trois annonces (GEO, automatisation), son écart n'a aucun sens : le tableau l'affiche, mais on ne peut pas en tirer de tendance.</li>
+      <li>La durée de vie des offres n'est mesurée que sur celles qui apparaissent et disparaissent pendant la période : elle penche mécaniquement vers les offres courtes.</li>
+    </ul>
+  </div>
+
+  <footer>Données : API France Travail « Offres d'emploi v2 », codeROME=M1620, France entière, une extraction par jour. Dernière génération : <span id="genere"></span>.</footer>
+</main>
+
+<script src="assets/commun.js"></script>
+<script>
+navigation('mouvement.html');
+
+const NS = 'http://www.w3.org/2000/svg';
+function svg(tag, attrs, style) {
+  const e = document.createElementNS(NS, tag);
+  Object.entries(attrs || {}).forEach(([k, v]) => e.setAttribute(k, v));
+  Object.assign(e.style, style || {});
+  return e;
+}
+
+function graphique(serie) {
+  const W = 640, H = 250, g = 40, dr = 36, h = 14, b = 30;
+  const t0 = Date.parse(serie[0].date), t1 = Date.parse(serie[serie.length - 1].date);
+  const maxV = Math.ceil(Math.max(...serie.map(s => s.total)) / 20) * 20;
+  const X = d => g + (Date.parse(d) - t0) / (t1 - t0) * (W - g - dr);
+  const Y = v => H - b - v / maxV * (H - b - h);
+  const racine = svg('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+    'aria-label': 'Nombre d\'offres de ' + serie[0].total + ' à ' + serie[serie.length - 1].total + ' entre le ' + dateFr(serie[0].date) + ' et le ' + dateFr(serie[serie.length - 1].date) },
+    { width: '100%', height: 'auto' });
+  [0, maxV / 2, maxV].forEach(v => {
+    racine.appendChild(svg('line', { x1: g, x2: W - dr, y1: Y(v), y2: Y(v) }, { stroke: 'var(--line)' }));
+    const t = svg('text', { x: g - 6, y: Y(v) + 4, 'text-anchor': 'end', 'font-size': 11 }, { fill: 'var(--muted)' });
+    t.textContent = v; racine.appendChild(t);
+  });
+  [0, Math.floor(serie.length / 2), serie.length - 1].forEach((i, k) => {
+    const t = svg('text', { x: X(serie[i].date), y: H - 8, 'text-anchor': k === 0 ? 'start' : k === 2 ? 'end' : 'middle', 'font-size': 11 }, { fill: 'var(--muted)' });
+    t.textContent = dateCourte(serie[i].date); racine.appendChild(t);
+  });
+  const trace = (cle, style) => {
+    racine.appendChild(svg('polyline', { points: serie.map(s => X(s.date).toFixed(1) + ',' + Y(s[cle]).toFixed(1)).join(' '), fill: 'none', 'stroke-width': 2 }, style));
+    [serie[0], serie[serie.length - 1]].forEach((s, k) => {
+      const t = svg('text', { x: X(s.date) + (k ? 6 : 4), y: Y(s[cle]) - 8, 'text-anchor': 'start', 'font-size': 12, 'font-weight': 600 }, { fill: 'var(--text)' });
+      t.textContent = s[cle]; racine.appendChild(t);
+    });
+  };
+  trace('total', { stroke: 'var(--accent)' });
+  trace('alternance', { stroke: 'var(--muted)', strokeDasharray: '5 4' });
+  return racine;
+}
+
+function evolution(idTable, so, cle, nomsMax) {
+  const part = (s, nom) => 100 * ((s[cle] || {})[nom] || 0) / s.avec_texte;
+  const nbr = (s, nom) => (s[cle] || {})[nom] || 0;
+  const premiere = so[0], derniere = so[so.length - 1];
+  const noms = [...new Set(so.flatMap(s => Object.keys(s[cle] || {})))]
+    .sort((a, b) => Math.max(part(derniere, b), part(premiere, b)) - Math.max(part(derniere, a), part(premiere, a)))
+    .slice(0, nomsMax);
+  const plafond = Math.max(...noms.flatMap(n => so.map(s => part(s, n))), 1);
+  const cellule = (s, nom) => Math.round(part(s, nom)) + ' % (' + nbr(s, nom) + ')';
+  const corps = noms.map(nom => {
+    const ecart = Math.round(part(derniere, nom) - part(premiere, nom));
+    return el('tr', {}, [
+      el('td', { textContent: nom }),
+      el('td', { className: 'num', textContent: cellule(premiere, nom) }),
+      el('td', { className: 'num', textContent: cellule(derniere, nom) }),
+      el('td', { className: 'num', textContent: (ecart > 0 ? '+' : '') + ecart + ' pt' }),
+      el('td', { style: 'color: var(--accent)' }, [courbe(so.map(s => part(s, nom)), 100, 26, 'Part des annonces citant ' + nom, plafond)]),
+    ]);
+  });
+  document.getElementById(idTable).append(
+    el('thead', {}, [el('tr', {}, [
+      el('th', { textContent: '' }),
+      el('th', { className: 'num', textContent: dateCourte(premiere.date) }),
+      el('th', { className: 'num', textContent: dateCourte(derniere.date) }),
+      el('th', { className: 'num', textContent: 'Écart' }),
+      el('th', { textContent: 'Courbe' }),
+    ])]),
+    el('tbody', {}, corps));
+}
+
+fetch('data/resume.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => {
+  const s = d.serie, premier = s[0], dernier = s[s.length - 1], m = d.mouvement, so = d.serie_outils;
+  const pct = (a, b) => Math.round(100 * (b - a) / a);
+  document.getElementById('sous-titre').textContent =
+    s.length + ' extractions du ' + dateFr(premier.date) + ' au ' + dateFr(dernier.date) + ', France entière, code ROME ' + d.code_rome + '.';
+  document.getElementById('genere').textContent = new Date(d.genere_le).toLocaleString('fr-FR');
+
+  document.getElementById('graphique').appendChild(graphique(s));
+  document.getElementById('graphique-note').textContent =
+    'Toutes les offres : ' + premier.total + ' le ' + dateCourte(premier.date) + ', ' + dernier.total + ' le ' + dateCourte(dernier.date) +
+    ' (' + pct(premier.total, dernier.total) + ' %). Alternance : ' + premier.alternance + ' puis ' + dernier.alternance + ' (' + pct(premier.alternance, dernier.alternance) + ' %). ' +
+    'Il n\'y a pas d\'extraction entre le 22/09 et le 07/10 : la veille n\'était pas encore automatique. Je ne sais pas si cette baisse est saisonnière ou durable : il faudrait un an de recul.';
+
+  if (m) {
+    const moy = cle => (m.flux.reduce((t, f) => t + f[cle], 0) / m.flux.length).toFixed(1).replace('.', ',');
+    document.getElementById('flux-resume').textContent =
+      m.vues + ' offres différentes vues entre le ' + dateFr(m.du) + ' et le ' + dateFr(m.au) + '. ' + m.toute_la_periode +
+      ' étaient déjà là le premier jour et le sont encore le dernier. En moyenne par jour : ' + moy('nouvelles') + ' nouvelles, ' + moy('disparues') + ' disparues.' +
+      (m.duree_mediane_jours ? ' Durée de vie médiane observée : ' + m.duree_mediane_jours + ' jours (sur ' + m.n_duree + ' offres apparues et disparues pendant la période).' : '');
+    const corps = document.getElementById('flux');
+    m.flux.slice(-14).reverse().forEach(f => corps.appendChild(el('tr', {}, [
+      el('td', { textContent: dateFr(f.date) }),
+      el('td', { className: 'num', textContent: f.total }),
+      el('td', { className: 'num', textContent: '+' + f.nouvelles }),
+      el('td', { className: 'num', textContent: '−' + f.disparues }),
+    ])));
+    document.getElementById('flux-note').textContent =
+      'Les 14 dernières extractions. « Nouvelle » = identifiant absent de l\'extraction précédente ; une annonce republiée avec un nouvel identifiant compte donc comme une nouvelle.';
+  }
+
+  evolution('t-outils', so, 'outils', 12);
+  evolution('t-mots', so, 'mots', 8);
+  document.getElementById('evolution-note').textContent =
+    'Part des annonces dont le texte cite le terme (entre parenthèses : le nombre d\'annonces), du ' + dateFr(so[0].date) + ' au ' + dateFr(so[so.length - 1].date) +
+    '. Le marché a rétréci : on compare des parts, pas des nombres. Chaque jour compte une centaine d\'annonces : un écart de quelques points peut n\'être que du bruit.';
+
+  const ia = 'IA (ChatGPT, IA générative…)';
+  const a = 100 * ((so[0].outils || {})[ia] || 0) / so[0].avec_texte, b = 100 * ((so[so.length - 1].outils || {})[ia] || 0) / so[so.length - 1].avec_texte;
+  document.getElementById('ia-nous').textContent =
+    'Dans mes annonces, l\'IA est citée dans ' + Math.round(a) + ' % des annonces le ' + dateFr(so[0].date) + ' et ' + Math.round(b) + ' % le ' + dateFr(so[so.length - 1].date) + '.';
+}).catch(() => {
+  document.getElementById('erreur').textContent =
+    'Impossible de charger data/resume.json. En local, ouvre la page via un petit serveur (python3 -m http.server).';
+});
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@ import json
 import re
 import statistics
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 CODE_ROME = "M1620"
 TOP = 10
@@ -61,6 +61,24 @@ OUTILS = [
     ("Anglais", r"(?i)\b(anglais|english|bilingue)\b"),
 ]
 OUTILS = [(nom, re.compile(motif)) for nom, motif in OUTILS]
+
+MOTS = [
+    ("Automatisation / marketing automation", r"(?i)\bautomati(?:sation|on|ser)\b|marketing automation"),
+    ("GEO (optimisation pour les moteurs d'IA)", r"\bGEO\b"),
+    ("No-code / low-code", r"(?i)\b(?:no|low)[- ]?code\b"),
+    ("Réseaux sociaux", r"(?i)réseaux sociaux|social media"),
+    ("Analyse de données (data)", r"(?i)\bdata\b|analyse (?:de|des) données"),
+    ("Transition écologique / RSE", r"(?i)transition écologique|\bRSE\b|développement durable"),
+]
+MOTS = [(nom, re.compile(motif)) for nom, motif in MOTS]
+
+VARIANTES = [
+    ("Assistant / Assistante marketing", r"(?i)assistant\S*\s+marketing"),
+    ("Assistant(e) commercial(e) et marketing", r"(?i)commercial\S*\s*(?:et|&)\s*marketing|marketing\s*(?:et|&)\s*commercial"),
+    ("Assistant(e) marketing et communication", r"(?i)marketing\s*(?:et|&)\s*communication|communication\s*(?:et|&)\s*marketing"),
+    ("Assistant(e) chef de produit", r"(?i)chef\S*\s+de\s+produit"),
+]
+VARIANTES = [(nom, re.compile(motif)) for nom, motif in VARIANTES]
 TELETRAVAIL = re.compile(r"(?i)télétravail|teletravail|\bremote\b|travail à distance|home ?office|hybride")
 
 
@@ -124,11 +142,12 @@ def top(compteur, cle="nom"):
     return [{cle: k, "n": n} for k, n in compteur.most_common(TOP)]
 
 
-def compter_outils(offres, textes):
-    """Pour chaque outil : nombre d'offres et nombre d'entreprises distinctes qui le citent."""
+def compter_outils(offres, textes, liste=None):
+    """Pour chaque terme : nombre d'offres et nombre d'entreprises distinctes qui le citent."""
+    liste = OUTILS if liste is None else liste
     avec_texte = [o for o in offres if textes.get(o.get("id"))]
     resultat = []
-    for nom, motif in OUTILS:
+    for nom, motif in liste:
         citent = [o for o in avec_texte if motif.search(textes[o["id"]] + " " + o["intitule"])]
         if citent:
             resultat.append({
@@ -138,6 +157,41 @@ def compter_outils(offres, textes):
             })
     resultat.sort(key=lambda x: (-x["entreprises"], -x["offres"]))
     return resultat, len(avec_texte)
+
+
+def calculer_variantes(offres):
+    titres = [o["intitule"] for o in offres]
+    sans_marketing = sorted({t for t in titres if not re.search(r"(?i)marketing", t)}, key=lambda t: (len(t), t))
+    return {
+        "titres": len(titres),
+        "liste": sorted([{"nom": nom, "n": sum(1 for t in titres if motif.search(t))} for nom, motif in VARIANTES],
+                        key=lambda v: -v["n"]),
+        "avec_digital": sum(1 for t in titres if re.search(r"(?i)digital|web ?marketing", t)),
+        "avec_alternance": sum(1 for t in titres if re.search(r"(?i)altern", t)),
+        "sans_marketing": len([t for t in titres if not re.search(r"(?i)marketing", t)]),
+        "exemples_sans_marketing": [t[:80] for t in sans_marketing[:4]],
+    }
+
+
+def calculer_mouvement(jours):
+    """jours : [(date iso, {id: offre})] triés. Offres nouvelles et disparues d'une extraction à la suivante."""
+    if len(jours) < 2:
+        return None
+    flux = []
+    for (_, avant), (d, apres) in zip(jours, jours[1:]):
+        flux.append({"date": d, "total": len(apres), "nouvelles": len(set(apres) - set(avant)),
+                     "disparues": len(set(avant) - set(apres))})
+    vues = {}
+    for i, (_, offres) in enumerate(jours):
+        for oid in offres:
+            vues.setdefault(oid, [i, i])[1] = i
+    dates = [date.fromisoformat(d) for d, _ in jours]
+    durees = [(dates[fin] - dates[debut]).days + 1 for debut, fin in vues.values() if debut > 0 and fin < len(jours) - 1]
+    return {
+        "du": jours[0][0], "au": jours[-1][0], "extractions": len(jours), "flux": flux,
+        "vues": len(vues), "toute_la_periode": sum(1 for d, f in vues.values() if d == 0 and f == len(jours) - 1),
+        "duree_mediane_jours": statistics.median(durees) if durees else None, "n_duree": len(durees),
+    }
 
 
 def calculer_salaires(offres):
@@ -158,7 +212,7 @@ def main():
     fichiers = sorted(glob.glob(f"data/offres_{CODE_ROME}_*.csv"))
     textes = charger_textes()
 
-    serie, serie_outils = [], []
+    serie, serie_outils, jours_ids = [], [], []
     for chemin in fichiers:
         jour = re.search(r"(\d{4}-\d{2}-\d{2})\.csv$", chemin).group(1)
         lignes = lire(chemin)
@@ -169,8 +223,11 @@ def main():
         })
         if lignes and "id" in lignes[0]:
             outils, n_texte = compter_outils(lignes, textes)
+            mots, _ = compter_outils(lignes, textes, MOTS)
             serie_outils.append({"date": jour, "avec_texte": n_texte,
-                                 "outils": {o["nom"]: o["offres"] for o in outils}})
+                                 "outils": {o["nom"]: o["offres"] for o in outils},
+                                 "mots": {o["nom"]: o["offres"] for o in mots}})
+            jours_ids.append((jour, {l["id"]: l for l in lignes}))
 
     offres = lire(fichiers[-1])
     derniere_date = serie[-1]["date"]
@@ -191,6 +248,7 @@ def main():
     depts = Counter(departement(o["lieu"]) for o in offres)
     regions = Counter(region(o["lieu"]) for o in offres)
     outils, n_texte = compter_outils(offres, textes)
+    mots, _ = compter_outils(offres, textes, MOTS)
     teletravail = sum(1 for o in offres if textes.get(o.get("id")) and TELETRAVAIL.search(textes[o["id"]]))
 
     resume = {
@@ -200,6 +258,7 @@ def main():
         "requete": f"API France Travail — Offres d'emploi v2, codeROME={CODE_ROME}, France entière",
         "serie": serie,
         "serie_outils": serie_outils,
+        "mouvement": calculer_mouvement(jours_ids),
         "derniere": {
             "date": derniere_date,
             "total": total,
@@ -217,6 +276,8 @@ def main():
             "competences": top(competences),
             "salaires": {"mediane_insertion": MEDIANE_INSERTION, "groupes": calculer_salaires(offres)},
             "outils": {"avec_texte": n_texte, "liste": outils},
+            "mots": mots,
+            "variantes": calculer_variantes(offres),
         },
     }
 

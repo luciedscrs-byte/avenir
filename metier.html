@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>avenir — Le métier tel que le marché le nomme</title>
+<link rel="stylesheet" href="assets/commun.css">
+</head>
+<body>
+<main>
+  <nav id="nav"></nav>
+  <h1>Le métier tel que le marché le nomme</h1>
+  <p class="sub" id="sous-titre">Le diplôme dit « marketing opérationnel et digital » ; les annonces disent autre chose.</p>
+  <p id="erreur"></p>
+
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Intitulé et code</h2>
+    <p><strong>Assistant / Assistante marketing</strong>, code ROME
+      <a href="https://candidat.francetravail.fr/metierscope/fiche-metier/M1620/assistant-assistante-marketing" target="_blank" rel="noopener"><strong>M1620</strong></a>
+      (référentiel de France Travail, secteur « Communication et marketing »).</p>
+    <p class="note">J'ai choisi ce métier parce qu'il prolonge mon stage d'assistante marketing et communication chez Mapache : référencement (SEO) sur Shopify,
+      segmentation de clients pour les newsletters, campagnes, fiches produit. Un métier plus haut, « chargé de marketing digital » (M1718, poste cadre),
+      est un objectif d'évolution, pas un point d'entrée.</p>
+  </div>
+
+  <div class="grille">
+    <div class="carte"><h2>Comment les annonces le nomment</h2><div id="variantes"></div><p class="note" id="variantes-note"></p></div>
+    <div class="carte"><h2>Ce que le code regroupe vraiment</h2><p id="regroupe"></p></div>
+  </div>
+
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Les questions que je pose à ce marché</h2>
+    <ol class="questions" id="questions"></ol>
+    <p class="note" id="chiffres-note"></p>
+  </div>
+
+  <footer>Chiffres recalculés à chaque extraction quotidienne : voir les pages <a href="index.html">Les offres</a> et <a href="mouvement.html">Comment il bouge</a> pour la requête, la date, le canal et les limites de chacun.</footer>
+</main>
+
+<script src="assets/commun.js"></script>
+<script>
+navigation('metier.html');
+
+function question(titre, reponse, lien, texteLien) {
+  document.getElementById('questions').appendChild(el('li', {}, [
+    el('strong', { textContent: titre }),
+    el('p', { className: 'reponse' }, [
+      document.createTextNode(reponse + ' '),
+      el('a', { href: lien, textContent: texteLien }),
+    ]),
+  ]));
+}
+
+Promise.all([
+  fetch('data/resume.json').then(r => r.json()),
+  fetch('data/entreprises_resume.json').then(r => r.json()),
+]).then(([d, ent]) => {
+  const x = d.derniere, v = x.variantes, jour = dateFr(x.date);
+
+  barres('variantes', v.liste.map(l => ({ nom: l.nom, n: l.n })));
+  document.getElementById('variantes-note').textContent =
+    'Sur ' + v.titres + ' intitulés au ' + jour + '. Un titre peut relever de plusieurs variantes. « Digital » n\'apparaît que dans ' +
+    v.avec_digital + ' intitulés : le marché dit « assistant marketing », pas « assistant marketing digital ». ' +
+    v.avec_alternance + ' intitulés parlent d\'alternance.';
+
+  document.getElementById('regroupe').textContent =
+    v.sans_marketing + ' intitulés sur ' + v.titres + ' ne contiennent pas le mot « marketing » (par exemple : ' +
+    v.exemples_sans_marketing.join(' ; ') + '). Le code M1620 est plus large que l\'intitulé : mes chiffres comptent aussi ces postes proches.';
+
+  const regions = x.regions.slice(0, 3).map(r => r.nom + ' (' + r.n + ')').join(', ');
+  question('Combien d\'offres, et où ?',
+    x.total + ' offres actives en France au ' + jour + ', dont ' + x.alternance + ' en alternance. Régions en tête : ' + regions +
+    '. Puy-de-Dôme : ' + x.n_puy_de_dome + '.', 'index.html', 'Voir les offres.');
+
+  const tops = x.outils.liste.slice(0, 3).map(o => o.nom + ' (' + o.entreprises + ' entreprises)').join(', ');
+  const shopify = x.outils.liste.find(o => o.nom === 'Shopify');
+  question('Quels outils et compétences reviennent le plus ?',
+    'Cités par le plus d\'entreprises différentes : ' + tops + '. ' +
+    (shopify ? 'Shopify apparaît dans ' + shopify.offres + ' annonce(s).' :
+      'Shopify, que j\'ai utilisé en stage, n\'apparaît dans aucune des ' + x.outils.avec_texte + ' annonces lues.'),
+    'index.html', 'Voir les outils.');
+
+  const g = n => x.salaires.groupes.find(s => s.nom === n);
+  const phrase = s => s && s.affichent ? s.nom + ' ' + s.mediane + ' € (' + s.affichent + ' offres sur ' + s.total + ')' : null;
+  question('Quels salaires, et par rapport à l\'insertion ?',
+    'Salaire affiché, médiane brute mensuelle : ' + [phrase(g('CDI')), phrase(g('Alternance'))].filter(Boolean).join(' ; ') +
+    ', à comparer aux ' + x.salaires.mediane_insertion + ' € d\'insertion cités dans le cours. Seules ' + x.part_salaire_affiche +
+    ' % des offres affichent un salaire.', 'index.html', 'Voir les salaires.');
+
+  question('Quelles entreprises recrutent le plus, et que cache le marché ?',
+    x.concentration_top2.noms.join(' et ') + ' publient ' + x.concentration_top2.part + ' % des offres. Côté marché caché : ' +
+    ent.total.toLocaleString('fr-FR') + ' entreprises de ' + ent.taille_min + ' et plus dans les grandes villes, qu\'elles publient une offre ou non : la liste ne le vérifie pas.',
+    'entreprises.html', 'Voir les entreprises.');
+
+  document.getElementById('chiffres-note').textContent =
+    'Source des offres : API France Travail « Offres d\'emploi v2 », codeROME=M1620, France entière, extraction du ' + jour +
+    '. Source des entreprises : API Recherche d\'entreprises, extraction du ' + dateFr(ent.genere_le) + '.';
+}).catch(() => {
+  document.getElementById('erreur').textContent =
+    'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
+});
+</script>
+</body>
+</html>

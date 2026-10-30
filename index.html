@@ -8,7 +8,7 @@
 </head>
 <body>
 <main>
-  <nav><a href="index.html" aria-current="page">Les offres</a><a href="entreprises.html">Les entreprises (marché caché)</a></nav>
+  <nav id="nav"></nav>
   <h1 id="metier">Chargement…</h1>
   <p class="sub" id="requete"></p>
   <p id="erreur"></p>
@@ -41,10 +41,7 @@
     <p class="note" id="salaires-note"></p>
   </div>
 
-  <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Évolution des outils cités</h2>
-    <div id="evolution"></div>
-  </div>
+  <p class="note" style="margin-bottom:1.5rem">L'évolution des outils cités, le rythme des offres et la source emploi sont sur la page <a href="mouvement.html" style="color:var(--accent)">Comment le métier bouge</a>.</p>
 
   <div class="carte" style="margin-bottom:1.5rem">
     <h2>Extractions datées</h2>
@@ -69,35 +66,12 @@
   <footer>Données collectées automatiquement via des API officielles. Dernière génération : <span id="genere"></span>.</footer>
 </main>
 
+<script src="assets/commun.js"></script>
 <script>
-function el(tag, props, children) {
-  const e = document.createElement(tag);
-  Object.assign(e, props || {});
-  (children || []).forEach(c => e.appendChild(c));
-  return e;
-}
+navigation('index.html');
 
-function barres(id, lignes) {
-  const conteneur = document.getElementById(id);
-  const max = Math.max(...lignes.map(l => l.n), 1);
-  lignes.forEach(l => {
-    const piste = el('div', { className: 'piste' }, [el('span')]);
-    piste.firstChild.style.width = (100 * l.n / max) + '%';
-    conteneur.appendChild(el('div', { className: 'barre' }, [
-      el('span', { className: 'nom', textContent: l.nom }),
-      el('span', { className: 'n', textContent: l.n }),
-      piste,
-    ]));
-  });
-}
 
-function dateCourte(iso) {
-  return new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
-}
 
-function dateFr(iso) {
-  return new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
-}
 
 fetch('data/resume.json')
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -147,53 +121,6 @@ fetch('data/resume.json')
     document.getElementById('lim-concentration').textContent =
       c2.noms.join(' et ') + ' publient ' + c2.part + ' % des offres, souvent avec le même gabarit d\'annonce : le nombre d\'offres n\'est pas le nombre de postes.';
 
-    const evo = document.getElementById('evolution');
-    const so = d.serie_outils;
-    if (so.length < 2) {
-      evo.appendChild(el('p', { className: 'note', textContent:
-        'Une seule extraction avec le texte des annonces pour l\'instant (' + (so[0] ? dateFr(so[0].date) : '–') +
-        ') : la comparaison démarre à la prochaine extraction, la veille tourne chaque matin.' }));
-    } else {
-      const part = (s, nom) => 100 * (s.outils[nom] || 0) / s.avec_texte;
-      const premiere = so[0], derniere = so[so.length - 1];
-      const courbe = nom => {
-        const ns = 'http://www.w3.org/2000/svg';
-        const vals = so.map(s => part(s, nom));
-        const max = Math.max(...vals, 1);
-        const pts = vals.map((v, i) => (i * 120 / (vals.length - 1)).toFixed(1) + ',' + (26 - 24 * v / max).toFixed(1)).join(' ');
-        const svg = document.createElementNS(ns, 'svg');
-        svg.setAttribute('viewBox', '0 0 120 28'); svg.setAttribute('width', '120'); svg.setAttribute('height', '28');
-        svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Part des annonces citant ' + nom + ' au fil des extractions');
-        const ligne = document.createElementNS(ns, 'polyline');
-        ligne.setAttribute('points', pts); ligne.setAttribute('fill', 'none'); ligne.setAttribute('stroke', 'currentColor'); ligne.setAttribute('stroke-width', '1.5');
-        svg.appendChild(ligne);
-        return svg;
-      };
-      const lignes = x.outils.liste.slice(0, 12).map(o => {
-        const a = part(premiere, o.nom), b = part(derniere, o.nom), ecart = Math.round(b - a);
-        return el('tr', {}, [
-          el('td', { textContent: o.nom }),
-          el('td', { className: 'num', textContent: Math.round(a) + ' %' }),
-          el('td', { className: 'num', textContent: Math.round(b) + ' %' }),
-          el('td', { className: 'num', textContent: (ecart > 0 ? '+' : '') + ecart + ' pt' }),
-          el('td', { style: 'color: var(--accent)' }, [courbe(o.nom)]),
-        ]);
-      });
-      const tab = el('table', {}, [
-        el('thead', {}, [el('tr', {}, [
-          el('th', { textContent: 'Outil' }),
-          el('th', { className: 'num', textContent: dateCourte(premiere.date) }),
-          el('th', { className: 'num', textContent: dateCourte(derniere.date) }),
-          el('th', { className: 'num', textContent: 'Écart' }),
-          el('th', { textContent: 'Courbe' }),
-        ])]),
-        el('tbody', {}, lignes),
-      ]);
-      evo.appendChild(el('div', { className: 'tableau' }, [tab]));
-      evo.appendChild(el('p', { className: 'note', textContent:
-        'Part des annonces dont le texte cite l\'outil (le marché a rétréci : on compare des parts, pas des nombres). ' +
-        'Chaque jour ne compte qu\'une centaine d\'annonces : un écart de quelques points peut n\'être que du bruit.' }));
-    }
     const tbody = document.getElementById('serie');
     d.serie.slice().reverse().forEach(s => tbody.appendChild(el('tr', {}, [
       el('td', { textContent: dateFr(s.date) }),

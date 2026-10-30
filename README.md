@@ -40,7 +40,7 @@ poste cadre) — objectif d'évolution à moyen terme, pas le point d'entrée.
 - `scripts/textes.py` — garde le texte de chaque annonce une seule fois, dans `data/textes.jsonl`
 - `scripts/resumer.py` — calcule `data/resume.json` (ce que le site affiche) et `data/rapport.md` (rapport lisible)
 - `scripts/entreprises.py` — le marché caché : `data/entreprises.csv` (lancé à la main, pas chaque jour)
-- `index.html` (les offres) et `entreprises.html` (le marché caché) — le site, servi par GitHub Pages ; `assets/commun.css` partagé
+- Le site, servi par GitHub Pages, en quatre pages qui lisent `data/resume.json` et `data/entreprises.csv` : `metier.html` (le métier tel que le marché le nomme), `index.html` (les offres), `mouvement.html` (comment le métier bouge : courbe, offres nouvelles et disparues, outils suivis, source Apec) et `entreprises.html` (le marché caché) ; `assets/commun.css` et `assets/commun.js` partagés
 - `.github/workflows/veille.yml` — GitHub Actions : chaque matin, les deux extractions, le résumé, puis un commit des nouvelles données
 
 ## 4. Sources de données (légales, documentées)

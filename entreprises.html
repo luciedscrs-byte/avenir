@@ -8,7 +8,7 @@
 </head>
 <body>
 <main>
-  <nav><a href="index.html">Les offres</a><a href="entreprises.html" aria-current="page">Les entreprises (marché caché)</a></nav>
+  <nav id="nav"></nav>
   <h1>Le marché caché : les entreprises, pas seulement les offres</h1>
   <p class="sub" id="requete"></p>
   <p id="erreur"></p>
@@ -54,7 +54,9 @@
   <footer>Source : API Recherche d'entreprises (data.gouv.fr), licence ouverte. Extraction du <span id="genere"></span>.</footer>
 </main>
 
+<script src="assets/commun.js"></script>
 <script>
+navigation('entreprises.html');
 const PAR_PAGE = 100;
 const SECTIONS = [
   { cle: 'principale', nom: 'Cibles principales' },
@@ -66,12 +68,6 @@ const BORNE_BASSE = { '03': 6, '11': 10, '12': 20, '21': 50, '22': 100, '31': 20
 
 let toutes = [], section = 'principale', page = 0;
 
-function el(tag, props, children) {
-  const e = document.createElement(tag);
-  Object.assign(e, props || {});
-  (children || []).forEach(c => e.appendChild(c));
-  return e;
-}
 
 function lireCsv(texte) {
   const lignes = [], texteSansBom = texte.replace(/^﻿/, '');
