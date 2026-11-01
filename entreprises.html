@@ -23,6 +23,7 @@
   <div class="carte" style="margin-bottom:1.5rem">
     <div class="onglets" id="onglets"></div>
     <div class="filtres">
+      <label>Région<select id="f-region"></select></label>
       <label>Grande ville<select id="f-ville"></select></label>
       <label>Secteur<select id="f-groupe"></select></label>
       <label>Taille minimum<select id="f-taille"></select></label>
@@ -45,7 +46,7 @@
     <h2>Comment lire cette liste</h2>
     <ul>
       <li><strong>Sections.</strong> « Cibles principales » = entreprises hors agences, hors villes du nord. « Agences » = publicité, communication, études de marché, design : récoltées mais séparées. « Villes du nord » = villes plus hautes que Paris et hors Île-de-France (Lille, Reims, Le Havre, Rouen, Amiens, Metz, Caen), tous types confondus.</li>
-      <li><strong>Périmètre.</strong> Entreprises actives d'au moins 6 salariés, dont le siège est dans un département abritant une commune de plus de 100 000 habitants. Elles sont choisies par leur code d'activité (NAF) : une entreprise de ces secteurs n'a pas forcément un poste marketing, et beaucoup d'entreprises qui en ont un sont dans d'autres secteurs.</li>
+      <li><strong>Périmètre.</strong> Entreprises actives d'au moins 6 salariés, dont le siège est dans un département abritant une commune de plus de 100 000 habitants. Une région n'est donc couverte qu'en partie : le menu « Région » indique combien de ses départements sont inclus (par exemple 5 sur 12 en Auvergne-Rhône-Alpes). Elles sont choisies par leur code d'activité (NAF) : une entreprise de ces secteurs n'a pas forcément un poste marketing, et beaucoup d'entreprises qui en ont un sont dans d'autres secteurs.</li>
       <li><strong>Ce que l'API ne donne pas.</strong> Ni site web, ni téléphone, ni e-mail : ces colonnes viendront d'une autre source.</li>
       <li><strong>Données personnelles.</strong> Cette liste ne contient que des données d'entreprises, aucun nom de personne. Un contact éventuel se cherche ensuite à la main, en lien avec sa fonction, pour une finalité claire (une candidature), avec droit d'opposition, et la liste n'est jamais revendue.</li>
     </ul>
@@ -94,11 +95,13 @@ function remplir(id, valeurs) {
 }
 
 function filtrees() {
+  const region = document.getElementById('f-region').value;
   const ville = document.getElementById('f-ville').value;
   const groupe = document.getElementById('f-groupe').value;
   const seuil = Number(document.getElementById('f-taille').value);
   const nom = document.getElementById('f-nom').value.trim().toLowerCase();
   return toutes.filter(e => e.section === section
+    && (!region || e.region === region)
     && (!ville || e.grande_ville === ville)
     && (!groupe || e.groupe === groupe)
     && (BORNE_BASSE[e.effectif] || 0) >= seuil
@@ -141,11 +144,13 @@ Promise.all([
     b.onclick = () => { section = s.cle; page = 0; afficher(); };
     document.getElementById('onglets').appendChild(b);
   });
-  remplir('f-ville', [['', 'Toutes']].concat(Object.keys(resume.par_ville).sort().map(v => [v, v])));
+  remplir('f-region', [['', 'Toutes']].concat(Object.entries(resume.regions).map(([nom, r]) =>
+    [nom, nom + ' (' + r.departements_couverts + '/' + r.departements_total + ' départements)'])));
+    remplir('f-ville', [['', 'Toutes']].concat(Object.keys(resume.par_ville).sort().map(v => [v, v])));
   remplir('f-groupe', [['', 'Tous']].concat(Object.keys(resume.par_groupe).sort().map(g => [g, g])));
   remplir('f-taille', SEUILS);
   document.getElementById('genere').textContent = new Date(resume.genere_le + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
-  ['f-ville', 'f-groupe', 'f-taille'].forEach(id => document.getElementById(id).onchange = () => { page = 0; afficher(); });
+  ['f-region', 'f-ville', 'f-groupe', 'f-taille'].forEach(id => document.getElementById(id).onchange = () => { page = 0; afficher(); });
   document.getElementById('f-nom').oninput = () => { page = 0; afficher(); };
   document.getElementById('prec').onclick = () => { page--; afficher(); };
   document.getElementById('suiv').onclick = () => { page++; afficher(); };

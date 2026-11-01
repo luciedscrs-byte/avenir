@@ -4,6 +4,36 @@ Projet de cours : veille automatisée du marché de l'emploi pour mon métier ci
 via l'API France Travail, enrichie de données entreprises, et restituée dans un
 dashboard web qui se met à jour tout seul.
 
+## Comment ça marche, en bref
+
+```mermaid
+flowchart LR
+  A["API France Travail<br/>offres du code ROME M1620"] --> B["scripts/fetch_offres.py"]
+  C["API La Bonne Alternance"] --> D["scripts/fetch_offres_alternance.py"]
+  B --> E["data/ : un CSV daté par jour<br/>+ le texte des annonces"]
+  D --> E
+  E --> F["scripts/resumer.py"]
+  F --> G["data/resume.json<br/>data/rapport.md"]
+  G --> H["Site GitHub Pages<br/>4 pages"]
+  I["GitHub Actions<br/>chaque jour"] -.->|lance| B
+  I -.->|lance| D
+  I -.->|lance| F
+  I -.->|enregistre par un commit| E
+```
+
+1. **Chaque jour, GitHub lance le travail tout seul** (GitHub Actions, fichier `.github/workflows/veille.yml`), sur ses machines, ordinateur éteint. Le planning demande 7 h ; en pratique GitHub l'exécute entre 12 h et 14 h, car il retarde les tâches planifiées quand il est chargé.
+2. **Les scripts interrogent les API officielles** avec des identifiants rangés dans les *secrets* du dépôt (jamais dans le code), puis écrivent un CSV daté dans `data/`.
+3. **Le résultat est enregistré par un commit** signé `veille-bot` : l'historique Git est l'archive du marché, une extraction par jour depuis début octobre 2026.
+4. **Le site est statique** : ses quatre pages lisent `data/resume.json` (et `data/entreprises.csv`), et n'appellent aucun service extérieur.
+
+| Automatique (tous les jours) | À la main |
+|---|---|
+| extraction France Travail et La Bonne Alternance, résumé, rapport, mise à jour du site | liste des entreprises (`scripts/entreprises.py`, lancée de temps en temps) ; `data/formation.json` (mon bilan de ce que j'ai vu en cours) ; les textes de ce README ; les contacts LinkedIn |
+
+**Comment vérifier.** Onglet *Actions* du dépôt : une exécution verte par jour. Onglet *commits* : un commit `extraction France Travail, N offres, <date>` par jour, signé `veille-bot`.
+
+**Vocabulaire.** *API* : interface qui permet à un programme de demander des données à un service, sans passer par son site. *Code ROME* : référentiel de France Travail qui regroupe les appellations d'un même métier (ici M1620). *Commit* : une version enregistrée des fichiers, avec un message. *Push* : envoyer ses commits vers le dépôt en ligne. *Action* : script que GitHub lance pour moi à l'heure fixée. *Secret* : valeur chiffrée par GitHub, utilisée par l'Action sans apparaître dans le code. *GitHub Pages* : l'hébergement gratuit du site à partir des fichiers du dépôt.
+
 ## 1. Métier ciblé
 
 **Intitulé principal :** Assistant / Assistante marketing
@@ -80,6 +110,7 @@ Les sites d'offres ne montrent que les entreprises qui publient. `scripts/entrep
 - **Périmètre** : entreprises actives d'au moins 6 salariés, dont le siège est dans un département abritant une commune de plus de 100 000 habitants (37 départements).
 - **Secteurs** (codes NAF) : e-commerce, numérique, édition et médias, événementiel, marques et commerce spécialisé, et agences (publicité, communication, études de marché, design).
 - **Trois sections**, pour repérer d'un coup d'œil ce qui m'intéresse le plus : *cibles principales* ; *agences* (récoltées mais séparées) ; *villes du nord* (plus hautes que Paris, hors Île-de-France : Lille, Reims, Le Havre, Rouen, Amiens, Metz, Caen), tous types confondus.
+- **Région** : la page permet de filtrer par région, mais la liste ne couvre que les départements qui abritent une commune de plus de 100 000 habitants : une région n'est couverte qu'en partie (le menu indique, par exemple, 5 départements sur 12 pour Auvergne-Rhône-Alpes, 4 sur 8 pour l'Île-de-France, 4 sur 13 pour l'Occitanie).
 - **Limites** : le code NAF donne le secteur de l'entreprise, pas l'existence d'un poste marketing ; seul le siège est retenu (une entreprise dont le siège est ailleurs mais qui a un établissement local n'apparaît pas) ; l'API ne donne pas le site web.
 
 ## 7. Configuration et lancement

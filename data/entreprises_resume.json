@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-07",
+  "genere_le": "2026-11-01",
   "total": 18395,
   "sections": {
     "principale": 14271,
@@ -52,6 +52,73 @@
     "Le Mans": 85,
     "Amiens": 67,
     "Limoges": 56
+  },
+  "regions": {
+    "Île-de-France": {
+      "entreprises": 8931,
+      "departements_couverts": 4,
+      "departements_total": 8
+    },
+    "Auvergne-Rhône-Alpes": {
+      "entreprises": 2050,
+      "departements_couverts": 5,
+      "departements_total": 12
+    },
+    "Provence-Alpes-Côte d'Azur": {
+      "entreprises": 1385,
+      "departements_couverts": 3,
+      "departements_total": 6
+    },
+    "Occitanie": {
+      "entreprises": 1225,
+      "departements_couverts": 4,
+      "departements_total": 13
+    },
+    "Hauts-de-France": {
+      "entreprises": 885,
+      "departements_couverts": 2,
+      "departements_total": 5
+    },
+    "Pays de la Loire": {
+      "entreprises": 814,
+      "departements_couverts": 3,
+      "departements_total": 5
+    },
+    "Grand Est": {
+      "entreprises": 808,
+      "departements_couverts": 5,
+      "departements_total": 10
+    },
+    "Nouvelle-Aquitaine": {
+      "entreprises": 609,
+      "departements_couverts": 2,
+      "departements_total": 12
+    },
+    "Bretagne": {
+      "entreprises": 598,
+      "departements_couverts": 2,
+      "departements_total": 4
+    },
+    "Normandie": {
+      "entreprises": 360,
+      "departements_couverts": 2,
+      "departements_total": 5
+    },
+    "Outre-mer": {
+      "entreprises": 264,
+      "departements_couverts": 1,
+      "departements_total": 5
+    },
+    "Centre-Val de Loire": {
+      "entreprises": 257,
+      "departements_couverts": 2,
+      "departements_total": 6
+    },
+    "Bourgogne-Franche-Comté": {
+      "entreprises": 209,
+      "departements_couverts": 2,
+      "departements_total": 8
+    }
   },
   "taille_min": "6 salariés",
   "ecartees_siege_hors_villes": 2056,

@@ -14,6 +14,8 @@ from datetime import date
 
 import requests
 
+from resumer import REGION_DE, REGIONS
+
 URL = "https://recherche-entreprises.api.gouv.fr/search"
 CACHE = ".cache/entreprises"  # un fichier par code NAF ; supprimer le dossier pour tout re-télécharger
 
@@ -68,7 +70,7 @@ CODES = {c: ("Agences", lib) for c, lib in AGENCES.items()}
 for groupe, codes in AUTRES.items():
     CODES.update({c: (groupe, lib) for c, lib in codes.items()})
 
-COLONNES = ["section", "type", "groupe", "grande_ville", "departement", "commune", "adresse", "nom", "siren",
+COLONNES = ["section", "type", "groupe", "region", "grande_ville", "departement", "commune", "adresse", "nom", "siren",
             "naf", "activite", "effectif", "taille", "date_creation", "fiche"]
 ORDRE_SECTION = {"principale": 0, "agences": 1, "nord": 2}
 RANG_TAILLE = {code: i + 1 for i, code in enumerate(TRANCHE_LIBELLE)}
@@ -152,7 +154,7 @@ def main():
                 effectif = ""
             vus[r["siren"]] = {
                 "section": section, "type": "agence" if est_agence else "entreprise", "groupe": groupe,
-                "grande_ville": VILLES[dep], "departement": dep, "commune": commune(s.get("adresse")),
+                "region": REGION_DE.get(dep, ""), "grande_ville": VILLES[dep], "departement": dep, "commune": commune(s.get("adresse")),
                 "adresse": s.get("adresse") or "", "nom": re.sub(r"^(.+) \(\1\)$", r"\1", r["nom_complet"]), "siren": r["siren"], "naf": code,
                 "activite": libelle, "effectif": effectif, "taille": TRANCHE_LIBELLE.get(effectif, ""),
                 "date_creation": r.get("date_creation") or "",
@@ -172,6 +174,14 @@ def main():
         "sections": dict(Counter(l["section"] for l in lignes)),
         "par_groupe": dict(Counter(l["groupe"] for l in lignes)),
         "par_ville": dict(Counter(l["grande_ville"] for l in lignes).most_common()),
+        "regions": {
+            region: {
+                "entreprises": n,
+                "departements_couverts": sum(1 for d in REGIONS[region].split() if d in VILLES),
+                "departements_total": len(REGIONS[region].split()),
+            }
+            for region, n in Counter(l["region"] for l in lignes).most_common()
+        },
         "taille_min": "6 salariés",
         "ecartees_siege_hors_villes": hors_siege,
         "taille_inconnue": tranche_inconnue,
