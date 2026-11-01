@@ -1,8 +1,8 @@
 # Le marché de « Assistant / Assistante marketing » (ROME M1620)
 
 - **Requête** : API France Travail — Offres d'emploi v2, codeROME=M1620, France entière
-- **Date d'extraction** : 2026-10-31 · **108 offres** · dont 38 en alternance
-- **Extractions disponibles** : 2026-09-22, 2026-10-07, 2026-10-08, 2026-10-09, 2026-10-10, 2026-10-11, 2026-10-12, 2026-10-13, 2026-10-14, 2026-10-15, 2026-10-16, 2026-10-17, 2026-10-18, 2026-10-19, 2026-10-20, 2026-10-21, 2026-10-22, 2026-10-23, 2026-10-24, 2026-10-25, 2026-10-26, 2026-10-27, 2026-10-28, 2026-10-29, 2026-10-30, 2026-10-31
+- **Date d'extraction** : 2026-11-01 · **108 offres** · dont 38 en alternance
+- **Extractions disponibles** : 2026-09-22, 2026-10-07, 2026-10-08, 2026-10-09, 2026-10-10, 2026-10-11, 2026-10-12, 2026-10-13, 2026-10-14, 2026-10-15, 2026-10-16, 2026-10-17, 2026-10-18, 2026-10-19, 2026-10-20, 2026-10-21, 2026-10-22, 2026-10-23, 2026-10-24, 2026-10-25, 2026-10-26, 2026-10-27, 2026-10-28, 2026-10-29, 2026-10-30, 2026-10-31, 2026-11-01
 
 ## Où
 
@@ -46,17 +46,17 @@ Texte lu pour 108 annonces. Classés par nombre d'**entreprises** distinctes qui
 
 | Outil | Entreprises | Offres |
 |---|---|---|
-| Anglais | 14 | 15 |
+| Anglais | 15 | 16 |
 | Emailing / newsletter | 13 | 16 |
-| Excel | 11 | 13 |
-| Adobe (Photoshop, Illustrator, InDesign…) | 10 | 10 |
+| Excel | 12 | 14 |
+| Adobe (Photoshop, Illustrator, InDesign…) | 11 | 11 |
+| PowerPoint | 8 | 8 |
 | SEO | 8 | 8 |
 | LinkedIn | 7 | 10 |
-| PowerPoint | 7 | 7 |
+| Canva | 7 | 7 |
 | Pack Office | 6 | 8 |
-| Canva | 6 | 6 |
+| Word | 6 | 6 |
 | CRM | 6 | 6 |
-| Word | 5 | 5 |
 | IA (ChatGPT, IA générative…) | 5 | 5 |
 | Instagram | 3 | 7 |
 | Facebook | 2 | 4 |

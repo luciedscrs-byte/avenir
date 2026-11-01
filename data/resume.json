@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-10-31T11:25:32+00:00",
+  "genere_le": "2026-11-01T12:18:43+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -131,6 +131,11 @@
     },
     {
       "date": "2026-10-31",
+      "total": 108,
+      "alternance": 38
+    },
+    {
+      "date": "2026-11-01",
       "total": 108,
       "alternance": 38
     }
@@ -1000,12 +1005,46 @@
         "Automatisation / marketing automation": 2,
         "Transition écologique / RSE": 1
       }
+    },
+    {
+      "date": "2026-11-01",
+      "avec_texte": 108,
+      "outils": {
+        "Anglais": 16,
+        "Emailing / newsletter": 16,
+        "Excel": 14,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 11,
+        "PowerPoint": 8,
+        "SEO": 8,
+        "LinkedIn": 10,
+        "Canva": 7,
+        "Pack Office": 8,
+        "Word": 6,
+        "CRM": 6,
+        "IA (ChatGPT, IA générative…)": 5,
+        "Instagram": 7,
+        "Facebook": 4,
+        "TikTok": 4,
+        "SEA": 2,
+        "WordPress": 2,
+        "YouTube": 1,
+        "Google Analytics / GA4": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 34,
+        "Analyse de données (data)": 8,
+        "Automatisation / marketing automation": 2,
+        "Transition écologique / RSE": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-10-31",
-    "extractions": 25,
+    "au": "2026-11-01",
+    "extractions": 26,
     "flux": [
       {
         "date": "2026-10-08",
@@ -1150,15 +1189,21 @@
         "total": 108,
         "nouvelles": 7,
         "disparues": 5
+      },
+      {
+        "date": "2026-11-01",
+        "total": 108,
+        "nouvelles": 1,
+        "disparues": 1
       }
     ],
-    "vues": 259,
+    "vues": 260,
     "toute_la_periode": 47,
-    "duree_mediane_jours": 5.0,
-    "n_duree": 62
+    "duree_mediane_jours": 5,
+    "n_duree": 63
   },
   "derniere": {
-    "date": "2026-10-31",
+    "date": "2026-11-01",
     "total": 108,
     "alternance": 38,
     "part_salaire_affiche": 18,
@@ -1275,7 +1320,7 @@
       }
     ],
     "canaux": {
-      "lba_distinctes": 11,
+      "lba_distinctes": 10,
       "lba_deja_dans_ft": 2
     },
     "n_puy_de_dome": 1,
@@ -1415,8 +1460,8 @@
       "liste": [
         {
           "nom": "Anglais",
-          "offres": 15,
-          "entreprises": 14
+          "offres": 16,
+          "entreprises": 15
         },
         {
           "nom": "Emailing / newsletter",
@@ -1425,13 +1470,18 @@
         },
         {
           "nom": "Excel",
-          "offres": 13,
-          "entreprises": 11
+          "offres": 14,
+          "entreprises": 12
         },
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 10,
-          "entreprises": 10
+          "offres": 11,
+          "entreprises": 11
+        },
+        {
+          "nom": "PowerPoint",
+          "offres": 8,
+          "entreprises": 8
         },
         {
           "nom": "SEO",
@@ -1444,7 +1494,7 @@
           "entreprises": 7
         },
         {
-          "nom": "PowerPoint",
+          "nom": "Canva",
           "offres": 7,
           "entreprises": 7
         },
@@ -1454,7 +1504,7 @@
           "entreprises": 6
         },
         {
-          "nom": "Canva",
+          "nom": "Word",
           "offres": 6,
           "entreprises": 6
         },
@@ -1462,11 +1512,6 @@
           "nom": "CRM",
           "offres": 6,
           "entreprises": 6
-        },
-        {
-          "nom": "Word",
-          "offres": 5,
-          "entreprises": 5
         },
         {
           "nom": "IA (ChatGPT, IA générative…)",
