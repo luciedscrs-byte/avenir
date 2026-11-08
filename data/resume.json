@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-07T12:05:57+00:00",
+  "genere_le": "2026-11-08T12:27:03+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -166,6 +166,11 @@
     },
     {
       "date": "2026-11-07",
+      "total": 114,
+      "alternance": 40
+    },
+    {
+      "date": "2026-11-08",
       "total": 114,
       "alternance": 40
     }
@@ -1269,12 +1274,46 @@
         "Automatisation / marketing automation": 3,
         "Transition écologique / RSE": 1
       }
+    },
+    {
+      "date": "2026-11-08",
+      "avec_texte": 114,
+      "outils": {
+        "Anglais": 17,
+        "Emailing / newsletter": 15,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 14,
+        "Excel": 9,
+        "Canva": 9,
+        "LinkedIn": 11,
+        "IA (ChatGPT, IA générative…)": 8,
+        "SEO": 9,
+        "Pack Office": 9,
+        "CRM": 7,
+        "Instagram": 9,
+        "PowerPoint": 5,
+        "Word": 4,
+        "Facebook": 5,
+        "TikTok": 4,
+        "SEA": 2,
+        "Google Analytics / GA4": 1,
+        "Google Ads": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 36,
+        "Analyse de données (data)": 9,
+        "Automatisation / marketing automation": 3,
+        "Transition écologique / RSE": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-07",
-    "extractions": 32,
+    "au": "2026-11-08",
+    "extractions": 33,
     "flux": [
       {
         "date": "2026-10-08",
@@ -1461,6 +1500,12 @@
         "total": 114,
         "nouvelles": 2,
         "disparues": 4
+      },
+      {
+        "date": "2026-11-08",
+        "total": 114,
+        "nouvelles": 0,
+        "disparues": 0
       }
     ],
     "vues": 291,
@@ -1469,7 +1514,7 @@
     "n_duree": 80
   },
   "derniere": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "total": 114,
     "alternance": 40,
     "part_salaire_affiche": 20,
@@ -1586,7 +1631,7 @@
       }
     ],
     "canaux": {
-      "lba_distinctes": 5,
+      "lba_distinctes": 3,
       "lba_deja_dans_ft": 0
     },
     "n_puy_de_dome": 1,
