@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-11T13:12:50+00:00",
+  "genere_le": "2026-11-12T14:15:11+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -187,6 +187,11 @@
     {
       "date": "2026-11-11",
       "total": 113,
+      "alternance": 39
+    },
+    {
+      "date": "2026-11-12",
+      "total": 114,
       "alternance": 39
     }
   ],
@@ -1428,12 +1433,47 @@
         "Automatisation / marketing automation": 3,
         "Transition écologique / RSE": 2
       }
+    },
+    {
+      "date": "2026-11-12",
+      "avec_texte": 114,
+      "outils": {
+        "Anglais": 15,
+        "Emailing / newsletter": 15,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 14,
+        "LinkedIn": 13,
+        "SEO": 9,
+        "Excel": 8,
+        "Canva": 8,
+        "Pack Office": 10,
+        "PowerPoint": 7,
+        "IA (ChatGPT, IA générative…)": 7,
+        "CRM": 8,
+        "Instagram": 8,
+        "Facebook": 7,
+        "Word": 4,
+        "TikTok": 4,
+        "Google Ads": 2,
+        "YouTube": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 32,
+        "Analyse de données (data)": 6,
+        "Automatisation / marketing automation": 2,
+        "Transition écologique / RSE": 2
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-11",
-    "extractions": 36,
+    "au": "2026-11-12",
+    "extractions": 37,
     "flux": [
       {
         "date": "2026-10-08",
@@ -1644,22 +1684,28 @@
         "total": 113,
         "nouvelles": 5,
         "disparues": 5
+      },
+      {
+        "date": "2026-11-12",
+        "total": 114,
+        "nouvelles": 4,
+        "disparues": 3
       }
     ],
-    "vues": 305,
-    "toute_la_periode": 38,
+    "vues": 309,
+    "toute_la_periode": 37,
     "duree_mediane_jours": 6.0,
-    "n_duree": 94
+    "n_duree": 96
   },
   "derniere": {
-    "date": "2026-11-11",
-    "total": 113,
+    "date": "2026-11-12",
+    "total": 114,
     "alternance": 39,
-    "part_salaire_affiche": 19,
+    "part_salaire_affiche": 20,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 56
+        "n": 57
       },
       {
         "nom": "CDD",
@@ -1673,7 +1719,7 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 74
+        "n": 75
       },
       {
         "nom": "Contrat apprentissage",
@@ -1691,7 +1737,7 @@
       },
       {
         "nom": "75",
-        "n": 11
+        "n": 12
       },
       {
         "nom": "69",
@@ -1718,22 +1764,22 @@
         "n": 4
       },
       {
-        "nom": "66",
+        "nom": "93",
         "n": 3
       },
       {
-        "nom": "93",
-        "n": 2
+        "nom": "66",
+        "n": 3
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 32
+        "n": 34
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
-        "n": 16
+        "n": 15
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
@@ -1741,7 +1787,11 @@
       },
       {
         "nom": "Nouvelle-Aquitaine",
-        "n": 9
+        "n": 8
+      },
+      {
+        "nom": "Occitanie",
+        "n": 7
       },
       {
         "nom": "Hauts-de-France",
@@ -1749,10 +1799,6 @@
       },
       {
         "nom": "Outre-mer",
-        "n": 6
-      },
-      {
-        "nom": "Occitanie",
         "n": 6
       },
       {
@@ -1780,8 +1826,8 @@
       ]
     },
     "teletravail": {
-      "offres": 6,
-      "sur": 113
+      "offres": 5,
+      "sur": 114
     },
     "entreprises": [
       {
@@ -1790,7 +1836,7 @@
       },
       {
         "nom": "ISCOD",
-        "n": 10
+        "n": 9
       },
       {
         "nom": "COMPAGNIE DES ALPES",
@@ -1802,6 +1848,10 @@
       },
       {
         "nom": "SYNERGIE",
+        "n": 2
+      },
+      {
+        "nom": "AUREIS FORMATION",
         "n": 2
       },
       {
@@ -1817,11 +1867,7 @@
         "n": 2
       },
       {
-        "nom": "ITINOVA",
-        "n": 1
-      },
-      {
-        "nom": "MANPOWER FRANCE",
+        "nom": "ANDROS",
         "n": 1
       }
     ],
@@ -1830,7 +1876,7 @@
         "EFC",
         "ISCOD"
       ],
-      "part": 29
+      "part": 28
     },
     "competences": [
       {
@@ -1839,15 +1885,23 @@
       },
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 7
+        "n": 5
       },
       {
         "nom": "Développer l'image et la notoriété de la structure",
+        "n": 3
+      },
+      {
+        "nom": "Concevoir des supports de communication et d'image",
         "n": 2
       },
       {
-        "nom": "Elaborer un plan marketing, une stratégie de marque et de communication",
-        "n": 2
+        "nom": "Participer aux phases créatives d'un projet marketing",
+        "n": 1
+      },
+      {
+        "nom": "Utiliser les outils numériques",
+        "n": 1
       },
       {
         "nom": "Marketing des réseaux sociaux",
@@ -1862,15 +1916,7 @@
         "n": 1
       },
       {
-        "nom": "Concevoir des supports de communication et d'image",
-        "n": 1
-      },
-      {
-        "nom": "#TDFE2026",
-        "n": 1
-      },
-      {
-        "nom": "communication intelligence artificielle",
+        "nom": "Elaborer un plan marketing, une stratégie de marque et de communication",
         "n": 1
       }
     ],
@@ -1879,9 +1925,9 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 56,
-          "affichent": 12,
-          "mediane": 2242,
+          "total": 57,
+          "affichent": 13,
+          "mediane": 2350,
           "min": 1667,
           "max": 3542
         },
@@ -1912,16 +1958,16 @@
       ]
     },
     "outils": {
-      "avec_texte": 113,
+      "avec_texte": 114,
       "liste": [
         {
           "nom": "Anglais",
-          "offres": 16,
-          "entreprises": 15
+          "offres": 15,
+          "entreprises": 14
         },
         {
           "nom": "Emailing / newsletter",
-          "offres": 14,
+          "offres": 15,
           "entreprises": 13
         },
         {
@@ -1936,13 +1982,8 @@
         },
         {
           "nom": "SEO",
-          "offres": 10,
-          "entreprises": 9
-        },
-        {
-          "nom": "IA (ChatGPT, IA générative…)",
           "offres": 9,
-          "entreprises": 9
+          "entreprises": 8
         },
         {
           "nom": "Excel",
@@ -1955,28 +1996,33 @@
           "entreprises": 8
         },
         {
-          "nom": "CRM",
-          "offres": 9,
+          "nom": "Pack Office",
+          "offres": 10,
           "entreprises": 7
         },
         {
-          "nom": "Pack Office",
-          "offres": 9,
-          "entreprises": 6
+          "nom": "PowerPoint",
+          "offres": 7,
+          "entreprises": 7
         },
         {
-          "nom": "PowerPoint",
-          "offres": 6,
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 7,
+          "entreprises": 7
+        },
+        {
+          "nom": "CRM",
+          "offres": 8,
           "entreprises": 6
         },
         {
           "nom": "Instagram",
-          "offres": 7,
+          "offres": 8,
           "entreprises": 4
         },
         {
           "nom": "Facebook",
-          "offres": 6,
+          "offres": 7,
           "entreprises": 4
         },
         {
@@ -1990,22 +2036,17 @@
           "entreprises": 3
         },
         {
-          "nom": "SEA",
-          "offres": 2,
-          "entreprises": 2
-        },
-        {
           "nom": "Google Ads",
           "offres": 2,
           "entreprises": 2
         },
         {
-          "nom": "HubSpot",
-          "offres": 2,
-          "entreprises": 2
+          "nom": "YouTube",
+          "offres": 1,
+          "entreprises": 1
         },
         {
-          "nom": "YouTube",
+          "nom": "SEA",
           "offres": 1,
           "entreprises": 1
         },
@@ -2016,6 +2057,11 @@
         },
         {
           "nom": "Meta Ads / Facebook Ads",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "HubSpot",
           "offres": 1,
           "entreprises": 1
         },
@@ -2034,18 +2080,18 @@
     "mots": [
       {
         "nom": "Réseaux sociaux",
-        "offres": 34,
-        "entreprises": 19
+        "offres": 32,
+        "entreprises": 17
       },
       {
         "nom": "Analyse de données (data)",
-        "offres": 7,
-        "entreprises": 7
+        "offres": 6,
+        "entreprises": 6
       },
       {
         "nom": "Automatisation / marketing automation",
-        "offres": 3,
-        "entreprises": 3
+        "offres": 2,
+        "entreprises": 2
       },
       {
         "nom": "Transition écologique / RSE",
@@ -2054,7 +2100,7 @@
       }
     ],
     "variantes": {
-      "titres": 113,
+      "titres": 114,
       "liste": [
         {
           "nom": "Assistant / Assistante marketing",
@@ -2062,11 +2108,11 @@
         },
         {
           "nom": "Assistant(e) marketing et communication",
-          "n": 12
+          "n": 11
         },
         {
           "nom": "Assistant(e) commercial(e) et marketing",
-          "n": 10
+          "n": 9
         },
         {
           "nom": "Assistant(e) chef de produit",
@@ -2074,7 +2120,7 @@
         }
       ],
       "avec_digital": 4,
-      "avec_alternance": 28,
+      "avec_alternance": 27,
       "sans_marketing": 23,
       "exemples_sans_marketing": [
         "Directeur adjoint H/F",
