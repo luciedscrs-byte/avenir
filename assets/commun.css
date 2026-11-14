@@ -66,3 +66,20 @@
   .legende-graphique { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
   .legende-graphique i { display: inline-block; width: 18px; border-top: 2px solid var(--accent); vertical-align: middle; margin-right: 6px; }
   .legende-graphique i.pointille { border-top: 2px dashed var(--muted); }
+
+  .carte-grille { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 1.25rem; align-items: start; }
+  @media (max-width: 720px) { .carte-grille { grid-template-columns: minmax(0, 1fr); } }
+  #carte-svg { width: 100%; height: auto; display: block; }
+  #carte-svg .dep { cursor: pointer; }
+  #carte-svg .dep:hover, #carte-svg .dep:focus { stroke: var(--text); stroke-width: 1.4; outline: none; }
+  #carte-svg .dep.choisi { stroke: var(--text); stroke-width: 2; }
+  .rond-offres { fill: #f08a3c; fill-opacity: 0.85; stroke: #fff; stroke-width: 1.2; }
+  .rond-nb { font-size: 11px; font-weight: 700; fill: #3a1d00; }
+  .carte-legende { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; }
+  .leg-ligne { display: flex; flex-wrap: wrap; gap: 0.25rem 0.9rem; align-items: center; margin-bottom: 0.3rem; }
+  .leg-item { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .leg-sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+  .leg-rond { width: 14px; height: 14px; border-radius: 50%; background: #f08a3c; display: inline-block; }
+  .carte-detail { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 1rem; }
+  .carte-detail h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+  tr.ligne-choisie { background: var(--accent-soft); }

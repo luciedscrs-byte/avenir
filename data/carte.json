@@ -1,0 +1,933 @@
+{
+ "genere_le": "2026-11-14T23:00:41+00:00",
+ "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
+ "postes": {
+  "responsable-ecommerce": {
+   "libelle": "Responsable e-commerce",
+   "n": 10,
+   "depuis": "2026-11-14"
+  },
+  "responsable-marketing": {
+   "libelle": "Responsable marketing",
+   "n": 41,
+   "depuis": "2026-11-14"
+  },
+  "assistant-marketing": {
+   "libelle": "Assistant marketing",
+   "n": 39,
+   "depuis": "2026-10-07"
+  }
+ },
+ "groupes": [
+  "Agences",
+  "E-commerce",
+  "Industrie",
+  "Marques et commerce spécialisé",
+  "Numérique",
+  "Édition et médias",
+  "Événementiel"
+ ],
+ "offres_sans_departement": {
+  "responsable-marketing": 3
+ },
+ "departements": {
+  "01": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "02": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 2,
+    "total": 2
+   }
+  },
+  "05": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 2,
+    "total": 2
+   }
+  },
+  "06": {
+   "ville": "Nice",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 203,
+    "Édition et médias": 14,
+    "E-commerce": 27,
+    "Événementiel": 22,
+    "Marques et commerce spécialisé": 133,
+    "Industrie": 151,
+    "Agences": 46,
+    "total": 596
+   },
+   "offres": {
+    "responsable-ecommerce": 1,
+    "assistant-marketing": 2,
+    "total": 3
+   }
+  },
+  "12": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 2,
+    "total": 2
+   }
+  },
+  "13": {
+   "ville": "Marseille, Aix-en-Provence",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 337,
+    "Marques et commerce spécialisé": 200,
+    "Édition et médias": 58,
+    "E-commerce": 42,
+    "Événementiel": 18,
+    "Industrie": 356,
+    "Agences": 107,
+    "total": 1118
+   },
+   "offres": {
+    "responsable-marketing": 2,
+    "total": 2
+   }
+  },
+  "14": {
+   "ville": "Caen",
+   "couvert": true,
+   "entreprises": {
+    "Industrie": 190,
+    "Numérique": 59,
+    "E-commerce": 12,
+    "Marques et commerce spécialisé": 46,
+    "Édition et médias": 9,
+    "Événementiel": 7,
+    "Agences": 24,
+    "total": 347
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "19": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "21": {
+   "ville": "Dijon",
+   "couvert": true,
+   "entreprises": {
+    "Marques et commerce spécialisé": 26,
+    "Édition et médias": 13,
+    "Numérique": 45,
+    "Événementiel": 3,
+    "E-commerce": 5,
+    "Industrie": 183,
+    "Agences": 21,
+    "total": 296
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "22": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "25": {
+   "ville": "Besançon",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 42,
+    "E-commerce": 5,
+    "Marques et commerce spécialisé": 34,
+    "Événementiel": 1,
+    "Édition et médias": 3,
+    "Industrie": 247,
+    "Agences": 11,
+    "total": 343
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "29": {
+   "ville": "Brest",
+   "couvert": true,
+   "entreprises": {
+    "Édition et médias": 13,
+    "Numérique": 50,
+    "Marques et commerce spécialisé": 75,
+    "E-commerce": 8,
+    "Événementiel": 4,
+    "Industrie": 284,
+    "Agences": 12,
+    "total": 446
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "30": {
+   "ville": "Nîmes",
+   "couvert": true,
+   "entreprises": {
+    "Marques et commerce spécialisé": 45,
+    "Numérique": 37,
+    "E-commerce": 11,
+    "Événementiel": 3,
+    "Édition et médias": 8,
+    "Industrie": 127,
+    "Agences": 16,
+    "total": 247
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "31": {
+   "ville": "Toulouse",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 333,
+    "Édition et médias": 32,
+    "Marques et commerce spécialisé": 88,
+    "Événementiel": 17,
+    "E-commerce": 31,
+    "Industrie": 306,
+    "Agences": 71,
+    "total": 878
+   },
+   "offres": {
+    "responsable-ecommerce": 1,
+    "total": 1
+   }
+  },
+  "32": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-ecommerce": 1,
+    "total": 1
+   }
+  },
+  "33": {
+   "ville": "Bordeaux",
+   "couvert": true,
+   "entreprises": {
+    "Édition et médias": 29,
+    "Marques et commerce spécialisé": 115,
+    "E-commerce": 48,
+    "Numérique": 261,
+    "Événementiel": 16,
+    "Industrie": 334,
+    "Agences": 84,
+    "total": 887
+   },
+   "offres": {
+    "responsable-marketing": 2,
+    "assistant-marketing": 1,
+    "total": 3
+   }
+  },
+  "34": {
+   "ville": "Montpellier",
+   "couvert": true,
+   "entreprises": {
+    "Marques et commerce spécialisé": 93,
+    "Numérique": 238,
+    "Édition et médias": 30,
+    "E-commerce": 24,
+    "Événementiel": 10,
+    "Industrie": 209,
+    "Agences": 47,
+    "total": 651
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "35": {
+   "ville": "Rennes",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 196,
+    "Marques et commerce spécialisé": 134,
+    "Édition et médias": 28,
+    "Événementiel": 8,
+    "E-commerce": 16,
+    "Industrie": 344,
+    "Agences": 54,
+    "total": 780
+   },
+   "offres": {
+    "responsable-marketing": 2,
+    "total": 2
+   }
+  },
+  "37": {
+   "ville": "Tours",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 56,
+    "Édition et médias": 11,
+    "Marques et commerce spécialisé": 35,
+    "Événementiel": 4,
+    "E-commerce": 2,
+    "Industrie": 160,
+    "Agences": 21,
+    "total": 289
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "38": {
+   "ville": "Grenoble",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 223,
+    "Édition et médias": 12,
+    "Marques et commerce spécialisé": 73,
+    "E-commerce": 23,
+    "Événementiel": 5,
+    "Industrie": 485,
+    "Agences": 23,
+    "total": 844
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "42": {
+   "ville": "Saint-Étienne",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 62,
+    "Marques et commerce spécialisé": 60,
+    "E-commerce": 14,
+    "Événementiel": 2,
+    "Édition et médias": 6,
+    "Industrie": 406,
+    "Agences": 24,
+    "total": 574
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "44": {
+   "ville": "Nantes",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 297,
+    "E-commerce": 25,
+    "Événementiel": 19,
+    "Édition et médias": 22,
+    "Marques et commerce spécialisé": 90,
+    "Industrie": 471,
+    "Agences": 108,
+    "total": 1032
+   },
+   "offres": {
+    "assistant-marketing": 2,
+    "total": 2
+   }
+  },
+  "45": {
+   "ville": "Orléans",
+   "couvert": true,
+   "entreprises": {
+    "Marques et commerce spécialisé": 45,
+    "Numérique": 45,
+    "Édition et médias": 7,
+    "Événementiel": 9,
+    "E-commerce": 4,
+    "Industrie": 171,
+    "Agences": 18,
+    "total": 299
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "49": {
+   "ville": "Angers",
+   "couvert": true,
+   "entreprises": {
+    "Marques et commerce spécialisé": 61,
+    "Numérique": 63,
+    "Événementiel": 3,
+    "E-commerce": 7,
+    "Édition et médias": 10,
+    "Industrie": 395,
+    "Agences": 24,
+    "total": 563
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "50": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "51": {
+   "ville": "Reims",
+   "couvert": true,
+   "entreprises": {
+    "Industrie": 174,
+    "Numérique": 34,
+    "Édition et médias": 4,
+    "E-commerce": 5,
+    "Marques et commerce spécialisé": 24,
+    "Agences": 20,
+    "Événementiel": 3,
+    "total": 264
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "53": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-ecommerce": 1,
+    "total": 1
+   }
+  },
+  "54": {
+   "ville": "Nancy",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 55,
+    "Édition et médias": 7,
+    "Marques et commerce spécialisé": 24,
+    "E-commerce": 4,
+    "Événementiel": 1,
+    "Industrie": 145,
+    "Agences": 19,
+    "total": 255
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "57": {
+   "ville": "Metz",
+   "couvert": true,
+   "entreprises": {
+    "Industrie": 262,
+    "Numérique": 50,
+    "Marques et commerce spécialisé": 59,
+    "Édition et médias": 4,
+    "E-commerce": 8,
+    "Événementiel": 4,
+    "Agences": 10,
+    "total": 397
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "58": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-ecommerce": 1,
+    "total": 1
+   }
+  },
+  "59": {
+   "ville": "Lille",
+   "couvert": true,
+   "entreprises": {
+    "E-commerce": 68,
+    "Marques et commerce spécialisé": 186,
+    "Numérique": 404,
+    "Industrie": 735,
+    "Agences": 108,
+    "Édition et médias": 38,
+    "Événementiel": 14,
+    "total": 1553
+   },
+   "offres": {
+    "assistant-marketing": 2,
+    "total": 2
+   }
+  },
+  "60": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "63": {
+   "ville": "Clermont-Ferrand",
+   "couvert": true,
+   "entreprises": {
+    "Édition et médias": 15,
+    "Numérique": 61,
+    "Marques et commerce spécialisé": 38,
+    "E-commerce": 11,
+    "Événementiel": 6,
+    "Industrie": 196,
+    "Agences": 21,
+    "total": 348
+   },
+   "offres": {
+    "responsable-ecommerce": 1,
+    "responsable-marketing": 1,
+    "total": 2
+   }
+  },
+  "66": {
+   "ville": "Perpignan",
+   "couvert": true,
+   "entreprises": {
+    "Édition et médias": 6,
+    "Numérique": 28,
+    "Marques et commerce spécialisé": 40,
+    "E-commerce": 6,
+    "Événementiel": 2,
+    "Industrie": 64,
+    "Agences": 9,
+    "total": 155
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "67": {
+   "ville": "Strasbourg",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 166,
+    "Marques et commerce spécialisé": 82,
+    "Édition et médias": 23,
+    "E-commerce": 18,
+    "Événementiel": 6,
+    "Industrie": 448,
+    "Agences": 43,
+    "total": 786
+   },
+   "offres": {
+    "responsable-marketing": 2,
+    "assistant-marketing": 1,
+    "total": 3
+   }
+  },
+  "68": {
+   "ville": "Mulhouse",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 46,
+    "Édition et médias": 6,
+    "Marques et commerce spécialisé": 48,
+    "Événementiel": 4,
+    "E-commerce": 12,
+    "Industrie": 300,
+    "Agences": 19,
+    "total": 435
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "69": {
+   "ville": "Lyon, Villeurbanne",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 692,
+    "Marques et commerce spécialisé": 127,
+    "E-commerce": 48,
+    "Édition et médias": 68,
+    "Événementiel": 36,
+    "Industrie": 702,
+    "Agences": 181,
+    "total": 1854
+   },
+   "offres": {
+    "responsable-ecommerce": 2,
+    "responsable-marketing": 3,
+    "assistant-marketing": 5,
+    "total": 10
+   }
+  },
+  "72": {
+   "ville": "Le Mans",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 30,
+    "Marques et commerce spécialisé": 32,
+    "E-commerce": 4,
+    "Événementiel": 4,
+    "Édition et médias": 4,
+    "Industrie": 203,
+    "Agences": 11,
+    "total": 288
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "74": {
+   "ville": "Annecy",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 88,
+    "Marques et commerce spécialisé": 64,
+    "E-commerce": 17,
+    "Édition et médias": 11,
+    "Événementiel": 7,
+    "Industrie": 357,
+    "Agences": 32,
+    "total": 576
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "75": {
+   "ville": "Paris",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 2878,
+    "Édition et médias": 1011,
+    "Marques et commerce spécialisé": 723,
+    "E-commerce": 190,
+    "Événementiel": 202,
+    "Industrie": 582,
+    "Agences": 1057,
+    "total": 6643
+   },
+   "offres": {
+    "responsable-ecommerce": 1,
+    "responsable-marketing": 1,
+    "assistant-marketing": 4,
+    "total": 6
+   }
+  },
+  "76": {
+   "ville": "Le Havre, Rouen",
+   "couvert": true,
+   "entreprises": {
+    "Industrie": 317,
+    "E-commerce": 7,
+    "Numérique": 81,
+    "Marques et commerce spécialisé": 68,
+    "Édition et médias": 11,
+    "Événementiel": 8,
+    "Agences": 28,
+    "total": 520
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "77": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "assistant-marketing": 1,
+    "total": 2
+   }
+  },
+  "78": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "79": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "80": {
+   "ville": "Amiens",
+   "couvert": true,
+   "entreprises": {
+    "Industrie": 171,
+    "Édition et médias": 4,
+    "Agences": 10,
+    "Numérique": 16,
+    "Marques et commerce spécialisé": 30,
+    "E-commerce": 4,
+    "Événementiel": 3,
+    "total": 238
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "82": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "83": {
+   "ville": "Toulon",
+   "couvert": true,
+   "entreprises": {
+    "Marques et commerce spécialisé": 84,
+    "Numérique": 46,
+    "E-commerce": 15,
+    "Événementiel": 3,
+    "Édition et médias": 4,
+    "Industrie": 106,
+    "Agences": 26,
+    "total": 284
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "assistant-marketing": 1,
+    "total": 2
+   }
+  },
+  "84": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "87": {
+   "ville": "Limoges",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 21,
+    "Édition et médias": 3,
+    "Marques et commerce spécialisé": 16,
+    "Événementiel": 2,
+    "E-commerce": 3,
+    "Industrie": 115,
+    "Agences": 11,
+    "total": 171
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "88": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "91": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "assistant-marketing": 1,
+    "total": 2
+   }
+  },
+  "92": {
+   "ville": "Boulogne-Billancourt",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 1315,
+    "Marques et commerce spécialisé": 109,
+    "Édition et médias": 247,
+    "Événementiel": 56,
+    "E-commerce": 39,
+    "Industrie": 374,
+    "Agences": 368,
+    "total": 2508
+   },
+   "offres": {
+    "responsable-ecommerce": 1,
+    "responsable-marketing": 7,
+    "assistant-marketing": 1,
+    "total": 9
+   }
+  },
+  "93": {
+   "ville": "Saint-Denis, Montreuil",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 197,
+    "Marques et commerce spécialisé": 98,
+    "E-commerce": 32,
+    "Édition et médias": 61,
+    "Événementiel": 41,
+    "Industrie": 209,
+    "Agences": 91,
+    "total": 729
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "assistant-marketing": 1,
+    "total": 2
+   }
+  },
+  "94": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 2,
+    "assistant-marketing": 1,
+    "total": 3
+   }
+  },
+  "95": {
+   "ville": "Argenteuil",
+   "couvert": true,
+   "entreprises": {
+    "Numérique": 73,
+    "Événementiel": 22,
+    "Marques et commerce spécialisé": 58,
+    "Édition et médias": 5,
+    "E-commerce": 16,
+    "Industrie": 218,
+    "Agences": 42,
+    "total": 434
+   },
+   "offres": {
+    "total": 0
+   }
+  },
+  "972": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "973": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "responsable-marketing": 1,
+    "total": 1
+   }
+  },
+  "974": {
+   "ville": "Saint-Denis, Saint-Paul (La Réunion)",
+   "couvert": true,
+   "entreprises": {
+    "Édition et médias": 16,
+    "Marques et commerce spécialisé": 154,
+    "Numérique": 51,
+    "Événementiel": 3,
+    "E-commerce": 3,
+    "Industrie": 188,
+    "Agences": 37,
+    "total": 452
+   },
+   "offres": {
+    "assistant-marketing": 2,
+    "total": 2
+   }
+  }
+ }
+}
