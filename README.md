@@ -71,6 +71,16 @@ Comment les deux postes de responsable sont repérés : les offres des codes ROM
 3. Quelle fourchette de salaire est proposée, et comment se compare-t-elle au salaire médian d'insertion ?
 4. Comment le marché bouge-t-il, et qui recrute, y compris sans annonce ?
 
+**Questions supplémentaires gardées** (le cours conseille de ne garder que celles qui apprennent quelque chose ; elles sont calculées par `scripts/questions.py` et affichées en bas de la page *Le métier*, avec le responsable marketing comme poste de référence puisqu'il a le plus d'offres en vrais CDI / CDD) :
+
+5. Qu'est-ce qui change dans les outils quand on passe d'assistant à responsable marketing ?
+6. S'intéresser à Paris est-il vraiment mieux pour trouver un travail ? (part des offres en Île-de-France, par zone, et salaires affichés comparés)
+7. Quelles sont les missions récurrentes des trois postes ? (thèmes repérés par mots-clés dans les lignes de missions, verbes les plus fréquents)
+8. Quelle expérience est demandée ? (débutant accepté, durée, poste cadre)
+9. Qui recrute vraiment : type d'entreprise, secteur, entreprises qui travaillent pour des clients (agences, conseil, intérim) ou pour elles-mêmes, offres sans nom d'employeur ?
+
+*Limites :* échantillons petits (10 offres e-commerce, 41 responsable marketing, 39 assistant marketing) ; le type d'entreprise est déduit du code d'activité (NAF) de l'annonce, inconnu pour 39 % (responsable marketing) à 69 % (assistant marketing) des offres, et la frontière « pour des clients / pour elle-même » est indicative ; les thèmes de missions sont repérés par mots-clés ; l'expérience et le secteur des offres d'assistant marketing ne sont connus que pour celles encore en ligne le 14/11, car `fetch_offres.py` ne les enregistrait pas avant (`data/enrichissement_M1620_2026-11-14.csv` les ajoute pour ce jour), et ils se complètent à chaque extraction.
+
 ## 3. Les entreprises qui recrutent le plus l'assistant marketing
 
 **Période et méthode** (série de l'assistant marketing, M1620, toutes offres confondues). 24 extractions du 7 au 30 octobre 2026, France entière, code ROME M1620 : 252 identifiants d'offres, soit **212 annonces distinctes** une fois regroupées par entreprise, titre et lieu (une annonce republiée reçoit un nouvel identifiant). **60 annonces distinctes (28 %) n'ont aucun nom d'employeur** et ne peuvent pas être classées. Les noms sont ceux déclarés dans les annonces ; une nature n'est indiquée que lorsque j'ai lu le texte de l'annonce.
@@ -111,6 +121,7 @@ Pour le **responsable marketing** (un seul jour de suivi, le 14/11), aucun emplo
 - `scripts/textes.py` — garde le texte de chaque annonce une seule fois, dans `data/textes.jsonl`
 - `scripts/fetch_responsables.py` et `scripts/postes.py` — extraction des deux postes de responsable (vrais CDI / CDD) → `data/offres_responsable-marketing_<date>.csv` et `data/offres_responsable-ecommerce_<date>.csv`
 - `scripts/resumer.py` — calcule `data/resume.json` (toutes les offres M1620), `data/resume_emploi.json` (la même série en CDI / CDD seulement) et `data/rapport.md` (rapport lisible) ; `scripts/resumer_postes.py` calcule `data/resume_postes.json` (les deux postes de responsable)
+- `scripts/questions.py` — calcule `data/questions.json` (outils, Paris, missions, expérience, recruteurs, pour les trois postes) ; `data/enrichissement_M1620_2026-11-14.csv` complète les offres M1620 du 14/11 avec expérience, secteur et code NAF
 - `scripts/entreprises.py` — le marché caché : `data/entreprises.csv` (lancé à la main, pas chaque jour)
 - `data/formation.json` — ce que le descriptif public du M2 MOD nomme (outils, unités, métiers et codes ROME visés), lu le 30/10/2026, source des tableaux « formation » du site
 - Le site, servi par GitHub Pages, en quatre pages qui lisent `data/resume.json`, `data/resume_emploi.json`, `data/resume_postes.json` et `data/entreprises.csv` (un sélecteur « toutes les offres / CDI / CDD seulement » change la vue) : `metier.html` (le métier tel que le marché le nomme), `index.html` (les offres), `mouvement.html` (comment le métier bouge : courbe, offres nouvelles et disparues, outils suivis, source Apec) et `entreprises.html` (le marché caché) ; `assets/commun.css` et `assets/commun.js` partagés

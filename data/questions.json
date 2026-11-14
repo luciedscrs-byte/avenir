@@ -1,0 +1,1084 @@
+{
+  "genere_le": "2026-11-14T20:11:42+00:00",
+  "regle": "vrais CDI et CDD, une offre comptée une fois",
+  "poste_de_reference": "responsable-marketing",
+  "postes": {
+    "responsable-ecommerce": {
+      "libelle": "Responsable e-commerce",
+      "n": 10,
+      "depuis": "2026-11-14",
+      "jours": 1
+    },
+    "responsable-marketing": {
+      "libelle": "Responsable marketing",
+      "n": 41,
+      "depuis": "2026-11-14",
+      "jours": 1
+    },
+    "assistant-marketing": {
+      "libelle": "Assistant marketing",
+      "n": 39,
+      "depuis": "2026-10-07",
+      "jours": 39
+    }
+  },
+  "outils": {
+    "n_assistant": 39,
+    "n_responsable_marketing": 41,
+    "n_responsable_ecommerce": 10,
+    "outils": [
+      {
+        "nom": "LinkedIn",
+        "assistant": 5,
+        "responsable_marketing": 22,
+        "responsable_ecommerce": 0,
+        "ecart": 17
+      },
+      {
+        "nom": "CRM",
+        "assistant": 10,
+        "responsable_marketing": 27,
+        "responsable_ecommerce": 20,
+        "ecart": 17
+      },
+      {
+        "nom": "SEO",
+        "assistant": 10,
+        "responsable_marketing": 22,
+        "responsable_ecommerce": 10,
+        "ecart": 12
+      },
+      {
+        "nom": "IA (ChatGPT, IA générative…)",
+        "assistant": 5,
+        "responsable_marketing": 17,
+        "responsable_ecommerce": 10,
+        "ecart": 12
+      },
+      {
+        "nom": "SEA",
+        "assistant": 5,
+        "responsable_marketing": 12,
+        "responsable_ecommerce": 10,
+        "ecart": 7
+      },
+      {
+        "nom": "HubSpot",
+        "assistant": 3,
+        "responsable_marketing": 10,
+        "responsable_ecommerce": 0,
+        "ecart": 7
+      },
+      {
+        "nom": "TikTok",
+        "assistant": 0,
+        "responsable_marketing": 5,
+        "responsable_ecommerce": 0,
+        "ecart": 5
+      },
+      {
+        "nom": "Google Analytics / GA4",
+        "assistant": 5,
+        "responsable_marketing": 10,
+        "responsable_ecommerce": 10,
+        "ecart": 5
+      },
+      {
+        "nom": "Power BI / Looker Studio",
+        "assistant": 0,
+        "responsable_marketing": 5,
+        "responsable_ecommerce": 0,
+        "ecart": 5
+      },
+      {
+        "nom": "Google Ads",
+        "assistant": 3,
+        "responsable_marketing": 7,
+        "responsable_ecommerce": 0,
+        "ecart": 4
+      },
+      {
+        "nom": "Mailchimp, Brevo, Sendinblue, Klaviyo",
+        "assistant": 3,
+        "responsable_marketing": 7,
+        "responsable_ecommerce": 0,
+        "ecart": 4
+      },
+      {
+        "nom": "Meta Ads / Facebook Ads",
+        "assistant": 5,
+        "responsable_marketing": 5,
+        "responsable_ecommerce": 0,
+        "ecart": 0
+      },
+      {
+        "nom": "Instagram",
+        "assistant": 8,
+        "responsable_marketing": 5,
+        "responsable_ecommerce": 0,
+        "ecart": -3
+      },
+      {
+        "nom": "Facebook",
+        "assistant": 8,
+        "responsable_marketing": 5,
+        "responsable_ecommerce": 0,
+        "ecart": -3
+      },
+      {
+        "nom": "PowerPoint",
+        "assistant": 15,
+        "responsable_marketing": 10,
+        "responsable_ecommerce": 0,
+        "ecart": -5
+      },
+      {
+        "nom": "Word",
+        "assistant": 8,
+        "responsable_marketing": 2,
+        "responsable_ecommerce": 0,
+        "ecart": -6
+      },
+      {
+        "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
+        "assistant": 21,
+        "responsable_marketing": 15,
+        "responsable_ecommerce": 10,
+        "ecart": -6
+      },
+      {
+        "nom": "WordPress",
+        "assistant": 8,
+        "responsable_marketing": 0,
+        "responsable_ecommerce": 0,
+        "ecart": -8
+      },
+      {
+        "nom": "Anglais",
+        "assistant": 33,
+        "responsable_marketing": 24,
+        "responsable_ecommerce": 20,
+        "ecart": -9
+      },
+      {
+        "nom": "Canva",
+        "assistant": 21,
+        "responsable_marketing": 10,
+        "responsable_ecommerce": 0,
+        "ecart": -11
+      },
+      {
+        "nom": "Excel",
+        "assistant": 26,
+        "responsable_marketing": 12,
+        "responsable_ecommerce": 0,
+        "ecart": -14
+      },
+      {
+        "nom": "Pack Office",
+        "assistant": 15,
+        "responsable_marketing": 0,
+        "responsable_ecommerce": 0,
+        "ecart": -15
+      },
+      {
+        "nom": "Emailing / newsletter",
+        "assistant": 44,
+        "responsable_marketing": 17,
+        "responsable_ecommerce": 10,
+        "ecart": -27
+      }
+    ]
+  },
+  "paris": {
+    "responsable-ecommerce": {
+      "n": 10,
+      "idf_n": 2,
+      "idf_part": 20,
+      "zones": [
+        {
+          "zone": "Hors Île-de-France",
+          "n": 8,
+          "part": 80,
+          "salaires": 2,
+          "mediane": 3288,
+          "debutant": 12,
+          "n_experience": 8
+        },
+        {
+          "zone": "Paris (75)",
+          "n": 1,
+          "part": 10,
+          "salaires": 0,
+          "mediane": null,
+          "debutant": 100,
+          "n_experience": 1
+        },
+        {
+          "zone": "Petite couronne (92, 93, 94)",
+          "n": 1,
+          "part": 10,
+          "salaires": 0,
+          "mediane": null,
+          "debutant": 0,
+          "n_experience": 1
+        }
+      ],
+      "salaire_idf": {
+        "n": 0,
+        "mediane": null
+      },
+      "salaire_reste": {
+        "n": 2,
+        "mediane": 3288
+      }
+    },
+    "responsable-marketing": {
+      "n": 41,
+      "idf_n": 14,
+      "idf_part": 34,
+      "zones": [
+        {
+          "zone": "Hors Île-de-France",
+          "n": 24,
+          "part": 59,
+          "salaires": 11,
+          "mediane": 3750,
+          "debutant": 46,
+          "n_experience": 24
+        },
+        {
+          "zone": "Petite couronne (92, 93, 94)",
+          "n": 10,
+          "part": 24,
+          "salaires": 4,
+          "mediane": 3688,
+          "debutant": 20,
+          "n_experience": 10
+        },
+        {
+          "zone": "Reste de l'Île-de-France",
+          "n": 3,
+          "part": 7,
+          "salaires": 1,
+          "mediane": 3333,
+          "debutant": 33,
+          "n_experience": 3
+        },
+        {
+          "zone": "Lieu non précisé",
+          "n": 3,
+          "part": 7,
+          "salaires": 1,
+          "mediane": 1867,
+          "debutant": 0,
+          "n_experience": 3
+        },
+        {
+          "zone": "Paris (75)",
+          "n": 1,
+          "part": 2,
+          "salaires": 0,
+          "mediane": null,
+          "debutant": 0,
+          "n_experience": 1
+        }
+      ],
+      "salaire_idf": {
+        "n": 5,
+        "mediane": 3542
+      },
+      "salaire_reste": {
+        "n": 11,
+        "mediane": 3750
+      }
+    },
+    "assistant-marketing": {
+      "n": 39,
+      "idf_n": 9,
+      "idf_part": 23,
+      "zones": [
+        {
+          "zone": "Hors Île-de-France",
+          "n": 30,
+          "part": 77,
+          "salaires": 16,
+          "mediane": 2128,
+          "debutant": 44,
+          "n_experience": 9
+        },
+        {
+          "zone": "Paris (75)",
+          "n": 4,
+          "part": 10,
+          "salaires": 4,
+          "mediane": 2338,
+          "debutant": 67,
+          "n_experience": 3
+        },
+        {
+          "zone": "Petite couronne (92, 93, 94)",
+          "n": 3,
+          "part": 8,
+          "salaires": 2,
+          "mediane": 2446,
+          "debutant": 0,
+          "n_experience": 2
+        },
+        {
+          "zone": "Reste de l'Île-de-France",
+          "n": 2,
+          "part": 5,
+          "salaires": 1,
+          "mediane": 2000,
+          "debutant": 0,
+          "n_experience": 1
+        }
+      ],
+      "salaire_idf": {
+        "n": 7,
+        "mediane": 2325
+      },
+      "salaire_reste": {
+        "n": 16,
+        "mediane": 2128
+      }
+    }
+  },
+  "missions": {
+    "par_poste": {
+      "responsable-ecommerce": {
+        "offres": 10,
+        "avec_missions": 9,
+        "couverture": 90,
+        "themes": [
+          {
+            "nom": "Site web, SEO, acquisition, e-commerce",
+            "n": 8,
+            "part": 89
+          },
+          {
+            "nom": "Contenus et supports (création, rédaction)",
+            "n": 7,
+            "part": 78
+          },
+          {
+            "nom": "Analyse, reporting, études, veille",
+            "n": 7,
+            "part": 78
+          },
+          {
+            "nom": "Produit, offre, catalogue, merchandising",
+            "n": 6,
+            "part": 67
+          },
+          {
+            "nom": "Management et coordination d'équipe",
+            "n": 6,
+            "part": 67
+          },
+          {
+            "nom": "Appui commercial, ventes, promotion",
+            "n": 5,
+            "part": 56
+          },
+          {
+            "nom": "Suivi administratif, planning, coordination",
+            "n": 5,
+            "part": 56
+          },
+          {
+            "nom": "Budget, prestataires et agences",
+            "n": 5,
+            "part": 56
+          },
+          {
+            "nom": "Stratégie et plan marketing",
+            "n": 3,
+            "part": 33
+          },
+          {
+            "nom": "Emailing, newsletters, CRM, fidélisation",
+            "n": 2,
+            "part": 22
+          },
+          {
+            "nom": "Campagnes (conception, pilotage, suivi)",
+            "n": 1,
+            "part": 11
+          },
+          {
+            "nom": "Communication interne et externe, presse",
+            "n": 1,
+            "part": 11
+          }
+        ],
+        "verbes": [
+          {
+            "nom": "assurer",
+            "part": 67
+          },
+          {
+            "nom": "piloter",
+            "part": 56
+          },
+          {
+            "nom": "suivre",
+            "part": 44
+          },
+          {
+            "nom": "accompagner",
+            "part": 44
+          },
+          {
+            "nom": "analyser",
+            "part": 44
+          },
+          {
+            "nom": "créer",
+            "part": 33
+          },
+          {
+            "nom": "rédiger",
+            "part": 33
+          },
+          {
+            "nom": "participer",
+            "part": 33
+          }
+        ]
+      },
+      "responsable-marketing": {
+        "offres": 41,
+        "avec_missions": 34,
+        "couverture": 83,
+        "themes": [
+          {
+            "nom": "Analyse, reporting, études, veille",
+            "n": 27,
+            "part": 79
+          },
+          {
+            "nom": "Appui commercial, ventes, promotion",
+            "n": 23,
+            "part": 68
+          },
+          {
+            "nom": "Stratégie et plan marketing",
+            "n": 20,
+            "part": 59
+          },
+          {
+            "nom": "Management et coordination d'équipe",
+            "n": 20,
+            "part": 59
+          },
+          {
+            "nom": "Contenus et supports (création, rédaction)",
+            "n": 18,
+            "part": 53
+          },
+          {
+            "nom": "Communication interne et externe, presse",
+            "n": 18,
+            "part": 53
+          },
+          {
+            "nom": "Produit, offre, catalogue, merchandising",
+            "n": 18,
+            "part": 53
+          },
+          {
+            "nom": "Site web, SEO, acquisition, e-commerce",
+            "n": 16,
+            "part": 47
+          },
+          {
+            "nom": "Campagnes (conception, pilotage, suivi)",
+            "n": 13,
+            "part": 38
+          },
+          {
+            "nom": "Budget, prestataires et agences",
+            "n": 12,
+            "part": 35
+          },
+          {
+            "nom": "Événements, salons, webinaires",
+            "n": 11,
+            "part": 32
+          },
+          {
+            "nom": "Suivi administratif, planning, coordination",
+            "n": 10,
+            "part": 29
+          },
+          {
+            "nom": "Réseaux sociaux et communication digitale",
+            "n": 9,
+            "part": 26
+          },
+          {
+            "nom": "Emailing, newsletters, CRM, fidélisation",
+            "n": 9,
+            "part": 26
+          }
+        ],
+        "verbes": [
+          {
+            "nom": "piloter",
+            "part": 56
+          },
+          {
+            "nom": "définir",
+            "part": 47
+          },
+          {
+            "nom": "assurer",
+            "part": 35
+          },
+          {
+            "nom": "développer",
+            "part": 35
+          },
+          {
+            "nom": "suivre",
+            "part": 32
+          },
+          {
+            "nom": "votre",
+            "part": 29
+          },
+          {
+            "nom": "participer",
+            "part": 29
+          },
+          {
+            "nom": "concevoir",
+            "part": 26
+          }
+        ]
+      },
+      "assistant-marketing": {
+        "offres": 39,
+        "avec_missions": 25,
+        "couverture": 64,
+        "themes": [
+          {
+            "nom": "Contenus et supports (création, rédaction)",
+            "n": 15,
+            "part": 60
+          },
+          {
+            "nom": "Analyse, reporting, études, veille",
+            "n": 14,
+            "part": 56
+          },
+          {
+            "nom": "Appui commercial, ventes, promotion",
+            "n": 14,
+            "part": 56
+          },
+          {
+            "nom": "Communication interne et externe, presse",
+            "n": 14,
+            "part": 56
+          },
+          {
+            "nom": "Produit, offre, catalogue, merchandising",
+            "n": 14,
+            "part": 56
+          },
+          {
+            "nom": "Événements, salons, webinaires",
+            "n": 12,
+            "part": 48
+          },
+          {
+            "nom": "Emailing, newsletters, CRM, fidélisation",
+            "n": 11,
+            "part": 44
+          },
+          {
+            "nom": "Site web, SEO, acquisition, e-commerce",
+            "n": 11,
+            "part": 44
+          },
+          {
+            "nom": "Suivi administratif, planning, coordination",
+            "n": 10,
+            "part": 40
+          },
+          {
+            "nom": "Campagnes (conception, pilotage, suivi)",
+            "n": 9,
+            "part": 36
+          },
+          {
+            "nom": "Réseaux sociaux et communication digitale",
+            "n": 9,
+            "part": 36
+          },
+          {
+            "nom": "Budget, prestataires et agences",
+            "n": 5,
+            "part": 20
+          },
+          {
+            "nom": "Stratégie et plan marketing",
+            "n": 4,
+            "part": 16
+          },
+          {
+            "nom": "Management et coordination d'équipe",
+            "n": 3,
+            "part": 12
+          }
+        ],
+        "verbes": [
+          {
+            "nom": "assurer",
+            "part": 44
+          },
+          {
+            "nom": "gérer",
+            "part": 40
+          },
+          {
+            "nom": "participer",
+            "part": 40
+          },
+          {
+            "nom": "contribuer",
+            "part": 36
+          },
+          {
+            "nom": "suivre",
+            "part": 32
+          },
+          {
+            "nom": "mettre",
+            "part": 28
+          },
+          {
+            "nom": "créer",
+            "part": 28
+          },
+          {
+            "nom": "réaliser",
+            "part": 28
+          }
+        ]
+      }
+    },
+    "tous": {
+      "offres": 90,
+      "avec_missions": 68,
+      "couverture": 76,
+      "themes": [
+        {
+          "nom": "Analyse, reporting, études, veille",
+          "n": 48,
+          "part": 71
+        },
+        {
+          "nom": "Appui commercial, ventes, promotion",
+          "n": 42,
+          "part": 62
+        },
+        {
+          "nom": "Contenus et supports (création, rédaction)",
+          "n": 40,
+          "part": 59
+        },
+        {
+          "nom": "Produit, offre, catalogue, merchandising",
+          "n": 38,
+          "part": 56
+        },
+        {
+          "nom": "Site web, SEO, acquisition, e-commerce",
+          "n": 35,
+          "part": 51
+        },
+        {
+          "nom": "Communication interne et externe, presse",
+          "n": 33,
+          "part": 49
+        },
+        {
+          "nom": "Management et coordination d'équipe",
+          "n": 29,
+          "part": 43
+        },
+        {
+          "nom": "Stratégie et plan marketing",
+          "n": 27,
+          "part": 40
+        },
+        {
+          "nom": "Suivi administratif, planning, coordination",
+          "n": 25,
+          "part": 37
+        },
+        {
+          "nom": "Campagnes (conception, pilotage, suivi)",
+          "n": 23,
+          "part": 34
+        },
+        {
+          "nom": "Événements, salons, webinaires",
+          "n": 23,
+          "part": 34
+        },
+        {
+          "nom": "Emailing, newsletters, CRM, fidélisation",
+          "n": 22,
+          "part": 32
+        },
+        {
+          "nom": "Budget, prestataires et agences",
+          "n": 22,
+          "part": 32
+        },
+        {
+          "nom": "Réseaux sociaux et communication digitale",
+          "n": 18,
+          "part": 26
+        }
+      ],
+      "verbes": [
+        {
+          "nom": "assurer",
+          "part": 43
+        },
+        {
+          "nom": "piloter",
+          "part": 41
+        },
+        {
+          "nom": "participer",
+          "part": 34
+        },
+        {
+          "nom": "suivre",
+          "part": 34
+        },
+        {
+          "nom": "définir",
+          "part": 29
+        },
+        {
+          "nom": "développer",
+          "part": 25
+        },
+        {
+          "nom": "analyser",
+          "part": 25
+        },
+        {
+          "nom": "contribuer",
+          "part": 24
+        }
+      ]
+    }
+  },
+  "experience": {
+    "responsable-ecommerce": {
+      "n": 10,
+      "sur": 10,
+      "repartition": [
+        {
+          "nom": "Débutant accepté",
+          "n": 2,
+          "part": 20
+        },
+        {
+          "nom": "1 à 2 ans",
+          "n": 4,
+          "part": 40
+        },
+        {
+          "nom": "3 à 5 ans",
+          "n": 3,
+          "part": 30
+        },
+        {
+          "nom": "Expérience exigée, durée non précisée",
+          "n": 1,
+          "part": 10
+        }
+      ],
+      "cadre": 10
+    },
+    "responsable-marketing": {
+      "n": 41,
+      "sur": 41,
+      "repartition": [
+        {
+          "nom": "Débutant accepté",
+          "n": 14,
+          "part": 34
+        },
+        {
+          "nom": "1 à 2 ans",
+          "n": 2,
+          "part": 5
+        },
+        {
+          "nom": "3 à 5 ans",
+          "n": 15,
+          "part": 37
+        },
+        {
+          "nom": "6 ans et plus",
+          "n": 3,
+          "part": 7
+        },
+        {
+          "nom": "Expérience exigée, durée non précisée",
+          "n": 7,
+          "part": 17
+        }
+      ],
+      "cadre": 41
+    },
+    "assistant-marketing": {
+      "n": 15,
+      "sur": 39,
+      "repartition": [
+        {
+          "nom": "Débutant accepté",
+          "n": 6,
+          "part": 40
+        },
+        {
+          "nom": "1 à 2 ans",
+          "n": 7,
+          "part": 47
+        },
+        {
+          "nom": "3 à 5 ans",
+          "n": 2,
+          "part": 13
+        }
+      ],
+      "cadre": 0
+    }
+  },
+  "recruteurs": {
+    "responsable-ecommerce": {
+      "n": 10,
+      "secteur_connu": 5,
+      "sans_nom": 3,
+      "types": [
+        {
+          "nom": "Commerce, distribution",
+          "n": 2
+        },
+        {
+          "nom": "Banque, assurance, immobilier",
+          "n": 1
+        },
+        {
+          "nom": "Industrie",
+          "n": 1
+        },
+        {
+          "nom": "Conseil, informatique, services aux entreprises",
+          "n": 1
+        }
+      ],
+      "pour_clients": 1,
+      "pour_eux_memes": 4,
+      "formation_medias": 0,
+      "secteurs": [
+        {
+          "nom": "Location de terrains et d'autres biens immobiliers",
+          "n": 1
+        },
+        {
+          "nom": "Supermarchés",
+          "n": 1
+        },
+        {
+          "nom": "Fabrication de préparations pharmaceutiques",
+          "n": 1
+        },
+        {
+          "nom": "Conseil pour les affaires et autres conseils de gestion",
+          "n": 1
+        },
+        {
+          "nom": "Entretien et réparation de véhicules automobiles légers",
+          "n": 1
+        }
+      ],
+      "taille_connue": 3,
+      "tailles": [
+        {
+          "nom": "Moins de 10 salariés",
+          "n": 1
+        },
+        {
+          "nom": "10 à 49",
+          "n": 2
+        }
+      ]
+    },
+    "responsable-marketing": {
+      "n": 41,
+      "secteur_connu": 25,
+      "sans_nom": 14,
+      "types": [
+        {
+          "nom": "Industrie",
+          "n": 6
+        },
+        {
+          "nom": "Conseil, informatique, services aux entreprises",
+          "n": 6
+        },
+        {
+          "nom": "Commerce, distribution",
+          "n": 4
+        },
+        {
+          "nom": "Intérim, recrutement, RH",
+          "n": 3
+        },
+        {
+          "nom": "Formation, enseignement",
+          "n": 3
+        },
+        {
+          "nom": "Autres secteurs",
+          "n": 2
+        },
+        {
+          "nom": "Édition, presse, audiovisuel",
+          "n": 1
+        }
+      ],
+      "pour_clients": 9,
+      "pour_eux_memes": 12,
+      "formation_medias": 4,
+      "secteurs": [
+        {
+          "nom": "Activités des agences de travail temporaire",
+          "n": 3
+        },
+        {
+          "nom": "Conseil pour les affaires et autres conseils de gestion",
+          "n": 3
+        },
+        {
+          "nom": "Transformation et conservation de poisson, de crustacés et de mollusques",
+          "n": 2
+        },
+        {
+          "nom": "Autres enseignements",
+          "n": 2
+        },
+        {
+          "nom": "Fabrication d'équipements aérauliques et frigorifiques industriels",
+          "n": 1
+        }
+      ],
+      "taille_connue": 17,
+      "tailles": [
+        {
+          "nom": "Moins de 10 salariés",
+          "n": 5
+        },
+        {
+          "nom": "10 à 49",
+          "n": 3
+        },
+        {
+          "nom": "50 à 249",
+          "n": 4
+        },
+        {
+          "nom": "250 salariés et plus",
+          "n": 5
+        }
+      ]
+    },
+    "assistant-marketing": {
+      "n": 39,
+      "secteur_connu": 12,
+      "sans_nom": 5,
+      "types": [
+        {
+          "nom": "Industrie",
+          "n": 3
+        },
+        {
+          "nom": "Autres secteurs",
+          "n": 3
+        },
+        {
+          "nom": "Conseil, informatique, services aux entreprises",
+          "n": 2
+        },
+        {
+          "nom": "Formation, enseignement",
+          "n": 1
+        },
+        {
+          "nom": "Intérim, recrutement, RH",
+          "n": 1
+        },
+        {
+          "nom": "Commerce, distribution",
+          "n": 1
+        },
+        {
+          "nom": "Tourisme, hôtellerie, loisirs",
+          "n": 1
+        }
+      ],
+      "pour_clients": 3,
+      "pour_eux_memes": 8,
+      "formation_medias": 1,
+      "secteurs": [
+        {
+          "nom": "Formation continue d'adultes",
+          "n": 1
+        },
+        {
+          "nom": "Fabrication d'articles céramiques à usage domestique ou ornemental",
+          "n": 1
+        },
+        {
+          "nom": "Autres organisations fonctionnant par adhésion volontaire",
+          "n": 1
+        },
+        {
+          "nom": "Activités des sièges sociaux",
+          "n": 1
+        },
+        {
+          "nom": "Fabrication d'autres produits chimiques n.c.a.",
+          "n": 1
+        }
+      ],
+      "taille_connue": 11,
+      "tailles": [
+        {
+          "nom": "Moins de 10 salariés",
+          "n": 5
+        },
+        {
+          "nom": "10 à 49",
+          "n": 5
+        },
+        {
+          "nom": "50 à 249",
+          "n": 1
+        }
+      ]
+    }
+  }
+}

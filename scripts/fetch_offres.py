@@ -87,6 +87,9 @@ def extraire_champs(offre):
         "url": (offre.get("origineOffre") or {}).get("urlOrigine", ""),
         "experience": offre.get("experienceLibelle", ""),
         "statut": offre.get("qualificationLibelle", ""),
+        "secteur": offre.get("secteurActiviteLibelle", ""),
+        "naf": offre.get("codeNAF", ""),
+        "effectif_etab": (offre.get("trancheEffectifEtab") or "").split(" (")[0],
     }
 
 
