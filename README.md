@@ -133,6 +133,8 @@ Pour le **responsable marketing** (un seul jour de suivi, le 14/11), aucun emplo
 - **Postes de responsable :** même API et mêmes identifiants, recherche par codes ROME voisins et par mots-clés, puis vérification du titre et filtre « vrai emploi » (CDI ou CDD, sans alternance, stage, intérim ni annonce de formation).
 - **2ᵉ canal :** [La Bonne Alternance](https://api.apprentissage.beta.gouv.fr) — offres d'alternance. Conservé et toujours collecté, mais il n'entre plus dans les chiffres du site ni dans ma recherche : je cherche un CDI ou un CDD, pas une alternance. L'API renvoie chaque offre en double ; le script dédoublonne par identifiant. Elle reprend en partie des offres France Travail (recoupement mesuré sur le site).
 - **Entreprises :** [API Recherche d'entreprises (data.gouv.fr)](https://recherche-entreprises.api.gouv.fr/docs/) — gratuite, sans clé : nom, adresse du siège, activité (NAF), tranche de salariés, date de création. Elle ne fournit ni site web ni coordonnées.
+- **Communes :** [geo.api.gouv.fr](https://geo.api.gouv.fr) — liste des communes de plus de 100 000 habitants, qui fixe le périmètre géographique de la liste d'entreprises.
+- **Vus dans le cours, non utilisés :** base Sirene de l'INSEE en open data (exhaustivité), Pappers (dirigeants, comptes), BODACC (créations, ventes, procédures) et API Google Places (site web, téléphone). Mon périmètre (entreprises d'au moins 6 salariés, 37 départements) tient dans l'API Recherche d'entreprises ; les autres seraient utiles pour un radar de signaux ou un détecteur « on recrute ».
 - Scraping LinkedIn / APEC / Indeed : **interdit**, non utilisé dans ce projet.
 
 ## 6. Le marché caché
@@ -144,6 +146,16 @@ Les sites d'offres ne montrent que les entreprises qui publient. `scripts/entrep
 - **Trois sections**, pour repérer d'un coup d'œil ce qui m'intéresse le plus : *cibles principales* ; *agences* (récoltées mais séparées) ; *villes du nord* (plus hautes que Paris, hors Île-de-France : Lille, Reims, Le Havre, Rouen, Amiens, Metz, Caen), tous types confondus.
 - **Région** : la page permet de filtrer par région, mais la liste ne couvre que les départements qui abritent une commune de plus de 100 000 habitants : une région n'est couverte qu'en partie (le menu indique, par exemple, 5 départements sur 12 pour Auvergne-Rhône-Alpes, 4 sur 8 pour l'Île-de-France, 4 sur 13 pour l'Occitanie).
 - **Limites** : le code NAF donne le secteur de l'entreprise, pas l'existence d'un poste marketing ; seul le siège est retenu (une entreprise dont le siège est ailleurs mais qui a un établissement local n'apparaît pas) ; l'API ne donne pas le site web.
+
+**Professionnels repérés à la main sur LinkedIn** (trois profils publics lus sur LinkedIn, repérés le 14/11/2026, sans scraping, sans nom ni donnée personnelle dans ce dépôt) :
+
+| Poste affiché | Entreprise | Ville |
+|---|---|---|
+| Responsable marketing | Ateya Vacances (tourisme) | Marseille et périphérie |
+| Responsable marketing | non visible sur le profil | Paris, Île-de-France |
+| Responsable marketing digital | Brioche Dorée (restauration) | Rennes et périphérie |
+
+Ils illustrent le poste que je vise dans des secteurs et des villes très différents ; ils servent à comprendre le métier, pas à constituer un fichier de contacts (voir la section RGPD).
 
 ## 7. Configuration et lancement
 
