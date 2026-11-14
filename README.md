@@ -145,6 +145,9 @@ Les sites d'offres ne montrent que les entreprises qui publient. `scripts/entrep
 - **Secteurs** (codes NAF) : e-commerce, numérique, édition et médias, événementiel, marques et commerce spécialisé, et agences (publicité, communication, études de marché, design).
 - **Trois sections**, pour repérer d'un coup d'œil ce qui m'intéresse le plus : *cibles principales* ; *agences* (récoltées mais séparées) ; *villes du nord* (plus hautes que Paris, hors Île-de-France : Lille, Reims, Le Havre, Rouen, Amiens, Metz, Caen), tous types confondus.
 - **Région** : la page permet de filtrer par région, mais la liste ne couvre que les départements qui abritent une commune de plus de 100 000 habitants : une région n'est couverte qu'en partie (le menu indique, par exemple, 5 départements sur 12 pour Auvergne-Rhône-Alpes, 4 sur 8 pour l'Île-de-France, 4 sur 13 pour l'Occitanie).
+- **Résultat pour le Puy-de-Dôme (63)** : 152 entreprises, dont 65 à Clermont-Ferrand, 18 à Aubière et 10 à Cournon-d'Auvergne (numérique 61, marques et commerce spécialisé 38, agences 21, édition et médias 15, e-commerce 11, événementiel 6).
+- **Pourquoi ces secteurs** : ce sont ceux où l'on trouve un poste de marketing digital ou d'e-commerce dans la formation et dans mes stages (boutique en ligne, agence, média, éditeur de logiciels). Ils ne couvrent pas l'industrie, qui est pourtant le type d'employeur le plus fréquent des offres de responsable marketing (6 des 25 offres dont le secteur est connu) : la liste du marché caché est donc biaisée vers le numérique et le commerce.
+- **Ce que le fichier ne contient pas, volontairement** : les dirigeants (données publiques, mais ce dépôt est public) et le site web (l'API ne le fournit pas).
 - **Limites** : le code NAF donne le secteur de l'entreprise, pas l'existence d'un poste marketing ; seul le siège est retenu (une entreprise dont le siège est ailleurs mais qui a un établissement local n'apparaît pas) ; l'API ne donne pas le site web.
 
 **Professionnels repérés à la main sur LinkedIn** (trois profils publics lus sur LinkedIn, repérés le 14/11/2026, sans scraping, sans nom ni donnée personnelle dans ce dépôt) :
@@ -152,7 +155,7 @@ Les sites d'offres ne montrent que les entreprises qui publient. `scripts/entrep
 | Poste affiché | Entreprise | Ville |
 |---|---|---|
 | Responsable marketing | Ateya Vacances (tourisme) | Marseille et périphérie |
-| Responsable marketing | non visible sur le profil | Paris, Île-de-France |
+| Responsable marketing | The Ordinary (d'après la bannière du profil ; l'en-tête n'affiche pas d'entreprise) | Paris, Île-de-France |
 | Responsable marketing digital | Brioche Dorée (restauration) | Rennes et périphérie |
 
 Ils illustrent le poste que je vise dans des secteurs et des villes très différents ; ils servent à comprendre le métier, pas à constituer un fichier de contacts (voir la section RGPD).
