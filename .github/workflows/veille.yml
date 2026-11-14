@@ -36,6 +36,17 @@ jobs:
       - name: Résumé pour le site
         run: python scripts/resumer.py
 
+      - name: Extraction des postes de responsable
+        run: python scripts/fetch_responsables.py
+        continue-on-error: true
+        env:
+          FRANCE_TRAVAIL_CLIENT_ID: ${{ secrets.FRANCE_TRAVAIL_CLIENT_ID }}
+          FRANCE_TRAVAIL_CLIENT_SECRET: ${{ secrets.FRANCE_TRAVAIL_CLIENT_SECRET }}
+
+      - name: Résumé des postes de responsable
+        run: python scripts/resumer_postes.py
+        continue-on-error: true
+
       - name: Enregistrer les nouvelles données
         run: |
           git config user.name "veille-bot"
