@@ -15,7 +15,7 @@
 
   <div class="chiffres">
     <div class="carte"><p class="gros" id="total">–</p><p class="legende" id="total-legende">offres actives en France</p></div>
-    <div class="carte"><p class="gros" id="alternance">–</p><p class="legende">dont en alternance</p></div>
+    <div class="carte"><p class="gros" id="alternance">–</p><p class="legende" id="alternance-legende">dont en alternance</p></div>
     <div class="carte"><p class="gros" id="salaire">–</p><p class="legende">affichent un salaire</p></div>
     <div class="carte"><p class="gros" id="date">–</p><p class="legende">date de la dernière extraction</p></div>
   </div>
@@ -46,11 +46,13 @@
   </div>
 
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Salaires affichés (brut mensuel)</h2>
+    <h2>Salaires affichés (brut, par mois et par an)</h2>
+    <div class="tableau">
     <table>
-      <thead><tr><th>Groupe</th><th class="num">Offres</th><th class="num">Salaire affiché</th><th class="num">Médiane</th><th class="num">Min – max</th></tr></thead>
+      <thead><tr><th>Groupe</th><th class="num">Offres</th><th class="num">Salaire affiché</th><th class="num">Médiane par mois</th><th class="num">Min – max par mois</th><th class="num">Médiane par an</th><th class="num">Min – max par an</th></tr></thead>
       <tbody id="salaires"></tbody>
     </table>
+    </div>
     <p class="note" id="salaires-note"></p>
   </div>
 
@@ -82,21 +84,29 @@
 
 <script src="assets/commun.js"></script>
 <script>
-navigation('index.html');
+navigation('index.html', true);
 const SEUIL_ENTREPRISES = 5;
 
 
 
 
-fetch('data/resume.json')
+fetch(fichierResume())
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(d => {
     const x = d.derniere;
+    const emploi = d.vue === 'emploi';
     document.title = 'avenir — ' + d.metier;
     document.getElementById('metier').textContent = d.metier + ' — ROME ' + d.code_rome;
     document.getElementById('requete').textContent = 'Requête : ' + d.requete;
     document.getElementById('total').textContent = x.total;
-    document.getElementById('alternance').textContent = x.alternance;
+    if (emploi) {
+      const cdi = x.contrats.find(c => c.nom === 'CDI');
+      document.getElementById('total-legende').textContent = 'offres CDI / CDD actives en France';
+      document.getElementById('alternance').textContent = cdi ? cdi.n : 0;
+      document.getElementById('alternance-legende').textContent = 'dont en CDI';
+    } else {
+      document.getElementById('alternance').textContent = x.alternance;
+    }
     document.getElementById('salaire').textContent = x.part_salaire_affiche + ' %';
     document.getElementById('date').textContent = dateFr(x.date);
     document.getElementById('genere').textContent = new Date(d.genere_le).toLocaleString('fr-FR');
@@ -106,17 +116,22 @@ fetch('data/resume.json')
     barres('competences', x.competences);
 
     barres('regions', x.regions);
+    const pct = n => Math.round(100 * n / x.total) + ' %';
+    const dansRegion = nom => (x.regions.find(r => r.nom === nom) || { n: 0 }).n;
     document.getElementById('geo-note').textContent =
-      'Puy-de-Dôme : ' + x.n_puy_de_dome + ' offre(s). Le télétravail est mentionné dans ' + x.teletravail.offres +
-      ' annonces sur ' + x.teletravail.sur + ' (une mention peut aussi l\'exclure).';
+      'Puy-de-Dôme : ' + x.n_puy_de_dome + ' offre(s) (' + pct(x.n_puy_de_dome) + '). Auvergne-Rhône-Alpes, la région de Clermont : ' + dansRegion('Auvergne-Rhône-Alpes') +
+      ' offres (' + pct(dansRegion('Auvergne-Rhône-Alpes')) + '). Île-de-France : ' + dansRegion('Île-de-France') + ' (' + pct(dansRegion('Île-de-France')) + '). ' +
+      'Le télétravail est mentionné dans ' + x.teletravail.offres + ' annonces sur ' + x.teletravail.sur + ' (' + Math.round(100 * x.teletravail.offres / Math.max(x.teletravail.sur, 1)) +
+      ' %) ; une mention peut aussi l\'exclure.';
 
     barres('outils', x.outils.liste.slice(0, 12).map(o => ({ nom: o.nom + ' · ' + o.offres + ' offre' + (o.offres > 1 ? 's' : ''), n: o.entreprises })));
     document.getElementById('outils-note').textContent =
-      'Classés par nombre d\'entreprises différentes qui les citent (annonces lues : ' + x.outils.avec_texte + '), pour qu\'un employeur qui répète la même annonce ne fausse pas le classement.';
+      'Classés par nombre d\'entreprises différentes qui les citent (annonces lues : ' + x.outils.avec_texte + '), pour qu\'un employeur qui répète la même annonce ne fausse pas le classement.' +
+      (x.outils.absents.length ? ' Suivis mais cités dans aucune annonce : ' + x.outils.absents.join(', ') + '.' : '');
 
     fetch('data/formation.json').then(r => r.json()).then(f => {
       const corps = document.getElementById('formation');
-      x.outils.liste.slice(0, 14).forEach(o => {
+      x.outils.liste.filter(o => f.outils[o.nom] && f.outils[o.nom].vu).slice(0, 14).forEach(o => {
         const info = f.outils[o.nom] || {};
         corps.appendChild(el('tr', {}, [
           el('td', { textContent: o.nom }),
@@ -148,14 +163,19 @@ fetch('data/resume.json')
       el('td', { textContent: g.nom }),
       el('td', { className: 'num', textContent: g.total }),
       el('td', { className: 'num', textContent: g.affichent }),
-      el('td', { className: 'num', textContent: g.affichent ? g.mediane + ' €' : '–' }),
-      el('td', { className: 'num', textContent: g.affichent ? g.min + ' – ' + g.max + ' €' : '–' }),
+      el('td', { className: 'num', textContent: g.affichent ? fr(g.mediane) + ' €' : '–' }),
+      el('td', { className: 'num', textContent: g.affichent ? fr(g.min) + ' – ' + fr(g.max) + ' €' : '–' }),
+      el('td', { className: 'num', textContent: g.affichent ? fr(g.mediane_annuelle) + ' €' : '–' }),
+      el('td', { className: 'num', textContent: g.affichent ? fr(g.min_annuel) + ' – ' + fr(g.max_annuel) + ' €' : '–' }),
     ])));
     document.getElementById('salaires-note').textContent =
-      'Repère : ' + x.salaires.mediane_insertion + ' € brut (médiane d\'insertion à un an citée dans le cours). Annuel ÷ 12, horaire × 35 h × 52 ÷ 12. ' +
-      'Seules ' + x.part_salaire_affiche + ' % des offres affichent un salaire.';
+      'Repère : ' + fr(x.salaires.mediane_insertion) + ' € brut par mois, soit ' + fr(x.salaires.mediane_insertion * 12) + ' € par an (médiane d\'insertion à un an : chiffre du deck de rentrée de l\'IAE, cité dans le cours). ' +
+      'Le mensuel vient de l\'annuel ÷ 12 ou de l\'horaire × 35 h × 52 ÷ 12 ; l\'annuel est le mensuel × 12. Seules ' + x.part_salaire_affiche + ' % des offres affichent un salaire.';
 
-    if (x.canaux) {
+    if (emploi) {
+      document.getElementById('lim-canaux').textContent =
+        'Vue CDI / CDD : seules les offres qui sont de vrais CDI ou CDD sont comptées, sans alternance, stage, intérim ni annonce de formation, à partir de l\'extraction du 07/10/2026 (première avec identifiants et texte des annonces).';
+    } else if (x.canaux) {
       document.getElementById('lim-canaux').textContent =
         'Deuxième canal, La Bonne Alternance : ' + x.canaux.lba_distinctes + ' offres distinctes, dont ' + x.canaux.lba_deja_dans_ft +
         ' déjà présentes dans l\'extraction France Travail (même identifiant). Les chiffres de cette page ne comptent que France Travail.';
@@ -170,8 +190,9 @@ fetch('data/resume.json')
     }
 
     const c2 = x.concentration_top2;
-    document.getElementById('lim-concentration').textContent =
-      c2.noms.join(' et ') + ' publient ' + c2.part + ' % des offres, souvent avec le même gabarit d\'annonce : le nombre d\'offres n\'est pas le nombre de postes.';
+    document.getElementById('lim-concentration').textContent = emploi
+      ? 'Aucun employeur ne domine cette vue : le plus présent, ' + x.entreprises[0].nom + ', publie ' + x.entreprises[0].n + ' offres sur ' + x.total + '. Une annonce republiée compte plusieurs fois : le nombre d\'offres n\'est pas le nombre de postes.'
+      : c2.noms.join(' et ') + ' publient ' + c2.part + ' % des offres, souvent avec le même gabarit d\'annonce : le nombre d\'offres n\'est pas le nombre de postes.';
 
     const tbody = document.getElementById('serie');
     d.serie.slice().reverse().forEach(s => tbody.appendChild(el('tr', {}, [

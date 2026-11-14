@@ -54,11 +54,33 @@ const PAGES = [
   ['entreprises.html', 'Les entreprises (marché caché)'],
 ];
 
-function navigation(courante) {
+function vue() {
+  try { return localStorage.getItem('vue') === 'emploi' ? 'emploi' : 'tout'; } catch (e) { return 'tout'; }
+}
+
+function fichierResume() {
+  return vue() === 'emploi' ? 'data/resume_emploi.json' : 'data/resume.json';
+}
+
+function fr(n) {
+  return Number(n).toLocaleString('fr-FR');
+}
+
+function navigation(courante, avecVue) {
   const nav = document.getElementById('nav');
   PAGES.forEach(([href, nom]) => {
     const a = el('a', { href, textContent: nom });
     if (href === courante) a.setAttribute('aria-current', 'page');
     nav.appendChild(a);
   });
+  if (avecVue) {
+    const bloc = el('div', { className: 'onglets', id: 'vue' }, [el('span', { className: 'note', style: 'margin:0 0.25rem 0 0', textContent: 'Afficher :' })]);
+    [['tout', 'Toutes les offres'], ['emploi', 'CDI / CDD seulement']].forEach(([cle, nom]) => {
+      const b = el('button', { textContent: nom });
+      b.setAttribute('aria-pressed', String(vue() === cle));
+      b.onclick = () => { try { localStorage.setItem('vue', cle); } catch (e) { /* stockage indisponible */ } location.reload(); };
+      bloc.appendChild(b);
+    });
+    nav.after(bloc);
+  }
 }

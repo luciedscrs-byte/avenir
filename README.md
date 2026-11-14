@@ -1,4 +1,4 @@
-# avenir — Veille métier : Assistant(e) marketing (ROME M1620)
+# avenir — Veille métier : marketing et e-commerce (assistant marketing M1620, responsable marketing, responsable e-commerce)
 
 Projet de cours : veille automatisée du marché de l'emploi pour mon métier ciblé,
 via l'API France Travail, enrichie de données entreprises, et restituée dans un
@@ -9,13 +9,16 @@ dashboard web qui se met à jour tout seul.
 ```mermaid
 flowchart LR
   A["API France Travail<br/>offres du code ROME M1620"] --> B["scripts/fetch_offres.py"]
+  A --> R["scripts/fetch_responsables.py<br/>responsable marketing, e-commerce"]
   C["API La Bonne Alternance"] --> D["scripts/fetch_offres_alternance.py"]
   B --> E["data/ : un CSV daté par jour<br/>+ le texte des annonces"]
+  R --> E
   D --> E
-  E --> F["scripts/resumer.py"]
-  F --> G["data/resume.json<br/>data/rapport.md"]
+  E --> F["scripts/resumer.py<br/>scripts/resumer_postes.py"]
+  F --> G["data/resume.json, resume_emploi.json,<br/>resume_postes.json, rapport.md"]
   G --> H["Site GitHub Pages<br/>4 pages"]
   I["GitHub Actions<br/>chaque jour"] -.->|lance| B
+  I -.->|lance| R
   I -.->|lance| D
   I -.->|lance| F
   I -.->|enregistre par un commit| E
@@ -24,48 +27,51 @@ flowchart LR
 1. **Chaque jour, GitHub lance le travail tout seul** (GitHub Actions, fichier `.github/workflows/veille.yml`), sur ses machines, ordinateur éteint. Le planning demande 7 h ; en pratique GitHub l'exécute entre 12 h et 14 h, car il retarde les tâches planifiées quand il est chargé.
 2. **Les scripts interrogent les API officielles** avec des identifiants rangés dans les *secrets* du dépôt (jamais dans le code), puis écrivent un CSV daté dans `data/`.
 3. **Le résultat est enregistré par un commit** signé `veille-bot` : l'historique Git est l'archive du marché, une extraction par jour depuis début octobre 2026.
-4. **Le site est statique** : ses quatre pages lisent `data/resume.json` (et `data/entreprises.csv`), et n'appellent aucun service extérieur.
+4. **Le site est statique** : ses quatre pages lisent `data/resume.json` (toutes les offres), `data/resume_emploi.json` (CDI / CDD seulement), `data/resume_postes.json` (les deux postes de responsable) et `data/entreprises.csv`, et n'appellent aucun service extérieur.
 
 | Automatique (tous les jours) | À la main |
 |---|---|
-| extraction France Travail et La Bonne Alternance, résumé, rapport, mise à jour du site | liste des entreprises (`scripts/entreprises.py`, lancée de temps en temps) ; `data/formation.json` (mon bilan de ce que j'ai vu en cours) ; les textes de ce README ; les contacts LinkedIn |
+| extraction France Travail (assistant marketing, responsable marketing, responsable e-commerce) et La Bonne Alternance, résumés, rapport, mise à jour du site | liste des entreprises (`scripts/entreprises.py`, lancée de temps en temps) ; `data/formation.json` (mon bilan de ce que j'ai vu en cours) ; les textes de ce README ; les contacts LinkedIn |
 
 **Comment vérifier.** Onglet *Actions* du dépôt : une exécution verte par jour. Onglet *commits* : un commit `extraction France Travail, N offres, <date>` par jour, signé `veille-bot`.
 
 **Vocabulaire.** *API* : interface qui permet à un programme de demander des données à un service, sans passer par son site. *Code ROME* : référentiel de France Travail qui regroupe les appellations d'un même métier (ici M1620). *Commit* : une version enregistrée des fichiers, avec un message. *Push* : envoyer ses commits vers le dépôt en ligne. *Action* : script que GitHub lance pour moi à l'heure fixée. *Secret* : valeur chiffrée par GitHub, utilisée par l'Action sans apparaître dans le code. *GitHub Pages* : l'hébergement gratuit du site à partir des fichiers du dépôt.
 
-## 1. Métier ciblé
+## 1. Métiers ciblés
 
-**Intitulé principal :** Assistant / Assistante marketing
-**Code ROME :** [M1620](https://candidat.francetravail.fr/metierscope/fiche-metier/M1620/assistant-assistante-marketing) (secteur Communication et marketing)
+**Les postes que je vise, du plus au moins intéressant pour moi :**
 
-**Variantes rencontrées sur le marché** (comptées dans les 136 intitulés du 07/10/2026) :
-- Assistant / Assistante marketing — dans 77 intitulés
-- Assistant(e) commercial(e) et marketing — 14
-- Assistant(e) marketing et communication — 10
-- Assistant(e) chef de produit — 4
+| Rang | Poste | Code ROME | Suivi depuis le |
+|---|---|---|---|
+| 1 | Responsable e-commerce | E1113 | 14/11/2026 |
+| 2 | Responsable marketing | M1705 (et M1716, M1718, M1711 pour les variantes digitales) | 14/11/2026 |
+| 3 | Assistant / Assistante marketing (**série principale**) | [M1620](https://candidat.francetravail.fr/metierscope/fiche-metier/M1620/assistant-assistante-marketing) | 22/09/2026 |
 
-« Digital » n'apparaît que dans 2 intitulés : le marché dit « assistant marketing », pas « assistant marketing digital ». 45 intitulés parlent d'alternance.
+Les deux postes de responsable ont été ajoutés le 14/11/2026 : j'ai donc nettement moins de données pour eux que pour l'assistant marketing, suivi depuis le 22/09. **Règle d'emploi :** pour les deux postes de responsable, seules les offres de vrais CDI et CDD sont gardées (sans alternance, stage, intérim ni annonce de formation). La série de l'assistant marketing est conservée telle quelle (toutes les offres du code M1620), avec en plus une vue « CDI / CDD seulement » sur le site, calculée depuis le 07/10/2026.
 
-**Pourquoi ce métier :** correspond à mon stage chez Mapache (assistante marketing et
-communication) — SEO sur Shopify, segmentation client pour newsletters, gestion de
-campagnes marketing, fiches produit. Le référentiel ROME confirme ce lien : le
-savoir-faire *"Optimiser le référencement naturel (SEO) des sites web"* et
-*"Mener une campagne d'e-mailing"* apparaissent explicitement dans la fiche M1620.
+Comment les deux postes de responsable sont repérés : les offres des codes ROME voisins et les résultats d'une recherche par mots-clés (« responsable marketing », « responsable e-commerce »…), puis seules sont gardées celles dont le **titre** contient vraiment l'intitulé visé. Un titre « responsable e-commerce » peut être un poste technique ou de gestion (par exemple « Responsable Technique E-commerce »).
 
-**Métier proche noté pour plus tard :** Chargé/Chargée de marketing digital (M1718,
-poste cadre) — objectif d'évolution à moyen terme, pas le point d'entrée.
+**Code ROME de la série principale :** M1620 (secteur Communication et marketing). Appellations proches données par Métierscope : assistant(e) de direction, planneur / planneuse stratégique, responsable marketing, chef / cheffe de produit, chargé(e) de marketing digital.
+
+**Variantes de l'assistant marketing sur le marché** (comptées dans les 118 intitulés du 14/11/2026, toutes offres M1620) :
+- Assistant / Assistante marketing — dans 64 intitulés
+- Assistant(e) marketing et communication — 11
+- Assistant(e) commercial(e) et marketing — 9
+
+« Digital » n'apparaît que dans 5 intitulés : le marché dit « assistant marketing », pas « assistant marketing digital ». 26 intitulés parlent d'alternance. Je n'ai pas gardé « chef de produit » (qui ne m'intéresse pas) ni « assistant e-commerce » (2 offres seulement en CDI / CDD, mesure ponctuelle du 14/11/2026 dans l'API France Travail).
+
+**Pourquoi l'assistant marketing :** c'est le poste de mon stage chez Mapache (assistante marketing et communication) — SEO sur Shopify, segmentation client pour newsletters, gestion de campagnes marketing, fiches produit. Le référentiel ROME confirme ce lien : le savoir-faire *"Optimiser le référencement naturel (SEO) des sites web"* et *"Mener une campagne d'e-mailing"* apparaissent explicitement dans la fiche M1620.
 
 ## 2. Questions sur ce marché
 
-1. Combien d'offres pour ce métier sont publiées actuellement, et où (régions/départements) ?
+1. Combien d'offres, où (régions, villes) et avec quels contrats ?
 2. Quelles compétences et quels outils reviennent le plus souvent dans les offres (SEO, CRM, Shopify, emailing...) ?
 3. Quelle fourchette de salaire est proposée, et comment se compare-t-elle au salaire médian d'insertion ?
-4. Quelles entreprises recrutent le plus sur ce métier, et quel est le "marché caché" (entreprises du secteur qui ne publient pas d'offre) ?
+4. Comment le marché bouge-t-il, et qui recrute, y compris sans annonce ?
 
-## 3. Les entreprises qui recrutent le plus cet intitulé
+## 3. Les entreprises qui recrutent le plus l'assistant marketing
 
-**Période et méthode.** 24 extractions du 7 au 30 octobre 2026, France entière, code ROME M1620 : 252 identifiants d'offres, soit **212 annonces distinctes** une fois regroupées par entreprise, titre et lieu (une annonce republiée reçoit un nouvel identifiant). **60 annonces distinctes (28 %) n'ont aucun nom d'employeur** et ne peuvent pas être classées. Les noms sont ceux déclarés dans les annonces ; une nature n'est indiquée que lorsque j'ai lu le texte de l'annonce.
+**Période et méthode** (série de l'assistant marketing, M1620, toutes offres confondues). 24 extractions du 7 au 30 octobre 2026, France entière, code ROME M1620 : 252 identifiants d'offres, soit **212 annonces distinctes** une fois regroupées par entreprise, titre et lieu (une annonce republiée reçoit un nouvel identifiant). **60 annonces distinctes (28 %) n'ont aucun nom d'employeur** et ne peuvent pas être classées. Les noms sont ceux déclarés dans les annonces ; une nature n'est indiquée que lorsque j'ai lu le texte de l'annonce.
 
 | Rang | Entreprise | Annonces distinctes | Ce que disent les annonces |
 |---|---|---|---|
@@ -90,15 +96,17 @@ Les entreprises du 5ᵉ rang :
 - `scripts/fetch_offres.py` — extraction France Travail (canal commun) → `data/offres_M1620_<date>.csv`
 - `scripts/fetch_offres_alternance.py` — extraction La Bonne Alternance (2ᵉ canal) → `data/offres_alternance_M1620_<date>.csv`
 - `scripts/textes.py` — garde le texte de chaque annonce une seule fois, dans `data/textes.jsonl`
-- `scripts/resumer.py` — calcule `data/resume.json` (ce que le site affiche) et `data/rapport.md` (rapport lisible)
+- `scripts/fetch_responsables.py` et `scripts/postes.py` — extraction des deux postes de responsable (vrais CDI / CDD) → `data/offres_responsable-marketing_<date>.csv` et `data/offres_responsable-ecommerce_<date>.csv`
+- `scripts/resumer.py` — calcule `data/resume.json` (toutes les offres M1620), `data/resume_emploi.json` (la même série en CDI / CDD seulement) et `data/rapport.md` (rapport lisible) ; `scripts/resumer_postes.py` calcule `data/resume_postes.json` (les deux postes de responsable)
 - `scripts/entreprises.py` — le marché caché : `data/entreprises.csv` (lancé à la main, pas chaque jour)
 - `data/formation.json` — ce que le descriptif public du M2 MOD nomme (outils, unités, métiers et codes ROME visés), lu le 30/10/2026, source des tableaux « formation » du site
-- Le site, servi par GitHub Pages, en quatre pages qui lisent `data/resume.json` et `data/entreprises.csv` : `metier.html` (le métier tel que le marché le nomme), `index.html` (les offres), `mouvement.html` (comment le métier bouge : courbe, offres nouvelles et disparues, outils suivis, source Apec) et `entreprises.html` (le marché caché) ; `assets/commun.css` et `assets/commun.js` partagés
-- `.github/workflows/veille.yml` — GitHub Actions : chaque matin, les deux extractions, le résumé, puis un commit des nouvelles données
+- Le site, servi par GitHub Pages, en quatre pages qui lisent `data/resume.json`, `data/resume_emploi.json`, `data/resume_postes.json` et `data/entreprises.csv` (un sélecteur « toutes les offres / CDI / CDD seulement » change la vue) : `metier.html` (le métier tel que le marché le nomme), `index.html` (les offres), `mouvement.html` (comment le métier bouge : courbe, offres nouvelles et disparues, outils suivis, source Apec) et `entreprises.html` (le marché caché) ; `assets/commun.css` et `assets/commun.js` partagés
+- `.github/workflows/veille.yml` — GitHub Actions : chaque jour, les extractions, les résumés, puis un commit des nouvelles données
 
 ## 5. Sources de données (légales, documentées)
 
 - **Canal commun :** [API France Travail — Offres d'emploi v2](https://francetravail.io/data/api/offres-emploi) — compte développeur sur francetravail.io. Une requête par code ROME, le total se lit dans l'en-tête `Content-Range`.
+- **Postes de responsable :** même API et mêmes identifiants, recherche par codes ROME voisins et par mots-clés, puis vérification du titre et filtre « vrai emploi » (CDI ou CDD, sans alternance, stage, intérim ni annonce de formation).
 - **2ᵉ canal :** [La Bonne Alternance](https://api.apprentissage.beta.gouv.fr) — offres d'alternance. L'API renvoie chaque offre en double ; le script dédoublonne par identifiant. Elle reprend en partie des offres France Travail (recoupement mesuré sur le site).
 - **Entreprises :** [API Recherche d'entreprises (data.gouv.fr)](https://recherche-entreprises.api.gouv.fr/docs/) — gratuite, sans clé : nom, adresse du siège, activité (NAF), tranche de salariés, date de création. Elle ne fournit ni site web ni coordonnées.
 - Scraping LinkedIn / APEC / Indeed : **interdit**, non utilisé dans ce projet.

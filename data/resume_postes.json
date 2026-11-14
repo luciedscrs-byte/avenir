@@ -1,9 +1,15 @@
 {
-  "genere_le": "2026-11-14T18:31:02+00:00",
+  "genere_le": "2026-11-14T18:45:12+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
       "libelle": "Responsable marketing",
+      "codes": [
+        "M1705",
+        "M1716",
+        "M1718",
+        "M1711"
+      ],
       "depuis": "2026-11-14",
       "serie": [
         {
@@ -73,6 +79,9 @@
     },
     "responsable-ecommerce": {
       "libelle": "Responsable e-commerce",
+      "codes": [
+        "E1113"
+      ],
       "depuis": "2026-11-14",
       "serie": [
         {

@@ -2,7 +2,7 @@
 
 Une offre est retenue si son titre contient l'intitulé visé ET si c'est un emploi : CDI ou CDD, sans
 alternance, sans stage ni apprentissage dans le titre, sans annonce de formation à distance.
-Sortie : data/offres_<série>_<date>.csv, même colonnes que l'extraction M1620, plus l'expérience et le statut."""
+Sortie : data/offres_<série>_<date>.csv, même colonnes que l'extraction M1620, dont l'expérience demandée et le statut."""
 import csv
 import os
 import re
@@ -19,7 +19,6 @@ SEARCH_URL = fetch_offres.SEARCH_URL
 
 STAGE = re.compile(r"(?i)\bstage\b|stagiaire|altern|apprenti")
 PUB_FORMATION = re.compile(r"(?i)en suivant la formation|formation .{0,40}à distance")
-EXTRA = ["experience", "statut"]
 
 
 def est_un_emploi(offre):
@@ -59,25 +58,18 @@ def extraire(serie, token):
     return len(candidates), len(au_bon_titre), retenues
 
 
-def ligne(offre):
-    d = fetch_offres.extraire_champs(offre)
-    d["experience"] = offre.get("experienceLibelle", "")
-    d["statut"] = offre.get("qualificationLibelle", "")
-    return d
-
-
 def main():
     token = fetch_offres.get_token()
     os.makedirs("data", exist_ok=True)
     for nom, serie in SERIES.items():
         vues, au_bon_titre, retenues = extraire(serie, token)
-        lignes = [ligne(o) for o in retenues]
+        lignes = [fetch_offres.extraire_champs(o) for o in retenues]
         textes.enregistrer(
             {"id": o.get("id"), "source": "France Travail", "intitule": o.get("intitule", ""), "description": o.get("description", "")}
             for o in retenues
         )
         chemin = f"data/offres_{nom}_{date.today().isoformat()}.csv"
-        colonnes = list(fetch_offres.extraire_champs({}).keys()) + EXTRA
+        colonnes = list(fetch_offres.extraire_champs({}).keys())
         with open(chemin, "w", newline="", encoding="utf-8-sig") as f:
             w = csv.DictWriter(f, fieldnames=colonnes)
             w.writeheader()

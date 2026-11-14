@@ -85,6 +85,8 @@ def extraire_champs(offre):
         "competences": competences,
         "id": offre.get("id", ""),
         "url": (offre.get("origineOffre") or {}).get("urlOrigine", ""),
+        "experience": offre.get("experienceLibelle", ""),
+        "statut": offre.get("qualificationLibelle", ""),
     }
 
 

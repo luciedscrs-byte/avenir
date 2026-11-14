@@ -1,0 +1,2071 @@
+{
+  "vue": "emploi",
+  "genere_le": "2026-11-14T18:45:12+00:00",
+  "metier": "Assistant / Assistante marketing",
+  "code_rome": "M1620",
+  "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026",
+  "serie": [
+    {
+      "date": "2026-10-07",
+      "total": 37,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-08",
+      "total": 35,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-09",
+      "total": 31,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-10",
+      "total": 32,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-11",
+      "total": 34,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-12",
+      "total": 34,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-13",
+      "total": 28,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-14",
+      "total": 27,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-15",
+      "total": 29,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-16",
+      "total": 29,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-17",
+      "total": 32,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-18",
+      "total": 34,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-19",
+      "total": 32,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-20",
+      "total": 32,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-21",
+      "total": 34,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-22",
+      "total": 31,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-23",
+      "total": 28,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-24",
+      "total": 33,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-25",
+      "total": 33,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-26",
+      "total": 33,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-27",
+      "total": 34,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-28",
+      "total": 39,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-29",
+      "total": 39,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-30",
+      "total": 34,
+      "alternance": 0
+    },
+    {
+      "date": "2026-10-31",
+      "total": 33,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-01",
+      "total": 33,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-02",
+      "total": 32,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-03",
+      "total": 30,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-04",
+      "total": 29,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-05",
+      "total": 34,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-06",
+      "total": 37,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-07",
+      "total": 36,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-08",
+      "total": 36,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-09",
+      "total": 35,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-10",
+      "total": 36,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-11",
+      "total": 37,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-12",
+      "total": 38,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-13",
+      "total": 40,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-14",
+      "total": 42,
+      "alternance": 0
+    }
+  ],
+  "serie_outils": [
+    {
+      "date": "2026-10-07",
+      "avec_texte": 37,
+      "outils": {
+        "Excel": 13,
+        "Anglais": 12,
+        "Emailing / newsletter": 10,
+        "PowerPoint": 6,
+        "Pack Office": 7,
+        "Word": 5,
+        "Canva": 4,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "CRM": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "WordPress": 3,
+        "SEO": 2,
+        "Instagram": 1,
+        "LinkedIn": 1,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "HubSpot": 1,
+        "Prestashop": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 14,
+        "Automatisation / marketing automation": 2,
+        "Analyse de données (data)": 2,
+        "Transition écologique / RSE": 1
+      }
+    },
+    {
+      "date": "2026-10-08",
+      "avec_texte": 35,
+      "outils": {
+        "Anglais": 12,
+        "Excel": 12,
+        "Emailing / newsletter": 10,
+        "PowerPoint": 6,
+        "Pack Office": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Word": 5,
+        "Canva": 4,
+        "WordPress": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "SEO": 3,
+        "CRM": 3,
+        "Instagram": 2,
+        "LinkedIn": 2,
+        "Facebook": 2,
+        "SEA": 2,
+        "Google Analytics / GA4": 2,
+        "Prestashop": 2,
+        "YouTube": 1,
+        "Google Ads": 1,
+        "HubSpot": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 14,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 2,
+        "Transition écologique / RSE": 1
+      }
+    },
+    {
+      "date": "2026-10-09",
+      "avec_texte": 31,
+      "outils": {
+        "Anglais": 11,
+        "Excel": 10,
+        "Emailing / newsletter": 8,
+        "Pack Office": 6,
+        "PowerPoint": 5,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Word": 4,
+        "Canva": 4,
+        "WordPress": 4,
+        "SEO": 3,
+        "CRM": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Instagram": 2,
+        "LinkedIn": 2,
+        "Facebook": 2,
+        "SEA": 2,
+        "Google Analytics / GA4": 2,
+        "Prestashop": 2,
+        "YouTube": 1,
+        "Google Ads": 1,
+        "HubSpot": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 13,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 2,
+        "Transition écologique / RSE": 1
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "avec_texte": 32,
+      "outils": {
+        "Anglais": 11,
+        "Excel": 9,
+        "Emailing / newsletter": 8,
+        "Pack Office": 6,
+        "PowerPoint": 5,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Word": 4,
+        "Canva": 4,
+        "WordPress": 4,
+        "SEO": 3,
+        "CRM": 3,
+        "Instagram": 2,
+        "LinkedIn": 2,
+        "Facebook": 2,
+        "SEA": 2,
+        "Google Analytics / GA4": 2,
+        "Prestashop": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "YouTube": 1,
+        "Google Ads": 1,
+        "HubSpot": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 13,
+        "Analyse de données (data)": 2,
+        "Automatisation / marketing automation": 1,
+        "Transition écologique / RSE": 1
+      }
+    },
+    {
+      "date": "2026-10-11",
+      "avec_texte": 34,
+      "outils": {
+        "Anglais": 11,
+        "Excel": 11,
+        "Emailing / newsletter": 8,
+        "Pack Office": 8,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 6,
+        "PowerPoint": 5,
+        "Word": 6,
+        "Canva": 4,
+        "WordPress": 4,
+        "SEO": 3,
+        "CRM": 3,
+        "Prestashop": 3,
+        "Instagram": 2,
+        "LinkedIn": 2,
+        "Facebook": 2,
+        "SEA": 2,
+        "Google Analytics / GA4": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "YouTube": 1,
+        "Google Ads": 1,
+        "HubSpot": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 13,
+        "Analyse de données (data)": 2,
+        "Automatisation / marketing automation": 1,
+        "Transition écologique / RSE": 1
+      }
+    },
+    {
+      "date": "2026-10-12",
+      "avec_texte": 34,
+      "outils": {
+        "Excel": 10,
+        "Anglais": 9,
+        "Emailing / newsletter": 7,
+        "PowerPoint": 5,
+        "Pack Office": 6,
+        "Word": 5,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Canva": 4,
+        "CRM": 3,
+        "WordPress": 3,
+        "SEO": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "Instagram": 1,
+        "LinkedIn": 1,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "HubSpot": 1,
+        "Prestashop": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Automatisation / marketing automation": 1,
+        "Analyse de données (data)": 1,
+        "Transition écologique / RSE": 1
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "avec_texte": 28,
+      "outils": {
+        "Anglais": 8,
+        "Excel": 7,
+        "Emailing / newsletter": 6,
+        "Pack Office": 5,
+        "PowerPoint": 4,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "Word": 3,
+        "Canva": 3,
+        "CRM": 3,
+        "WordPress": 3,
+        "SEO": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "Instagram": 1,
+        "LinkedIn": 1,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "HubSpot": 1,
+        "Prestashop": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 10,
+        "Automatisation / marketing automation": 1,
+        "Analyse de données (data)": 1,
+        "Transition écologique / RSE": 1
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "avec_texte": 27,
+      "outils": {
+        "Anglais": 8,
+        "Excel": 7,
+        "Emailing / newsletter": 6,
+        "Pack Office": 5,
+        "PowerPoint": 4,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "CRM": 4,
+        "Canva": 3,
+        "SEO": 3,
+        "WordPress": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Word": 2,
+        "SEA": 2,
+        "HubSpot": 2,
+        "Instagram": 1,
+        "LinkedIn": 1,
+        "Facebook": 1,
+        "YouTube": 1,
+        "Google Analytics / GA4": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 8,
+        "Automatisation / marketing automation": 2,
+        "Analyse de données (data)": 2,
+        "Transition écologique / RSE": 1
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "avec_texte": 29,
+      "outils": {
+        "Anglais": 8,
+        "Excel": 4,
+        "PowerPoint": 3,
+        "Pack Office": 3,
+        "Canva": 3,
+        "SEO": 3,
+        "Word": 2,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 2,
+        "CRM": 2,
+        "Emailing / newsletter": 2,
+        "WordPress": 2,
+        "Instagram": 1,
+        "LinkedIn": 1,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "HubSpot": 1,
+        "IA (ChatGPT, IA générative…)": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 7,
+        "Automatisation / marketing automation": 1,
+        "Analyse de données (data)": 1
+      }
+    },
+    {
+      "date": "2026-10-16",
+      "avec_texte": 29,
+      "outils": {
+        "Anglais": 9,
+        "Excel": 5,
+        "Canva": 4,
+        "Emailing / newsletter": 4,
+        "PowerPoint": 3,
+        "Pack Office": 3,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 3,
+        "SEO": 3,
+        "CRM": 3,
+        "Word": 2,
+        "Instagram": 2,
+        "LinkedIn": 2,
+        "WordPress": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 9,
+        "Automatisation / marketing automation": 2,
+        "Analyse de données (data)": 2
+      }
+    },
+    {
+      "date": "2026-10-17",
+      "avec_texte": 32,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 6,
+        "Excel": 6,
+        "Canva": 5,
+        "PowerPoint": 4,
+        "SEO": 4,
+        "Word": 3,
+        "Pack Office": 3,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 3,
+        "CRM": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Instagram": 2,
+        "LinkedIn": 2,
+        "WordPress": 2,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Automatisation / marketing automation": 2,
+        "Analyse de données (data)": 2
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "avec_texte": 34,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 6,
+        "Excel": 6,
+        "Canva": 5,
+        "PowerPoint": 4,
+        "SEO": 4,
+        "Word": 3,
+        "Pack Office": 3,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 3,
+        "CRM": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Instagram": 2,
+        "LinkedIn": 2,
+        "WordPress": 2,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Automatisation / marketing automation": 2,
+        "Analyse de données (data)": 2
+      }
+    },
+    {
+      "date": "2026-10-19",
+      "avec_texte": 32,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 8,
+        "Excel": 5,
+        "Canva": 5,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "PowerPoint": 4,
+        "SEO": 4,
+        "Word": 3,
+        "Pack Office": 3,
+        "CRM": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Instagram": 2,
+        "LinkedIn": 2,
+        "WordPress": 2,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Automatisation / marketing automation": 2,
+        "Analyse de données (data)": 2
+      }
+    },
+    {
+      "date": "2026-10-20",
+      "avec_texte": 32,
+      "outils": {
+        "Emailing / newsletter": 10,
+        "Anglais": 10,
+        "Canva": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Excel": 4,
+        "LinkedIn": 4,
+        "CRM": 4,
+        "PowerPoint": 3,
+        "Instagram": 3,
+        "SEO": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Word": 2,
+        "Pack Office": 2,
+        "Facebook": 2,
+        "YouTube": 2,
+        "HubSpot": 2,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 2,
+        "SEA": 1,
+        "WordPress": 1,
+        "Notion / Trello / Asana": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Automatisation / marketing automation": 2,
+        "Analyse de données (data)": 2
+      }
+    },
+    {
+      "date": "2026-10-21",
+      "avec_texte": 34,
+      "outils": {
+        "Emailing / newsletter": 11,
+        "Anglais": 11,
+        "Canva": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 6,
+        "Excel": 4,
+        "LinkedIn": 4,
+        "CRM": 4,
+        "PowerPoint": 3,
+        "Instagram": 3,
+        "SEO": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Word": 2,
+        "Pack Office": 2,
+        "Facebook": 2,
+        "YouTube": 2,
+        "HubSpot": 2,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 2,
+        "SEA": 1,
+        "WordPress": 1,
+        "Shopify": 1,
+        "Notion / Trello / Asana": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 2
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "avec_texte": 31,
+      "outils": {
+        "Emailing / newsletter": 11,
+        "Anglais": 9,
+        "Canva": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Excel": 4,
+        "Instagram": 4,
+        "LinkedIn": 4,
+        "SEO": 4,
+        "CRM": 4,
+        "PowerPoint": 3,
+        "Facebook": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Word": 2,
+        "Pack Office": 2,
+        "YouTube": 2,
+        "SEA": 2,
+        "HubSpot": 2,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 2,
+        "WordPress": 2,
+        "Meta Ads / Facebook Ads": 1,
+        "Shopify": 1,
+        "Notion / Trello / Asana": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 13,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 2
+      }
+    },
+    {
+      "date": "2026-10-23",
+      "avec_texte": 28,
+      "outils": {
+        "Emailing / newsletter": 9,
+        "Anglais": 8,
+        "Canva": 5,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Excel": 4,
+        "SEO": 4,
+        "CRM": 4,
+        "PowerPoint": 3,
+        "Instagram": 3,
+        "LinkedIn": 3,
+        "Facebook": 3,
+        "Word": 2,
+        "Pack Office": 2,
+        "YouTube": 2,
+        "SEA": 2,
+        "HubSpot": 2,
+        "WordPress": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "Meta Ads / Facebook Ads": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Shopify": 1,
+        "Notion / Trello / Asana": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1
+      }
+    },
+    {
+      "date": "2026-10-24",
+      "avec_texte": 33,
+      "outils": {
+        "Emailing / newsletter": 10,
+        "Anglais": 7,
+        "Excel": 5,
+        "Canva": 5,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "SEO": 5,
+        "CRM": 4,
+        "Instagram": 3,
+        "LinkedIn": 3,
+        "Facebook": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "Pack Office": 2,
+        "YouTube": 2,
+        "SEA": 2,
+        "HubSpot": 2,
+        "WordPress": 2,
+        "Meta Ads / Facebook Ads": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Shopify": 1,
+        "Notion / Trello / Asana": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
+    },
+    {
+      "date": "2026-10-25",
+      "avec_texte": 33,
+      "outils": {
+        "Emailing / newsletter": 10,
+        "Anglais": 6,
+        "Excel": 6,
+        "Canva": 5,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "SEO": 5,
+        "CRM": 4,
+        "Instagram": 3,
+        "LinkedIn": 3,
+        "Facebook": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Pack Office": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "YouTube": 2,
+        "SEA": 2,
+        "HubSpot": 2,
+        "WordPress": 2,
+        "Meta Ads / Facebook Ads": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Shopify": 1,
+        "Notion / Trello / Asana": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
+    },
+    {
+      "date": "2026-10-26",
+      "avec_texte": 33,
+      "outils": {
+        "Emailing / newsletter": 9,
+        "Anglais": 7,
+        "Excel": 5,
+        "SEO": 5,
+        "Canva": 4,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "CRM": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "Pack Office": 2,
+        "Instagram": 2,
+        "LinkedIn": 2,
+        "Facebook": 2,
+        "SEA": 2,
+        "WordPress": 2,
+        "YouTube": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Shopify": 1,
+        "Notion / Trello / Asana": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 10,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "avec_texte": 34,
+      "outils": {
+        "Emailing / newsletter": 8,
+        "Anglais": 7,
+        "Excel": 6,
+        "Canva": 4,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "SEO": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "CRM": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "Pack Office": 2,
+        "LinkedIn": 2,
+        "Instagram": 1,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "WordPress": 1,
+        "Shopify": 1,
+        "Notion / Trello / Asana": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 9,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "avec_texte": 39,
+      "outils": {
+        "Emailing / newsletter": 8,
+        "Anglais": 7,
+        "Excel": 8,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 6,
+        "Canva": 4,
+        "SEO": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Pack Office": 4,
+        "CRM": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "LinkedIn": 2,
+        "WordPress": 2,
+        "Instagram": 1,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
+    },
+    {
+      "date": "2026-10-29",
+      "avec_texte": 39,
+      "outils": {
+        "Emailing / newsletter": 7,
+        "Anglais": 7,
+        "Excel": 8,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Canva": 4,
+        "SEO": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Pack Office": 5,
+        "PowerPoint": 2,
+        "Word": 2,
+        "CRM": 2,
+        "LinkedIn": 2,
+        "WordPress": 2,
+        "Instagram": 1,
+        "Facebook": 1,
+        "YouTube": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
+    },
+    {
+      "date": "2026-10-30",
+      "avec_texte": 34,
+      "outils": {
+        "Emailing / newsletter": 7,
+        "Anglais": 7,
+        "Excel": 6,
+        "Canva": 4,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Pack Office": 4,
+        "SEO": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "LinkedIn": 2,
+        "CRM": 2,
+        "Instagram": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Analyse de données (data)": 4,
+        "Automatisation / marketing automation": 2,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
+    },
+    {
+      "date": "2026-10-31",
+      "avec_texte": 33,
+      "outils": {
+        "Emailing / newsletter": 7,
+        "Anglais": 7,
+        "Excel": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "Pack Office": 4,
+        "Canva": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "SEO": 2,
+        "CRM": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "LinkedIn": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 10,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1
+      }
+    },
+    {
+      "date": "2026-11-01",
+      "avec_texte": 33,
+      "outils": {
+        "Emailing / newsletter": 7,
+        "Anglais": 7,
+        "Excel": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "Pack Office": 4,
+        "Canva": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "SEO": 2,
+        "CRM": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "LinkedIn": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 10,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1
+      }
+    },
+    {
+      "date": "2026-11-02",
+      "avec_texte": 32,
+      "outils": {
+        "Anglais": 7,
+        "Emailing / newsletter": 6,
+        "Excel": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "Pack Office": 4,
+        "Canva": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "SEO": 2,
+        "CRM": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "LinkedIn": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 10,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1
+      }
+    },
+    {
+      "date": "2026-11-03",
+      "avec_texte": 30,
+      "outils": {
+        "Anglais": 7,
+        "Emailing / newsletter": 5,
+        "Excel": 5,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "Pack Office": 4,
+        "Canva": 3,
+        "PowerPoint": 2,
+        "Word": 2,
+        "SEO": 2,
+        "CRM": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "LinkedIn": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 9,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1
+      }
+    },
+    {
+      "date": "2026-11-04",
+      "avec_texte": 29,
+      "outils": {
+        "Emailing / newsletter": 6,
+        "Anglais": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 4,
+        "Excel": 5,
+        "Pack Office": 3,
+        "Canva": 2,
+        "SEO": 2,
+        "CRM": 2,
+        "IA (ChatGPT, IA générative…)": 2,
+        "PowerPoint": 1,
+        "Word": 1,
+        "LinkedIn": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 10,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 1
+      }
+    },
+    {
+      "date": "2026-11-05",
+      "avec_texte": 34,
+      "outils": {
+        "Emailing / newsletter": 7,
+        "Anglais": 7,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "CRM": 4,
+        "Excel": 5,
+        "Canva": 3,
+        "IA (ChatGPT, IA générative…)": 3,
+        "Pack Office": 4,
+        "LinkedIn": 2,
+        "SEO": 2,
+        "PowerPoint": 1,
+        "Word": 1,
+        "Instagram": 1,
+        "SEA": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Analyse de données (data)": 4,
+        "Automatisation / marketing automation": 2
+      }
+    },
+    {
+      "date": "2026-11-06",
+      "avec_texte": 37,
+      "outils": {
+        "Emailing / newsletter": 9,
+        "Anglais": 9,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "IA (ChatGPT, IA générative…)": 5,
+        "Excel": 4,
+        "Canva": 3,
+        "LinkedIn": 3,
+        "SEO": 3,
+        "CRM": 3,
+        "Pack Office": 3,
+        "WordPress": 2,
+        "PowerPoint": 1,
+        "Word": 1,
+        "Instagram": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "Google Ads": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 13,
+        "Analyse de données (data)": 4,
+        "Automatisation / marketing automation": 2
+      }
+    },
+    {
+      "date": "2026-11-07",
+      "avec_texte": 36,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 8,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Excel": 3,
+        "Canva": 3,
+        "CRM": 3,
+        "Pack Office": 3,
+        "LinkedIn": 2,
+        "SEO": 2,
+        "PowerPoint": 1,
+        "Word": 1,
+        "Instagram": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "Google Ads": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Analyse de données (data)": 4,
+        "Automatisation / marketing automation": 2
+      }
+    },
+    {
+      "date": "2026-11-08",
+      "avec_texte": 36,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 8,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Excel": 3,
+        "Canva": 3,
+        "CRM": 3,
+        "Pack Office": 3,
+        "LinkedIn": 2,
+        "SEO": 2,
+        "PowerPoint": 1,
+        "Word": 1,
+        "Instagram": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "Google Ads": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Analyse de données (data)": 4,
+        "Automatisation / marketing automation": 2
+      }
+    },
+    {
+      "date": "2026-11-09",
+      "avec_texte": 35,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 7,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Excel": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Canva": 3,
+        "CRM": 3,
+        "Pack Office": 3,
+        "LinkedIn": 2,
+        "SEO": 2,
+        "PowerPoint": 1,
+        "Word": 1,
+        "Instagram": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "Google Ads": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Analyse de données (data)": 4,
+        "Automatisation / marketing automation": 2
+      }
+    },
+    {
+      "date": "2026-11-10",
+      "avec_texte": 36,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 7,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 6,
+        "Excel": 5,
+        "Canva": 4,
+        "CRM": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Pack Office": 4,
+        "PowerPoint": 3,
+        "LinkedIn": 2,
+        "SEO": 2,
+        "Word": 1,
+        "Instagram": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "Google Ads": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "WordPress": 1,
+        "Shopify": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 13,
+        "Analyse de données (data)": 4,
+        "Automatisation / marketing automation": 2
+      }
+    },
+    {
+      "date": "2026-11-11",
+      "avec_texte": 37,
+      "outils": {
+        "Anglais": 8,
+        "Emailing / newsletter": 7,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 6,
+        "CRM": 5,
+        "IA (ChatGPT, IA générative…)": 5,
+        "Excel": 4,
+        "Canva": 4,
+        "Pack Office": 4,
+        "PowerPoint": 3,
+        "LinkedIn": 3,
+        "SEO": 3,
+        "Google Ads": 2,
+        "HubSpot": 2,
+        "Word": 1,
+        "SEA": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "WordPress": 1,
+        "Shopify": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Analyse de données (data)": 3,
+        "Automatisation / marketing automation": 2
+      }
+    },
+    {
+      "date": "2026-11-12",
+      "avec_texte": 38,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 8,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 6,
+        "Pack Office": 5,
+        "Excel": 4,
+        "PowerPoint": 4,
+        "Canva": 4,
+        "CRM": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "LinkedIn": 3,
+        "SEO": 2,
+        "Google Ads": 2,
+        "Word": 1,
+        "Instagram": 1,
+        "Facebook": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Analyse de données (data)": 2,
+        "Automatisation / marketing automation": 1
+      }
+    },
+    {
+      "date": "2026-11-13",
+      "avec_texte": 40,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 8,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 6,
+        "Excel": 5,
+        "Pack Office": 5,
+        "PowerPoint": 4,
+        "Canva": 4,
+        "IA (ChatGPT, IA générative…)": 4,
+        "SEO": 3,
+        "CRM": 3,
+        "LinkedIn": 2,
+        "Google Ads": 2,
+        "Word": 1,
+        "Instagram": 1,
+        "Facebook": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Analyse de données (data)": 2,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
+    },
+    {
+      "date": "2026-11-14",
+      "avec_texte": 42,
+      "outils": {
+        "Anglais": 9,
+        "Emailing / newsletter": 8,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 6,
+        "IA (ChatGPT, IA générative…)": 5,
+        "Excel": 5,
+        "Pack Office": 5,
+        "PowerPoint": 4,
+        "Canva": 4,
+        "CRM": 4,
+        "LinkedIn": 3,
+        "SEO": 3,
+        "Google Ads": 2,
+        "Word": 1,
+        "Instagram": 1,
+        "Facebook": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Analyse de données (data)": 2,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
+    }
+  ],
+  "mouvement": {
+    "du": "2026-10-07",
+    "au": "2026-11-14",
+    "extractions": 39,
+    "flux": [
+      {
+        "date": "2026-10-08",
+        "total": 35,
+        "nouvelles": 1,
+        "disparues": 3
+      },
+      {
+        "date": "2026-10-09",
+        "total": 31,
+        "nouvelles": 2,
+        "disparues": 6
+      },
+      {
+        "date": "2026-10-10",
+        "total": 32,
+        "nouvelles": 3,
+        "disparues": 2
+      },
+      {
+        "date": "2026-10-11",
+        "total": 34,
+        "nouvelles": 2,
+        "disparues": 0
+      },
+      {
+        "date": "2026-10-12",
+        "total": 34,
+        "nouvelles": 4,
+        "disparues": 4
+      },
+      {
+        "date": "2026-10-13",
+        "total": 28,
+        "nouvelles": 1,
+        "disparues": 7
+      },
+      {
+        "date": "2026-10-14",
+        "total": 27,
+        "nouvelles": 4,
+        "disparues": 5
+      },
+      {
+        "date": "2026-10-15",
+        "total": 29,
+        "nouvelles": 7,
+        "disparues": 5
+      },
+      {
+        "date": "2026-10-16",
+        "total": 29,
+        "nouvelles": 2,
+        "disparues": 2
+      },
+      {
+        "date": "2026-10-17",
+        "total": 32,
+        "nouvelles": 3,
+        "disparues": 0
+      },
+      {
+        "date": "2026-10-18",
+        "total": 34,
+        "nouvelles": 2,
+        "disparues": 0
+      },
+      {
+        "date": "2026-10-19",
+        "total": 32,
+        "nouvelles": 4,
+        "disparues": 6
+      },
+      {
+        "date": "2026-10-20",
+        "total": 32,
+        "nouvelles": 4,
+        "disparues": 4
+      },
+      {
+        "date": "2026-10-21",
+        "total": 34,
+        "nouvelles": 3,
+        "disparues": 1
+      },
+      {
+        "date": "2026-10-22",
+        "total": 31,
+        "nouvelles": 1,
+        "disparues": 4
+      },
+      {
+        "date": "2026-10-23",
+        "total": 28,
+        "nouvelles": 2,
+        "disparues": 5
+      },
+      {
+        "date": "2026-10-24",
+        "total": 33,
+        "nouvelles": 7,
+        "disparues": 2
+      },
+      {
+        "date": "2026-10-25",
+        "total": 33,
+        "nouvelles": 2,
+        "disparues": 2
+      },
+      {
+        "date": "2026-10-26",
+        "total": 33,
+        "nouvelles": 2,
+        "disparues": 2
+      },
+      {
+        "date": "2026-10-27",
+        "total": 34,
+        "nouvelles": 2,
+        "disparues": 1
+      },
+      {
+        "date": "2026-10-28",
+        "total": 39,
+        "nouvelles": 8,
+        "disparues": 3
+      },
+      {
+        "date": "2026-10-29",
+        "total": 39,
+        "nouvelles": 1,
+        "disparues": 1
+      },
+      {
+        "date": "2026-10-30",
+        "total": 34,
+        "nouvelles": 2,
+        "disparues": 7
+      },
+      {
+        "date": "2026-10-31",
+        "total": 33,
+        "nouvelles": 2,
+        "disparues": 3
+      },
+      {
+        "date": "2026-11-01",
+        "total": 33,
+        "nouvelles": 0,
+        "disparues": 0
+      },
+      {
+        "date": "2026-11-02",
+        "total": 32,
+        "nouvelles": 1,
+        "disparues": 2
+      },
+      {
+        "date": "2026-11-03",
+        "total": 30,
+        "nouvelles": 0,
+        "disparues": 2
+      },
+      {
+        "date": "2026-11-04",
+        "total": 29,
+        "nouvelles": 2,
+        "disparues": 3
+      },
+      {
+        "date": "2026-11-05",
+        "total": 34,
+        "nouvelles": 5,
+        "disparues": 0
+      },
+      {
+        "date": "2026-11-06",
+        "total": 37,
+        "nouvelles": 7,
+        "disparues": 4
+      },
+      {
+        "date": "2026-11-07",
+        "total": 36,
+        "nouvelles": 2,
+        "disparues": 3
+      },
+      {
+        "date": "2026-11-08",
+        "total": 36,
+        "nouvelles": 0,
+        "disparues": 0
+      },
+      {
+        "date": "2026-11-09",
+        "total": 35,
+        "nouvelles": 4,
+        "disparues": 5
+      },
+      {
+        "date": "2026-11-10",
+        "total": 36,
+        "nouvelles": 2,
+        "disparues": 1
+      },
+      {
+        "date": "2026-11-11",
+        "total": 37,
+        "nouvelles": 5,
+        "disparues": 4
+      },
+      {
+        "date": "2026-11-12",
+        "total": 38,
+        "nouvelles": 2,
+        "disparues": 1
+      },
+      {
+        "date": "2026-11-13",
+        "total": 40,
+        "nouvelles": 3,
+        "disparues": 1
+      },
+      {
+        "date": "2026-11-14",
+        "total": 42,
+        "nouvelles": 2,
+        "disparues": 0
+      }
+    ],
+    "vues": 137,
+    "toute_la_periode": 3,
+    "duree_mediane_jours": 5,
+    "n_duree": 61
+  },
+  "derniere": {
+    "date": "2026-11-14",
+    "total": 42,
+    "alternance": 0,
+    "part_salaire_affiche": 36,
+    "contrats": [
+      {
+        "nom": "CDI",
+        "n": 33
+      },
+      {
+        "nom": "CDD",
+        "n": 9
+      }
+    ],
+    "natures": [
+      {
+        "nom": "Contrat travail",
+        "n": 42
+      }
+    ],
+    "departements": [
+      {
+        "nom": "75",
+        "n": 5
+      },
+      {
+        "nom": "13",
+        "n": 4
+      },
+      {
+        "nom": "69",
+        "n": 4
+      },
+      {
+        "nom": "94",
+        "n": 2
+      },
+      {
+        "nom": "72",
+        "n": 2
+      },
+      {
+        "nom": "06",
+        "n": 2
+      },
+      {
+        "nom": "46",
+        "n": 1
+      },
+      {
+        "nom": "77",
+        "n": 1
+      },
+      {
+        "nom": "93",
+        "n": 1
+      },
+      {
+        "nom": "67",
+        "n": 1
+      }
+    ],
+    "regions": [
+      {
+        "nom": "Île-de-France",
+        "n": 11
+      },
+      {
+        "nom": "Provence-Alpes-Côte d'Azur",
+        "n": 9
+      },
+      {
+        "nom": "Auvergne-Rhône-Alpes",
+        "n": 6
+      },
+      {
+        "nom": "Nouvelle-Aquitaine",
+        "n": 4
+      },
+      {
+        "nom": "Hauts-de-France",
+        "n": 4
+      },
+      {
+        "nom": "Occitanie",
+        "n": 2
+      },
+      {
+        "nom": "Pays de la Loire",
+        "n": 2
+      },
+      {
+        "nom": "Outre-mer",
+        "n": 2
+      },
+      {
+        "nom": "Grand Est",
+        "n": 1
+      },
+      {
+        "nom": "Bourgogne-Franche-Comté",
+        "n": 1
+      }
+    ],
+    "canaux": null,
+    "n_puy_de_dome": 0,
+    "annonces_formation": {
+      "n": 0,
+      "noms": []
+    },
+    "teletravail": {
+      "offres": 4,
+      "sur": 42
+    },
+    "entreprises": [
+      {
+        "nom": "TalenX",
+        "n": 3
+      },
+      {
+        "nom": "ANDROS",
+        "n": 1
+      },
+      {
+        "nom": "ITINOVA",
+        "n": 1
+      },
+      {
+        "nom": "KAROIL",
+        "n": 1
+      },
+      {
+        "nom": "K-TEX",
+        "n": 1
+      },
+      {
+        "nom": "SOCOMEC",
+        "n": 1
+      },
+      {
+        "nom": "LACO",
+        "n": 1
+      },
+      {
+        "nom": "LUCHE TRADITION VOLAILLES",
+        "n": 1
+      },
+      {
+        "nom": "YORK",
+        "n": 1
+      },
+      {
+        "nom": "O'MY EMPLOI",
+        "n": 1
+      }
+    ],
+    "concentration_top2": {
+      "noms": [
+        "TalenX",
+        "ANDROS"
+      ],
+      "part": 10
+    },
+    "competences": [
+      {
+        "nom": "Mettre en place des solutions d'amélioration de la performance",
+        "n": 15
+      },
+      {
+        "nom": "Développer l'image et la notoriété de la structure",
+        "n": 3
+      },
+      {
+        "nom": "Analyser les performances de l'équipe et proposer des améliorations",
+        "n": 3
+      },
+      {
+        "nom": "Concevoir des supports de communication et d'image",
+        "n": 2
+      },
+      {
+        "nom": "Participer aux phases créatives d'un projet marketing",
+        "n": 1
+      },
+      {
+        "nom": "Utiliser les outils numériques",
+        "n": 1
+      },
+      {
+        "nom": "Marketing des réseaux sociaux",
+        "n": 1
+      },
+      {
+        "nom": "Elaborer une stratégie de marketing digital",
+        "n": 1
+      },
+      {
+        "nom": "Assurer la gestion administrative d'une activité",
+        "n": 1
+      },
+      {
+        "nom": "Elaborer un plan marketing, une stratégie de marque et de communication",
+        "n": 1
+      }
+    ],
+    "salaires": {
+      "mediane_insertion": 2433,
+      "groupes": [
+        {
+          "nom": "CDI",
+          "total": 33,
+          "affichent": 12,
+          "mediane": 2475,
+          "min": 1900,
+          "max": 3542,
+          "mediane_annuelle": 29700,
+          "min_annuel": 22800,
+          "max_annuel": 42504
+        },
+        {
+          "nom": "CDD",
+          "total": 9,
+          "affichent": 3,
+          "mediane": 2500,
+          "min": 2292,
+          "max": 3083,
+          "mediane_annuelle": 30000,
+          "min_annuel": 27504,
+          "max_annuel": 36996
+        }
+      ]
+    },
+    "outils": {
+      "avec_texte": 42,
+      "liste": [
+        {
+          "nom": "Anglais",
+          "offres": 9,
+          "entreprises": 8
+        },
+        {
+          "nom": "Emailing / newsletter",
+          "offres": 8,
+          "entreprises": 8
+        },
+        {
+          "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
+          "offres": 6,
+          "entreprises": 5
+        },
+        {
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 5,
+          "entreprises": 5
+        },
+        {
+          "nom": "Excel",
+          "offres": 5,
+          "entreprises": 4
+        },
+        {
+          "nom": "Pack Office",
+          "offres": 5,
+          "entreprises": 4
+        },
+        {
+          "nom": "PowerPoint",
+          "offres": 4,
+          "entreprises": 4
+        },
+        {
+          "nom": "Canva",
+          "offres": 4,
+          "entreprises": 4
+        },
+        {
+          "nom": "CRM",
+          "offres": 4,
+          "entreprises": 4
+        },
+        {
+          "nom": "LinkedIn",
+          "offres": 3,
+          "entreprises": 3
+        },
+        {
+          "nom": "SEO",
+          "offres": 3,
+          "entreprises": 3
+        },
+        {
+          "nom": "Google Ads",
+          "offres": 2,
+          "entreprises": 2
+        },
+        {
+          "nom": "Word",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "Instagram",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "Facebook",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "Google Analytics / GA4",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "Meta Ads / Facebook Ads",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "HubSpot",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "WordPress",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "Shopify",
+          "offres": 1,
+          "entreprises": 1
+        },
+        {
+          "nom": "Power BI / Looker Studio",
+          "offres": 1,
+          "entreprises": 1
+        }
+      ],
+      "absents": [
+        "Figma",
+        "TikTok",
+        "YouTube",
+        "SEA",
+        "Salesforce",
+        "Mailchimp, Brevo, Sendinblue, Klaviyo",
+        "Prestashop",
+        "SQL",
+        "Python",
+        "Semrush / Ahrefs",
+        "Google Tag Manager",
+        "Notion / Trello / Asana",
+        "Zapier"
+      ]
+    },
+    "debutant_accepte": null,
+    "mots": [
+      {
+        "nom": "Réseaux sociaux",
+        "offres": 12,
+        "entreprises": 9
+      },
+      {
+        "nom": "Analyse de données (data)",
+        "offres": 2,
+        "entreprises": 2
+      },
+      {
+        "nom": "Automatisation / marketing automation",
+        "offres": 1,
+        "entreprises": 1
+      },
+      {
+        "nom": "GEO (optimisation pour les moteurs d'IA)",
+        "offres": 1,
+        "entreprises": 1
+      }
+    ],
+    "variantes": {
+      "titres": 42,
+      "liste": [
+        {
+          "nom": "Assistant / Assistante marketing",
+          "n": 14
+        },
+        {
+          "nom": "Assistant(e) commercial(e) et marketing",
+          "n": 3
+        },
+        {
+          "nom": "Assistant(e) marketing et communication",
+          "n": 2
+        }
+      ],
+      "avec_digital": 1,
+      "avec_alternance": 0,
+      "sans_marketing": 18,
+      "exemples_sans_marketing": [
+        "Assistant ADV H/F",
+        "Directeur adjoint H/F",
+        "Assistant(e) ADV (H/F)",
+        "agent de planning (H/F)"
+      ]
+    }
+  }
+}

@@ -59,6 +59,13 @@ OUTILS = [
     ("Prestashop", r"(?i)\bprestashop\b"),
     ("IA (ChatGPT, IA générative…)", r"\bIA\b|(?i:intelligence artificielle|chatgpt)"),
     ("Anglais", r"(?i)\b(anglais|english|bilingue)\b"),
+    ("SQL", r"\bSQL\b"),
+    ("Python", r"\bPython\b"),
+    ("Power BI / Looker Studio", r"(?i)\bpower ?bi\b|\blooker( studio)?\b|\bdata ?studio\b"),
+    ("Semrush / Ahrefs", r"(?i)\b(semrush|ahrefs)\b"),
+    ("Google Tag Manager", r"(?i)\bgoogle tag manager\b|\bGTM\b"),
+    ("Notion / Trello / Asana", r"(?i)\b(notion|trello|asana)\b"),
+    ("Zapier", r"(?i)\bzapier\b"),
 ]
 OUTILS = [(nom, re.compile(motif)) for nom, motif in OUTILS]
 
@@ -76,7 +83,6 @@ VARIANTES = [
     ("Assistant / Assistante marketing", r"(?i)assistant\S*\s+marketing"),
     ("Assistant(e) commercial(e) et marketing", r"(?i)commercial\S*\s*(?:et|&)\s*marketing|marketing\s*(?:et|&)\s*commercial"),
     ("Assistant(e) marketing et communication", r"(?i)marketing\s*(?:et|&)\s*communication|communication\s*(?:et|&)\s*marketing"),
-    ("Assistant(e) chef de produit", r"(?i)chef\S*\s+de\s+produit"),
 ]
 VARIANTES = [(nom, re.compile(motif)) for nom, motif in VARIANTES]
 PUB_FORMATION = re.compile(r"(?i)en suivant la formation|formation .{0,40}à distance")
@@ -205,23 +211,36 @@ def calculer_salaires(offres):
         ligne = {"nom": nom, "total": len(os_), "affichent": len(valeurs)}
         if valeurs:
             ligne.update(mediane=round(statistics.median(valeurs)), min=round(min(valeurs)), max=round(max(valeurs)))
+            ligne.update(mediane_annuelle=ligne["mediane"] * 12, min_annuel=ligne["min"] * 12, max_annuel=ligne["max"] * 12)
         lignes.append(ligne)
     return lignes
 
 
-def main():
-    fichiers = sorted(glob.glob(f"data/offres_{CODE_ROME}_*.csv"))
-    textes = charger_textes()
+def emploi_seulement(textes):
+    """Règle « vrai emploi » : CDI ou CDD, sans alternance, sans stage ni apprentissage dans le titre,
+    sans annonce de formation à distance."""
+    stage = re.compile(r"(?i)\bstage\b|stagiaire|altern|apprenti")
 
-    serie, serie_outils, jours_ids = [], [], []
+    def garder(l):
+        return (l["contrat"].split(" - ")[0] in ("CDI", "CDD") and l["alternance"] != "Oui"
+                and l["nature_contrat"] == "Contrat travail" and not stage.search(l["intitule"])
+                and not PUB_FORMATION.search(textes.get(l.get("id"), "")))
+    return garder
+
+
+def construire(garder, vue, textes):
+    """Calcule tous les chiffres sur les offres qui passent le filtre `garder`. En vue « emploi », seules les
+    extractions qui ont des identifiants et le texte des annonces (à partir du 07/10) sont utilisées."""
+    fichiers = sorted(glob.glob(f"data/offres_{CODE_ROME}_*.csv"))
+    serie, serie_outils, jours_ids, offres = [], [], [], []
     for chemin in fichiers:
         jour = re.search(r"(\d{4}-\d{2}-\d{2})\.csv$", chemin).group(1)
-        lignes = lire(chemin)
-        serie.append({
-            "date": jour,
-            "total": len(lignes),
-            "alternance": sum(1 for l in lignes if l["alternance"] == "Oui"),
-        })
+        toutes = lire(chemin)
+        if vue == "emploi" and not (toutes and "id" in toutes[0]):
+            continue
+        lignes = [l for l in toutes if garder(l)]
+        offres = lignes
+        serie.append({"date": jour, "total": len(lignes), "alternance": sum(1 for l in lignes if l["alternance"] == "Oui")})
         if lignes and "id" in lignes[0]:
             outils, n_texte = compter_outils(lignes, textes)
             mots, _ = compter_outils(lignes, textes, MOTS)
@@ -230,16 +249,18 @@ def main():
                                  "mots": {o["nom"]: o["offres"] for o in mots}})
             jours_ids.append((jour, {l["id"]: l for l in lignes}))
 
-    offres = lire(fichiers[-1])
     derniere_date = serie[-1]["date"]
     total = len(offres)
+    t = max(total, 1)
 
-    try:
-        ids_lba = {l["id"] for l in lire(f"data/offres_alternance_{CODE_ROME}_{derniere_date}.csv") if l.get("id")}
-    except FileNotFoundError:
-        ids_lba = set()
-    ids_ft = {o["id"] for o in offres if o.get("id")}
-    canaux = {"lba_distinctes": len(ids_lba), "lba_deja_dans_ft": len(ids_lba & ids_ft)} if ids_lba else None
+    canaux = None
+    if vue == "tout":
+        try:
+            ids_lba = {l["id"] for l in lire(f"data/offres_alternance_{CODE_ROME}_{derniere_date}.csv") if l.get("id")}
+        except FileNotFoundError:
+            ids_lba = set()
+        ids_ft = {o["id"] for o in offres if o.get("id")}
+        canaux = {"lba_distinctes": len(ids_lba), "lba_deja_dans_ft": len(ids_lba & ids_ft)} if ids_lba else None
 
     entreprises = Counter(o["entreprise"] for o in offres if o["entreprise"] != "Non précisé")
     top2 = entreprises.most_common(2)
@@ -253,11 +274,15 @@ def main():
     pub = [o for o in offres if textes.get(o.get("id")) and PUB_FORMATION.search(textes[o["id"]])]
     teletravail = sum(1 for o in offres if textes.get(o.get("id")) and TELETRAVAIL.search(textes[o["id"]]))
 
-    resume = {
+    requete = f"API France Travail — Offres d'emploi v2, codeROME={CODE_ROME}, France entière"
+    if vue == "emploi":
+        requete += " ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026"
+    return {
+        "vue": vue,
         "genere_le": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "metier": "Assistant / Assistante marketing",
         "code_rome": CODE_ROME,
-        "requete": f"API France Travail — Offres d'emploi v2, codeROME={CODE_ROME}, France entière",
+        "requete": requete,
         "serie": serie,
         "serie_outils": serie_outils,
         "mouvement": calculer_mouvement(jours_ids),
@@ -265,7 +290,7 @@ def main():
             "date": derniere_date,
             "total": total,
             "alternance": serie[-1]["alternance"],
-            "part_salaire_affiche": round(100 * avec_salaire / total),
+            "part_salaire_affiche": round(100 * avec_salaire / t),
             "contrats": top(Counter(o["contrat"].split(" - ")[0] for o in offres)),
             "natures": top(Counter(o["nature_contrat"] for o in offres)),
             "departements": top(depts),
@@ -275,20 +300,30 @@ def main():
             "annonces_formation": {"n": len(pub), "noms": sorted({o["entreprise"] for o in pub})},
             "teletravail": {"offres": teletravail, "sur": n_texte},
             "entreprises": top(entreprises),
-            "concentration_top2": {"noms": [n for n, _ in top2], "part": round(100 * sum(n for _, n in top2) / total)},
+            "concentration_top2": {"noms": [n for n, _ in top2], "part": round(100 * sum(n for _, n in top2) / t)},
             "competences": top(competences),
             "salaires": {"mediane_insertion": MEDIANE_INSERTION, "groupes": calculer_salaires(offres)},
-            "outils": {"avec_texte": n_texte, "liste": outils},
+            "outils": {"avec_texte": n_texte, "liste": outils, "absents": [n for n, _ in OUTILS if n not in {o["nom"] for o in outils}]},
+            "debutant_accepte": (round(100 * sum(1 for o in offres if "débutant" in o["experience"].lower()) / t)
+                                 if offres and "experience" in offres[0] else None),
             "mots": mots,
             "variantes": calculer_variantes(offres),
         },
     }
 
+
+def main():
+    textes = charger_textes()
+    resume = construire(lambda l: True, "tout", textes)
     with open("data/resume.json", "w", encoding="utf-8") as f:
         json.dump(resume, f, ensure_ascii=False, indent=2)
     with open("data/rapport.md", "w", encoding="utf-8") as f:
         f.write(rapport(resume))
-    print(f"resume.json et rapport.md écrits : {len(serie)} extraction(s), dernière = {derniere_date}, {total} offres")
+    emploi = construire(emploi_seulement(textes), "emploi", textes)
+    with open("data/resume_emploi.json", "w", encoding="utf-8") as f:
+        json.dump(emploi, f, ensure_ascii=False, indent=2)
+    print(f"resume.json (toutes les offres) : {len(resume['serie'])} extractions, dernière = {resume['derniere']['date']}, {resume['derniere']['total']} offres")
+    print(f"resume_emploi.json (CDI/CDD) : {len(emploi['serie'])} extractions, dernière = {emploi['derniere']['date']}, {emploi['derniere']['total']} offres")
 
 
 def rapport(r):

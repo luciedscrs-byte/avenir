@@ -16,7 +16,7 @@
   <div class="carte" style="margin-bottom:1.5rem">
     <h2>Le nombre d'offres, extraction après extraction</h2>
     <div id="graphique"></div>
-    <div class="legende-graphique"><span><i></i>Toutes les offres</span><span><i class="pointille"></i>Dont alternance</span></div>
+    <div class="legende-graphique"><span><i></i><span id="leg-total">Toutes les offres</span></span><span id="leg-alt"><i class="pointille"></i>Dont alternance</span></div>
     <p class="note" id="graphique-note"></p>
   </div>
 
@@ -67,7 +67,7 @@
 
 <script src="assets/commun.js"></script>
 <script>
-navigation('mouvement.html');
+navigation('mouvement.html', true);
 
 const NS = 'http://www.w3.org/2000/svg';
 function svg(tag, attrs, style) {
@@ -103,7 +103,7 @@ function graphique(serie) {
     });
   };
   trace('total', { stroke: 'var(--accent)' });
-  trace('alternance', { stroke: 'var(--muted)', strokeDasharray: '5 4' });
+  if (serie.some(s => s.alternance > 0)) trace('alternance', { stroke: 'var(--muted)', strokeDasharray: '5 4' });
   return racine;
 }
 
@@ -137,18 +137,27 @@ function evolution(idTable, so, cle, nomsMax) {
     el('tbody', {}, corps));
 }
 
-fetch('data/resume.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => {
+fetch(fichierResume()).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => {
   const s = d.serie, premier = s[0], dernier = s[s.length - 1], m = d.mouvement, so = d.serie_outils;
   const pct = (a, b) => Math.round(100 * (b - a) / a);
   document.getElementById('sous-titre').textContent =
-    s.length + ' extractions du ' + dateFr(premier.date) + ' au ' + dateFr(dernier.date) + ', France entière, code ROME ' + d.code_rome + '.';
+    s.length + ' extractions du ' + dateFr(premier.date) + ' au ' + dateFr(dernier.date) + ', France entière, code ROME ' + d.code_rome + (d.vue === 'emploi' ? ', vrais CDI et CDD seulement.' : '.');
   document.getElementById('genere').textContent = new Date(d.genere_le).toLocaleString('fr-FR');
 
   document.getElementById('graphique').appendChild(graphique(s));
-  document.getElementById('graphique-note').textContent =
-    'Toutes les offres : ' + premier.total + ' le ' + dateCourte(premier.date) + ', ' + dernier.total + ' le ' + dateCourte(dernier.date) +
-    ' (' + pct(premier.total, dernier.total) + ' %). Alternance : ' + premier.alternance + ' puis ' + dernier.alternance + ' (' + pct(premier.alternance, dernier.alternance) + ' %). ' +
-    'Il n\'y a pas d\'extraction entre le 22/09 et le 07/10 : la veille n\'était pas encore automatique. Je ne sais pas si cette baisse est saisonnière ou durable : il faudrait un an de recul.';
+  const emploi = d.vue === 'emploi';
+  if (emploi) {
+    document.getElementById('leg-total').textContent = 'Offres CDI / CDD';
+    document.getElementById('leg-alt').style.display = 'none';
+    document.getElementById('graphique-note').textContent =
+      'Vrais CDI et CDD : ' + premier.total + ' le ' + dateCourte(premier.date) + ', ' + dernier.total + ' le ' + dateCourte(dernier.date) +
+      ' (' + pct(premier.total, dernier.total) + ' %). Cette vue commence le 07/10, première extraction avec identifiants et texte des annonces. Je ne sais pas si cette évolution est saisonnière ou durable : il faudrait un an de recul.';
+  } else {
+    document.getElementById('graphique-note').textContent =
+      'Toutes les offres : ' + premier.total + ' le ' + dateCourte(premier.date) + ', ' + dernier.total + ' le ' + dateCourte(dernier.date) +
+      ' (' + pct(premier.total, dernier.total) + ' %). Alternance : ' + premier.alternance + ' puis ' + dernier.alternance + ' (' + pct(premier.alternance, dernier.alternance) + ' %). ' +
+      'Il n\'y a pas d\'extraction entre le 22/09 et le 07/10 : la veille n\'était pas encore automatique. Je ne sais pas si cette baisse est saisonnière ou durable : il faudrait un an de recul.';
+  }
 
   if (m) {
     const moy = cle => (m.flux.reduce((t, f) => t + f[cle], 0) / m.flux.length).toFixed(1).replace('.', ',');

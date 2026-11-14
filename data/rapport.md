@@ -70,6 +70,8 @@ Texte lu pour 118 annonces. Classés par nombre d'**entreprises** distinctes qui
 | Mailchimp, Brevo, Sendinblue, Klaviyo | 1 | 1 |
 | WordPress | 1 | 1 |
 | Shopify | 1 | 1 |
+| Power BI / Looker Studio | 1 | 1 |
+| Semrush / Ahrefs | 1 | 1 |
 
 ## Qui publie
 

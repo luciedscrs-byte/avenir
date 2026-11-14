@@ -10,7 +10,7 @@ import resumer
 from postes import SERIES
 
 
-def resume_serie(nom, libelle):
+def resume_serie(nom, libelle, codes):
     fichiers = sorted(glob.glob(f"data/offres_{nom}_*.csv"))
     if not fichiers:
         return None
@@ -24,6 +24,7 @@ def resume_serie(nom, libelle):
     entreprises = Counter(o["entreprise"] for o in offres if o["entreprise"] != "Non précisé")
     return {
         "libelle": libelle,
+        "codes": codes,
         "depuis": serie[0]["date"],
         "serie": serie,
         "derniere": {
@@ -44,7 +45,7 @@ def main():
     resume = {
         "genere_le": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
-        "postes": {nom: resume_serie(nom, s["libelle"]) for nom, s in SERIES.items()},
+        "postes": {nom: resume_serie(nom, s["libelle"], s["codes"]) for nom, s in SERIES.items()},
     }
     with open("data/resume_postes.json", "w", encoding="utf-8") as f:
         json.dump(resume, f, ensure_ascii=False, indent=2)
