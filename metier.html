@@ -162,8 +162,8 @@ Promise.all([
     'Les offres d\'assistant marketing en CDI / CDD sont passées de ' + emploi.serie[0].total + ' le ' + dateFr(emploi.serie[0].date) + ' à ' + e.total + ' le ' + jour + ', avec en moyenne ' + moy('nouvelles') +
     ' nouvelles et ' + moy('disparues') + ' disparues par jour ; les deux postes de responsable ne sont suivis que depuis le ' + dateFr(ecom.depuis) + ', trop récemment pour parler de mouvement. ' +
     'Côté employeurs, aucun ne domine en CDI / CDD (le plus présent, ' + e.entreprises[0].nom + ', publie ' + e.entreprises[0].n + ' offres) ; toutes offres confondues, ' + t.concentration_top2.noms.join(' et ') +
-    ' (une école et des annonces de formation) publient ' + t.concentration_top2.part + ' % des offres. Côté marché caché : ' + fr(ent.total) + ' entreprises de ' + ent.taille_min +
-    ' et plus dans les grandes villes, qu\'elles publient une offre ou non : la liste ne le vérifie pas.',
+    ' (une école et des annonces de formation) publient ' + t.concentration_top2.part + ' % des offres. Côté marché caché : ' + fr(ent.total) + ' entreprises d\'au moins ' + ent.taille_min +
+    ' dans les grandes villes, qu\'elles publient une offre ou non : la liste ne le vérifie pas.',
     'mouvement.html', 'Voir le mouvement.');
 
   document.getElementById('chiffres-note').textContent =

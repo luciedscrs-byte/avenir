@@ -66,20 +66,39 @@ AUTRES = {
         "47.71Z": "Commerce de détail d'habillement", "47.78C": "Autres commerces de détail spécialisés",
     },
 }
+# Industrie manufacturière (section C de la NAF), ajoutée le 14/11/2026 : les offres de responsable marketing
+# viennent d'abord de l'industrie (alimentaire, chimie-cosmétique, pharmacie, électronique, machines, meubles…).
+# L'API ne filtre pas par division, donc on prend toute la section C, à partir de 20 salariés : un poste de
+# responsable marketing existe rarement en dessous (parmi les offres lues, 11 établissements sur 12 dont la taille est connue ont 20 salariés ou plus).
+TRANCHES_INDUSTRIE = "12,21,22,31,32,41,42,51,52,53"
+DIVISIONS_INDUSTRIE = {
+    "10": "Industries alimentaires", "11": "Fabrication de boissons", "12": "Fabrication de produits à base de tabac",
+    "13": "Fabrication de textiles", "14": "Industrie de l'habillement", "15": "Industrie du cuir et de la chaussure",
+    "16": "Travail du bois", "17": "Industrie du papier et du carton", "18": "Imprimerie et reproduction",
+    "19": "Cokéfaction et raffinage", "20": "Industrie chimique (dont cosmétique, détergents)", "21": "Industrie pharmaceutique",
+    "22": "Caoutchouc et plastique", "23": "Autres produits minéraux non métalliques", "24": "Métallurgie",
+    "25": "Produits métalliques", "26": "Produits informatiques, électroniques et optiques", "27": "Équipements électriques",
+    "28": "Machines et équipements", "29": "Industrie automobile", "30": "Autres matériels de transport",
+    "31": "Fabrication de meubles", "32": "Autres industries manufacturières", "33": "Réparation et installation de machines",
+}
 CODES = {c: ("Agences", lib) for c, lib in AGENCES.items()}
 for groupe, codes in AUTRES.items():
     CODES.update({c: (groupe, lib) for c, lib in codes.items()})
 
 COLONNES = ["section", "type", "groupe", "region", "grande_ville", "departement", "commune", "adresse", "nom", "siren",
             "naf", "activite", "effectif", "taille", "date_creation", "fiche"]
-ORDRE_SECTION = {"principale": 0, "agences": 1, "nord": 2}
+ORDRE_SECTION = {"principale": 0, "industrie": 1, "agences": 2, "nord": 3}
 RANG_TAILLE = {code: i + 1 for i, code in enumerate(TRANCHE_LIBELLE)}
 
 
 def appeler(params):
     for essai in range(6):
         time.sleep(0.16)
-        r = requests.get(URL, params=params, timeout=40)
+        try:
+            r = requests.get(URL, params=params, timeout=40)
+        except requests.exceptions.RequestException:  # connexion coupée : on réessaie
+            time.sleep(3 * (essai + 1))
+            continue
         if r.status_code == 200:
             return r.json()
         if r.status_code in (429, 500, 502, 503, 504):
@@ -89,15 +108,15 @@ def appeler(params):
     raise RuntimeError(f"API indisponible : {params}")
 
 
-def lignes_pour(code, departements):
-    """Toutes les entreprises du code NAF dans les départements donnés (plafond API : 10 000 résultats)."""
-    base = {"etat_administratif": "A", "activite_principale": code, "tranche_effectif_salarie": TRANCHES,
-            "departement": ",".join(departements), "per_page": 25}
+def lignes_pour(code, departements, filtre=None, tranches=TRANCHES):
+    """Toutes les entreprises du code NAF (ou du filtre donné) dans les départements donnés (plafond API : 10 000 résultats)."""
+    base = {"etat_administratif": "A", "tranche_effectif_salarie": tranches,
+            "departement": ",".join(departements), "per_page": 25, **(filtre or {"activite_principale": code})}
     premier = appeler({**base, "page": 1})
     total = premier["total_results"]
     if total >= 10000 and len(departements) > 1:
         print(f"  {code} : {total} résultats, plafond atteint → découpage par département")
-        return [r for d in departements for r in lignes_pour(code, [d])]
+        return [r for d in departements for r in lignes_pour(code, [d], filtre, tranches)]
     resultats = list(premier["results"])
     pages = range(2, premier["total_pages"] + 1)
     with ThreadPoolExecutor(max_workers=4) as pool:
@@ -109,17 +128,18 @@ def lignes_pour(code, departements):
 def reduire(r):
     s = r["siege"]
     return {"siren": r["siren"], "nom_complet": r["nom_complet"], "date_creation": r.get("date_creation"),
+            "activite_principale": r.get("activite_principale"),
             "tranche_effectif_salarie": r.get("tranche_effectif_salarie"),
             "siege": {"departement": s.get("departement"), "adresse": s.get("adresse"),
                       "tranche_effectif_salarie": s.get("tranche_effectif_salarie")}}
 
 
-def charger(code, departements):
+def charger(code, departements, filtre=None, tranches=TRANCHES):
     chemin = f"{CACHE}/{code}.json"
     if os.path.exists(chemin):
         with open(chemin, encoding="utf-8") as f:
             return json.load(f)
-    brut = [reduire(r) for r in lignes_pour(code, departements)]
+    brut = [reduire(r) for r in lignes_pour(code, departements, filtre, tranches)]
     os.makedirs(CACHE, exist_ok=True)
     with open(chemin, "w", encoding="utf-8") as f:
         json.dump(brut, f, ensure_ascii=False)
@@ -134,8 +154,11 @@ def commune(adresse):
 def main():
     departements = list(VILLES)
     vus, hors_siege, tranche_inconnue = {}, 0, 0
-    for i, (code, (groupe, libelle)) in enumerate(CODES.items(), 1):
-        brut = charger(code, departements)
+    # (code ou clé de cache, groupe, libellé, filtre API, tranches)
+    taches = [(c, g, lib, None, TRANCHES) for c, (g, lib) in CODES.items()]
+    taches.append(("industrie", "Industrie", "", {"section_activite_principale": "C"}, TRANCHES_INDUSTRIE))
+    for i, (code, groupe, libelle, filtre, tranches) in enumerate(taches, 1):
+        brut = charger(code, departements, filtre, tranches)
         gardees = 0
         for r in brut:
             s = r["siege"]
@@ -146,8 +169,18 @@ def main():
             if r["siren"] in vus:
                 continue
             gardees += 1
+            naf = r.get("activite_principale") if filtre else code
+            if filtre:
+                libelle_ligne = DIVISIONS_INDUSTRIE.get((naf or "")[:2], "Industrie")
+            else:
+                libelle_ligne = libelle
             est_agence = code in AGENCES
-            section = "nord" if dep in DEPTS_NORD else ("agences" if est_agence else "principale")
+            if dep in DEPTS_NORD:
+                section = "nord"
+            elif filtre:
+                section = "industrie"
+            else:
+                section = "agences" if est_agence else "principale"
             effectif = r.get("tranche_effectif_salarie") or s.get("tranche_effectif_salarie") or ""
             if effectif not in TRANCHE_LIBELLE:
                 tranche_inconnue += 1
@@ -155,12 +188,12 @@ def main():
             vus[r["siren"]] = {
                 "section": section, "type": "agence" if est_agence else "entreprise", "groupe": groupe,
                 "region": REGION_DE.get(dep, ""), "grande_ville": VILLES[dep], "departement": dep, "commune": commune(s.get("adresse")),
-                "adresse": s.get("adresse") or "", "nom": re.sub(r"^(.+) \(\1\)$", r"\1", r["nom_complet"]), "siren": r["siren"], "naf": code,
-                "activite": libelle, "effectif": effectif, "taille": TRANCHE_LIBELLE.get(effectif, ""),
+                "adresse": s.get("adresse") or "", "nom": re.sub(r"^(.+) \(\1\)$", r"\1", r["nom_complet"]), "siren": r["siren"], "naf": naf,
+                "activite": libelle_ligne, "effectif": effectif, "taille": TRANCHE_LIBELLE.get(effectif, ""),
                 "date_creation": r.get("date_creation") or "",
                 "fiche": f"https://annuaire-entreprises.data.gouv.fr/entreprise/{r['siren']}",
             }
-        print(f"[{i}/{len(CODES)}] {code} {libelle} : {len(brut)} reçues, {gardees} nouvelles gardées")
+        print(f"[{i}/{len(taches)}] {code} {libelle} : {len(brut)} reçues, {gardees} nouvelles gardées")
 
     lignes = sorted(vus.values(), key=lambda x: (ORDRE_SECTION[x["section"]], -RANG_TAILLE.get(x["effectif"], 0), x["nom"]))
     with open("data/entreprises.csv", "w", newline="", encoding="utf-8-sig") as f:
@@ -182,7 +215,7 @@ def main():
             }
             for region, n in Counter(l["region"] for l in lignes).most_common()
         },
-        "taille_min": "6 salariés",
+        "taille_min": "6 salariés (20 pour l'industrie)",
         "ecartees_siege_hors_villes": hors_siege,
         "taille_inconnue": tranche_inconnue,
     }

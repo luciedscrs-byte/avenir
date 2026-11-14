@@ -52,7 +52,7 @@
     font: inherit; font-size: 0.9rem; padding: 0.4rem 0.5rem; border-radius: 8px;
     border: 1px solid var(--line); background: var(--card); color: var(--text); min-width: 160px;
   }
-  .pagination { display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
+  .pagination { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
   .pagination button:disabled { opacity: 0.4; cursor: default; }
   .tableau { overflow-x: auto; }
   td a { color: var(--accent); }

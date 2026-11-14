@@ -16,6 +16,7 @@
   <div class="chiffres">
     <div class="carte"><p class="gros" id="total">–</p><p class="legende">entreprises recensées</p></div>
     <div class="carte"><p class="gros" id="n-principale">–</p><p class="legende">cibles principales</p></div>
+    <div class="carte"><p class="gros" id="n-industrie">–</p><p class="legende">industrie (à part)</p></div>
     <div class="carte"><p class="gros" id="n-agences">–</p><p class="legende">agences (à part)</p></div>
     <div class="carte"><p class="gros" id="n-nord">–</p><p class="legende">villes du nord (à part)</p></div>
   </div>
@@ -45,8 +46,8 @@
   <div class="carte" id="limites">
     <h2>Comment lire cette liste</h2>
     <ul>
-      <li><strong>Sections.</strong> « Cibles principales » = entreprises hors agences, hors villes du nord. « Agences » = publicité, communication, études de marché, design : récoltées mais séparées. « Villes du nord » = villes plus hautes que Paris et hors Île-de-France (Lille, Reims, Le Havre, Rouen, Amiens, Metz, Caen), tous types confondus.</li>
-      <li><strong>Périmètre.</strong> Entreprises actives d'au moins 6 salariés, dont le siège est dans un département abritant une commune de plus de 100 000 habitants. Une région n'est donc couverte qu'en partie : le menu « Région » indique combien de ses départements sont inclus (par exemple 5 sur 12 en Auvergne-Rhône-Alpes). Elles sont choisies par leur code d'activité (NAF) : une entreprise de ces secteurs n'a pas forcément un poste marketing, et beaucoup d'entreprises qui en ont un sont dans d'autres secteurs.</li>
+      <li><strong>Sections.</strong> « Cibles principales » = numérique, e-commerce, médias, événementiel et commerce spécialisé, hors agences et hors villes du nord. « Industrie » = toute l'industrie manufacturière (alimentaire, chimie et cosmétique, pharmacie, machines, meubles…), ajoutée parce que l'industrie est le premier type d'employeur des offres de responsable marketing ; elle ne compte que les entreprises de 20 salariés et plus. « Agences » = publicité, communication, études de marché, design : récoltées mais séparées. « Villes du nord » = villes plus hautes que Paris et hors Île-de-France (Lille, Reims, Le Havre, Rouen, Amiens, Metz, Caen), tous types confondus.</li>
+      <li><strong>Périmètre.</strong> Entreprises actives d'au moins 6 salariés (20 pour l'industrie), dont le siège est dans un département abritant une commune de plus de 100 000 habitants. Une région n'est donc couverte qu'en partie : le menu « Région » indique combien de ses départements sont inclus (par exemple 5 sur 12 en Auvergne-Rhône-Alpes). Elles sont choisies par leur code d'activité (NAF) : une entreprise de ces secteurs n'a pas forcément un poste marketing, et beaucoup d'entreprises qui en ont un sont dans d'autres secteurs.</li>
       <li><strong>Ce que l'API ne donne pas.</strong> Ni site web, ni téléphone, ni e-mail : ces colonnes viendront d'une autre source.</li>
       <li><strong>Données personnelles.</strong> Cette liste ne contient que des données d'entreprises, aucun nom de personne. Un contact éventuel se cherche ensuite à la main, en lien avec sa fonction, pour une finalité claire (une candidature), avec droit d'opposition, et la liste n'est jamais revendue.</li>
     </ul>
@@ -61,6 +62,7 @@ navigation('entreprises.html');
 const PAR_PAGE = 100;
 const SECTIONS = [
   { cle: 'principale', nom: 'Cibles principales' },
+  { cle: 'industrie', nom: 'Industrie' },
   { cle: 'agences', nom: 'Agences' },
   { cle: 'nord', nom: 'Villes du nord' },
 ];
