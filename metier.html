@@ -92,7 +92,7 @@ Promise.all([
   const affichent = sal.reduce((n, g) => n + g.affichent, 0);
   const posteAssistant = [
     'Code ROME : ' + tout.code_rome + ' · suivi depuis le ' + dateFr(tout.serie[0].date) + ' (' + tout.serie.length + ' extractions ; la vue CDI / CDD, depuis le ' + dateFr(emploi.serie[0].date) + ').',
-    e.total + ' offres en CDI / CDD au ' + jour + ' (' + contratsTexte(e.contrats) + '), sur ' + t.total + ' offres au total : le reste est de l\'intérim, de l\'alternance, des stages et des annonces de formation.',
+    e.total + ' offres du code M1620 en CDI / CDD au ' + jour + ' (' + contratsTexte(e.contrats) + '), dont seulement ' + e.variantes.assistant_marketing + ' avec « assistant marketing » dans le titre : ' + e.variantes.sans_marketing + ' n\'ont même pas le mot « marketing » (par exemple ' + e.variantes.exemples_sans_marketing.slice(0, 3).join(', ') + '). Sur ' + t.total + ' offres au total, le reste est de l\'intérim, de l\'alternance, des stages et des annonces de formation.',
     e.debutant_accepte != null ? e.debutant_accepte + ' % acceptent un débutant.' : null,
     'Salaire affiché dans ' + affichent + ' offres sur ' + e.total + (cdi && cdi.affichent ? ' · médiane brute en CDI ' + fr(cdi.mediane) + ' € par mois, soit ' + fr(cdi.mediane_annuelle) + ' € par an.' : '.'),
     'Régions en tête : ' + regionsTexte(e.regions) + '.',
@@ -106,6 +106,7 @@ Promise.all([
   document.getElementById('postes-note').textContent =
     'Je les classe du plus au moins intéressant pour moi. L\'assistant marketing est le poste de mon stage chez Mapache (SEO sur Shopify, segmentation de clients pour les newsletters, campagnes, fiches produit). ' +
     'Les deux postes de responsable sont suivis depuis le ' + dateFr(ecom.depuis) + ', l\'assistant marketing depuis le ' + dateFr(tout.serie[0].date) + ' : peu de recul pour les premiers, donc aucune tendance à en tirer. ' +
+    'En vrais CDI et CDD, c\'est le responsable marketing qui a le plus d\'offres (' + mkt.derniere.total + ', contre ' + e.variantes.assistant_marketing + ' pour l\'assistant marketing et ' + ecom.derniere.total + ' pour le responsable e-commerce). ' +
     'Pour les trois, seuls les vrais CDI et CDD sont comptés (sans alternance, stage, intérim ni annonce de formation) ; les chiffres « toutes les offres » de l\'assistant marketing sont sur la page Les offres. ' +
     'Un intitulé qui contient « responsable » et « e-commerce » peut être un poste technique ou de gestion (par exemple « Responsable Technique E-commerce »).';
 
@@ -128,8 +129,8 @@ Promise.all([
     f.unites.map(u => u.nom).join(', ') + '.';
 
   question('Combien d\'offres, où (régions, villes) et avec quels contrats ?',
-    'En CDI / CDD au ' + jour + ' : ' + e.total + ' offres d\'assistant marketing, ' + mkt.derniere.total + ' de responsable marketing et ' + ecom.derniere.total +
-    ' de responsable e-commerce. Pour l\'assistant marketing, régions en tête : ' + regionsTexte(e.regions) + '. Toutes offres confondues (alternance, intérim, stages et annonces de formation comprises), il y en a ' +
+    'En CDI / CDD au ' + jour + ' : ' + e.variantes.assistant_marketing + ' offres avec « assistant marketing » dans le titre (' + e.total + ' pour le code M1620 entier), ' + mkt.derniere.total + ' de responsable marketing et ' + ecom.derniere.total +
+    ' de responsable e-commerce. Pour le code M1620, régions en tête : ' + regionsTexte(e.regions) + '. Toutes offres confondues (alternance, intérim, stages et annonces de formation comprises), il y en a ' +
     t.total + ', dont ' + t.alternance + ' en alternance et ' + t.n_puy_de_dome + ' dans le Puy-de-Dôme.',
     'index.html', 'Voir les offres.');
 

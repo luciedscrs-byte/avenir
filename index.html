@@ -101,7 +101,7 @@ fetch(fichierResume())
     document.getElementById('total').textContent = x.total;
     if (emploi) {
       const cdi = x.contrats.find(c => c.nom === 'CDI');
-      document.getElementById('total-legende').textContent = 'offres CDI / CDD actives en France';
+      document.getElementById('total-legende').textContent = 'offres CDI / CDD du code M1620, dont ' + x.variantes.assistant_marketing + ' avec « assistant marketing » dans le titre';
       document.getElementById('alternance').textContent = cdi ? cdi.n : 0;
       document.getElementById('alternance-legende').textContent = 'dont en CDI';
     } else {
@@ -143,6 +143,8 @@ fetch(fichierResume())
           ] : []),
         ]));
       });
+      const absentsVus = x.outils.absents.filter(n => f.outils[n] && f.outils[n].vu).map(n => n + ' (' + f.outils[n].vu.niveau + ')');
+      if (absentsVus.length) document.getElementById('outils-note').textContent += ' Mon bilan sur ceux-là : ' + absentsVus.join(', ') + '.';
       const bases = x.outils.liste.filter(o => (f.outils[o.nom]?.vu || {}).niveau === 'notion de base, non enseignée');
       document.getElementById('bases').textContent = bases.length
         ? 'Notions de base non enseignées mais déjà acquises, comme pour tous les étudiants : ' + bases.map(o => o.nom + ' (' + o.entreprises + ')').join(', ') + '. Elles ne sont pas un manque.'

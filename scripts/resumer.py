@@ -173,6 +173,7 @@ def calculer_variantes(offres):
         "titres": len(titres),
         "liste": sorted([{"nom": nom, "n": sum(1 for t in titres if motif.search(t))} for nom, motif in VARIANTES],
                         key=lambda v: -v["n"]),
+        "assistant_marketing": sum(1 for t in titres if re.search(r"(?i)assistant\S*\s+(?:\S+\s+)?marketing", t)),
         "avec_digital": sum(1 for t in titres if re.search(r"(?i)digital|web ?marketing", t)),
         "avec_alternance": sum(1 for t in titres if re.search(r"(?i)altern", t)),
         "sans_marketing": len([t for t in titres if not re.search(r"(?i)marketing", t)]),
@@ -304,6 +305,8 @@ def construire(garder, vue, textes):
             "competences": top(competences),
             "salaires": {"mediane_insertion": MEDIANE_INSERTION, "groupes": calculer_salaires(offres)},
             "outils": {"avec_texte": n_texte, "liste": outils, "absents": [n for n, _ in OUTILS if n not in {o["nom"] for o in outils}]},
+            "sans_nom_employeur": sum(1 for o in offres if o["entreprise"] == "Non précisé"),
+            "part_competences": round(100 * sum(1 for o in offres if o["competences"].strip()) / t),
             "debutant_accepte": (round(100 * sum(1 for o in offres if "débutant" in o["experience"].lower()) / t)
                                  if offres and "experience" in offres[0] else None),
             "mots": mots,
@@ -322,24 +325,65 @@ def main():
     emploi = construire(emploi_seulement(textes), "emploi", textes)
     with open("data/resume_emploi.json", "w", encoding="utf-8") as f:
         json.dump(emploi, f, ensure_ascii=False, indent=2)
+    with open("data/rapport_emploi.md", "w", encoding="utf-8") as f:
+        f.write(rapport(emploi))
     print(f"resume.json (toutes les offres) : {len(resume['serie'])} extractions, dernière = {resume['derniere']['date']}, {resume['derniere']['total']} offres")
     print(f"resume_emploi.json (CDI/CDD) : {len(emploi['serie'])} extractions, dernière = {emploi['derniere']['date']}, {emploi['derniere']['total']} offres")
 
 
+def surprises(r):
+    """Ce qui étonne dans les chiffres, calculé à chaque extraction (aucune phrase écrite à la main)."""
+    x = r["derniere"]
+    t = max(x["total"], 1)
+    pct = lambda n: f"{round(100 * n / t)} %"
+    L = []
+    pf = x.get("annonces_formation") or {}
+    if pf.get("n"):
+        L.append(f"{pf['n']} annonces sur {x['total']} ({pct(pf['n'])}) font la promotion d'une formation à distance, pas d'un emploi "
+                 f"(publiées par {', '.join(pf['noms'])}) ; France Travail les classe pourtant comme des offres.")
+    L.append(f"{x['sans_nom_employeur']} offres sur {x['total']} ({pct(x['sans_nom_employeur'])}) n'ont aucun nom d'employeur : on ne sait pas qui recrute.")
+    if r.get("vue") == "emploi":
+        e = x["entreprises"][0]
+        L.append(f"Aucun employeur ne domine : le plus présent, {e['nom']}, publie {e['n']} offres sur {x['total']}.")
+    else:
+        c2 = x["concentration_top2"]
+        L.append(f"Deux employeurs ({' et '.join(c2['noms'])}) publient {c2['part']} % des offres : leur poids fausse le « volume » du marché.")
+        L.append(f"{x['alternance']} offres sur {x['total']} ({pct(x['alternance'])}) sont de l'alternance.")
+    cdi = next((g for g in x["salaires"]["groupes"] if g["nom"] == "CDI" and g["affichent"]), None)
+    if cdi:
+        ecart = round(100 * (cdi["mediane"] / x["salaires"]["mediane_insertion"] - 1))
+        sens = "au-dessus" if ecart > 0 else "en dessous"
+        L.append(f"Le salaire médian affiché en CDI ({cdi['mediane']} € brut par mois, {cdi['affichent']} offres seulement) est {abs(ecart)} % {sens} "
+                 f"du repère d'insertion ({x['salaires']['mediane_insertion']} €).")
+    top_comp = x["competences"][0]["nom"] if x["competences"] else ""
+    L.append(f"Seules {x['part_competences']} % des offres renseignent des compétences dans le champ France Travail, et la plus citée "
+             f"(« {top_comp} ») est générique : les outils se lisent surtout dans le texte des annonces.")
+    v = x["variantes"]
+    L.append(f"{v['sans_marketing']} intitulés sur {v['titres']} ne contiennent pas le mot « marketing » : le code {r['code_rome']} regroupe des postes proches mais pas identiques.")
+    return L
+
+
 def rapport(r):
     x = r["derniere"]
-    p = lambda n, s: f"{round(100 * n / s)} %" if s else "–"
+    emploi = r.get("vue") == "emploi"
     L = [
-        f"# Le marché de « {r['metier']} » (ROME {r['code_rome']})",
+        f"# Le marché de « {r['metier']} » (ROME {r['code_rome']})" + (" — CDI / CDD seulement" if emploi else ""),
         "",
         f"- **Requête** : {r['requete']}",
-        f"- **Date d'extraction** : {x['date']} · **{x['total']} offres** · dont {x['alternance']} en alternance",
-        f"- **Extractions disponibles** : {', '.join(s['date'] for s in r['serie'])}",
+        f"- **Date d'extraction** : {x['date']} · **{x['total']} offres**" + ("" if emploi else f" · dont {x['alternance']} en alternance"),
+        f"- **Extractions disponibles** : {len(r['serie'])}, du {r['serie'][0]['date']} au {r['serie'][-1]['date']}",
+        "",
+        "**Comment ce rapport est fabriqué.** Un script lit le fichier CSV daté du jour (`data/offres_M1620_<date>.csv`) et le texte des annonces, "
+        "et compte : les offres par région, département et contrat ; les salaires affichés ; les outils cités ; les employeurs. "
+        "Chaque chiffre vient de ces fichiers, rien n'est saisi à la main, et le rapport se régénère à chaque extraction.",
         "",
         "## Où",
         "",
         "| Région | Offres |", "|---|---|",
         *[f"| {l['nom']} | {l['n']} |" for l in x["regions"]],
+        "",
+        "| Département | Offres |", "|---|---|",
+        *[f"| {l['nom']} | {l['n']} |" for l in x["departements"]],
         "",
         f"Puy-de-Dôme (63) : **{x['n_puy_de_dome']}** offre(s). "
         f"Mentionnent le télétravail dans le texte : **{x['teletravail']['offres']}** sur {x['teletravail']['sur']} annonces lues "
@@ -349,29 +393,39 @@ def rapport(r):
         "| Contrat | Offres |", "|---|---|",
         *[f"| {l['nom']} | {l['n']} |" for l in x["contrats"]],
         "",
-        "## Salaires affichés (brut mensuel)", "",
-        f"Seules {x['part_salaire_affiche']} % des offres affichent un salaire. Annuel ÷ 12, horaire × 35 h × 52 ÷ 12. "
-        f"Repère du cours : {x['salaires']['mediane_insertion']} € brut (médiane d'insertion à un an). "
+        "## Salaires affichés (brut)", "",
+        f"Seules {x['part_salaire_affiche']} % des offres affichent un salaire (les autres n'en disent rien). Annuel ÷ 12 et horaire × 35 h × 52 ÷ 12 donnent le mensuel ; le mensuel × 12 donne l'annuel. "
+        f"Repère du cours : {x['salaires']['mediane_insertion']} € brut par mois (médiane d'insertion à un an, deck de rentrée de l'IAE). "
         "Un salaire affiché n'est pas un salaire versé.",
         "",
-        "| Groupe | Offres | Avec salaire affiché | Médiane | Min – max |", "|---|---|---|---|---|",
+        "| Groupe | Offres | Avec salaire affiché | Médiane par mois | Min – max par mois | Médiane par an |", "|---|---|---|---|---|---|",
         *[f"| {g['nom']} | {g['total']} | {g['affichent']} | "
-          + (f"{g['mediane']} € | {g['min']} – {g['max']} €" if g["affichent"] else "– | –") + " |"
+          + (f"{g['mediane']} € | {g['min']} – {g['max']} € | {g['mediane_annuelle']} €" if g["affichent"] else "– | – | –") + " |"
           for g in x["salaires"]["groupes"]],
         "",
-        "## Outils et compétences cités dans les annonces", "",
+        "## Outils cités dans les annonces", "",
         f"Texte lu pour {x['outils']['avec_texte']} annonces. Classés par nombre d'**entreprises** distinctes qui les citent "
         "(pour ne pas laisser un employeur qui publie le même gabarit vingt fois peser sur le classement).",
         "",
         "| Outil | Entreprises | Offres |", "|---|---|---|",
         *[f"| {o['nom']} | {o['entreprises']} | {o['offres']} |" for o in x["outils"]["liste"]],
         "",
-        "## Qui publie", "",
-        f"Les deux premiers employeurs ({' et '.join(x['concentration_top2']['noms'])}) publient "
-        f"**{x['concentration_top2']['part']} %** des offres.",
+        "Suivis mais cités dans aucune annonce : " + (", ".join(x["outils"]["absents"]) or "aucun") + ".",
         "",
+        "## Compétences renseignées par France Travail", "",
+        f"Seules {x['part_competences']} % des offres ont ce champ rempli.",
+        "",
+        "| Compétence | Offres |", "|---|---|",
+        *[f"| {l['nom']} | {l['n']} |" for l in x["competences"]],
+        "",
+        "## Qui publie", "",
         "| Entreprise | Offres |", "|---|---|",
         *[f"| {l['nom']} | {l['n']} |" for l in x["entreprises"]],
+        "",
+        f"{x['sans_nom_employeur']} offres n'ont aucun nom d'employeur et ne sont pas classées.",
+        "",
+        "## Ce qui étonne dans ces chiffres", "",
+        *[f"- {t}" for t in surprises(r)],
         "",
     ]
     return "\n".join(L)

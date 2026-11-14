@@ -285,6 +285,33 @@
     "precision": "",
     "a_acquerir": false
    }
+  },
+  "SQL": {
+   "statut": "non nommé",
+   "extrait": "aucune mention dans le descriptif",
+   "vu": {
+    "niveau": "je ne le connais pas",
+    "precision": "Je ne le connais pas ; aucune annonce ne le cite pour l'instant.",
+    "a_acquerir": false
+   }
+  },
+  "Python": {
+   "statut": "non nommé",
+   "extrait": "aucune mention dans le descriptif",
+   "vu": {
+    "niveau": "je le connais",
+    "precision": "Je le connais ; aucune annonce ne le cite pour l'instant.",
+    "a_acquerir": false
+   }
+  },
+  "Power BI / Looker Studio": {
+   "statut": "non nommé",
+   "extrait": "aucune mention dans le descriptif",
+   "vu": {
+    "niveau": "je ne le connais pas",
+    "precision": "Je ne le connais pas ; une seule annonce le cite.",
+    "a_acquerir": false
+   }
   }
  },
  "limites": "Colonne « Ce que j'en ai vu » : mon propre bilan au 30 octobre 2026, en cours de M2, susceptible d'évoluer d'ici la fin de l'année. Le programme public du M2 MOD ne détaille pas les cours : seuls les intitulés des unités y sont lisibles.",

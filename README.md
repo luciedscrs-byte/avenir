@@ -41,11 +41,13 @@ flowchart LR
 
 **Les postes que je vise, du plus au moins intéressant pour moi :**
 
-| Rang | Poste | Code ROME | Suivi depuis le |
-|---|---|---|---|
-| 1 | Responsable e-commerce | E1113 | 14/11/2026 |
-| 2 | Responsable marketing | M1705 (et M1716, M1718, M1711 pour les variantes digitales) | 14/11/2026 |
-| 3 | Assistant / Assistante marketing (**série principale**) | [M1620](https://candidat.francetravail.fr/metierscope/fiche-metier/M1620/assistant-assistante-marketing) | 22/09/2026 |
+| Rang | Poste | Code ROME | Suivi depuis le | Vrais CDI / CDD au 14/11/2026 |
+|---|---|---|---|---|
+| 1 | Responsable e-commerce | E1113 | 14/11/2026 | 10 |
+| 2 | Responsable marketing | M1705 (et M1716, M1718, M1711 pour les variantes digitales) | 14/11/2026 | **41** |
+| 3 | Assistant / Assistante marketing (série la plus ancienne) | [M1620](https://candidat.francetravail.fr/metierscope/fiche-metier/M1620/assistant-assistante-marketing) | 22/09/2026 | 15 au titre « assistant marketing » (42 pour le code M1620 entier, dont 18 sans le mot « marketing » : agent de planning, gestionnaire de paie, assistant ADV…) |
+
+**En vrais CDI / CDD, c'est le responsable marketing qui a le plus d'offres** (41, contre 15 et 10). Le classement ci-dessus est celui de mon intérêt, pas du volume.
 
 Les deux postes de responsable ont été ajoutés le 14/11/2026 : j'ai donc nettement moins de données pour eux que pour l'assistant marketing, suivi depuis le 22/09. **Règle d'emploi :** pour les deux postes de responsable, seules les offres de vrais CDI et CDD sont gardées (sans alternance, stage, intérim ni annonce de formation). La série de l'assistant marketing est conservée telle quelle (toutes les offres du code M1620), avec en plus une vue « CDI / CDD seulement » sur le site, calculée depuis le 07/10/2026.
 
@@ -89,6 +91,17 @@ Les entreprises du 5ᵉ rang :
 
 **Lecture.** Le haut du classement mesure surtout des intermédiaires (une école, de l'intérim) et des annonces de formation : seuls trois employeurs directs apparaissent, au 5ᵉ rang, avec trois annonces chacun. Le marché direct de cet intitulé est donc une longue traîne d'entreprises qui publient une ou deux annonces. La page *Les offres* affiche le classement du jour (dernière extraction seulement, par offre), qui n'a pas la même méthode.
 
+**En vrais CDI / CDD seulement** (même période, 111 annonces distinctes ; 42 d'entre elles, soit 38 %, n'ont aucun nom d'employeur) : le classement est plat, personne ne dépasse 3 annonces.
+
+| Entreprise | Annonces | Ce que disent les annonces |
+|---|---|---|
+| Randstad (plusieurs entités) | 3 | agence d'intérim : « assistant marketing » en CDI pour le compte de ses clients |
+| SCI Pro immo | 3 | employeur direct : assistant(e) marketing en CDI, à La Réunion |
+| TalenX | 3 | cabinet de recrutement ; l'annonce lue n'est pas du marketing (« Responsable SAV / Gestionnaire planning ») |
+| Harry Hope, Groupe Bodemer, Les Colettes Sourcing, un groupement d'employeurs | 2 chacun | assistant marketing produit, chargé(e) de marketing opérationnel, assistant marketing technique, assistant(e) marketing (nature de ces entreprises non vérifiée) |
+
+Pour le **responsable marketing** (un seul jour de suivi, le 14/11), aucun employeur ne publie plus de 2 offres.
+
 **Pour les trois professionnels à trouver sur LinkedIn** : privilégier les employeurs directs ci-dessus ou les entreprises de la liste du marché caché, pas les écoles, l'intérim ni les annonces de formation.
 
 ## 4. Structure du projet
@@ -107,13 +120,13 @@ Les entreprises du 5ᵉ rang :
 
 - **Canal commun :** [API France Travail — Offres d'emploi v2](https://francetravail.io/data/api/offres-emploi) — compte développeur sur francetravail.io. Une requête par code ROME, le total se lit dans l'en-tête `Content-Range`.
 - **Postes de responsable :** même API et mêmes identifiants, recherche par codes ROME voisins et par mots-clés, puis vérification du titre et filtre « vrai emploi » (CDI ou CDD, sans alternance, stage, intérim ni annonce de formation).
-- **2ᵉ canal :** [La Bonne Alternance](https://api.apprentissage.beta.gouv.fr) — offres d'alternance. L'API renvoie chaque offre en double ; le script dédoublonne par identifiant. Elle reprend en partie des offres France Travail (recoupement mesuré sur le site).
+- **2ᵉ canal :** [La Bonne Alternance](https://api.apprentissage.beta.gouv.fr) — offres d'alternance. Conservé et toujours collecté, mais il n'entre plus dans les chiffres du site ni dans ma recherche : je cherche un CDI ou un CDD, pas une alternance. L'API renvoie chaque offre en double ; le script dédoublonne par identifiant. Elle reprend en partie des offres France Travail (recoupement mesuré sur le site).
 - **Entreprises :** [API Recherche d'entreprises (data.gouv.fr)](https://recherche-entreprises.api.gouv.fr/docs/) — gratuite, sans clé : nom, adresse du siège, activité (NAF), tranche de salariés, date de création. Elle ne fournit ni site web ni coordonnées.
 - Scraping LinkedIn / APEC / Indeed : **interdit**, non utilisé dans ce projet.
 
 ## 6. Le marché caché
 
-Les sites d'offres ne montrent que les entreprises qui publient. `scripts/entreprises.py` part des entreprises elles-mêmes :
+Les sites d'offres ne montrent que les entreprises qui publient. `scripts/entreprises.py` part des entreprises elles-mêmes (c'est l'équivalent de `data/entreprises_63.csv` demandé par le cours, étendu à 37 départements dont le Puy-de-Dôme) :
 
 - **Périmètre** : entreprises actives d'au moins 6 salariés, dont le siège est dans un département abritant une commune de plus de 100 000 habitants (37 départements).
 - **Secteurs** (codes NAF) : e-commerce, numérique, édition et médias, événementiel, marques et commerce spécialisé, et agences (publicité, communication, études de marché, design).

@@ -2,7 +2,9 @@
 
 - **Requête** : API France Travail — Offres d'emploi v2, codeROME=M1620, France entière
 - **Date d'extraction** : 2026-11-14 · **118 offres** · dont 39 en alternance
-- **Extractions disponibles** : 2026-09-22, 2026-10-07, 2026-10-08, 2026-10-09, 2026-10-10, 2026-10-11, 2026-10-12, 2026-10-13, 2026-10-14, 2026-10-15, 2026-10-16, 2026-10-17, 2026-10-18, 2026-10-19, 2026-10-20, 2026-10-21, 2026-10-22, 2026-10-23, 2026-10-24, 2026-10-25, 2026-10-26, 2026-10-27, 2026-10-28, 2026-10-29, 2026-10-30, 2026-10-31, 2026-11-01, 2026-11-02, 2026-11-03, 2026-11-04, 2026-11-05, 2026-11-06, 2026-11-07, 2026-11-08, 2026-11-09, 2026-11-10, 2026-11-11, 2026-11-12, 2026-11-13, 2026-11-14
+- **Extractions disponibles** : 40, du 2026-09-22 au 2026-11-14
+
+**Comment ce rapport est fabriqué.** Un script lit le fichier CSV daté du jour (`data/offres_M1620_<date>.csv`) et le texte des annonces, et compte : les offres par région, département et contrat ; les salaires affichés ; les outils cités ; les employeurs. Chaque chiffre vient de ces fichiers, rien n'est saisi à la main, et le rapport se régénère à chaque extraction.
 
 ## Où
 
@@ -19,6 +21,19 @@
 | Pays de la Loire | 4 |
 | Centre-Val de Loire | 4 |
 
+| Département | Offres |
+|---|---|
+| Région seule | 24 |
+| 75 | 13 |
+| 13 | 6 |
+| 69 | 6 |
+| 94 | 6 |
+| 92 | 6 |
+| 06 | 4 |
+| 974 | 4 |
+| 93 | 3 |
+| 66 | 3 |
+
 Puy-de-Dôme (63) : **1** offre(s). Mentionnent le télétravail dans le texte : **7** sur 118 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
 
 ## Contrats
@@ -29,18 +44,18 @@ Puy-de-Dôme (63) : **1** offre(s). Mentionnent le télétravail dans le texte :
 | CDD | 50 |
 | Intérim | 9 |
 
-## Salaires affichés (brut mensuel)
+## Salaires affichés (brut)
 
-Seules 19 % des offres affichent un salaire. Annuel ÷ 12, horaire × 35 h × 52 ÷ 12. Repère du cours : 2433 € brut (médiane d'insertion à un an). Un salaire affiché n'est pas un salaire versé.
+Seules 19 % des offres affichent un salaire (les autres n'en disent rien). Annuel ÷ 12 et horaire × 35 h × 52 ÷ 12 donnent le mensuel ; le mensuel × 12 donne l'annuel. Repère du cours : 2433 € brut par mois (médiane d'insertion à un an, deck de rentrée de l'IAE). Un salaire affiché n'est pas un salaire versé.
 
-| Groupe | Offres | Avec salaire affiché | Médiane | Min – max |
-|---|---|---|---|---|
-| CDI | 59 | 13 | 2350 € | 1667 – 3542 € |
-| Alternance | 39 | 3 | 1325 € | 1174 – 1867 € |
-| CDD | 11 | 3 | 2500 € | 2292 – 3083 € |
-| Intérim | 9 | 4 | 2123 € | 1875 – 2524 € |
+| Groupe | Offres | Avec salaire affiché | Médiane par mois | Min – max par mois | Médiane par an |
+|---|---|---|---|---|---|
+| CDI | 59 | 13 | 2350 € | 1667 – 3542 € | 28200 € |
+| Alternance | 39 | 3 | 1325 € | 1174 – 1867 € | 15900 € |
+| CDD | 11 | 3 | 2500 € | 2292 – 3083 € | 30000 € |
+| Intérim | 9 | 4 | 2123 € | 1875 – 2524 € | 25476 € |
 
-## Outils et compétences cités dans les annonces
+## Outils cités dans les annonces
 
 Texte lu pour 118 annonces. Classés par nombre d'**entreprises** distinctes qui les citent (pour ne pas laisser un employeur qui publie le même gabarit vingt fois peser sur le classement).
 
@@ -73,9 +88,26 @@ Texte lu pour 118 annonces. Classés par nombre d'**entreprises** distinctes qui
 | Power BI / Looker Studio | 1 | 1 |
 | Semrush / Ahrefs | 1 | 1 |
 
-## Qui publie
+Suivis mais cités dans aucune annonce : Figma, Salesforce, Prestashop, SQL, Python, Google Tag Manager, Notion / Trello / Asana, Zapier.
 
-Les deux premiers employeurs (EFC et ISCOD) publient **28 %** des offres.
+## Compétences renseignées par France Travail
+
+Seules 19 % des offres ont ce champ rempli.
+
+| Compétence | Offres |
+|---|---|
+| Mettre en place des solutions d'amélioration de la performance | 22 |
+| Analyser les performances de l'équipe et proposer des améliorations | 4 |
+| Développer l'image et la notoriété de la structure | 3 |
+| Concevoir des supports de communication et d'image | 2 |
+| Participer aux phases créatives d'un projet marketing | 1 |
+| Utiliser les outils numériques | 1 |
+| Marketing des réseaux sociaux | 1 |
+| Elaborer une stratégie de marketing digital | 1 |
+| Assurer la gestion administrative d'une activité | 1 |
+| Elaborer un plan marketing, une stratégie de marque et de communication | 1 |
+
+## Qui publie
 
 | Entreprise | Offres |
 |---|---|
@@ -89,3 +121,15 @@ Les deux premiers employeurs (EFC et ISCOD) publient **28 %** des offres.
 | Tetranergy Business School Réunion | 2 |
 | SAINT MAIXENT DISTRIBUTION | 2 |
 | ANDROS | 1 |
+
+25 offres n'ont aucun nom d'employeur et ne sont pas classées.
+
+## Ce qui étonne dans ces chiffres
+
+- 23 annonces sur 118 (19 %) font la promotion d'une formation à distance, pas d'un emploi (publiées par EFC) ; France Travail les classe pourtant comme des offres.
+- 25 offres sur 118 (21 %) n'ont aucun nom d'employeur : on ne sait pas qui recrute.
+- Deux employeurs (EFC et ISCOD) publient 28 % des offres : leur poids fausse le « volume » du marché.
+- 39 offres sur 118 (33 %) sont de l'alternance.
+- Le salaire médian affiché en CDI (2350 € brut par mois, 13 offres seulement) est 3 % en dessous du repère d'insertion (2433 €).
+- Seules 19 % des offres renseignent des compétences dans le champ France Travail, et la plus citée (« Mettre en place des solutions d'amélioration de la performance ») est générique : les outils se lisent surtout dans le texte des annonces.
+- 25 intitulés sur 118 ne contiennent pas le mot « marketing » : le code M1620 regroupe des postes proches mais pas identiques.
