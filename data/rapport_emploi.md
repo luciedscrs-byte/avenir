@@ -10,10 +10,10 @@
 
 | Région | Offres |
 |---|---|
-| Île-de-France | 11 |
+| Île-de-France | 10 |
 | Provence-Alpes-Côte d'Azur | 9 |
 | Auvergne-Rhône-Alpes | 6 |
-| Nouvelle-Aquitaine | 4 |
+| Nouvelle-Aquitaine | 5 |
 | Hauts-de-France | 4 |
 | Occitanie | 2 |
 | Pays de la Loire | 2 |
@@ -28,11 +28,11 @@
 | 69 | 4 |
 | 94 | 2 |
 | 72 | 2 |
+| 33 | 2 |
 | 06 | 2 |
 | 46 | 1 |
 | 77 | 1 |
 | 93 | 1 |
-| 67 | 1 |
 
 Puy-de-Dôme (63) : **0** offre(s). Mentionnent le télétravail dans le texte : **4** sur 42 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
 

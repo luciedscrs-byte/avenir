@@ -1,7 +1,7 @@
 # Le marché de « Assistant / Assistante marketing » (ROME M1620)
 
 - **Requête** : API France Travail — Offres d'emploi v2, codeROME=M1620, France entière
-- **Date d'extraction** : 2026-11-14 · **118 offres** · dont 39 en alternance
+- **Date d'extraction** : 2026-11-14 · **119 offres** · dont 40 en alternance
 - **Extractions disponibles** : 40, du 2026-09-22 au 2026-11-14
 
 **Comment ce rapport est fabriqué.** Un script lit le fichier CSV daté du jour (`data/offres_M1620_<date>.csv`) et le texte des annonces, et compte : les offres par région, département et contrat ; les salaires affichés ; les outils cités ; les employeurs. Chaque chiffre vient de ces fichiers, rien n'est saisi à la main, et le rapport se régénère à chaque extraction.
@@ -10,20 +10,20 @@
 
 | Région | Offres |
 |---|---|
-| Île-de-France | 35 |
+| Île-de-France | 34 |
 | Provence-Alpes-Côte d'Azur | 16 |
 | Auvergne-Rhône-Alpes | 15 |
+| Nouvelle-Aquitaine | 9 |
 | Occitanie | 8 |
-| Nouvelle-Aquitaine | 8 |
 | Hauts-de-France | 7 |
 | Outre-mer | 6 |
+| Centre-Val de Loire | 5 |
 | Grand Est | 4 |
 | Pays de la Loire | 4 |
-| Centre-Val de Loire | 4 |
 
 | Département | Offres |
 |---|---|
-| Région seule | 24 |
+| Région seule | 23 |
 | 75 | 13 |
 | 13 | 6 |
 | 69 | 6 |
@@ -34,14 +34,14 @@
 | 93 | 3 |
 | 66 | 3 |
 
-Puy-de-Dôme (63) : **1** offre(s). Mentionnent le télétravail dans le texte : **7** sur 118 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
+Puy-de-Dôme (63) : **1** offre(s). Mentionnent le télétravail dans le texte : **7** sur 119 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
 
 ## Contrats
 
 | Contrat | Offres |
 |---|---|
 | CDI | 59 |
-| CDD | 50 |
+| CDD | 51 |
 | Intérim | 9 |
 
 ## Salaires affichés (brut)
@@ -51,13 +51,13 @@ Seules 19 % des offres affichent un salaire (les autres n'en disent rien). Annue
 | Groupe | Offres | Avec salaire affiché | Médiane par mois | Min – max par mois | Médiane par an |
 |---|---|---|---|---|---|
 | CDI | 59 | 13 | 2350 € | 1667 – 3542 € | 28200 € |
-| Alternance | 39 | 3 | 1325 € | 1174 – 1867 € | 15900 € |
+| Alternance | 40 | 3 | 1325 € | 1174 – 1867 € | 15900 € |
 | CDD | 11 | 3 | 2500 € | 2292 – 3083 € | 30000 € |
 | Intérim | 9 | 4 | 2123 € | 1875 – 2524 € | 25476 € |
 
 ## Outils cités dans les annonces
 
-Texte lu pour 118 annonces. Classés par nombre d'**entreprises** distinctes qui les citent (pour ne pas laisser un employeur qui publie le même gabarit vingt fois peser sur le classement).
+Texte lu pour 119 annonces. Classés par nombre d'**entreprises** distinctes qui les citent (pour ne pas laisser un employeur qui publie le même gabarit vingt fois peser sur le classement).
 
 | Outil | Entreprises | Offres |
 |---|---|---|
@@ -72,9 +72,9 @@ Texte lu pour 118 annonces. Classés par nombre d'**entreprises** distinctes qui
 | IA (ChatGPT, IA générative…) | 7 | 7 |
 | Excel | 6 | 8 |
 | PowerPoint | 5 | 5 |
-| Instagram | 4 | 8 |
+| Instagram | 4 | 9 |
 | Facebook | 4 | 7 |
-| TikTok | 3 | 4 |
+| TikTok | 3 | 5 |
 | Word | 3 | 3 |
 | Google Analytics / GA4 | 2 | 2 |
 | Google Ads | 2 | 2 |
@@ -122,14 +122,14 @@ Seules 19 % des offres ont ce champ rempli.
 | SAINT MAIXENT DISTRIBUTION | 2 |
 | ANDROS | 1 |
 
-25 offres n'ont aucun nom d'employeur et ne sont pas classées.
+26 offres n'ont aucun nom d'employeur et ne sont pas classées.
 
 ## Ce qui étonne dans ces chiffres
 
-- 23 annonces sur 118 (19 %) font la promotion d'une formation à distance, pas d'un emploi (publiées par EFC) ; France Travail les classe pourtant comme des offres.
-- 25 offres sur 118 (21 %) n'ont aucun nom d'employeur : on ne sait pas qui recrute.
+- 23 annonces sur 119 (19 %) font la promotion d'une formation à distance, pas d'un emploi (publiées par EFC) ; France Travail les classe pourtant comme des offres.
+- 26 offres sur 119 (22 %) n'ont aucun nom d'employeur : on ne sait pas qui recrute.
 - Deux employeurs (EFC et ISCOD) publient 28 % des offres : leur poids fausse le « volume » du marché.
-- 39 offres sur 118 (33 %) sont de l'alternance.
+- 40 offres sur 119 (34 %) sont de l'alternance.
 - Le salaire médian affiché en CDI (2350 € brut par mois, 13 offres seulement) est 3 % en dessous du repère d'insertion (2433 €).
 - Seules 19 % des offres renseignent des compétences dans le champ France Travail, et la plus citée (« Mettre en place des solutions d'amélioration de la performance ») est générique : les outils se lisent surtout dans le texte des annonces.
-- 25 intitulés sur 118 ne contiennent pas le mot « marketing » : le code M1620 regroupe des postes proches mais pas identiques.
+- 26 intitulés sur 119 ne contiennent pas le mot « marketing » : le code M1620 regroupe des postes proches mais pas identiques.

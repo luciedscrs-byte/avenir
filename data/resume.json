@@ -1,6 +1,6 @@
 {
   "vue": "tout",
-  "genere_le": "2026-11-14T19:01:32+00:00",
+  "genere_le": "2026-11-14T23:13:11+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -202,8 +202,8 @@
     },
     {
       "date": "2026-11-14",
-      "total": 118,
-      "alternance": 39
+      "total": 119,
+      "alternance": 40
     }
   ],
   "serie_outils": [
@@ -1565,7 +1565,7 @@
     },
     {
       "date": "2026-11-14",
-      "avec_texte": 118,
+      "avec_texte": 119,
       "outils": {
         "Emailing / newsletter": 16,
         "Anglais": 14,
@@ -1578,9 +1578,9 @@
         "IA (ChatGPT, IA générative…)": 7,
         "Excel": 8,
         "PowerPoint": 5,
-        "Instagram": 8,
+        "Instagram": 9,
         "Facebook": 7,
-        "TikTok": 4,
+        "TikTok": 5,
         "Word": 3,
         "Google Analytics / GA4": 2,
         "Google Ads": 2,
@@ -1595,7 +1595,7 @@
         "Semrush / Ahrefs": 1
       },
       "mots": {
-        "Réseaux sociaux": 32,
+        "Réseaux sociaux": 33,
         "Analyse de données (data)": 5,
         "Automatisation / marketing automation": 3,
         "GEO (optimisation pour les moteurs d'IA)": 1,
@@ -1832,20 +1832,20 @@
       },
       {
         "date": "2026-11-14",
-        "total": 118,
-        "nouvelles": 4,
+        "total": 119,
+        "nouvelles": 5,
         "disparues": 3
       }
     ],
-    "vues": 318,
+    "vues": 319,
     "toute_la_periode": 37,
     "duree_mediane_jours": 6,
     "n_duree": 101
   },
   "derniere": {
     "date": "2026-11-14",
-    "total": 118,
-    "alternance": 39,
+    "total": 119,
+    "alternance": 40,
     "part_salaire_affiche": 19,
     "contrats": [
       {
@@ -1854,7 +1854,7 @@
       },
       {
         "nom": "CDD",
-        "n": 50
+        "n": 51
       },
       {
         "nom": "Intérim",
@@ -1872,13 +1872,13 @@
       },
       {
         "nom": "Cont. professionnalisation",
-        "n": 9
+        "n": 10
       }
     ],
     "departements": [
       {
         "nom": "Région seule",
-        "n": 24
+        "n": 23
       },
       {
         "nom": "75",
@@ -1920,7 +1920,7 @@
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 35
+        "n": 34
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
@@ -1931,11 +1931,11 @@
         "n": 15
       },
       {
-        "nom": "Occitanie",
-        "n": 8
+        "nom": "Nouvelle-Aquitaine",
+        "n": 9
       },
       {
-        "nom": "Nouvelle-Aquitaine",
+        "nom": "Occitanie",
         "n": 8
       },
       {
@@ -1947,15 +1947,15 @@
         "n": 6
       },
       {
+        "nom": "Centre-Val de Loire",
+        "n": 5
+      },
+      {
         "nom": "Grand Est",
         "n": 4
       },
       {
         "nom": "Pays de la Loire",
-        "n": 4
-      },
-      {
-        "nom": "Centre-Val de Loire",
         "n": 4
       }
     ],
@@ -1972,7 +1972,7 @@
     },
     "teletravail": {
       "offres": 7,
-      "sur": 118
+      "sur": 119
     },
     "entreprises": [
       {
@@ -2081,7 +2081,7 @@
         },
         {
           "nom": "Alternance",
-          "total": 39,
+          "total": 40,
           "affichent": 3,
           "mediane": 1325,
           "min": 1174,
@@ -2115,7 +2115,7 @@
       ]
     },
     "outils": {
-      "avec_texte": 118,
+      "avec_texte": 119,
       "liste": [
         {
           "nom": "Emailing / newsletter",
@@ -2174,7 +2174,7 @@
         },
         {
           "nom": "Instagram",
-          "offres": 8,
+          "offres": 9,
           "entreprises": 4
         },
         {
@@ -2184,7 +2184,7 @@
         },
         {
           "nom": "TikTok",
-          "offres": 4,
+          "offres": 5,
           "entreprises": 3
         },
         {
@@ -2259,13 +2259,13 @@
         "Zapier"
       ]
     },
-    "sans_nom_employeur": 25,
+    "sans_nom_employeur": 26,
     "part_competences": 19,
-    "debutant_accepte": null,
+    "debutant_accepte": 61,
     "mots": [
       {
         "nom": "Réseaux sociaux",
-        "offres": 32,
+        "offres": 33,
         "entreprises": 17
       },
       {
@@ -2290,7 +2290,7 @@
       }
     ],
     "variantes": {
-      "titres": 118,
+      "titres": 119,
       "liste": [
         {
           "nom": "Assistant / Assistante marketing",
@@ -2307,8 +2307,8 @@
       ],
       "assistant_marketing": 68,
       "avec_digital": 5,
-      "avec_alternance": 26,
-      "sans_marketing": 25,
+      "avec_alternance": 27,
+      "sans_marketing": 26,
       "exemples_sans_marketing": [
         "Assistant ADV H/F",
         "Directeur adjoint H/F",

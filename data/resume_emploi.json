@@ -1,6 +1,6 @@
 {
   "vue": "emploi",
-  "genere_le": "2026-11-14T19:01:34+00:00",
+  "genere_le": "2026-11-14T23:13:14+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026",
@@ -1703,6 +1703,10 @@
         "n": 2
       },
       {
+        "nom": "33",
+        "n": 2
+      },
+      {
         "nom": "06",
         "n": 2
       },
@@ -1717,16 +1721,12 @@
       {
         "nom": "93",
         "n": 1
-      },
-      {
-        "nom": "67",
-        "n": 1
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 11
+        "n": 10
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
@@ -1738,7 +1738,7 @@
       },
       {
         "nom": "Nouvelle-Aquitaine",
-        "n": 4
+        "n": 5
       },
       {
         "nom": "Hauts-de-France",
@@ -2020,7 +2020,7 @@
     },
     "sans_nom_employeur": 12,
     "part_competences": 38,
-    "debutant_accepte": null,
+    "debutant_accepte": 36,
     "mots": [
       {
         "nom": "Réseaux sociaux",

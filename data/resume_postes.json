@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-14T18:45:12+00:00",
+  "genere_le": "2026-11-14T23:13:37+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -97,15 +97,15 @@
         },
         "regions": [
           {
-            "nom": "Auvergne-Rhône-Alpes",
+            "nom": "Île-de-France",
             "n": 3
           },
           {
-            "nom": "Occitanie",
+            "nom": "Auvergne-Rhône-Alpes",
             "n": 2
           },
           {
-            "nom": "Île-de-France",
+            "nom": "Occitanie",
             "n": 2
           },
           {
@@ -120,10 +120,10 @@
         "debutant_accepte": 20,
         "cadre": 10,
         "salaire_affiche": {
-          "offres": 2,
-          "mediane_mensuelle": 3288
+          "offres": 3,
+          "mediane_mensuelle": 4375
         },
-        "sans_nom_employeur": 3,
+        "sans_nom_employeur": 2,
         "entreprises": [
           {
             "nom": "FRANCE LOCATIONS IMMOBILIERES - FLI",
@@ -134,15 +134,15 @@
             "n": 1
           },
           {
+            "nom": "Michael Page",
+            "n": 1
+          },
+          {
             "nom": "MAYOLY",
             "n": 1
           },
           {
             "nom": "Protecthoms",
-            "n": 1
-          },
-          {
-            "nom": "Seyos",
             "n": 1
           }
         ]

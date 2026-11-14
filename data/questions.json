@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-14T20:11:42+00:00",
+  "genere_le": "2026-11-14T23:13:37+00:00",
   "regle": "vrais CDI et CDD, une offre comptée une fois",
   "poste_de_reference": "responsable-marketing",
   "postes": {
@@ -52,7 +52,7 @@
         "nom": "IA (ChatGPT, IA générative…)",
         "assistant": 5,
         "responsable_marketing": 17,
-        "responsable_ecommerce": 10,
+        "responsable_ecommerce": 0,
         "ecart": 12
       },
       {
@@ -193,26 +193,26 @@
   "paris": {
     "responsable-ecommerce": {
       "n": 10,
-      "idf_n": 2,
-      "idf_part": 20,
+      "idf_n": 3,
+      "idf_part": 30,
       "zones": [
         {
           "zone": "Hors Île-de-France",
-          "n": 8,
-          "part": 80,
+          "n": 7,
+          "part": 70,
           "salaires": 2,
           "mediane": 3288,
-          "debutant": 12,
-          "n_experience": 8
+          "debutant": 14,
+          "n_experience": 7
         },
         {
           "zone": "Paris (75)",
-          "n": 1,
-          "part": 10,
-          "salaires": 0,
-          "mediane": null,
-          "debutant": 100,
-          "n_experience": 1
+          "n": 2,
+          "part": 20,
+          "salaires": 1,
+          "mediane": 6250,
+          "debutant": 50,
+          "n_experience": 2
         },
         {
           "zone": "Petite couronne (92, 93, 94)",
@@ -225,8 +225,8 @@
         }
       ],
       "salaire_idf": {
-        "n": 0,
-        "mediane": null
+        "n": 1,
+        "mediane": 6250
       },
       "salaire_reste": {
         "n": 2,
@@ -358,22 +358,17 @@
             "part": 89
           },
           {
-            "nom": "Contenus et supports (création, rédaction)",
-            "n": 7,
-            "part": 78
-          },
-          {
             "nom": "Analyse, reporting, études, veille",
-            "n": 7,
-            "part": 78
-          },
-          {
-            "nom": "Produit, offre, catalogue, merchandising",
-            "n": 6,
-            "part": 67
+            "n": 8,
+            "part": 89
           },
           {
             "nom": "Management et coordination d'équipe",
+            "n": 7,
+            "part": 78
+          },
+          {
+            "nom": "Contenus et supports (création, rédaction)",
             "n": 6,
             "part": 67
           },
@@ -383,19 +378,24 @@
             "part": 56
           },
           {
-            "nom": "Suivi administratif, planning, coordination",
+            "nom": "Produit, offre, catalogue, merchandising",
             "n": 5,
             "part": 56
           },
           {
-            "nom": "Budget, prestataires et agences",
-            "n": 5,
-            "part": 56
+            "nom": "Suivi administratif, planning, coordination",
+            "n": 4,
+            "part": 44
           },
           {
             "nom": "Stratégie et plan marketing",
-            "n": 3,
-            "part": 33
+            "n": 4,
+            "part": 44
+          },
+          {
+            "nom": "Budget, prestataires et agences",
+            "n": 4,
+            "part": 44
           },
           {
             "nom": "Emailing, newsletters, CRM, fidélisation",
@@ -427,20 +427,20 @@
             "part": 44
           },
           {
+            "nom": "coordonner",
+            "part": 44
+          },
+          {
+            "nom": "développer",
+            "part": 44
+          },
+          {
             "nom": "accompagner",
             "part": 44
           },
           {
             "nom": "analyser",
             "part": 44
-          },
-          {
-            "nom": "créer",
-            "part": 33
-          },
-          {
-            "nom": "rédiger",
-            "part": 33
           },
           {
             "nom": "participer",
@@ -661,11 +661,11 @@
             "part": 28
           },
           {
-            "nom": "créer",
+            "nom": "réaliser",
             "part": 28
           },
           {
-            "nom": "réaliser",
+            "nom": "créer",
             "part": 28
           }
         ]
@@ -678,8 +678,8 @@
       "themes": [
         {
           "nom": "Analyse, reporting, études, veille",
-          "n": 48,
-          "part": 71
+          "n": 49,
+          "part": 72
         },
         {
           "nom": "Appui commercial, ventes, promotion",
@@ -688,13 +688,13 @@
         },
         {
           "nom": "Contenus et supports (création, rédaction)",
-          "n": 40,
-          "part": 59
+          "n": 39,
+          "part": 57
         },
         {
           "nom": "Produit, offre, catalogue, merchandising",
-          "n": 38,
-          "part": 56
+          "n": 37,
+          "part": 54
         },
         {
           "nom": "Site web, SEO, acquisition, e-commerce",
@@ -708,18 +708,18 @@
         },
         {
           "nom": "Management et coordination d'équipe",
-          "n": 29,
-          "part": 43
+          "n": 30,
+          "part": 44
         },
         {
           "nom": "Stratégie et plan marketing",
-          "n": 27,
-          "part": 40
+          "n": 28,
+          "part": 41
         },
         {
           "nom": "Suivi administratif, planning, coordination",
-          "n": 25,
-          "part": 37
+          "n": 24,
+          "part": 35
         },
         {
           "nom": "Campagnes (conception, pilotage, suivi)",
@@ -738,8 +738,8 @@
         },
         {
           "nom": "Budget, prestataires et agences",
-          "n": 22,
-          "part": 32
+          "n": 21,
+          "part": 31
         },
         {
           "nom": "Réseaux sociaux et communication digitale",
@@ -757,11 +757,11 @@
           "part": 41
         },
         {
-          "nom": "participer",
+          "nom": "suivre",
           "part": 34
         },
         {
-          "nom": "suivre",
+          "nom": "participer",
           "part": 34
         },
         {
@@ -770,7 +770,7 @@
         },
         {
           "nom": "développer",
-          "part": 25
+          "part": 26
         },
         {
           "nom": "analyser",
@@ -795,13 +795,13 @@
         },
         {
           "nom": "1 à 2 ans",
-          "n": 4,
-          "part": 40
+          "n": 5,
+          "part": 50
         },
         {
           "nom": "3 à 5 ans",
-          "n": 3,
-          "part": 30
+          "n": 2,
+          "part": 20
         },
         {
           "nom": "Expérience exigée, durée non précisée",
@@ -869,12 +869,12 @@
   "recruteurs": {
     "responsable-ecommerce": {
       "n": 10,
-      "secteur_connu": 5,
-      "sans_nom": 3,
+      "secteur_connu": 6,
+      "sans_nom": 2,
       "types": [
         {
           "nom": "Commerce, distribution",
-          "n": 2
+          "n": 3
         },
         {
           "nom": "Banque, assurance, immobilier",
@@ -890,7 +890,7 @@
         }
       ],
       "pour_clients": 1,
-      "pour_eux_memes": 4,
+      "pour_eux_memes": 5,
       "formation_medias": 0,
       "secteurs": [
         {
@@ -902,15 +902,15 @@
           "n": 1
         },
         {
+          "nom": "Commerce d'alimentation générale",
+          "n": 1
+        },
+        {
           "nom": "Fabrication de préparations pharmaceutiques",
           "n": 1
         },
         {
           "nom": "Conseil pour les affaires et autres conseils de gestion",
-          "n": 1
-        },
-        {
-          "nom": "Entretien et réparation de véhicules automobiles légers",
           "n": 1
         }
       ],
