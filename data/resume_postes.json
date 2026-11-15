@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-14T23:13:37+00:00",
+  "genere_le": "2026-11-15T13:10:14+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -15,19 +15,23 @@
         {
           "date": "2026-11-14",
           "total": 41
+        },
+        {
+          "date": "2026-11-15",
+          "total": 42
         }
       ],
       "derniere": {
-        "date": "2026-11-14",
-        "total": 41,
+        "date": "2026-11-15",
+        "total": 42,
         "contrats": {
-          "CDD": 5,
+          "CDD": 6,
           "CDI": 36
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 14
+            "n": 15
           },
           {
             "nom": "Auvergne-Rhône-Alpes",
@@ -46,10 +50,10 @@
             "n": 3
           }
         ],
-        "debutant_accepte": 34,
-        "cadre": 41,
+        "debutant_accepte": 33,
+        "cadre": 40,
         "salaire_affiche": {
-          "offres": 17,
+          "offres": 18,
           "mediane_mensuelle": 3750
         },
         "sans_nom_employeur": 14,
@@ -87,10 +91,14 @@
         {
           "date": "2026-11-14",
           "total": 10
+        },
+        {
+          "date": "2026-11-15",
+          "total": 10
         }
       ],
       "derniere": {
-        "date": "2026-11-14",
+        "date": "2026-11-15",
         "total": 10,
         "contrats": {
           "CDI": 10

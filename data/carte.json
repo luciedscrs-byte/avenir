@@ -1,5 +1,5 @@
 {
- "genere_le": "2026-11-14T23:13:37+00:00",
+ "genere_le": "2026-11-15T13:10:15+00:00",
  "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
  "postes": {
   "responsable-ecommerce": {
@@ -9,7 +9,7 @@
   },
   "responsable-marketing": {
    "libelle": "Responsable marketing",
-   "n": 41,
+   "n": 42,
    "depuis": "2026-11-14"
   },
   "assistant-marketing": {
@@ -816,9 +816,9 @@
     "total": 0
    },
    "offres": {
-    "responsable-marketing": 1,
+    "responsable-marketing": 2,
     "assistant-marketing": 1,
-    "total": 2
+    "total": 3
    }
   },
   "92": {
