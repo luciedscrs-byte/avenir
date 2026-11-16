@@ -1,15 +1,15 @@
 {
- "genere_le": "2026-11-15T13:10:15+00:00",
+ "genere_le": "2026-11-16T14:18:19+00:00",
  "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
  "postes": {
   "responsable-ecommerce": {
    "libelle": "Responsable e-commerce",
-   "n": 10,
+   "n": 12,
    "depuis": "2026-11-14"
   },
   "responsable-marketing": {
    "libelle": "Responsable marketing",
-   "n": 42,
+   "n": 43,
    "depuis": "2026-11-14"
   },
   "assistant-marketing": {
@@ -610,10 +610,10 @@
     "total": 1854
    },
    "offres": {
-    "responsable-ecommerce": 1,
+    "responsable-ecommerce": 2,
     "responsable-marketing": 3,
     "assistant-marketing": 5,
-    "total": 9
+    "total": 10
    }
   },
   "72": {
@@ -665,10 +665,10 @@
     "total": 6643
    },
    "offres": {
-    "responsable-ecommerce": 2,
-    "responsable-marketing": 1,
+    "responsable-ecommerce": 3,
+    "responsable-marketing": 2,
     "assistant-marketing": 4,
-    "total": 7
+    "total": 9
    }
   },
   "76": {

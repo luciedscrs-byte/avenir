@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-15T13:10:14+00:00",
+  "genere_le": "2026-11-16T14:18:18+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -19,19 +19,23 @@
         {
           "date": "2026-11-15",
           "total": 42
+        },
+        {
+          "date": "2026-11-16",
+          "total": 42
         }
       ],
       "derniere": {
-        "date": "2026-11-15",
+        "date": "2026-11-16",
         "total": 42,
         "contrats": {
-          "CDD": 6,
-          "CDI": 36
+          "CDI": 36,
+          "CDD": 6
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 15
+            "n": 16
           },
           {
             "nom": "Auvergne-Rhône-Alpes",
@@ -46,17 +50,17 @@
             "n": 3
           },
           {
-            "nom": "Non précisé",
+            "nom": "Provence-Alpes-Côte d'Azur",
             "n": 3
           }
         ],
-        "debutant_accepte": 33,
+        "debutant_accepte": 36,
         "cadre": 40,
         "salaire_affiche": {
           "offres": 18,
           "mediane_mensuelle": 3750
         },
-        "sans_nom_employeur": 14,
+        "sans_nom_employeur": 15,
         "entreprises": [
           {
             "nom": "Walter Learning",
@@ -95,22 +99,26 @@
         {
           "date": "2026-11-15",
           "total": 10
+        },
+        {
+          "date": "2026-11-16",
+          "total": 12
         }
       ],
       "derniere": {
-        "date": "2026-11-15",
-        "total": 10,
+        "date": "2026-11-16",
+        "total": 12,
         "contrats": {
-          "CDI": 10
+          "CDI": 12
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 3
+            "n": 4
           },
           {
             "nom": "Auvergne-Rhône-Alpes",
-            "n": 2
+            "n": 3
           },
           {
             "nom": "Occitanie",
@@ -125,14 +133,18 @@
             "n": 1
           }
         ],
-        "debutant_accepte": 20,
-        "cadre": 10,
+        "debutant_accepte": 17,
+        "cadre": 17,
         "salaire_affiche": {
-          "offres": 3,
-          "mediane_mensuelle": 4375
+          "offres": 4,
+          "mediane_mensuelle": 4479
         },
-        "sans_nom_employeur": 2,
+        "sans_nom_employeur": 3,
         "entreprises": [
+          {
+            "nom": "KQUEO",
+            "n": 1
+          },
           {
             "nom": "FRANCE LOCATIONS IMMOBILIERES - FLI",
             "n": 1
@@ -147,10 +159,6 @@
           },
           {
             "nom": "MAYOLY",
-            "n": 1
-          },
-          {
-            "nom": "Protecthoms",
             "n": 1
           }
         ]

@@ -1,6 +1,6 @@
 {
   "vue": "emploi",
-  "genere_le": "2026-11-15T13:09:50+00:00",
+  "genere_le": "2026-11-16T14:17:47+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026",
@@ -202,6 +202,11 @@
     },
     {
       "date": "2026-11-15",
+      "total": 41,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-16",
       "total": 41,
       "alternance": 0
     }
@@ -1457,12 +1462,43 @@
         "Automatisation / marketing automation": 1,
         "GEO (optimisation pour les moteurs d'IA)": 1
       }
+    },
+    {
+      "date": "2026-11-16",
+      "avec_texte": 41,
+      "outils": {
+        "Anglais": 9,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 7,
+        "Emailing / newsletter": 6,
+        "IA (ChatGPT, IA générative…)": 5,
+        "Pack Office": 6,
+        "Canva": 4,
+        "Excel": 5,
+        "PowerPoint": 3,
+        "SEO": 3,
+        "CRM": 3,
+        "LinkedIn": 2,
+        "Google Ads": 2,
+        "Word": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Analyse de données (data)": 2,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-15",
-    "extractions": 40,
+    "au": "2026-11-16",
+    "extractions": 41,
     "flux": [
       {
         "date": "2026-10-08",
@@ -1697,26 +1733,32 @@
         "total": 41,
         "nouvelles": 0,
         "disparues": 1
+      },
+      {
+        "date": "2026-11-16",
+        "total": 41,
+        "nouvelles": 3,
+        "disparues": 3
       }
     ],
-    "vues": 137,
+    "vues": 140,
     "toute_la_periode": 3,
-    "duree_mediane_jours": 5.0,
-    "n_duree": 62
+    "duree_mediane_jours": 5,
+    "n_duree": 65
   },
   "derniere": {
-    "date": "2026-11-15",
+    "date": "2026-11-16",
     "total": 41,
     "alternance": 0,
-    "part_salaire_affiche": 37,
+    "part_salaire_affiche": 32,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 32
+        "n": 31
       },
       {
         "nom": "CDD",
-        "n": 9
+        "n": 10
       }
     ],
     "natures": [
@@ -1735,10 +1777,6 @@
         "n": 4
       },
       {
-        "nom": "69",
-        "n": 3
-      },
-      {
         "nom": "94",
         "n": 2
       },
@@ -1748,6 +1786,10 @@
       },
       {
         "nom": "33",
+        "n": 2
+      },
+      {
+        "nom": "92",
         "n": 2
       },
       {
@@ -1770,15 +1812,11 @@
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 10
+        "n": 11
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
         "n": 9
-      },
-      {
-        "nom": "Auvergne-Rhône-Alpes",
-        "n": 5
       },
       {
         "nom": "Nouvelle-Aquitaine",
@@ -1787,6 +1825,10 @@
       {
         "nom": "Hauts-de-France",
         "n": 4
+      },
+      {
+        "nom": "Auvergne-Rhône-Alpes",
+        "n": 3
       },
       {
         "nom": "Occitanie",
@@ -1801,11 +1843,11 @@
         "n": 2
       },
       {
-        "nom": "Grand Est",
-        "n": 1
+        "nom": "Bourgogne-Franche-Comté",
+        "n": 2
       },
       {
-        "nom": "Bourgogne-Franche-Comté",
+        "nom": "Grand Est",
         "n": 1
       }
     ],
@@ -1825,6 +1867,10 @@
         "n": 3
       },
       {
+        "nom": "TOURIST DEVELOPMENT CORPORATION",
+        "n": 1
+      },
+      {
         "nom": "ANDROS",
         "n": 1
       },
@@ -1834,10 +1880,6 @@
       },
       {
         "nom": "KAROIL",
-        "n": 1
-      },
-      {
-        "nom": "K-TEX",
         "n": 1
       },
       {
@@ -1864,49 +1906,49 @@
     "concentration_top2": {
       "noms": [
         "TalenX",
-        "ANDROS"
+        "TOURIST DEVELOPMENT CORPORATION"
       ],
       "part": 10
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 15
-      },
-      {
-        "nom": "Développer l'image et la notoriété de la structure",
-        "n": 3
-      },
-      {
-        "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 3
+        "n": 13
       },
       {
         "nom": "Concevoir des supports de communication et d'image",
         "n": 2
       },
       {
-        "nom": "Participer aux phases créatives d'un projet marketing",
+        "nom": "Elaborer une stratégie de marketing digital",
+        "n": 2
+      },
+      {
+        "nom": "Elaborer un plan marketing, une stratégie de marque et de communication",
+        "n": 2
+      },
+      {
+        "nom": "Développer l'image et la notoriété de la structure",
+        "n": 2
+      },
+      {
+        "nom": "Analyser les performances de l'équipe et proposer des améliorations",
+        "n": 2
+      },
+      {
+        "nom": "Analyse concurrentielle",
+        "n": 1
+      },
+      {
+        "nom": "Analyse des besoins des clients",
+        "n": 1
+      },
+      {
+        "nom": "Gestion de campagnes publicitaires",
         "n": 1
       },
       {
         "nom": "Utiliser les outils numériques",
-        "n": 1
-      },
-      {
-        "nom": "Marketing des réseaux sociaux",
-        "n": 1
-      },
-      {
-        "nom": "Elaborer une stratégie de marketing digital",
-        "n": 1
-      },
-      {
-        "nom": "Assurer la gestion administrative d'une activité",
-        "n": 1
-      },
-      {
-        "nom": "Elaborer un plan marketing, une stratégie de marque et de communication",
         "n": 1
       }
     ],
@@ -1915,25 +1957,25 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 32,
-          "affichent": 12,
-          "mediane": 2475,
-          "min": 1900,
+          "total": 31,
+          "affichent": 9,
+          "mediane": 2350,
+          "min": 2000,
           "max": 3542,
-          "mediane_annuelle": 29700,
-          "min_annuel": 22800,
+          "mediane_annuelle": 28200,
+          "min_annuel": 24000,
           "max_annuel": 42504
         },
         {
           "nom": "CDD",
-          "total": 9,
-          "affichent": 3,
-          "mediane": 2500,
+          "total": 10,
+          "affichent": 4,
+          "mediane": 2792,
           "min": 2292,
-          "max": 3083,
-          "mediane_annuelle": 30000,
+          "max": 3500,
+          "mediane_annuelle": 33504,
           "min_annuel": 27504,
-          "max_annuel": 36996
+          "max_annuel": 42000
         }
       ]
     },
@@ -1943,31 +1985,26 @@
         {
           "nom": "Anglais",
           "offres": 9,
-          "entreprises": 8
-        },
-        {
-          "nom": "Emailing / newsletter",
-          "offres": 8,
-          "entreprises": 8
+          "entreprises": 9
         },
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
+          "offres": 7,
+          "entreprises": 6
+        },
+        {
+          "nom": "Emailing / newsletter",
           "offres": 6,
+          "entreprises": 6
+        },
+        {
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 5,
           "entreprises": 5
         },
         {
-          "nom": "Excel",
-          "offres": 5,
-          "entreprises": 4
-        },
-        {
           "nom": "Pack Office",
-          "offres": 5,
-          "entreprises": 4
-        },
-        {
-          "nom": "PowerPoint",
-          "offres": 4,
+          "offres": 6,
           "entreprises": 4
         },
         {
@@ -1976,9 +2013,14 @@
           "entreprises": 4
         },
         {
-          "nom": "IA (ChatGPT, IA générative…)",
-          "offres": 4,
-          "entreprises": 4
+          "nom": "Excel",
+          "offres": 5,
+          "entreprises": 3
+        },
+        {
+          "nom": "PowerPoint",
+          "offres": 3,
+          "entreprises": 3
         },
         {
           "nom": "SEO",
@@ -2002,16 +2044,6 @@
         },
         {
           "nom": "Word",
-          "offres": 1,
-          "entreprises": 1
-        },
-        {
-          "nom": "Instagram",
-          "offres": 1,
-          "entreprises": 1
-        },
-        {
-          "nom": "Facebook",
           "offres": 1,
           "entreprises": 1
         },
@@ -2048,6 +2080,8 @@
       ],
       "absents": [
         "Figma",
+        "Instagram",
+        "Facebook",
         "TikTok",
         "YouTube",
         "SEA",
@@ -2062,13 +2096,13 @@
         "Zapier"
       ]
     },
-    "sans_nom_employeur": 12,
-    "part_competences": 39,
-    "debutant_accepte": 37,
+    "sans_nom_employeur": 13,
+    "part_competences": 34,
+    "debutant_accepte": 32,
     "mots": [
       {
         "nom": "Réseaux sociaux",
-        "offres": 12,
+        "offres": 11,
         "entreprises": 9
       },
       {
@@ -2092,7 +2126,7 @@
       "liste": [
         {
           "nom": "Assistant / Assistante marketing",
-          "n": 14
+          "n": 11
         },
         {
           "nom": "Assistant(e) commercial(e) et marketing",
@@ -2103,10 +2137,10 @@
           "n": 2
         }
       ],
-      "assistant_marketing": 15,
-      "avec_digital": 1,
+      "assistant_marketing": 12,
+      "avec_digital": 2,
       "avec_alternance": 0,
-      "sans_marketing": 18,
+      "sans_marketing": 19,
       "exemples_sans_marketing": [
         "Assistant ADV H/F",
         "Directeur adjoint H/F",
