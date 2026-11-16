@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>avenir — Les offres</title>
+<link rel="stylesheet" href="assets/commun.css">
+</head>
+<body>
+<main>
+  <nav id="nav"></nav>
+  <header class="hero">
+    <p class="etiquette">Étape 3 · Le marché</p>
+    <h1 id="metier">Chargement…</h1>
+    <p class="sub">Combien d'offres, quels contrats, quels salaires, où en France et quels outils demandés : le marché d'après les offres publiées chaque jour sur France Travail.</p>
+  </header>
+  <p id="erreur"></p>
+
+  <h2 class="st">En un coup d'œil</h2>
+  <p class="note" id="requete" style="margin:0 0 1rem"></p>
+  <div class="chiffres">
+    <div class="carte"><p class="gros" id="total">–</p><p class="legende" id="total-legende">offres actives en France</p></div>
+    <div class="carte"><p class="gros" id="alternance">–</p><p class="legende" id="alternance-legende">dont en alternance</p></div>
+    <div class="carte"><p class="gros" id="salaire">–</p><p class="legende">affichent un salaire</p></div>
+    <div class="carte"><p class="gros" id="date">–</p><p class="legende">date de la dernière extraction</p></div>
+  </div>
+
+  <h2 class="st">Qui recrute, et avec quels contrats</h2>
+  <div class="grille">
+    <div class="carte"><h2>Contrats</h2><div id="contrats"></div></div>
+    <div class="carte"><h2>Entreprises qui publient le plus</h2><div id="entreprises"></div></div>
+  </div>
+
+  <h2 class="st">Où en France</h2>
+  <div class="grille">
+    <div class="carte"><h2>Départements</h2><div id="departements"></div></div>
+    <div class="carte"><h2>Régions</h2><div id="regions"></div><p class="note" id="geo-note"></p></div>
+  </div>
+
+  <h2 class="st">Combien ça paie</h2>
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Salaires affichés (brut, par mois et par an)</h2>
+    <div class="tableau">
+    <table>
+      <thead><tr><th>Groupe</th><th class="num">Offres</th><th class="num">Salaire affiché</th><th class="num">Médiane par mois</th><th class="num">Min – max par mois</th><th class="num">Médiane par an</th><th class="num">Min – max par an</th></tr></thead>
+      <tbody id="salaires"></tbody>
+    </table>
+    </div>
+    <p class="note" id="salaires-note"></p>
+  </div>
+
+  <h2 class="st">Compétences et outils demandés</h2>
+  <div class="grille">
+    <div class="carte"><h2>Compétences les plus citées</h2><div id="competences"></div></div>
+    <div class="carte"><h2>Outils cités dans les annonces</h2><div id="outils"></div><p class="note" id="outils-note"></p></div>
+  </div>
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h2>Ce que le M2 m'a appris, et ce qu'il me reste à acquérir</h2>
+    <p id="a-acquerir"></p>
+    <p class="note" id="bases"></p>
+    <div class="tableau">
+      <table>
+        <thead><tr><th>Outil dans les annonces</th><th class="num">Entreprises</th><th>Ce que j'en ai vu</th></tr></thead>
+        <tbody id="formation"></tbody>
+      </table>
+    </div>
+    <p class="note" id="formation-note"></p>
+  </div>
+
+  <h2 class="st">Pour aller plus loin</h2>
+  <p class="intro">L'évolution des outils cités, le rythme des offres et la source emploi sont sur la page <a href="mouvement.html" style="color:var(--accent)">Comment le métier bouge</a>.</p>
+  <details class="depliant">
+    <summary>Extractions datées</summary>
+    <table>
+      <thead><tr><th>Date</th><th class="num">Offres</th><th class="num">Alternance</th></tr></thead>
+      <tbody id="serie"></tbody>
+    </table>
+  </details>
+
+  <details class="depliant" id="limites">
+    <summary>Limites de ces chiffres</summary>
+    <ul>
+      <li>Un seul canal : l'API France Travail « Offres d'emploi v2 ». Les offres publiées uniquement ailleurs n'y sont pas.</li>
+      <li id="lim-canaux">La Bonne Alternance reprend des offres France Travail : les deux canaux se recoupent en partie.</li>
+      <li id="lim-concentration"></li>
+      <li id="lim-formation"></li>
+      <li>Un salaire affiché n'est pas un salaire versé, et les médianes reposent sur très peu d'offres : lis-les avec le nombre d'offres à côté.</li>
+      <li>Les outils sont repérés par des mots-clés dans le texte des annonces : un outil cité n'est pas forcément exigé, et un outil absent de la liste n'est pas compté.</li>
+      <li>Le code ROME M1620 regroupe des intitulés proches mais pas identiques (assistant marketing, assistant commercial, chef de produit junior…).</li>
+    </ul>
+  </details>
+
+  <footer>Données collectées automatiquement via des API officielles. Dernière génération : <span id="genere"></span>.</footer>
+</main>
+
+<script src="assets/commun.js"></script>
+<script>
+navigation('offres.html', true);
+const SEUIL_ENTREPRISES = 5;
+
+
+
+
+fetch(fichierResume())
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => {
+    const x = d.derniere;
+    const emploi = d.vue === 'emploi';
+    document.title = 'avenir — ' + d.metier;
+    document.getElementById('metier').textContent = d.metier + ' — ROME ' + d.code_rome;
+    document.getElementById('requete').textContent = 'Requête : ' + d.requete;
+    document.getElementById('total').textContent = x.total;
+    if (emploi) {
+      const cdi = x.contrats.find(c => c.nom === 'CDI');
+      document.getElementById('total-legende').textContent = 'offres CDI / CDD du code M1620, dont ' + x.variantes.assistant_marketing + ' avec « assistant marketing » dans le titre';
+      document.getElementById('alternance').textContent = cdi ? cdi.n : 0;
+      document.getElementById('alternance-legende').textContent = 'dont en CDI';
+    } else {
+      document.getElementById('alternance').textContent = x.alternance;
+    }
+    document.getElementById('salaire').textContent = x.part_salaire_affiche + ' %';
+    document.getElementById('date').textContent = dateFr(x.date);
+    document.getElementById('genere').textContent = new Date(d.genere_le).toLocaleString('fr-FR');
+    barres('contrats', x.contrats);
+    barres('departements', x.departements);
+    barres('entreprises', x.entreprises);
+    barres('competences', x.competences);
+
+    barres('regions', x.regions);
+    const pct = n => Math.round(100 * n / x.total) + ' %';
+    const dansRegion = nom => (x.regions.find(r => r.nom === nom) || { n: 0 }).n;
+    document.getElementById('geo-note').textContent =
+      'Puy-de-Dôme : ' + x.n_puy_de_dome + ' offre(s) (' + pct(x.n_puy_de_dome) + '). Auvergne-Rhône-Alpes, la région de Clermont : ' + dansRegion('Auvergne-Rhône-Alpes') +
+      ' offres (' + pct(dansRegion('Auvergne-Rhône-Alpes')) + '). Île-de-France : ' + dansRegion('Île-de-France') + ' (' + pct(dansRegion('Île-de-France')) + '). ' +
+      'Le télétravail est mentionné dans ' + x.teletravail.offres + ' annonces sur ' + x.teletravail.sur + ' (' + Math.round(100 * x.teletravail.offres / Math.max(x.teletravail.sur, 1)) +
+      ' %) ; une mention peut aussi l\'exclure.';
+
+    barres('outils', x.outils.liste.slice(0, 12).map(o => ({ nom: o.nom + ' · ' + o.offres + ' offre' + (o.offres > 1 ? 's' : ''), n: o.entreprises })));
+    document.getElementById('outils-note').textContent =
+      'Classés par nombre d\'entreprises différentes qui les citent (annonces lues : ' + x.outils.avec_texte + '), pour qu\'un employeur qui répète la même annonce ne fausse pas le classement.' +
+      (x.outils.absents.length ? ' Suivis mais cités dans aucune annonce : ' + x.outils.absents.join(', ') + '.' : '');
+
+    fetch('data/formation.json').then(r => r.json()).then(f => {
+      const corps = document.getElementById('formation');
+      x.outils.liste.filter(o => f.outils[o.nom] && f.outils[o.nom].vu).slice(0, 14).forEach(o => {
+        const info = f.outils[o.nom] || {};
+        corps.appendChild(el('tr', {}, [
+          el('td', { textContent: o.nom }),
+          el('td', { className: 'num', textContent: o.entreprises }),
+          el('td', {}, info.vu ? [
+            el('strong', { textContent: info.vu.niveau }),
+            el('div', { className: 'note', style: 'margin:0', textContent: info.vu.precision }),
+            ...(info.vu.a_acquerir && o.entreprises >= SEUIL_ENTREPRISES ? [el('div', { style: 'color: var(--accent); font-size: 0.85rem; font-weight: 600', textContent: '→ à acquérir cette année' })] : []),
+          ] : []),
+        ]));
+      });
+      const absentsVus = x.outils.absents.filter(n => f.outils[n] && f.outils[n].vu).map(n => n + ' (' + f.outils[n].vu.niveau + ')');
+      if (absentsVus.length) document.getElementById('outils-note').textContent += ' Mon bilan sur ceux-là : ' + absentsVus.join(', ') + '.';
+      const bases = x.outils.liste.filter(o => (f.outils[o.nom]?.vu || {}).niveau === 'notion de base, non enseignée');
+      document.getElementById('bases').textContent = bases.length
+        ? 'Notions de base non enseignées mais déjà acquises, comme pour tous les étudiants : ' + bases.map(o => o.nom + ' (' + o.entreprises + ')').join(', ') + '. Elles ne sont pas un manque.'
+        : '';
+      const aAcquerir = x.outils.liste.filter(o => (f.outils[o.nom]?.vu || {}).a_acquerir && o.entreprises >= SEUIL_ENTREPRISES);
+      document.getElementById('a-acquerir').textContent = aAcquerir.length
+        ? 'À acquérir cette année : ' + aAcquerir.map(o => o.nom.replace(/ \(.*\)$/, '') + ' (' + o.entreprises + ' entreprises)').join(', ') +
+          '. Ce sont des outils cités par au moins ' + SEUIL_ENTREPRISES + ' entreprises que je n\'ai vus qu\'en théorie ou un peu en cours.'
+        : '';
+      const note = document.getElementById('formation-note');
+      note.append(f.limites + ' Sources : ');
+      f.sources.forEach((s, i) => { if (i) note.append(' et '); note.appendChild(el('a', { href: s.url, target: '_blank', rel: 'noopener', textContent: s.libelle })); });
+      note.append(', lus le ' + dateFr(f.lu_le) + '.');
+    });
+
+    const sal = document.getElementById('salaires');
+    x.salaires.groupes.forEach(g => sal.appendChild(el('tr', {}, [
+      el('td', { textContent: g.nom }),
+      el('td', { className: 'num', textContent: g.total }),
+      el('td', { className: 'num', textContent: g.affichent }),
+      el('td', { className: 'num', textContent: g.affichent ? fr(g.mediane) + ' €' : '–' }),
+      el('td', { className: 'num', textContent: g.affichent ? fr(g.min) + ' – ' + fr(g.max) + ' €' : '–' }),
+      el('td', { className: 'num', textContent: g.affichent ? fr(g.mediane_annuelle) + ' €' : '–' }),
+      el('td', { className: 'num', textContent: g.affichent ? fr(g.min_annuel) + ' – ' + fr(g.max_annuel) + ' €' : '–' }),
+    ])));
+    document.getElementById('salaires-note').textContent =
+      'Repère : ' + fr(x.salaires.mediane_insertion) + ' € brut par mois, soit ' + fr(x.salaires.mediane_insertion * 12) + ' € par an (médiane d\'insertion à un an : chiffre du deck de rentrée de l\'IAE, cité dans le cours). ' +
+      'Le mensuel vient de l\'annuel ÷ 12 ou de l\'horaire × 35 h × 52 ÷ 12 ; l\'annuel est le mensuel × 12. Seules ' + x.part_salaire_affiche + ' % des offres affichent un salaire.';
+
+    if (emploi) {
+      document.getElementById('lim-canaux').textContent =
+        'Vue CDI / CDD : seules les offres qui sont de vrais CDI ou CDD sont comptées, sans alternance, stage, intérim ni annonce de formation, à partir de l\'extraction du 07/10/2026 (première avec identifiants et texte des annonces).';
+    } else if (x.canaux) {
+      document.getElementById('lim-canaux').textContent =
+        'Deuxième canal, La Bonne Alternance : ' + x.canaux.lba_distinctes + ' offres distinctes, dont ' + x.canaux.lba_deja_dans_ft +
+        ' déjà présentes dans l\'extraction France Travail (même identifiant). Les chiffres de cette page ne comptent que France Travail.';
+    }
+
+    const pf = x.annonces_formation;
+    if (pf && pf.n) {
+      document.getElementById('lim-formation').textContent =
+        pf.n + ' annonces sur ' + x.total + ' (' + Math.round(100 * pf.n / x.total) + ' %) font la promotion d\'une formation à distance plutôt que d\'un emploi (publiées par : ' +
+        pf.noms.join(', ') + ') : elles sont comptées dans le total, car France Travail les classe comme des offres.';
+      document.getElementById('total-legende').textContent = 'offres actives en France, dont ' + pf.n + ' annonces de formation (voir les limites)';
+    }
+
+    const c2 = x.concentration_top2;
+    document.getElementById('lim-concentration').textContent = emploi
+      ? 'Aucun employeur ne domine cette vue : le plus présent, ' + x.entreprises[0].nom + ', publie ' + x.entreprises[0].n + ' offres sur ' + x.total + '. Une annonce republiée compte plusieurs fois : le nombre d\'offres n\'est pas le nombre de postes.'
+      : c2.noms.join(' et ') + ' publient ' + c2.part + ' % des offres, souvent avec le même gabarit d\'annonce : le nombre d\'offres n\'est pas le nombre de postes.';
+
+    const tbody = document.getElementById('serie');
+    d.serie.slice().reverse().forEach(s => tbody.appendChild(el('tr', {}, [
+      el('td', { textContent: dateFr(s.date) }),
+      el('td', { className: 'num', textContent: s.total }),
+      el('td', { className: 'num', textContent: s.alternance }),
+    ])));
+  })
+  .catch(() => {
+    document.getElementById('metier').textContent = 'Assistant / Assistante marketing';
+    document.getElementById('erreur').textContent =
+      'Impossible de charger data/resume.json. En local, ouvre la page via un petit serveur (python3 -m http.server) plutôt qu\'en double-cliquant sur le fichier.';
+  });
+</script>
+</body>
+</html>

@@ -9,9 +9,15 @@
 <body>
 <main>
   <nav id="nav"></nav>
-  <h1>Le marché caché : les entreprises, pas seulement les offres</h1>
-  <p class="sub" id="requete"></p>
+  <header class="hero">
+    <p class="etiquette">Étape 5 · Ce que les offres ne montrent pas</p>
+    <h1>Le marché caché : les entreprises, pas seulement les offres</h1>
+    <p class="sub">Les sites d'offres ne montrent que les entreprises qui publient. Ici, je pars des entreprises elles-mêmes pour voir où elles se trouvent et où chercher.</p>
+  </header>
   <p id="erreur"></p>
+
+  <h2 class="st">En un coup d'œil</h2>
+  <p class="note" id="requete" style="margin:0 0 1rem"></p>
 
   <div class="chiffres">
     <div class="carte"><p class="gros" id="total">–</p><p class="legende">entreprises recensées</p></div>
@@ -21,9 +27,10 @@
     <div class="carte"><p class="gros" id="n-nord">–</p><p class="legende">villes du nord (à part)</p></div>
   </div>
 
+  <h2 class="st" id="carte-titre">La carte territoire × secteur</h2>
+  <p class="intro">Ma mission : voir où se concentrent les entreprises susceptibles d'embaucher un profil marketing, et la comparer aux offres publiées.</p>
   <div class="carte" style="margin-bottom:1.5rem" id="carte-territoire">
-    <h2>La carte : où sont les entreprises, où sont les offres</h2>
-    <p id="carte-mission"></p>
+    <p id="carte-mission" style="margin-top:0"></p>
     <div class="filtres"><label>Secteur affiché<select id="c-groupe"></select></label></div>
     <div class="carte-grille">
       <div>
@@ -43,6 +50,8 @@
     <p class="note" id="carte-limites"></p>
   </div>
 
+  <h2 class="st">La liste des entreprises</h2>
+  <p class="intro">Toutes les entreprises recensées, à filtrer par région, ville, secteur ou taille. Les plus grandes d'abord.</p>
   <div class="carte" style="margin-bottom:1.5rem">
     <div class="onglets" id="onglets"></div>
     <div class="filtres">
@@ -65,15 +74,15 @@
     </div>
   </div>
 
-  <div class="carte" id="limites">
-    <h2>Comment lire cette liste</h2>
+  <details class="depliant" id="limites">
+    <summary>Comment lire cette liste, et ses limites</summary>
     <ul>
       <li><strong>Sections.</strong> « Cibles principales » = numérique, e-commerce, médias, événementiel et commerce spécialisé, hors agences et hors villes du nord. « Industrie » = toute l'industrie manufacturière (alimentaire, chimie et cosmétique, pharmacie, machines, meubles…), ajoutée parce que l'industrie est le premier type d'employeur des offres de responsable marketing ; elle ne compte que les entreprises de 20 salariés et plus. « Agences » = publicité, communication, études de marché, design : récoltées mais séparées. « Villes du nord » = villes plus hautes que Paris et hors Île-de-France (Lille, Reims, Le Havre, Rouen, Amiens, Metz, Caen), tous types confondus.</li>
       <li><strong>Périmètre.</strong> Entreprises actives d'au moins 6 salariés (20 pour l'industrie), dont le siège est dans un département abritant une commune de plus de 100 000 habitants. Une région n'est donc couverte qu'en partie : le menu « Région » indique combien de ses départements sont inclus (par exemple 5 sur 12 en Auvergne-Rhône-Alpes). Elles sont choisies par leur code d'activité (NAF) : une entreprise de ces secteurs n'a pas forcément un poste marketing, et beaucoup d'entreprises qui en ont un sont dans d'autres secteurs.</li>
       <li><strong>Ce que l'API ne donne pas.</strong> Ni site web, ni téléphone, ni e-mail : ces colonnes viendront d'une autre source.</li>
       <li><strong>Données personnelles.</strong> Cette liste ne contient que des données d'entreprises, aucun nom de personne. Un contact éventuel se cherche ensuite à la main, en lien avec sa fonction, pour une finalité claire (une candidature), avec droit d'opposition, et la liste n'est jamais revendue.</li>
     </ul>
-  </div>
+  </details>
 
   <footer>Source : API Recherche d'entreprises (data.gouv.fr), licence ouverte. Extraction du <span id="genere"></span>.</footer>
 </main>
@@ -210,7 +219,7 @@ function initCarte(geo, carte, resume) {
     const seuil = q => valeurs.length ? valeurs[Math.min(valeurs.length - 1, Math.floor(q * valeurs.length))] : 0;
     const bornes = [seuil(0.2), seuil(0.4), seuil(0.6), seuil(0.8)];
     const classe = v => v <= 0 ? -1 : bornes.filter(b => v > b).length;
-    const OPACITE = [0.14, 0.3, 0.5, 0.72, 0.95];
+    const OPACITE = [0.25, 0.42, 0.6, 0.8, 0.97];
     zone.replaceChildren();
 
     geo.features.forEach(f => {
@@ -218,7 +227,7 @@ function initCarte(geo, carte, resume) {
       const c = classe(nbEntreprises(d, groupe));
       const p = svg('path', {
         d: chemin(f.geometry), 'stroke': 'var(--card)', 'stroke-width': '0.8', 'class': 'dep' + (d === choisi ? ' choisi' : ''),
-        'fill': couvert && c >= 0 ? 'var(--accent)' : 'var(--muted)', 'fill-opacity': couvert && c >= 0 ? OPACITE[c] : (couvert ? 0.07 : 0.2),
+        'fill': couvert && c >= 0 ? 'var(--accent)' : 'var(--muted)', 'fill-opacity': couvert && c >= 0 ? OPACITE[c] : (couvert ? 0.06 : 0.1),
         'tabindex': '0', 'role': 'button', 'aria-label': noms[d] + ' : ' + nbEntreprises(d, groupe) + ' entreprises, ' + nbOffres(d) + ' offres',
       }, [svg('title', {}, [document.createTextNode(noms[d] + ' : ' + fr(nbEntreprises(d, groupe)) + ' entreprises, ' + nbOffres(d) + ' offres publiées')])]);
       p.onclick = () => { choisi = d; dessiner(); };
@@ -245,7 +254,7 @@ function initCarte(geo, carte, resume) {
   function legende(groupe, bornes, ok) {
     const zoneLeg = document.getElementById('carte-legende');
     zoneLeg.replaceChildren();
-    const OPA = [0.14, 0.3, 0.5, 0.72, 0.95];
+    const OPA = [0.25, 0.42, 0.6, 0.8, 0.97];
     const pas = [];
     const tous = [0].concat(bornes).concat([Infinity]);
     for (let i = 0; i < 5; i++) pas.push([tous[i] + 1, tous[i + 1]]);
@@ -255,7 +264,7 @@ function initCarte(geo, carte, resume) {
       const sw = el('span', { className: 'leg-sw' }); sw.style.background = 'var(--accent)'; sw.style.opacity = OPA[i];
       ligne1.appendChild(el('span', { className: 'leg-item' }, [sw, el('span', { textContent: p[1] === Infinity ? fr(p[0]) + ' et plus' : (p[0] === p[1] ? fr(p[0]) : fr(p[0]) + ' à ' + fr(p[1])) })]));
     });
-    const gris = el('span', { className: 'leg-sw' }); gris.style.background = 'var(--muted)'; gris.style.opacity = 0.2;
+    const gris = el('span', { className: 'leg-sw' }); gris.style.background = 'var(--muted)'; gris.style.opacity = 0.1; gris.style.border = '1px solid var(--line)';
     const rond = el('span', { className: 'leg-rond' });
     zoneLeg.appendChild(ligne1);
     zoneLeg.appendChild(el('div', { className: 'leg-ligne' }, [
@@ -280,7 +289,7 @@ function initCarte(geo, carte, resume) {
         el('span', { className: 'nom', textContent: k }), el('span', { className: 'n', textContent: fr(v) }),
         el('span', { className: 'piste' }, [el('span', { style: 'width:' + Math.round(100 * v / max) + '%' })])])));
     }
-    z.appendChild(el('p', { className: 'gros', style: 'font-size:1.8rem;color:#d9631c;margin-top:0.75rem', textContent: String(dep.offres.total || 0) }));
+    z.appendChild(el('p', { className: 'gros', style: 'font-size:1.8rem;color:var(--accent2-text);margin-top:0.75rem', textContent: String(dep.offres.total || 0) }));
     z.appendChild(el('p', { className: 'legende', textContent: 'offres publiées' + (dep.offres.total ? ' : ' + Object.keys(carte.postes).filter(k => dep.offres[k]).map(k => libellePoste(k) + ' ' + dep.offres[k]).join(', ') : '') }));
     if (dep.couvert && dep.offres.total === 0) z.appendChild(el('p', { className: 'note', textContent: 'Aucune offre : ici, tout le marché est « caché ».' }));
   }
@@ -338,7 +347,7 @@ Promise.all([
   fetch('data/entreprises_resume.json').then(r => r.json()),
 ]).then(([csv, resume]) => {
   toutes = lireCsv(csv);
-  document.getElementById('requete').textContent = 'Requête : API Recherche d\'entreprises, entreprises actives de ' + resume.taille_min + ' et plus, dans ' +
+  document.getElementById('requete').textContent = 'Requête : API Recherche d\'entreprises, entreprises actives d\'au moins ' + resume.taille_min + ', dans ' +
     Object.keys(resume.par_ville).length + ' grandes villes ou agglomérations.';
   document.getElementById('total').textContent = resume.total.toLocaleString('fr-FR');
   SECTIONS.forEach(s => {

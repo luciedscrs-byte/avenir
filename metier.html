@@ -9,40 +9,44 @@
 <body>
 <main>
   <nav id="nav"></nav>
-  <h1>Le métier tel que le marché le nomme</h1>
-  <p class="sub" id="sous-titre">Le diplôme dit « marketing opérationnel et digital » ; les annonces disent autre chose.</p>
+  <header class="hero">
+    <p class="etiquette">Étape 2 · Le métier souhaité</p>
+    <h1>Le métier tel que le marché le nomme</h1>
+    <p class="sub" id="sous-titre">Le diplôme dit « marketing opérationnel et digital » ; les annonces disent autre chose.</p>
+  </header>
   <p id="erreur"></p>
 
+  <h2 class="st">Les postes que je vise</h2>
+  <p class="intro">Classés du plus au moins intéressant pour moi. Après mon stage, j'ai ajouté des intitulés : d'où un suivi plus récent pour les deux postes de responsable.</p>
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Les postes que je vise, du plus au moins intéressant pour moi</h2>
     <div id="postes"></div>
     <p class="note" id="postes-note"></p>
   </div>
 
+  <h2 class="st">Comment le marché nomme le métier</h2>
   <div class="grille">
     <div class="carte"><h2>Comment les annonces nomment l'assistant marketing</h2><div id="variantes"></div><p class="note" id="variantes-note"></p></div>
     <div class="carte"><h2>Ce que le code M1620 regroupe vraiment</h2><p id="regroupe"></p></div>
   </div>
 
+  <h2 class="st">Ce que ma formation vise</h2>
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Ce que ma formation vise</h2>
     <p id="formation-vise"></p>
     <p class="note" id="formation-source"></p>
   </div>
 
+  <h2 class="st">Les questions que je pose à ce marché</h2>
+  <p class="intro">Les quatre questions de départ, avec leur réponse chiffrée.</p>
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Les questions que je pose à ce marché</h2>
     <ol class="questions" id="questions"></ol>
     <p class="note" id="chiffres-note"></p>
   </div>
 
-  <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Ce que m'apprennent d'autres questions</h2>
-    <p class="note" id="autres-intro"></p>
-    <div id="autres" style="margin-top:1.25rem"></div>
-  </div>
+  <h2 class="st">Ce que m'apprennent d'autres questions</h2>
+  <p class="intro" id="autres-intro"></p>
+  <div id="autres"></div>
 
-  <footer>Chiffres recalculés à chaque extraction quotidienne : voir les pages <a href="index.html">Les offres</a> et <a href="mouvement.html">Comment il bouge</a> pour la requête, la date, le canal et les limites de chacun.</footer>
+  <footer>Chiffres recalculés à chaque extraction quotidienne : voir les pages <a href="offres.html">Les offres</a> et <a href="mouvement.html">Comment il bouge</a> pour la requête, la date, le canal et les limites de chacun.</footer>
 </main>
 
 <script src="assets/commun.js"></script>
@@ -139,7 +143,7 @@ Promise.all([
     'En CDI / CDD au ' + jour + ' : ' + e.variantes.assistant_marketing + ' offres avec « assistant marketing » dans le titre (' + e.total + ' pour le code M1620 entier), ' + mkt.derniere.total + ' de responsable marketing et ' + ecom.derniere.total +
     ' de responsable e-commerce. Pour le code M1620, régions en tête : ' + regionsTexte(e.regions) + '. Toutes offres confondues (alternance, intérim, stages et annonces de formation comprises), il y en a ' +
     t.total + ', dont ' + t.alternance + ' en alternance et ' + t.n_puy_de_dome + ' dans le Puy-de-Dôme.',
-    'index.html', 'Voir les offres.');
+    'offres.html', 'Voir les offres.');
 
   const tops = e.outils.liste.slice(0, 3).map(o => o.nom + ' (' + o.entreprises + ' entreprises)').join(', ');
   const shopify = e.outils.liste.find(o => o.nom === 'Shopify');
@@ -147,7 +151,7 @@ Promise.all([
     'Dans les annonces d\'assistant marketing en CDI / CDD, les plus cités par des entreprises différentes sont : ' + tops + '. ' +
     (shopify ? 'Shopify apparaît dans ' + shopify.offres + ' annonce(s). ' : 'Shopify, que j\'ai utilisé en stage, n\'apparaît dans aucune des ' + e.outils.avec_texte + ' annonces lues. ') +
     (e.outils.absents.includes('SQL') && e.outils.absents.includes('Python') ? 'SQL et Python ne sont cités dans aucune annonce.' : ''),
-    'index.html', 'Voir les outils.');
+    'offres.html', 'Voir les outils.');
 
   const phrase = s => s && s.affichent ? s.nom + ' ' + fr(s.mediane) + ' € par mois, soit ' + fr(s.mediane_annuelle) + ' € par an (' + s.affichent + ' offres sur ' + s.total + ')' : null;
   question('Quelle fourchette de salaire est proposée, et comment se compare-t-elle au salaire médian d\'insertion ?',
@@ -155,7 +159,7 @@ Promise.all([
     ' € par mois (' + mkt.derniere.salaire_affiche.offres + ' offres sur ' + mkt.derniere.total + '). Responsable e-commerce : ' + fr(ecom.derniere.salaire_affiche.mediane_mensuelle) + ' € par mois (' +
     ecom.derniere.salaire_affiche.offres + ' offres sur ' + ecom.derniere.total + '). À comparer aux ' + fr(t.salaires.mediane_insertion) + ' € bruts par mois d\'insertion (deck de rentrée de l\'IAE). ' +
     'Seules ' + e.part_salaire_affiche + ' % des offres d\'assistant marketing en CDI / CDD affichent un salaire.',
-    'index.html', 'Voir les salaires.');
+    'offres.html', 'Voir les salaires.');
 
   const me = emploi.mouvement, moy = c => (me.flux.reduce((s, x) => s + x[c], 0) / me.flux.length).toFixed(1).replace('.', ',');
   question('Comment le marché bouge-t-il, et qui recrute, y compris sans annonce ?',
@@ -178,7 +182,7 @@ Promise.all([
     el('thead', {}, [el('tr', {}, entetes.map((t, i) => el('th', { className: i ? 'num' : '', textContent: t })))]),
     el('tbody', {}, lignes.map(l => el('tr', {}, l.map((c, i) => el('td', { className: i ? 'num' : '', textContent: c }))))),
   ])]);
-  const bloc = (titre, texte, extras, note) => el('div', { style: 'margin-bottom:1.75rem' }, [
+  const bloc = (titre, texte, extras, note) => el('div', { className: 'carte', style: 'margin-bottom:1rem' }, [
     el('h3', { style: 'font-size:1rem;margin:0 0 0.4rem', textContent: titre }),
     el('p', { style: 'margin:0 0 0.6rem', textContent: texte }),
     ...extras,

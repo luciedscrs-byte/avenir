@@ -48,10 +48,12 @@ function courbe(valeurs, largeur, hauteur, etiquette, plafond) {
 }
 
 const PAGES = [
+  ['index.html', 'Accueil'],
   ['metier.html', 'Le métier'],
-  ['index.html', 'Les offres'],
-  ['mouvement.html', 'Comment il bouge'],
-  ['entreprises.html', 'Les entreprises (marché caché)'],
+  ['offres.html', 'Les offres'],
+  ['mouvement.html', 'Comment ça bouge'],
+  ['entreprises.html', 'Marché caché'],
+  ['actions.html', 'Et ensuite'],
 ];
 
 function vue() {
@@ -68,6 +70,7 @@ function fr(n) {
 
 function navigation(courante, avecVue) {
   const nav = document.getElementById('nav');
+  nav.appendChild(el('a', { className: 'marque', href: 'index.html', textContent: 'avenir' }));
   PAGES.forEach(([href, nom]) => {
     const a = el('a', { href, textContent: nom });
     if (href === courante) a.setAttribute('aria-current', 'page');

@@ -9,19 +9,23 @@
 <body>
 <main>
   <nav id="nav"></nav>
-  <h1>Comment le métier bouge</h1>
-  <p class="sub" id="sous-titre"></p>
+  <header class="hero">
+    <p class="etiquette">Étape 4 · Ce qui bouge</p>
+    <h1>Comment le métier bouge</h1>
+    <p class="sub" id="sous-titre"></p>
+  </header>
   <p id="erreur"></p>
 
+  <h2 class="st">Le rythme des offres</h2>
+  <p class="intro">Le nombre d'offres, extraction après extraction.</p>
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Le nombre d'offres, extraction après extraction</h2>
     <div id="graphique"></div>
     <div class="legende-graphique"><span><i></i><span id="leg-total">Toutes les offres</span></span><span id="leg-alt"><i class="pointille"></i>Dont alternance</span></div>
     <p class="note" id="graphique-note"></p>
   </div>
 
+  <h2 class="st">Offres nouvelles et disparues</h2>
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Offres nouvelles et disparues</h2>
     <p id="flux-resume"></p>
     <div class="tableau">
       <table>
@@ -32,8 +36,8 @@
     <p class="note" id="flux-note"></p>
   </div>
 
+  <h2 class="st">Les outils et les mots qu'on suit</h2>
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Les outils et les mots qu'on suit</h2>
     <h3 style="font-size:0.95rem;margin:0 0 0.5rem">Outils</h3>
     <div class="tableau"><table id="t-outils"></table></div>
     <h3 style="font-size:0.95rem;margin:1.25rem 0 0.5rem">Mots surveillés</h3>
@@ -41,8 +45,8 @@
     <p class="note" id="evolution-note"></p>
   </div>
 
+  <h2 class="st">Une source qui observe l'emploi : l'Apec</h2>
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Une source qui observe l'emploi : l'Apec</h2>
     <p class="note" style="margin:0 0 0.5rem">Apec, <em>L'intelligence artificielle en commercial-marketing</em>, mars 2026 (article du 03/09/2026) —
       <a href="https://www.apec.fr/tendances-emploi-cadre/evolution-des-metiers-et-competences/quel-impact-de-l-ia-sur-les-competences-des-metiers-du-commercial-et-du-marketing-.html" target="_blank" rel="noopener">lire la page</a>.</p>
     <div class="source"><p class="valeur">13 %</p><p>des offres d'emploi <strong>cadre</strong> mentionnant l'intelligence artificielle, publiées sur apec.fr en 2025, sont des offres commercial-marketing : deuxième rang, derrière l'informatique.</p></div>
@@ -53,14 +57,14 @@
     <p><strong>Limites.</strong> L'étude porte sur des offres de <em>cadres</em> ; mon métier, assistant, l'est rarement. Ces pourcentages ne se comparent pas aux miens : ni la population, ni l'année, ni la façon de compter ne sont les mêmes. C'est une seule étude, utile pour la direction, pas pour mesurer mon marché.</p>
   </div>
 
-  <div class="carte" id="limites">
-    <h2>Ce que j'ai essayé, et écarté</h2>
+  <details class="depliant" id="limites">
+    <summary>Ce que j'ai essayé, et écarté</summary>
     <ul>
       <li>Repérer automatiquement, dans tout le texte des annonces, les mots qui montent et qui reculent : le résultat est inexploitable. Entre la première et la dernière semaine, les mots qui « montent » le plus sont « d'une » et « d'un », parce que d'une semaine à l'autre ce ne sont pas les mêmes soixante entreprises qui publient. Je suis donc une liste de mots choisis.</li>
       <li>Quand un mot n'apparaît que dans une à trois annonces (GEO, automatisation), son écart n'a aucun sens : le tableau l'affiche, mais on ne peut pas en tirer de tendance.</li>
       <li>La durée de vie des offres n'est mesurée que sur celles qui apparaissent et disparaissent pendant la période : elle penche mécaniquement vers les offres courtes.</li>
     </ul>
-  </div>
+  </details>
 
   <footer>Données : API France Travail « Offres d'emploi v2 », codeROME=M1620, France entière, une extraction par jour. Dernière génération : <span id="genere"></span>.</footer>
 </main>
