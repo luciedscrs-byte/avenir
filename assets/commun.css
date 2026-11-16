@@ -1,67 +1,117 @@
-  /* Palette : « prune et rose ». Pour changer les couleurs du site, modifier seulement ces variables. */
+  /* Polices : Fraunces (licence SIL OFL, hébergée sur ce site, voir assets/fonts) pour les titres, police système pour le texte. */
+  @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/fraunces-latin-500-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Fraunces"; font-style: italic; font-weight: 500; font-display: swap; src: url("fonts/fraunces-latin-500-italic.woff2") format("woff2"); }
+  @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/fraunces-latin-700-normal.woff2") format("woff2"); }
+
+  /* Palette : Oat Silk, Mulberry Kiss, Blue Reverie, Midnight Custard (+ « papier », un oat éclairci pour le fond).
+     Pour changer les couleurs du site, modifier seulement ces variables. */
   :root {
-    --bg: #faf5f8; --card: #ffffff; --text: #2a1626; --muted: #6d5367;
-    --line: #e7d0dc; --accent: #5b2a4e; --accent-soft: #f1dce6; --on-accent: #ffffff;
-    --accent2: #e8798f; --accent2-text: #b8335a; --hero: #f1dce6;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #170f15; --card: #231820; --text: #f3e8ef; --muted: #bba3b3;
-      --line: #3b2833; --accent: #e3a5c6; --accent-soft: #3a2234; --on-accent: #2a1626;
-      --accent2: #f08fa3; --accent2-text: #f08fa3; --hero: #2b1a26;
-    }
+    --oat: #e2d8cb; --mulberry: #56061d; --blue: #507593; --navy: #022e4a; --paper: #f5f0e9;
+    --bg: var(--mulberry); --page: var(--paper); --card: #fbf8f3; --text: var(--navy); --muted: #4d6276;
+    --line: #d9cdbf; --accent: var(--mulberry); --accent-soft: var(--oat); --on-accent: #f5f0e9;
+    --accent2: var(--blue); --accent2-text: #3d5f7a; --hero: var(--oat);
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    margin: 0; background: var(--bg); color: var(--text); line-height: 1.55;
+    margin: 0; background: var(--bg); color: var(--text); line-height: 1.55; padding: 14px;
   }
-  main { max-width: 1000px; margin: 0 auto; padding: 1.25rem 16px 4rem; }
-  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
-  h2 { font-size: 1.05rem; margin: 0 0 1rem; }
-  h3 { font-size: 1rem; }
-  .sub { color: var(--muted); margin: 0; font-size: 1.05rem; max-width: 46rem; }
+  /* la page est une grande feuille arrondie posée sur un cadre coloré */
+  main { max-width: 1120px; margin: 0 auto; background: var(--page); border-radius: 32px; padding: 1.25rem 1.5rem 3rem; }
+  h1, h2, h3, .gros, .st { font-family: var(--serif); font-weight: 500; }
+  h1 { font-size: 2.6rem; line-height: 1.08; margin: 0 0 0.75rem; letter-spacing: -0.015em; }
+  h1 em, .st em, h2 em { font-style: italic; color: var(--blue); }
+  h2 { font-size: 1.15rem; margin: 0 0 1rem; }
+  h3 { font-size: 1.05rem; }
+  .sub { color: var(--muted); margin: 0; font-size: 1.05rem; max-width: 44rem; }
   .sub code { background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; font-size: 0.85em; }
 
-  /* en-tête du site et navigation */
-  nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; margin-bottom: 1.5rem; font-size: 0.92rem;
-        background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 0.4rem 0.5rem; }
-  nav .marque { font-weight: 700; color: var(--accent); text-decoration: none; padding: 0.3rem 0.9rem 0.3rem 0.6rem; margin-right: 0.25rem; font-size: 1.05rem; }
-  nav .marque::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent2); margin-right: 0.45rem; }
-  nav a { color: var(--muted); text-decoration: none; padding: 0.35rem 0.8rem; border-radius: 999px; }
+  /* navigation */
+  nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; margin-bottom: 1.25rem; font-size: 0.92rem;
+        background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 0.5rem; }
+  nav .marque { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--serif); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+                color: var(--mulberry); text-decoration: none; padding: 0.2rem 1rem 0.2rem 0.3rem; margin-right: auto; font-size: 1.05rem; }
+  nav .marque::before { content: "✦"; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%;
+                        background: var(--mulberry); color: var(--paper); font-size: 0.95rem; letter-spacing: 0; }
+  nav a { color: var(--muted); text-decoration: none; padding: 0.4rem 0.85rem; border-radius: 999px; }
+  nav a.marque { color: var(--mulberry); }
   nav a:hover { background: var(--accent-soft); color: var(--text); }
-  nav a[aria-current="page"] { background: var(--accent); color: var(--on-accent); }
+  nav a[aria-current="page"] { background: var(--navy); color: var(--paper); }
+  nav a.marque[aria-current="page"] { background: none; color: var(--mulberry); }
 
   /* bandeau d'entrée de chaque page */
-  .hero { position: relative; overflow: hidden; background: var(--hero); border-radius: 20px; padding: 2rem 1.75rem 2rem; margin-bottom: 2rem; }
-  .hero::after { content: ""; position: absolute; right: -40px; top: -40px; width: 170px; height: 170px; border-radius: 50%; background: var(--accent2); opacity: 0.22; }
+  .hero { position: relative; overflow: hidden; background: var(--hero); border-radius: 28px; padding: 2.5rem 2.25rem; margin-bottom: 1.5rem; }
+  .hero::after { content: ""; position: absolute; right: -50px; top: -50px; width: 220px; height: 220px; border-radius: 50%; background: var(--blue); opacity: 0.9; }
+  .hero::before { content: "✦"; position: absolute; right: 70px; top: 38px; z-index: 2; color: var(--paper); font-size: 1.6rem; }
   .hero > * { position: relative; z-index: 1; }
-  .etiquette { display: inline-block; font-size: 0.8rem; padding: 0.2rem 0.75rem; border-radius: 999px; background: var(--card); color: var(--accent);
-               border: 1px solid var(--line); margin: 0 0 0.9rem; }
-  .hero .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
-  .btn { display: inline-block; font-size: 0.95rem; font-weight: 600; padding: 0.55rem 1.1rem; border-radius: 10px; text-decoration: none;
-         background: var(--accent); color: var(--on-accent); border: 1.5px solid var(--accent); }
-  .btn.sec { background: transparent; color: var(--accent); }
-  .btn:hover { opacity: 0.88; }
+  .hero .sub, .hero h1 { max-width: 40rem; }
+  .etiquette { display: inline-block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 1rem; }
+  .etiquette::before { content: "("; } .etiquette::after { content: ")"; }
+  .carte .etiquette { margin-bottom: 0.5rem; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; font-weight: 600; padding: 0.5rem 0.55rem 0.5rem 1.2rem; border-radius: 999px; text-decoration: none;
+         background: var(--mulberry); color: var(--paper); border: 1.5px solid var(--mulberry); }
+  .btn::after { content: "→"; display: inline-flex; align-items: center; justify-content: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--paper); color: var(--mulberry); }
+  .btn.sec { background: transparent; color: var(--mulberry); padding-left: 1.2rem; }
+  .btn.sec::after { background: var(--mulberry); color: var(--paper); }
+  .btn:hover { opacity: 0.9; }
+
+  /* accueil : tuiles autour du titre */
+  .bento { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 1rem; margin-bottom: 1.25rem; }
+  .bento .hero { margin: 0; padding: 2.5rem 2.25rem 1.75rem; display: flex; flex-direction: column; }
+  .bento .hero::after, .bento .hero::before { display: none; }
+  .bento .colonne { display: grid; grid-template-rows: 1fr 1fr; gap: 1rem; }
+  .tuile { border-radius: 28px; padding: 1.5rem; position: relative; overflow: hidden; }
+  .tuile .gros { font-size: 3.4rem; color: inherit; }
+  .tuile .legende { color: inherit; opacity: 0.88; font-size: 0.95rem; }
+  .tuile.navy { background: var(--navy); color: var(--oat); }
+  .tuile.blue { background: var(--blue); color: #fff; }
+  .tuile::after { content: "✦"; position: absolute; right: 1.1rem; top: 0.9rem; font-size: 1.3rem; opacity: 0.8; }
+  .chiffres-hero { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin-top: auto; padding-top: 1.75rem; border-top: 1px solid rgba(2, 46, 74, 0.2); }
+  .chiffres-hero div { min-width: 5.5rem; }
+  .chiffres-hero b { display: block; font-family: var(--serif); font-size: 1.9rem; font-weight: 500; line-height: 1.1; }
+  .chiffres-hero span { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+  @media (max-width: 800px) { .bento { grid-template-columns: minmax(0, 1fr); } .bento .colonne { grid-template-rows: none; grid-template-columns: 1fr 1fr; } .tuile .gros { font-size: 2.4rem; } }
+  @media (max-width: 480px) { .bento .colonne { grid-template-columns: minmax(0, 1fr); } }
+
+  /* bandeau défilant */
+  .defile { overflow: hidden; margin: 1.75rem -1.5rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 0.9rem 0; white-space: nowrap; }
+  .defile .piste-defile { display: inline-flex; animation: defile 38s linear infinite; font-family: var(--serif); font-size: 2.4rem; line-height: 1.2; color: var(--navy); }
+  .defile span { padding-right: 1.6rem; } .defile span:nth-child(even) { font-style: italic; color: var(--blue); }
+  @keyframes defile { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .defile .piste-defile { animation: none; } }
 
   /* titres de partie */
-  .st { font-size: 1.4rem; line-height: 1.25; margin: 2.75rem 0 0.35rem; letter-spacing: -0.005em; }
-  .st::before { content: ""; display: block; width: 36px; height: 4px; border-radius: 2px; background: var(--accent2); margin-bottom: 0.6rem; }
-  .intro { color: var(--muted); margin: 0 0 1.25rem; max-width: 46rem; }
+  .st { font-size: 2rem; line-height: 1.15; margin: 3.25rem 0 0.5rem; letter-spacing: -0.01em; }
+  .st::before { content: "✦"; color: var(--blue); font-size: 0.55em; margin-right: 0.6rem; vertical-align: 0.25em; }
+  .intro { color: var(--muted); margin: 0 0 1.25rem; max-width: 44rem; }
 
   .chiffres { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-  .carte { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem; }
-  .gros { font-size: 2.6rem; font-weight: 700; color: var(--accent); margin: 0; line-height: 1.1; }
+  .carte { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 1.4rem; }
+  .gros { font-size: 2.6rem; color: var(--accent); margin: 0; line-height: 1.1; }
   .legende { color: var(--muted); font-size: 0.9rem; margin: 0.25rem 0 0; }
+  /* tuiles de chiffres, en alternance de couleurs */
+  .chiffres > .carte, #constats > .carte { border: none; position: relative; overflow: hidden; }
+  .chiffres > .carte:nth-child(4n+1), #constats > .carte:nth-child(4n+1) { background: var(--mulberry); color: var(--oat); }
+  .chiffres > .carte:nth-child(4n+2), #constats > .carte:nth-child(4n+2) { background: var(--blue); color: #fff; }
+  .chiffres > .carte:nth-child(4n+3), #constats > .carte:nth-child(4n+3) { background: var(--navy); color: var(--oat); }
+  .chiffres > .carte:nth-child(4n), #constats > .carte:nth-child(4n) { background: var(--oat); color: var(--navy); }
+  .chiffres > .carte .gros, #constats > .carte .gros { color: inherit; }
+  .chiffres > .carte .legende, #constats > .carte .legende { color: inherit; opacity: 0.88; }
+  .chiffres > .carte::after, #constats > .carte::after { content: "✦"; position: absolute; right: 1rem; top: 0.8rem; opacity: 0.7; }
+  #constats > .carte a, .chiffres > a.carte { color: inherit; }
+  #constats > .carte a { text-decoration: underline; text-underline-offset: 3px; }
   .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
   .barre { display: grid; grid-template-columns: minmax(0, 1fr) 2.5rem; gap: 0.25rem 0.75rem; align-items: center; margin-bottom: 0.6rem; font-size: 0.9rem; }
   .barre .nom { overflow-wrap: anywhere; }
   .barre .n { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
-  .barre .piste { grid-column: 1 / -1; height: 6px; background: var(--accent-soft); border-radius: 3px; }
-  .barre .piste span { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+  .barre .piste { grid-column: 1 / -1; height: 7px; background: var(--oat); border-radius: 4px; }
+  .barre .piste span { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
   table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-  th, td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--line); }
+  th, td { text-align: left; padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--line); }
   th { color: var(--muted); font-weight: 500; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   #limites ul { margin: 0; padding-left: 1.2rem; color: var(--muted); font-size: 0.9rem; }
@@ -72,38 +122,36 @@
   .note { color: var(--muted); font-size: 0.85rem; margin: 0.75rem 0 0; }
 
   /* parties repliables : méthode, limites, détails */
-  details.depliant { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 0.9rem 1.25rem; margin-bottom: 1.5rem; }
-  details.depliant > summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 0.6rem; }
+  details.depliant { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 0.95rem 1.4rem; margin-bottom: 1.25rem; }
+  details.depliant > summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 0.7rem; }
   details.depliant > summary::-webkit-details-marker { display: none; }
-  details.depliant > summary::before { content: "+"; display: inline-flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem;
-                                       border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-weight: 700; flex: none; }
+  details.depliant > summary::before { content: "+"; display: inline-flex; align-items: center; justify-content: center; width: 1.6rem; height: 1.6rem;
+                                       border-radius: 50%; background: var(--navy); color: var(--paper); font-weight: 700; flex: none; }
   details.depliant[open] > summary::before { content: "–"; }
   details.depliant > summary + * { margin-top: 1rem; }
   details.depliant h2 { margin: 0; font-size: 1.05rem; }
 
   /* parcours en étapes (accueil) */
-  .etapes { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 1rem; counter-reset: etape; }
-  .etape { display: block; text-decoration: none; color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1.25rem; position: relative; }
-  .etape:hover { border-color: var(--accent); }
-  .etape .num-etape { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-weight: 700; margin-bottom: 0.6rem; }
-  .etape h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+  .etapes { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 1rem; }
+  .etape { display: block; text-decoration: none; color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 1.25rem; position: relative; }
+  a.etape:hover { background: var(--oat); }
+  .etape .num-etape { display: inline-flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--mulberry); color: var(--paper);
+                      font-family: var(--serif); font-weight: 700; margin-bottom: 0.7rem; }
+  .etape:nth-child(2n) .num-etape { background: var(--blue); } .etape:nth-child(3n) .num-etape { background: var(--navy); }
+  .etape h3 { margin: 0 0 0.3rem; font-size: 1.1rem; }
   .etape p { margin: 0; color: var(--muted); font-size: 0.9rem; }
-  .etape .va { display: inline-block; margin-top: 0.7rem; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
-  .decouverte { border-left: 4px solid var(--accent2); }
-  .decouverte .gros { font-size: 2.2rem; }
-  .decouverte p { margin: 0.3rem 0 0.6rem; }
-  .decouverte a { font-weight: 600; font-size: 0.9rem; }
+  .etape .va { display: inline-block; margin-top: 0.7rem; color: var(--mulberry); font-weight: 600; font-size: 0.9rem; }
 
   .onglets { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
   .onglets button, .pagination button {
-    font: inherit; font-size: 0.9rem; padding: 0.45rem 0.9rem; border-radius: 999px; cursor: pointer;
+    font: inherit; font-size: 0.9rem; padding: 0.45rem 0.95rem; border-radius: 999px; cursor: pointer;
     border: 1px solid var(--line); background: var(--card); color: var(--text);
   }
-  .onglets button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .onglets button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--paper); }
   .filtres { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; }
   .filtres label { display: grid; gap: 2px; font-size: 0.8rem; color: var(--muted); }
   .filtres select, .filtres input {
-    font: inherit; font-size: 0.9rem; padding: 0.4rem 0.5rem; border-radius: 8px;
+    font: inherit; font-size: 0.9rem; padding: 0.45rem 0.6rem; border-radius: 12px;
     border: 1px solid var(--line); background: var(--card); color: var(--text); min-width: 160px;
   }
   .pagination { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
@@ -114,8 +162,8 @@
   ol.questions { padding-left: 1.25rem; margin: 0; }
   ol.questions li { margin-bottom: 1rem; }
   ol.questions .reponse { color: var(--muted); font-size: 0.92rem; margin: 0.25rem 0 0; }
-  .source { border-left: 3px solid var(--accent2); padding: 0.1rem 0 0.1rem 1rem; margin: 1rem 0; }
-  .source .valeur { font-size: 1.6rem; font-weight: 700; color: var(--accent); margin: 0; line-height: 1.2; }
+  .source { border-left: 3px solid var(--blue); padding: 0.1rem 0 0.1rem 1rem; margin: 1rem 0; }
+  .source .valeur { font-family: var(--serif); font-size: 1.8rem; color: var(--accent); margin: 0; line-height: 1.2; }
   .source p { margin: 0.25rem 0; }
   .legende-graphique { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
   .legende-graphique i { display: inline-block; width: 18px; border-top: 2px solid var(--accent); vertical-align: middle; margin-right: 6px; }
@@ -123,21 +171,24 @@
 
   /* carte territoire × secteur */
   .carte-grille { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 1.25rem; align-items: start; }
-  @media (max-width: 720px) { .carte-grille { grid-template-columns: minmax(0, 1fr); } .hero { padding: 1.5rem 1.25rem; } h1 { font-size: 1.65rem; } }
+  @media (max-width: 720px) {
+    .carte-grille { grid-template-columns: minmax(0, 1fr); }
+    nav { border-radius: 24px; } nav .marque { width: 100%; margin-bottom: 0.15rem; }
+    body { padding: 8px; } main { border-radius: 24px; padding: 1rem 1rem 2.5rem; }
+    .hero { padding: 1.6rem 1.25rem; } h1 { font-size: 2rem; } .st { font-size: 1.6rem; } .defile { margin: 1.5rem -1rem; } .defile .piste-defile { font-size: 1.8rem; }
+  }
   #carte-svg { width: 100%; height: auto; display: block; }
   #carte-svg .dep { cursor: pointer; }
   #carte-svg .dep:hover, #carte-svg .dep:focus { stroke: var(--text); stroke-width: 1.4; outline: none; }
   #carte-svg .dep.choisi { stroke: var(--text); stroke-width: 2; }
-  .rond-offres { fill: var(--accent2); fill-opacity: 0.92; stroke: var(--card); stroke-width: 1.4; }
-  .rond-nb { font-size: 11px; font-weight: 700; fill: #2a1626; }
+  .rond-offres { fill: var(--blue); fill-opacity: 0.95; stroke: var(--paper); stroke-width: 1.6; }
+  .rond-nb { font-size: 11px; font-weight: 700; fill: #fff; }
   .carte-legende { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; }
   .leg-ligne { display: flex; flex-wrap: wrap; gap: 0.25rem 0.9rem; align-items: center; margin-bottom: 0.3rem; }
   .leg-item { display: inline-flex; align-items: center; gap: 0.3rem; }
   .leg-sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
-  .leg-rond { width: 14px; height: 14px; border-radius: 50%; background: var(--accent2); display: inline-block; }
-  .carte-detail { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 1rem; }
-  .carte-detail h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
-  .carte-detail .gros-offres { color: var(--accent2-text); }
+  .leg-rond { width: 14px; height: 14px; border-radius: 50%; background: var(--blue); display: inline-block; }
+  .carte-detail { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 1rem; }
+  .carte-detail h3 { margin: 0 0 0.25rem; font-size: 1.15rem; }
   tr.ligne-choisie { background: var(--accent-soft); }
-
   #date.gros { font-size: 1.7rem; line-height: 1.3; }

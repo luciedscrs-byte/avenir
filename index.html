@@ -10,18 +10,30 @@
 <main>
   <nav id="nav"></nav>
 
-  <header class="hero">
-    <p class="etiquette" id="suivi">Séminaires métiers · M2 MOD</p>
-    <h1>Que ferai-je une fois diplômée ?</h1>
-    <p class="sub">Pour le savoir, j'observe le marché : quels postes, combien d'offres, quels salaires, où en France. Les chiffres se mettent à jour tout seuls chaque jour, à partir des offres publiques de France Travail.</p>
-    <div class="actions">
-      <a class="btn" href="offres.html">Voir les offres</a>
-      <a class="btn sec" href="entreprises.html#carte-territoire">Explorer la carte</a>
+  <div class="bento">
+    <header class="hero">
+      <p class="etiquette" id="suivi">Séminaires métiers · M2 MOD</p>
+      <h1>Que ferai-je <em>une fois diplômée</em> ?</h1>
+      <p class="sub">Pour le savoir, j'observe le marché : quels postes, combien d'offres, quels salaires, où en France. Les chiffres se mettent à jour tout seuls chaque jour, à partir des offres publiques de France Travail.</p>
+      <div class="actions">
+        <a class="btn" href="offres.html">Voir les offres</a>
+        <a class="btn sec" href="entreprises.html#carte-territoire">Explorer la carte</a>
+      </div>
+      <div class="chiffres-hero">
+        <div><b>3</b><span>postes comparés</span></div>
+        <div><b id="h-entreprises">–</b><span>entreprises recensées</span></div>
+        <div><b>100 %</b><span>données publiques</span></div>
+      </div>
+    </header>
+    <div class="colonne">
+      <div class="tuile navy"><p class="gros" id="t-jours">–</p><p class="legende" id="t-jours-leg">extractions quotidiennes</p></div>
+      <div class="tuile blue"><p class="gros" id="t-offres">–</p><p class="legende">offres actives en CDI ou CDD pour mes trois postes</p></div>
     </div>
-  </header>
+  </div>
+  <div class="defile" aria-hidden="true"><div class="piste-defile"><span>Assistant marketing ✦</span><span>Responsable marketing ✦</span><span>Responsable e-commerce ✦</span><span>Marché caché ✦</span><span>Carte de France ✦</span><span>Offres du jour ✦</span><span>Assistant marketing ✦</span><span>Responsable marketing ✦</span><span>Responsable e-commerce ✦</span><span>Marché caché ✦</span><span>Carte de France ✦</span><span>Offres du jour ✦</span></div></div>
   <p id="erreur"></p>
 
-  <h2 class="st">Ma démarche, en cinq étapes</h2>
+  <h2 class="st">Ma démarche, <em>en cinq étapes</em></h2>
   <p class="intro">Le cours demande de passer d'un objectif à une décision. Voici le chemin que suit ce site, et la page où chaque étape est détaillée.</p>
   <div class="etapes">
     <div class="etape">
@@ -55,15 +67,15 @@
     </a>
   </div>
 
-  <h2 class="st">Le marché aujourd'hui</h2>
+  <h2 class="st">Le marché <em>aujourd'hui</em></h2>
   <p class="intro" id="chiffres-intro">Offres actives en vrais CDI ou CDD, sans stage, alternance ni intérim.</p>
   <div class="chiffres" id="chiffres"></div>
 
-  <h2 class="st">Ce que j'ai trouvé</h2>
+  <h2 class="st">Ce que j'ai <em>trouvé</em></h2>
   <p class="intro">Quatre constats tirés des offres. Chacun repose sur peu d'offres : les pages détaillées donnent le nombre à côté de chaque chiffre.</p>
   <div class="grille" id="constats" style="grid-template-columns:repeat(auto-fit,minmax(215px,1fr))"></div>
 
-  <h2 class="st">Comment ce site est fabriqué</h2>
+  <h2 class="st">Comment ce site est <em>fabriqué</em></h2>
   <p class="intro">Rien n'est saisi à la main : un robot refait le travail tous les jours, sans mon ordinateur.</p>
   <div class="grille">
     <div class="carte"><h3 style="margin:0 0 0.3rem">1. Il interroge</h3><p class="legende" style="margin:0">Chaque jour, GitHub lance des scripts qui interrogent l'API officielle de France Travail et celle des entreprises (data.gouv.fr).</p></div>
@@ -101,7 +113,9 @@ Promise.all([
   fetch('data/questions.json').then(r => r.json()),
 ]).then(([emploi, postes, ent, q]) => {
   const jours = emploi.serie.length, depuis = emploi.serie[0].date;
-  document.getElementById('suivi').textContent = 'Suivi quotidien : ' + jours + ' extractions depuis le ' + dateFr(depuis);
+  document.getElementById('t-jours').textContent = String(jours);
+  document.getElementById('t-jours-leg').textContent = 'extractions quotidiennes depuis le ' + dateFr(depuis);
+  document.getElementById('h-entreprises').textContent = fr(ent.total);
   document.getElementById('genere').textContent = dateFr(emploi.genere_le.slice(0, 10));
 
   const zone = document.getElementById('chiffres');
@@ -109,6 +123,7 @@ Promise.all([
   zone.appendChild(carteChiffre(String(eco.derniere.total), 'offres de responsable e-commerce', 'metier.html'));
   zone.appendChild(carteChiffre(String(mkt.derniere.total), 'offres de responsable marketing', 'metier.html'));
   zone.appendChild(carteChiffre(String(emploi.derniere.variantes.assistant_marketing), 'offres d\'assistant marketing', 'offres.html'));
+  document.getElementById('t-offres').textContent = String(eco.derniere.total + mkt.derniere.total + emploi.derniere.variantes.assistant_marketing);
   zone.appendChild(carteChiffre(fr(ent.total), 'entreprises recensées dans le marché caché', 'entreprises.html'));
 
   const c = document.getElementById('constats');
