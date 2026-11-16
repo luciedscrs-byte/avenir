@@ -184,3 +184,16 @@ python3 -m http.server             # pour voir le site en local
 - Ce dépôt est public : `data/entreprises.csv` ne contient **que des données d'entreprises, aucun nom de personne**.
 - Si un contact est cherché plus tard, ce sera pour une entreprise précise, en lien avec la **fonction** de la personne (responsable marketing, RH…), pour une **finalité claire** : une candidature. La personne garde un droit d'opposition (la CNIL admet la prospection B2B à ces conditions).
 - Jamais de fichier constitué pour être revendu ; jamais de contact hors de sa fonction ; aucune donnée de ce type n'est versionnée dans ce dépôt.
+
+## 9. Ce que je ferai ensuite (actions à mener)
+
+Ces actions sont **prévues, pas encore réalisées** : le projet s'arrête au rendu du 19/11/2026. Les échéances sont indicatives et chaque action s'appuie sur un chiffre du site.
+
+| Action | Échéance indicative | Pourquoi (chiffre du site) |
+|---|---|---|
+| **Entretenir mon profil LinkedIn en continu** : le mettre à jour avec mes stages (Monbento, Mapache) et le vocabulaire récurrent des offres, publier régulièrement (résultats de ce projet, retours de stage, formations suivies) | dès décembre 2026, puis chaque mois | LinkedIn est cité dans 22 % des offres de responsable marketing contre 5 % pour l'assistant ; mon bilan d'outils dit « théorie seulement » |
+| **Trois formations au maximum**, parmi celles qui comblent un écart mesuré : emailing (gratuit : HubSpot Academy ou Brevo), Adobe (certification payante ou accès via mon établissement), CRM (HubSpot, gratuit) ou analyse web (Google Analytics, gratuit) | à choisir, d'ici fin janvier 2027 | l'emailing est l'outil le plus cité des offres d'assistant (44 %) ; Adobe l'est dans 21 % des offres d'assistant et 14 % de celles de responsable ; l'analyse et le reporting sont la mission la plus citée du responsable marketing (79 %) ; aucun CRM ne domine (HubSpot, Salesforce, Pipedrive cités une à quatre fois), donc apprendre la logique d'un CRM plutôt qu'un logiciel |
+| **Lettre de motivation adaptée à chaque offre**, en semi-automatique : un script repère les missions et outils d'une annonce (le dépôt garde déjà le texte de chaque annonce) et propose un brouillon à partir de mes expériences, que je relis et corrige toujours avant envoi ; mes expériences restent dans un fichier hors du dépôt public | à étudier début 2027 | adapter la candidature à l'annonce, sans envoi automatique |
+| **Candidatures spontanées ciblées** dans le marché caché, choisies avec la carte territoire × secteur, adressées à une fonction (responsable marketing, RH) et jamais à une personne hors de sa fonction | à partir de décembre 2026 | 28 des 87 offres localisées sont hors des départements couverts, et l'industrie est le premier employeur du responsable marketing dans les offres lues |
+| **Relire la veille une fois par mois** (page *Comment il bouge*) et mettre à jour mon bilan d'outils (`data/formation.json`) | chaque mois dès décembre 2026 | la série quotidienne ne vaut que si on la relit |
+
