@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-17T08:46:44+00:00",
+  "genere_le": "2026-11-17T15:10:34+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -23,48 +23,56 @@
         {
           "date": "2026-11-16",
           "total": 42
+        },
+        {
+          "date": "2026-11-17",
+          "total": 44
         }
       ],
       "derniere": {
-        "date": "2026-11-16",
-        "total": 42,
+        "date": "2026-11-17",
+        "total": 44,
         "contrats": {
-          "CDI": 36,
-          "CDD": 6
+          "CDI": 39,
+          "CDD": 5
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 16
+            "n": 15
           },
           {
             "nom": "Auvergne-Rhône-Alpes",
-            "n": 5
+            "n": 6
           },
           {
-            "nom": "Bretagne",
-            "n": 4
+            "nom": "Hauts-de-France",
+            "n": 5
           },
           {
             "nom": "Occitanie",
             "n": 3
           },
           {
-            "nom": "Provence-Alpes-Côte d'Azur",
+            "nom": "Non précisé",
             "n": 3
           }
         ],
-        "debutant_accepte": 36,
-        "cadre": 40,
+        "debutant_accepte": 27,
+        "cadre": 36,
         "salaire_affiche": {
           "offres": 18,
           "mediane_mensuelle": 3750
         },
-        "sans_nom_employeur": 15,
+        "sans_nom_employeur": 14,
         "entreprises": [
           {
             "nom": "Walter Learning",
             "n": 2
+          },
+          {
+            "nom": "LES FRUITS ROUGES DE L'AISNE",
+            "n": 1
           },
           {
             "nom": "MISTRAL CONSTRUCTEUR",
@@ -76,10 +84,6 @@
           },
           {
             "nom": "ADECCO",
-            "n": 1
-          },
-          {
-            "nom": "ALLIANCE OCEANE",
             "n": 1
           }
         ]
@@ -103,21 +107,25 @@
         {
           "date": "2026-11-16",
           "total": 12
+        },
+        {
+          "date": "2026-11-17",
+          "total": 12
         }
       ],
       "derniere": {
-        "date": "2026-11-16",
+        "date": "2026-11-17",
         "total": 12,
         "contrats": {
           "CDI": 12
         },
         "regions": [
           {
-            "nom": "Île-de-France",
+            "nom": "Auvergne-Rhône-Alpes",
             "n": 4
           },
           {
-            "nom": "Auvergne-Rhône-Alpes",
+            "nom": "Île-de-France",
             "n": 3
           },
           {
@@ -133,14 +141,18 @@
             "n": 1
           }
         ],
-        "debutant_accepte": 17,
-        "cadre": 17,
+        "debutant_accepte": 8,
+        "cadre": 25,
         "salaire_affiche": {
-          "offres": 4,
-          "mediane_mensuelle": 4479
+          "offres": 5,
+          "mediane_mensuelle": 4375
         },
-        "sans_nom_employeur": 3,
+        "sans_nom_employeur": 2,
         "entreprises": [
+          {
+            "nom": "ETS J ROSTAING",
+            "n": 1
+          },
           {
             "nom": "KQUEO",
             "n": 1
@@ -155,10 +167,6 @@
           },
           {
             "nom": "Michael Page",
-            "n": 1
-          },
-          {
-            "nom": "MAYOLY",
             "n": 1
           }
         ]

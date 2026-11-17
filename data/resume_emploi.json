@@ -1,6 +1,6 @@
 {
   "vue": "emploi",
-  "genere_le": "2026-11-17T08:46:44+00:00",
+  "genere_le": "2026-11-17T15:10:09+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026",
@@ -207,6 +207,11 @@
     },
     {
       "date": "2026-11-16",
+      "total": 41,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-17",
       "total": 41,
       "alternance": 0
     }
@@ -1493,12 +1498,43 @@
         "Automatisation / marketing automation": 1,
         "GEO (optimisation pour les moteurs d'IA)": 1
       }
+    },
+    {
+      "date": "2026-11-17",
+      "avec_texte": 41,
+      "outils": {
+        "Anglais": 9,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 7,
+        "Emailing / newsletter": 6,
+        "IA (ChatGPT, IA générative…)": 5,
+        "Pack Office": 6,
+        "Canva": 4,
+        "Excel": 4,
+        "PowerPoint": 3,
+        "SEO": 3,
+        "CRM": 3,
+        "LinkedIn": 2,
+        "Google Ads": 2,
+        "Word": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "HubSpot": 1,
+        "WordPress": 1,
+        "Shopify": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 11,
+        "Analyse de données (data)": 2,
+        "Automatisation / marketing automation": 1,
+        "GEO (optimisation pour les moteurs d'IA)": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-16",
-    "extractions": 41,
+    "au": "2026-11-17",
+    "extractions": 42,
     "flux": [
       {
         "date": "2026-10-08",
@@ -1739,18 +1775,24 @@
         "total": 41,
         "nouvelles": 3,
         "disparues": 3
+      },
+      {
+        "date": "2026-11-17",
+        "total": 41,
+        "nouvelles": 2,
+        "disparues": 2
       }
     ],
-    "vues": 140,
+    "vues": 142,
     "toute_la_periode": 3,
     "duree_mediane_jours": 5,
-    "n_duree": 65
+    "n_duree": 67
   },
   "derniere": {
-    "date": "2026-11-16",
+    "date": "2026-11-17",
     "total": 41,
     "alternance": 0,
-    "part_salaire_affiche": 32,
+    "part_salaire_affiche": 37,
     "contrats": [
       {
         "nom": "CDI",
@@ -1774,7 +1816,11 @@
       },
       {
         "nom": "13",
-        "n": 4
+        "n": 3
+      },
+      {
+        "nom": "05",
+        "n": 2
       },
       {
         "nom": "94",
@@ -1803,16 +1849,12 @@
       {
         "nom": "77",
         "n": 1
-      },
-      {
-        "nom": "93",
-        "n": 1
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 11
+        "n": 12
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
@@ -1820,7 +1862,7 @@
       },
       {
         "nom": "Nouvelle-Aquitaine",
-        "n": 5
+        "n": 4
       },
       {
         "nom": "Hauts-de-France",
@@ -1867,6 +1909,10 @@
         "n": 3
       },
       {
+        "nom": "FEDE DEPART ASS LOC ADMR",
+        "n": 1
+      },
+      {
         "nom": "TOURIST DEVELOPMENT CORPORATION",
         "n": 1
       },
@@ -1897,23 +1943,19 @@
       {
         "nom": "YORK",
         "n": 1
-      },
-      {
-        "nom": "O'MY EMPLOI",
-        "n": 1
       }
     ],
     "concentration_top2": {
       "noms": [
         "TalenX",
-        "TOURIST DEVELOPMENT CORPORATION"
+        "FEDE DEPART ASS LOC ADMR"
       ],
       "part": 10
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 13
+        "n": 14
       },
       {
         "nom": "Concevoir des supports de communication et d'image",
@@ -1936,6 +1978,10 @@
         "n": 2
       },
       {
+        "nom": "PERMIS + VEHICULE OBLIGATOIRE",
+        "n": 1
+      },
+      {
         "nom": "Analyse concurrentielle",
         "n": 1
       },
@@ -1946,10 +1992,6 @@
       {
         "nom": "Gestion de campagnes publicitaires",
         "n": 1
-      },
-      {
-        "nom": "Utiliser les outils numériques",
-        "n": 1
       }
     ],
     "salaires": {
@@ -1958,22 +2000,22 @@
         {
           "nom": "CDI",
           "total": 31,
-          "affichent": 9,
-          "mediane": 2350,
+          "affichent": 10,
+          "mediane": 2270,
           "min": 2000,
           "max": 3542,
-          "mediane_annuelle": 28200,
+          "mediane_annuelle": 27240,
           "min_annuel": 24000,
           "max_annuel": 42504
         },
         {
           "nom": "CDD",
           "total": 10,
-          "affichent": 4,
-          "mediane": 2792,
+          "affichent": 5,
+          "mediane": 2500,
           "min": 2292,
           "max": 3500,
-          "mediane_annuelle": 33504,
+          "mediane_annuelle": 30000,
           "min_annuel": 27504,
           "max_annuel": 42000
         }
@@ -2014,7 +2056,7 @@
         },
         {
           "nom": "Excel",
-          "offres": 5,
+          "offres": 4,
           "entreprises": 3
         },
         {
@@ -2096,8 +2138,8 @@
         "Zapier"
       ]
     },
-    "sans_nom_employeur": 13,
-    "part_competences": 34,
+    "sans_nom_employeur": 12,
+    "part_competences": 37,
     "debutant_accepte": 32,
     "mots": [
       {
@@ -2143,10 +2185,10 @@
       "avec_alternance": 0,
       "sans_marketing": 19,
       "exemples_sans_marketing": [
-        "Assistant ADV H/F",
         "Directeur adjoint H/F",
         "Assistant(e) ADV (H/F)",
-        "agent de planning (H/F)"
+        "agent de planning (H/F)",
+        "Campaign Manager confirmé H/F"
       ]
     }
   }
