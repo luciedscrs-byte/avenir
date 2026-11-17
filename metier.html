@@ -9,74 +9,101 @@
 <body>
 <main>
   <nav id="nav"></nav>
+
   <header class="hero">
     <p class="etiquette">Étape 2 · Le métier souhaité</p>
-    <h1>Le métier tel que le marché le <em>nomme</em></h1>
+    <h1>Le métier tel que le marché le nomme</h1>
     <p class="sub" id="sous-titre">Le diplôme dit « marketing opérationnel et digital » ; les annonces disent autre chose.</p>
   </header>
   <p id="erreur"></p>
 
-  <h2 class="st">Les postes que je <em>vise</em></h2>
-  <p class="intro">Classés du plus au moins intéressant pour moi. Après mon stage, j'ai ajouté des intitulés : d'où un suivi plus récent pour les deux postes de responsable.</p>
-  <div class="carte" style="margin-bottom:1.5rem">
-    <div id="postes"></div>
-    <p class="note" id="postes-note"></p>
+  <h2 class="st">Du poste d'assistant à celui de responsable</h2>
+  <p class="intro" id="echelle-intro"></p>
+  <div class="marches" id="marches"></div>
+  <div class="carte" style="margin-bottom:1.25rem">
+    <h2>Ce qui change d'un échelon à l'autre</h2>
+    <div class="tableau"><table id="t-echelle"></table></div>
+    <p class="note" id="echelle-note"></p>
   </div>
+  <details class="depliant">
+    <summary>Comment ces postes sont comptés</summary>
+    <p class="note" id="postes-note" style="margin-top:0"></p>
+  </details>
 
-  <h2 class="st">Comment le marché nomme le <em>métier</em></h2>
+  <h2 class="st">Un même poste sous plusieurs intitulés</h2>
+  <p class="intro" id="intitules-intro"></p>
+  <div class="chips" id="intitules"></div>
   <div class="grille">
-    <div class="carte"><h2>Comment les annonces nomment l'assistant marketing</h2><div id="variantes"></div><p class="note" id="variantes-note"></p></div>
-    <div class="carte"><h2>Ce que le code M1620 regroupe vraiment</h2><p id="regroupe"></p></div>
+    <div class="carte"><h2>Ce que le code M1620 regroupe vraiment</h2><p id="regroupe" style="margin:0"></p></div>
+    <div class="carte"><h2>Comment les annonces nomment l'assistant marketing (toutes les offres)</h2><div id="variantes"></div><p class="note" id="variantes-note"></p></div>
   </div>
 
-  <h2 class="st">Ce que ma formation <em>vise</em></h2>
-  <div class="carte" style="margin-bottom:1.5rem">
-    <p id="formation-vise"></p>
-    <p class="note" id="formation-source"></p>
-  </div>
+  <h2 class="st">Ce que ma formation vise</h2>
+  <div class="chips" id="formation-chips"></div>
+  <p class="intro" id="formation-vise"></p>
+  <p class="note" id="formation-source" style="margin-top:-0.75rem"></p>
 
-  <h2 class="st">Les questions que je pose à ce <em>marché</em></h2>
-  <p class="intro">Les quatre questions de départ, avec leur réponse chiffrée.</p>
-  <div class="carte" style="margin-bottom:1.5rem">
-    <ol class="questions" id="questions"></ol>
-    <p class="note" id="chiffres-note"></p>
-  </div>
+  <h2 class="st">Les quatre questions du cours</h2>
+  <p class="intro">Chaque carte donne le chiffre à retenir ; le détail se déplie.</p>
+  <div class="grille" id="questions"></div>
+  <p class="note" id="chiffres-note"></p>
 
-  <h2 class="st">Ce que m'apprennent d'autres <em>questions</em></h2>
+  <h2 class="st">Ce que m'apprennent d'autres questions</h2>
   <p class="intro" id="autres-intro"></p>
   <div id="autres"></div>
 
-  <footer>Chiffres recalculés à chaque extraction quotidienne : voir les pages <a href="offres.html">Les offres</a> et <a href="mouvement.html">Comment il bouge</a> pour la requête, la date, le canal et les limites de chacun.</footer>
+  <footer>Chiffres recalculés à chaque extraction quotidienne : voir les pages <a href="offres.html">Les offres</a> et <a href="mouvement.html">Comment ça bouge</a> pour la requête, la date, le canal et les limites de chacun.</footer>
 </main>
 
 <script src="assets/commun.js"></script>
 <script>
 navigation('metier.html');
 
-function question(titre, reponse, lien, texteLien) {
-  document.getElementById('questions').appendChild(el('li', {}, [
-    el('strong', { textContent: titre }),
-    el('p', { className: 'reponse' }, [
-      document.createTextNode(reponse + ' '),
-      el('a', { href: lien, textContent: texteLien }),
-    ]),
+const ORDRE = ['assistant-marketing', 'charge-marketing', 'responsable-marketing', 'responsable-ecommerce'];
+const COURT = { 'assistant-marketing': 'Assistant', 'charge-marketing': 'Chargé(e)', 'responsable-marketing': 'Resp. marketing', 'responsable-ecommerce': 'Resp. e-commerce' };
+
+const regionsTexte = regions => regions.slice(0, 3).map(r => r.nom + ' (' + r.n + ')').join(', ');
+
+// ----- outils d'affichage
+function chaleur(p) {
+  const a = 0.07 + 0.83 * Math.min(Math.max(p, 0), 100) / 100;
+  return 'background:rgba(86,6,29,' + a.toFixed(2) + ');color:' + (a > 0.5 ? '#f5f0e9' : 'inherit') + ';';
+}
+function tableauChaleur(t, entetes, lignes) {
+  if (typeof t === 'string') t = document.getElementById(t);
+  t.replaceChildren();
+  t.appendChild(el('thead', {}, [el('tr', {}, entetes.map((h, i) => el('th', { className: i >= 1 && i <= ORDRE.length ? 'court' : '', textContent: h })))]));
+  t.appendChild(el('tbody', {}, lignes.map(l => el('tr', {}, [el('td', { textContent: l.nom })]
+    .concat(l.valeurs.map(v => v == null ? el('td', { className: 'chaud', textContent: '–' })
+      : el('td', { className: 'chaud', style: chaleur(l.echelle ? 100 * v / l.echelle : v), textContent: l.format ? l.format(v) : v + ' %' })))
+    .concat(l.extra != null ? [el('td', { textContent: l.extra })] : [])))));
+}
+function pile(segments, total) {
+  return el('div', { className: 'pile' }, segments.filter(s => s.n > 0).map(s => {
+    const part = 100 * s.n / total;
+    return el('span', { style: 'width:' + part.toFixed(1) + '%;background:' + s.couleur + ';' + (s.texte ? 'color:' + s.texte + ';' : ''), title: s.nom + ' : ' + s.n, textContent: part >= 12 ? Math.round(part) + ' %' : '' });
+  }));
+}
+function legendePile(segments) {
+  return el('div', { className: 'legende-pile' }, segments.map(s => el('span', {}, [el('i', { style: 'background:' + s.couleur }), document.createTextNode(s.nom)])));
+}
+function bloc(titre, retenir, visuels, detail) {
+  return el('div', { className: 'carte-bloc' }, [
+    el('h3', { textContent: titre }),
+    el('p', { className: 'repere', textContent: retenir }),
+    ...visuels,
+    detail ? el('details', { className: 'mini' }, [el('summary', { textContent: 'Le détail et les limites' }), el('p', { textContent: detail })]) : null,
+  ].filter(Boolean));
+}
+function carteQuestion(numero, titre, gros, legende, detail, lien, texteLien) {
+  document.getElementById('questions').appendChild(el('div', { className: 'carte bloc-question' }, [
+    el('p', { className: 'etiquette', textContent: 'Question ' + numero }),
+    el('h3', { textContent: titre }),
+    el('p', { className: 'gros', textContent: gros }),
+    el('p', { className: 'legende', textContent: legende }),
+    el('details', { className: 'mini' }, [el('summary', { textContent: 'Voir le détail' }), el('p', { textContent: detail }), el('p', {}, [el('a', { href: lien, textContent: texteLien })])]),
   ]));
 }
-
-function fiche(rang, titre, lignes) {
-  return el('div', { className: 'source' }, [
-    el('p', {}, [el('strong', { textContent: rang + '. ' + titre })]),
-    ...lignes.filter(Boolean).map(t => el('p', { className: 'note', style: 'margin:0.15rem 0', textContent: t })),
-  ]);
-}
-
-const contratsTexte = contrats => contrats.map(c => c.nom + ' ' + c.n).join(', ');
-const regionsTexte = regions => regions.slice(0, 3).map(r => r.nom + ' (' + r.n + ')').join(', ');
-const employeursTexte = (liste, seuil) => {
-  const nom = liste.filter(e => e.n >= seuil);
-  return nom.length ? 'Employeurs les plus présents : ' + nom.slice(0, 3).map(e => e.nom + ' (' + e.n + ')').join(', ') + '.'
-                    : 'Aucun employeur ne publie plus d\'une offre.';
-};
 
 Promise.all([
   fetch('data/resume.json').then(r => r.json()),
@@ -88,82 +115,115 @@ Promise.all([
 ]).then(([tout, emploi, postes, ent, f, Q]) => {
   const t = tout.derniere, e = emploi.derniere, jour = dateFr(t.date);
   const ecom = postes.postes['responsable-ecommerce'], mkt = postes.postes['responsable-marketing'];
+  const E = Q.echelle;
+  const fa = Q.intitules_assistant;
 
-  const posteResponsable = (p) => p ? [
-    'Code(s) ROME : ' + p.codes.join(', ') + ' · suivi depuis le ' + dateFr(p.depuis) + ' (' + p.serie.length + ' extraction' + (p.serie.length > 1 ? 's' : '') + ').',
-    p.derniere.total + ' offres en CDI / CDD au ' + dateFr(p.derniere.date) + ' (' + Object.entries(p.derniere.contrats).map(([k, v]) => k + ' ' + v).join(', ') + ').',
-    p.derniere.debutant_accepte + ' % acceptent un débutant · ' + p.derniere.cadre + ' % sont des postes cadres.',
-    'Salaire affiché dans ' + p.derniere.salaire_affiche.offres + ' offres sur ' + p.derniere.total +
-      (p.derniere.salaire_affiche.mediane_mensuelle ? ' · médiane brute ' + fr(p.derniere.salaire_affiche.mediane_mensuelle) + ' € par mois, soit ' + fr(p.derniere.salaire_affiche.mediane_mensuelle * 12) + ' € par an.' : '.'),
-    'Régions en tête : ' + regionsTexte(p.derniere.regions) + '.',
-    employeursTexte(p.derniere.entreprises, 2),
-  ] : ['Pas encore de données.'];
+  // ---------- 1. Les marches
+  document.getElementById('echelle-intro').textContent =
+    'Je vise d\'abord l\'assistant marketing, qui correspond à mon stage chez Mapache. Chargé(e) de marketing est l\'échelon intermédiaire. ' +
+    'Responsable marketing et responsable e-commerce (ajouté après mon stage, qui m\'a donné de nouvelles idées d\'intitulés) sont les postes que je vise à terme.';
+  const etapes = {
+    'assistant-marketing': ['Étape 1', 'mon premier poste'],
+    'charge-marketing': ['Étape 2', 'l\'échelon intermédiaire'],
+    'responsable-marketing': ['Étape 3', 'objectif à terme'],
+    'responsable-ecommerce': ['Étape 3', 'objectif à terme, ajouté après mon stage'],
+  };
+  const marches = document.getElementById('marches');
+  ORDRE.forEach(k => {
+    const x = E[k];
+    const sal = x.salaire.mediane ? fr(x.salaire.mediane) + ' € (' + x.salaire.n + ' offres)' : 'peu d\'offres avec salaire';
+    marches.appendChild(el('div', { className: 'marche' }, [
+      el('p', { className: 'etiquette', textContent: etapes[k][0] + ' · ' + etapes[k][1] }),
+      el('h3', { textContent: x.libelle }),
+      el('p', { className: 'gros', textContent: String(x.actives) }),
+      el('p', { className: 'legende', textContent: 'offres actives en CDI / CDD' }),
+      el('ul', {}, [
+        el('li', {}, [el('b', { textContent: x.n + ' offres' }), document.createTextNode(' vues depuis le ' + dateCourte(x.depuis))]),
+        el('li', {}, [el('b', { textContent: 'Salaire médian : ' }), document.createTextNode(sal)]),
+        el('li', {}, [el('b', { textContent: 'Débutant accepté : ' }), document.createTextNode(x.debutant + ' %' + (x.n_experience < 20 ? ' (sur ' + x.n_experience + ' annonces)' : ''))]),
+        el('li', {}, [el('b', { textContent: 'Postes cadres : ' }), document.createTextNode(x.cadre + ' %')]),
+      ]),
+    ]));
+  });
 
-  const sal = e.salaires.groupes, cdi = sal.find(g => g.nom === 'CDI');
-  const affichent = sal.reduce((n, g) => n + g.affichent, 0);
-  const posteAssistant = [
-    'Code ROME : ' + tout.code_rome + ' · suivi depuis le ' + dateFr(tout.serie[0].date) + ' (' + tout.serie.length + ' extractions ; la vue CDI / CDD, depuis le ' + dateFr(emploi.serie[0].date) + ').',
-    e.total + ' offres du code M1620 en CDI / CDD au ' + jour + ' (' + contratsTexte(e.contrats) + '), dont seulement ' + e.variantes.assistant_marketing + ' avec « assistant marketing » dans le titre : ' + e.variantes.sans_marketing + ' n\'ont même pas le mot « marketing » (par exemple ' + e.variantes.exemples_sans_marketing.slice(0, 3).join(', ') + '). Sur ' + t.total + ' offres au total, le reste est de l\'intérim, de l\'alternance, des stages et des annonces de formation.',
-    e.debutant_accepte != null ? e.debutant_accepte + ' % acceptent un débutant.' : null,
-    'Salaire affiché dans ' + affichent + ' offres sur ' + e.total + (cdi && cdi.affichent ? ' · médiane brute en CDI ' + fr(cdi.mediane) + ' € par mois, soit ' + fr(cdi.mediane_annuelle) + ' € par an.' : '.'),
-    'Régions en tête : ' + regionsTexte(e.regions) + '.',
-    employeursTexte(e.entreprises, 2),
-  ];
-
-  const conteneur = document.getElementById('postes');
-  conteneur.appendChild(fiche(1, 'Responsable e-commerce', posteResponsable(ecom)));
-  conteneur.appendChild(fiche(2, 'Responsable marketing', posteResponsable(mkt)));
-  conteneur.appendChild(fiche(3, 'Assistant / Assistante marketing', posteAssistant));
+  tableauChaleur('t-echelle', [''].concat(ORDRE.map(k => COURT[k])), [
+    { nom: 'Salaire médian affiché (€ bruts par mois)', valeurs: ORDRE.map(k => E[k].salaire.mediane), echelle: 5000, format: v => fr(v) + ' €' },
+    { nom: 'Postes cadres', valeurs: ORDRE.map(k => E[k].cadre) },
+    { nom: 'Annonces qui citent le management', valeurs: ORDRE.map(k => E[k].management) },
+    { nom: 'Annonces qui citent la stratégie', valeurs: ORDRE.map(k => E[k].strategie) },
+    { nom: 'Débutant accepté', valeurs: ORDRE.map(k => E[k].debutant) },
+  ]);
+  document.getElementById('echelle-note').textContent =
+    'Chargé(e) de marketing se situe entre les deux : aucun poste cadre, un salaire proche de celui de l\'assistant, mais déjà plus de management et de stratégie cités. ' +
+    'Peu d\'offres par colonne, surtout pour le chargé(e) (' + E['charge-marketing'].n + ' offres) : lis ces chiffres comme des tendances.';
   document.getElementById('postes-note').textContent =
-    'Je les classe du plus au moins intéressant pour moi. L\'assistant marketing est le poste de mon stage chez Mapache (SEO sur Shopify, segmentation de clients pour les newsletters, campagnes, fiches produit). ' +
-    'Les deux postes de responsable sont suivis depuis le ' + dateFr(ecom.depuis) + ', l\'assistant marketing depuis le ' + dateFr(tout.serie[0].date) + ' : peu de recul pour les premiers, donc aucune tendance à en tirer. ' +
-    'En vrais CDI et CDD, c\'est le responsable marketing qui a le plus d\'offres (' + mkt.derniere.total + ', contre ' + e.variantes.assistant_marketing + ' pour l\'assistant marketing et ' + ecom.derniere.total + ' pour le responsable e-commerce). ' +
-    'Pour les trois, seuls les vrais CDI et CDD sont comptés (sans alternance, stage, intérim ni annonce de formation) ; les chiffres « toutes les offres » de l\'assistant marketing sont sur la page Les offres. ' +
-    'Un intitulé qui contient « responsable » et « e-commerce » peut être un poste technique ou de gestion (par exemple « Responsable Technique E-commerce »).';
+    'Les quatre postes ne sont comptés qu\'en vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation). L\'assistant et le chargé(e) viennent du code ROME M1620 : ils sont suivis depuis le ' +
+    dateFr(E['assistant-marketing'].depuis) + ' (' + E['assistant-marketing'].jours + ' extractions). Les deux responsables sont suivis depuis le ' + dateFr(ecom.depuis) +
+    ' (' + ecom.serie.length + ' extractions à ce jour) : peu de recul, donc aucune tendance à en tirer, seulement une photographie. Chaque offre n\'est comptée qu\'une fois, même si elle reste en ligne plusieurs jours. ' +
+    'Un intitulé qui contient « responsable » et « e-commerce » peut être un poste technique ou de gestion (par exemple « Responsable Technique E-commerce »). ' +
+    'Les chiffres de l\'assistant incluent ses variantes d\'intitulé (voir plus bas) ; les chiffres « toutes les offres » du code M1620 sont sur la page Les offres.';
+
+  // ---------- 2. Les intitulés
+  document.getElementById('intitules-intro').textContent =
+    'Le poste visé d\'abord est celui de l\'assistant marketing, mais le marché lui donne plusieurs noms. Ces intitulés ont des missions proches, le même niveau (aucun poste cadre) et des salaires voisins : ' +
+    'je les regroupe en un seul poste (' + E['assistant-marketing'].n + ' annonces distinctes en CDI / CDD depuis le ' + dateCourte(E['assistant-marketing'].depuis) + '). Un titre peut compter dans plusieurs lignes.';
+  const chips = document.getElementById('intitules');
+  fa.forEach(i => chips.appendChild(el('span', { className: 'chip' }, [el('b', { textContent: String(i.n) }), document.createTextNode(i.nom)])));
+  chips.appendChild(el('span', { className: 'chip bleu', title: 'Échelon au-dessus, compté à part' }, [el('b', { textContent: String(E['charge-marketing'].n) }), document.createTextNode('Chargé(e) de marketing, compté à part')]));
 
   const v = t.variantes;
   barres('variantes', v.liste.map(l => ({ nom: l.nom, n: l.n })));
   document.getElementById('variantes-note').textContent =
-    'Sur ' + v.titres + ' intitulés au ' + jour + ' (toutes les offres M1620). Un titre peut relever de plusieurs variantes. « Digital » n\'apparaît que dans ' +
+    'Sur ' + v.titres + ' intitulés au ' + jour + ' (toutes les offres du code M1620). Un titre peut relever de plusieurs variantes. « Digital » n\'apparaît que dans ' +
     v.avec_digital + ' intitulés : le marché dit « assistant marketing », pas « assistant marketing digital ».';
   document.getElementById('regroupe').textContent =
     v.sans_marketing + ' intitulés sur ' + v.titres + ' ne contiennent pas le mot « marketing » (par exemple : ' +
-    v.exemples_sans_marketing.join(' ; ') + '). Le code M1620 est plus large que l\'intitulé : les chiffres de l\'assistant marketing comptent aussi ces postes proches.';
+    v.exemples_sans_marketing.join(' ; ') + '). Le code M1620 est plus large que l\'intitulé : on y trouve de l\'intérim, de l\'alternance, des stages et des annonces de formation, qui ne sont pas comptés dans le poste.';
 
+  // ---------- 3. La formation
+  const zoneChips = document.getElementById('formation-chips');
+  f.metiers_vises_descriptif.forEach(m => zoneChips.appendChild(el('span', { className: 'chip marine' }, [document.createTextNode(m)])));
+  f.codes_rome_vises_descriptif.forEach(c => zoneChips.appendChild(el('span', { className: 'chip code', textContent: c })));
   document.getElementById('formation-vise').textContent =
-    'Le M2 Marketing opérationnel et digital de l\'IAE Clermont Auvergne vise surtout des postes de responsable : ' +
-    f.metiers_vises_descriptif.slice(0, 6).join(', ') + '… Les codes ROME cités dans son descriptif sont ' + f.codes_rome_vises_descriptif.join(', ') +
-    ' ; M1620 n\'en fait pas partie. La page de la formation cite en revanche « Assistant-e marketing » parmi les métiers visés. ' +
+    'Le M2 Marketing opérationnel et digital de l\'IAE Clermont Auvergne vise surtout des postes de responsable (en bleu, les métiers cités dans son descriptif ; en gris, ses codes ROME). ' +
+    'M1620 n\'en fait pas partie. La page de la formation cite en revanche « Assistant-e marketing » parmi les métiers visés. ' +
     'Selon sa fiche France Travail, M1620 est accessible dès Bac+2 / Bac+3, alors que le diplôme est de niveau Bac+5.';
   document.getElementById('formation-source').textContent =
-    'Sources : page de la formation et descriptif PDF 2026-2027, lus le ' + dateFr(f.lu_le) + '. Les unités du parcours : ' +
-    f.unites.map(u => u.nom).join(', ') + '.';
+    'Sources : page de la formation et descriptif PDF 2026-2027, lus le ' + dateFr(f.lu_le) + '. Les unités du parcours : ' + f.unites.map(u => u.nom).join(', ') + '.';
 
-  question('Combien d\'offres, où (régions, villes) et avec quels contrats ?',
-    'En CDI / CDD au ' + jour + ' : ' + e.variantes.assistant_marketing + ' offres avec « assistant marketing » dans le titre (' + e.total + ' pour le code M1620 entier), ' + mkt.derniere.total + ' de responsable marketing et ' + ecom.derniere.total +
-    ' de responsable e-commerce. Pour le code M1620, régions en tête : ' + regionsTexte(e.regions) + '. Toutes offres confondues (alternance, intérim, stages et annonces de formation comprises), il y en a ' +
-    t.total + ', dont ' + t.alternance + ' en alternance et ' + t.n_puy_de_dome + ' dans le Puy-de-Dôme.',
+  // ---------- 4. Les quatre questions
+  const actives = ORDRE.reduce((s, k) => s + E[k].actives, 0);
+  carteQuestion(1, 'Combien d\'offres, où (régions, villes) et avec quels contrats ?', String(actives),
+    'offres actives aujourd\'hui, en vrais CDI / CDD, pour les quatre postes',
+    'Au ' + jour + ' : ' + E['assistant-marketing'].actives + ' offres d\'assistant marketing (' + e.total + ' pour le code M1620 entier), ' + E['charge-marketing'].actives + ' de chargé(e) de marketing, ' + mkt.derniere.total +
+    ' de responsable marketing et ' + ecom.derniere.total + ' de responsable e-commerce. Pour le code M1620, régions en tête : ' + regionsTexte(e.regions) +
+    '. Toutes offres confondues (alternance, intérim, stages et annonces de formation comprises), il y en a ' + t.total + ', dont ' + t.alternance + ' en alternance et ' + t.n_puy_de_dome + ' dans le Puy-de-Dôme.',
     'offres.html', 'Voir les offres.');
 
-  const tops = e.outils.liste.slice(0, 3).map(o => o.nom + ' (' + o.entreprises + ' entreprises)').join(', ');
+  const topsListe = e.outils.liste.slice(0, 3);
   const shopify = e.outils.liste.find(o => o.nom === 'Shopify');
-  question('Quelles compétences et quels outils reviennent le plus souvent dans les offres (SEO, CRM, Shopify, emailing...) ?',
-    'Dans les annonces d\'assistant marketing en CDI / CDD, les plus cités par des entreprises différentes sont : ' + tops + '. ' +
+  carteQuestion(2, 'Quelles compétences et quels outils reviennent le plus souvent ?', topsListe[0].nom,
+    'l\'outil cité par le plus d\'entreprises dans les annonces d\'assistant (' + topsListe[0].entreprises + ' entreprises)',
+    'Dans les annonces du code M1620 en CDI / CDD, les plus cités par des entreprises différentes sont : ' + topsListe.map(o => o.nom + ' (' + o.entreprises + ' entreprises)').join(', ') + '. ' +
     (shopify ? 'Shopify apparaît dans ' + shopify.offres + ' annonce(s). ' : 'Shopify, que j\'ai utilisé en stage, n\'apparaît dans aucune des ' + e.outils.avec_texte + ' annonces lues. ') +
     (e.outils.absents.includes('SQL') && e.outils.absents.includes('Python') ? 'SQL et Python ne sont cités dans aucune annonce.' : ''),
     'offres.html', 'Voir les outils.');
 
+  const sal = e.salaires.groupes;
   const phrase = s => s && s.affichent ? s.nom + ' ' + fr(s.mediane) + ' € par mois, soit ' + fr(s.mediane_annuelle) + ' € par an (' + s.affichent + ' offres sur ' + s.total + ')' : null;
-  question('Quelle fourchette de salaire est proposée, et comment se compare-t-elle au salaire médian d\'insertion ?',
-    'Salaire affiché, médiane brute. Assistant marketing : ' + sal.map(phrase).filter(Boolean).join(' ; ') + '. Responsable marketing : ' + fr(mkt.derniere.salaire_affiche.mediane_mensuelle) +
-    ' € par mois (' + mkt.derniere.salaire_affiche.offres + ' offres sur ' + mkt.derniere.total + '). Responsable e-commerce : ' + fr(ecom.derniere.salaire_affiche.mediane_mensuelle) + ' € par mois (' +
-    ecom.derniere.salaire_affiche.offres + ' offres sur ' + ecom.derniere.total + '). À comparer aux ' + fr(t.salaires.mediane_insertion) + ' € bruts par mois d\'insertion (deck de rentrée de l\'IAE). ' +
-    'Seules ' + e.part_salaire_affiche + ' % des offres d\'assistant marketing en CDI / CDD affichent un salaire.',
+  const sa = E['assistant-marketing'].salaire.mediane, sr = E['responsable-marketing'].salaire.mediane;
+  carteQuestion(3, 'Quelle fourchette de salaire, comparée au salaire d\'insertion ?', (sa ? fr(sa) : '–') + ' € → ' + (sr ? fr(sr) : '–') + ' €',
+    'salaire médian brut affiché par mois, de l\'assistant au responsable marketing (insertion du M2 : ' + fr(t.salaires.mediane_insertion) + ' €)',
+    'Salaire affiché, médiane brute. Code M1620 : ' + sal.map(phrase).filter(Boolean).join(' ; ') + '. Assistant marketing (avec ses variantes) : ' + fr(sa) + ' € par mois (' + E['assistant-marketing'].salaire.n + ' offres). ' +
+    'Chargé(e) de marketing : ' + fr(E['charge-marketing'].salaire.mediane) + ' € (' + E['charge-marketing'].salaire.n + '). Responsable marketing : ' + fr(sr) + ' € (' + E['responsable-marketing'].salaire.n + '). Responsable e-commerce : ' +
+    fr(E['responsable-ecommerce'].salaire.mediane) + ' € (' + E['responsable-ecommerce'].salaire.n + '). À comparer aux ' + fr(t.salaires.mediane_insertion) + ' € bruts par mois d\'insertion (deck de rentrée de l\'IAE). ' +
+    'Seules ' + e.part_salaire_affiche + ' % des offres du code M1620 en CDI / CDD affichent un salaire.',
     'offres.html', 'Voir les salaires.');
 
   const me = emploi.mouvement, moy = c => (me.flux.reduce((s, x) => s + x[c], 0) / me.flux.length).toFixed(1).replace('.', ',');
-  question('Comment le marché bouge-t-il, et qui recrute, y compris sans annonce ?',
-    'Les offres d\'assistant marketing en CDI / CDD sont passées de ' + emploi.serie[0].total + ' le ' + dateFr(emploi.serie[0].date) + ' à ' + e.total + ' le ' + jour + ', avec en moyenne ' + moy('nouvelles') +
+  carteQuestion(4, 'Comment le marché bouge-t-il, et qui recrute, y compris sans annonce ?', moy('nouvelles') + ' / jour',
+    'nouvelles offres du code M1620 par jour en moyenne, contre ' + moy('disparues') + ' qui disparaissent',
+    'Les offres du code M1620 en CDI / CDD sont passées de ' + emploi.serie[0].total + ' le ' + dateFr(emploi.serie[0].date) + ' à ' + e.total + ' le ' + jour + ', avec en moyenne ' + moy('nouvelles') +
     ' nouvelles et ' + moy('disparues') + ' disparues par jour ; les deux postes de responsable ne sont suivis que depuis le ' + dateFr(ecom.depuis) + ', trop récemment pour parler de mouvement. ' +
     'Côté employeurs, aucun ne domine en CDI / CDD (le plus présent, ' + e.entreprises[0].nom + ', publie ' + e.entreprises[0].n + ' offres) ; toutes offres confondues, ' + t.concentration_top2.noms.join(' et ') +
     ' (une école et des annonces de formation) publient ' + t.concentration_top2.part + ' % des offres. Côté marché caché : ' + fr(ent.total) + ' entreprises d\'au moins ' + ent.taille_min +
@@ -171,108 +231,120 @@ Promise.all([
     'mouvement.html', 'Voir le mouvement.');
 
   document.getElementById('chiffres-note').textContent =
-    'Source des offres : API France Travail « Offres d\'emploi v2 », extraction du ' + jour + ' (assistant marketing : code M1620, France entière ; responsables : codes ' + [...ecom.codes, ...mkt.codes].join(', ') +
+    'Source des offres : API France Travail « Offres d\'emploi v2 », extraction du ' + jour + ' (assistant et chargé(e) : code M1620, France entière ; responsables : codes ' + [...ecom.codes, ...mkt.codes].join(', ') +
     ' et mots-clés, titre vérifié). Source des entreprises : API Recherche d\'entreprises, extraction du ' + dateFr(ent.genere_le) + '.';
 
-  // ---------- Ce que m'apprennent d'autres questions ----------
-  const ORDRE = ['responsable-ecommerce', 'responsable-marketing', 'assistant-marketing'];
-  const NOMS = { 'responsable-ecommerce': 'Responsable e-commerce', 'responsable-marketing': 'Responsable marketing', 'assistant-marketing': 'Assistant marketing' };
-  const court = nom => nom.replace(/ \(.*\)$/, '').replace(/ \/ .*/, '');
-  const tableau = (entetes, lignes) => el('div', { className: 'tableau' }, [el('table', {}, [
-    el('thead', {}, [el('tr', {}, entetes.map((t, i) => el('th', { className: i ? 'num' : '', textContent: t })))]),
-    el('tbody', {}, lignes.map(l => el('tr', {}, l.map((c, i) => el('td', { className: i ? 'num' : '', textContent: c }))))),
-  ])]);
-  const bloc = (titre, texte, extras, note) => el('div', { className: 'carte', style: 'margin-bottom:1rem' }, [
-    el('h3', { style: 'font-size:1rem;margin:0 0 0.4rem', textContent: titre }),
-    el('p', { style: 'margin:0 0 0.6rem', textContent: texte }),
-    ...extras,
-    note ? el('p', { className: 'note', textContent: note }) : null,
-  ].filter(Boolean));
-  const zone = (p, nom) => p.zones.find(z => z.zone === nom) || { n: 0, part: 0 };
-  const conteneurAutres = document.getElementById('autres');
-
-  const ref = Q.postes[Q.poste_de_reference];
+  // ---------- 5. D'autres questions
   document.getElementById('autres-intro').textContent =
-    'Le cours conseille de poser d\'autres questions au marché et de garder celles qui apprennent quelque chose. Voici celles que j\'ai gardées. Poste de référence : ' + ref.libelle +
-    ', parce que c\'est celui qui a le plus d\'offres en vrais CDI / CDD (' + ref.n + '), comparé aux deux autres. Les chiffres comptent chaque offre une fois depuis le début du suivi de son poste (' +
-    ORDRE.map(k => NOMS[k] + ' : depuis le ' + dateFr(Q.postes[k].depuis)).join(' ; ') + ') et se recalculent à chaque extraction.';
+    'Le cours conseille de poser d\'autres questions au marché et de garder celles qui apprennent quelque chose. Voici celles que j\'ai gardées, pour les quatre postes. Chaque offre est comptée une fois depuis le début du suivi de son poste (' +
+    ORDRE.map(k => COURT[k] + ' : depuis le ' + dateCourte(Q.postes[k].depuis)).join(' ; ') + '), et les chiffres se recalculent à chaque extraction. Plus une case est foncée, plus la part est élevée.';
+  const box = document.getElementById('autres');
+  const noms = k => Q.postes[k].libelle;
+  const entetes = [''].concat(ORDRE.map(k => COURT[k]));
 
-  // 1. Outils : d'assistant à responsable
+  // 1. outils
   {
     const o = Q.outils;
     const monte = o.outils.filter(x => x.ecart > 0).slice(0, 4);
     const baisse = o.outils.filter(x => x.ecart < 0).sort((a, b) => a.ecart - b.ecart).slice(0, 4);
-    const fl = x => court(x.nom) + ' ' + x.assistant + ' % → ' + x.responsable_marketing + ' %';
-    conteneurAutres.appendChild(bloc('1. Qu\'est-ce qui change dans les outils quand on passe d\'assistant à responsable marketing ?',
-      'Les outils d\'exécution reculent (' + baisse.map(fl).join(', ') + ') et ceux de pilotage montent (' + monte.map(fl).join(', ') + ').',
-      [tableau(['Outil', 'Assistant', 'Responsable', 'Écart', 'Mon bilan'], monte.concat(baisse).map(x => [
-        court(x.nom), x.assistant + ' %', x.responsable_marketing + ' %', (x.ecart > 0 ? '+' : '') + x.ecart + ' pt',
-        (f.outils[x.nom] && f.outils[x.nom].vu && f.outils[x.nom].vu.niveau) || '–']))],
-      'Part des annonces qui citent l\'outil : ' + o.n_assistant + ' annonces d\'assistant marketing contre ' + o.n_responsable_marketing + ' de responsable marketing ; les ' + o.n_responsable_ecommerce +
-      ' du responsable e-commerce sont trop peu nombreuses pour être détaillées. Écarts indicatifs.'));
+    const lignes = monte.concat(baisse).map(x => ({
+      nom: x.nom.replace(/ \(.*\)$/, '').replace(/ \/ .*/, ''),
+      valeurs: [x.assistant, x.charge, x.responsable_marketing, x.responsable_ecommerce],
+      extra: (f.outils[x.nom] && f.outils[x.nom].vu && f.outils[x.nom].vu.niveau) || '–',
+    }));
+    const t1 = el('table', {});
+    tableauChaleur(t1, entetes.concat(['Mon bilan']), lignes);
+    const m0 = monte[0], b0 = baisse[0];
+    box.appendChild(bloc('1. Qu\'est-ce qui change dans les outils quand on monte d\'assistant à responsable ?',
+      m0.nom + ' passe de ' + m0.assistant + ' % à ' + m0.responsable_marketing + ' % des annonces, alors que ' + b0.nom.replace(/ \(.*\)$/, '') + ' recule de ' + b0.assistant + ' % à ' + b0.responsable_marketing + ' %.',
+      [el('div', { className: 'tableau' }, [t1])],
+      'Part des annonces qui citent l\'outil : ' + o.n_assistant + ' annonces d\'assistant, ' + o.n_charge + ' de chargé(e), ' + o.n_responsable_marketing + ' de responsable marketing et ' + o.n_responsable_ecommerce +
+      ' de responsable e-commerce. Les écarts sont calculés entre l\'assistant et le responsable marketing ; les outils d\'exécution reculent, ceux de pilotage montent. Écarts indicatifs.'));
   }
 
   // 2. Paris
   {
     const P = Q.paris, rm = P['responsable-marketing'], as = P['assistant-marketing'];
-    const sensRm = rm.salaire_idf.mediane != null && rm.salaire_reste.mediane != null ? rm.salaire_idf.mediane - rm.salaire_reste.mediane : null;
-    const sensAs = as.salaire_idf.mediane != null && as.salaire_reste.mediane != null ? as.salaire_idf.mediane - as.salaire_reste.mediane : null;
-    const verdict = sensRm != null && sensAs != null && sensRm > 0 && sensAs > 0 ? 'Les deux postes affichent un salaire médian plus élevé en Île-de-France.'
-      : 'L\'écart de salaire entre l\'Île-de-France et le reste de la France ne va pas dans le même sens pour les deux postes : sur si peu d\'offres, on ne peut pas dire que Paris paie mieux.';
+    const zone = (p, nom) => p.zones.find(z => z.zone === nom) || { n: 0, part: 0 };
     const zones = ['Paris (75)', 'Petite couronne (92, 93, 94)', 'Reste de l\'Île-de-France', 'Hors Île-de-France'];
-    conteneurAutres.appendChild(bloc('2. S\'intéresser à Paris est-il vraiment mieux pour trouver un travail ?',
-      'L\'Île-de-France regroupe ' + rm.idf_part + ' % des offres de responsable marketing (' + rm.idf_n + ' sur ' + rm.n + ') et ' + as.idf_part + ' % de celles d\'assistant marketing (' + as.idf_n + ' sur ' + as.n + ') : ' +
-      (Math.max(rm.idf_part, as.idf_part) < 50 ? 'la majorité des offres est donc ailleurs. ' : 'plus de la moitié des offres y est. ') +
-      'Paris intra-muros n\'en compte que ' + zone(rm, 'Paris (75)').n + ' (responsable) et ' + zone(as, 'Paris (75)').n + ' (assistant) ; le reste de la région est surtout en petite couronne. Salaires affichés : responsable marketing ' +
-      fr(rm.salaire_idf.mediane) + ' € en Île-de-France (' + rm.salaire_idf.n + ' offres) contre ' + fr(rm.salaire_reste.mediane) + ' € ailleurs (' + rm.salaire_reste.n + ') ; assistant marketing ' + fr(as.salaire_idf.mediane) +
-      ' € (' + as.salaire_idf.n + ') contre ' + fr(as.salaire_reste.mediane) + ' € (' + as.salaire_reste.n + '). ' + verdict,
-      [tableau(['Zone', 'Responsable e-commerce', 'Responsable marketing', 'Assistant marketing'], zones.map(z => [z].concat(ORDRE.map(k => {
-        const zz = zone(P[k], z); return zz.n + ' (' + zz.part + ' %)'; }))))],
-      'Médianes brutes par mois, calculées sur les seules offres qui affichent un salaire : très peu d\'offres par zone, donc indicatif. Les zones « département non précisé » ne sont pas détaillées.'));
+    const t2 = el('table', {});
+    tableauChaleur(t2, ['Zone'].concat(ORDRE.map(k => COURT[k])), zones.map(z => ({ nom: z, valeurs: ORDRE.map(k => zone(P[k], z).part) })));
+    const tuiles = el('div', { className: 'tuiles-mini' }, ORDRE.map(k => el('div', {}, [
+      el('b', { textContent: P[k].idf_part + ' %' }), el('span', { textContent: 'en Île-de-France · ' + COURT[k] + ' (' + P[k].idf_n + ' sur ' + P[k].n + ')' })])));
+    const sens = p => p.salaire_idf.mediane != null && p.salaire_reste.mediane != null ? p.salaire_idf.mediane - p.salaire_reste.mediane : null;
+    const verdict = sens(rm) != null && sens(as) != null && sens(rm) > 0 && sens(as) > 0 ? 'Les deux postes affichent un salaire médian plus élevé en Île-de-France.'
+      : 'L\'écart de salaire entre l\'Île-de-France et le reste de la France ne va pas dans le même sens pour les deux postes : sur si peu d\'offres, on ne peut pas dire que Paris paie mieux.';
+    box.appendChild(bloc('2. S\'intéresser à Paris est-il vraiment mieux pour trouver un travail ?',
+      'L\'Île-de-France regroupe ' + rm.idf_part + ' % des offres de responsable marketing et ' + as.idf_part + ' % de celles d\'assistant : ' +
+      (Math.max(rm.idf_part, as.idf_part) < 50 ? 'la majorité des offres est ailleurs en France.' : 'plus de la moitié des offres y est.'),
+      [tuiles, el('div', { className: 'tableau' }, [t2])],
+      'Paris intra-muros n\'en compte que ' + zone(rm, 'Paris (75)').n + ' (responsable marketing) et ' + zone(as, 'Paris (75)').n + ' (assistant) ; le reste de la région est surtout en petite couronne. Salaires affichés : responsable marketing ' +
+      fr(rm.salaire_idf.mediane) + ' € en Île-de-France (' + rm.salaire_idf.n + ' offres) contre ' + fr(rm.salaire_reste.mediane) + ' € ailleurs (' + rm.salaire_reste.n + ') ; assistant ' + fr(as.salaire_idf.mediane) +
+      ' € (' + as.salaire_idf.n + ') contre ' + fr(as.salaire_reste.mediane) + ' € (' + as.salaire_reste.n + '). ' + verdict + ' Médianes brutes par mois, sur les seules offres qui affichent un salaire : indicatif.'));
   }
 
-  // 3. Missions
+  // 3. missions
   {
     const M = Q.missions, themes = M.tous.themes.slice(0, 8);
-    const part = (k, nom) => { const t = M.par_poste[k].themes.find(x => x.nom === nom); return t ? t.part + ' %' : '0 %'; };
-    const top2 = k => M.par_poste[k].themes.slice(0, 2).map(t => '« ' + t.nom.split(' (')[0] + ' »').join(' puis ');
-    conteneurAutres.appendChild(bloc('3. Quelles sont les missions récurrentes de chacun des trois postes ?',
-      'Responsable e-commerce : surtout ' + top2('responsable-ecommerce') + '. Responsable marketing : ' + top2('responsable-marketing') + '. Assistant marketing : ' + top2('assistant-marketing') +
-      '. Les verbes qui ouvrent le plus les lignes de missions sont : ' + M.tous.verbes.slice(0, 6).map(v => v.nom).join(', ') + '.',
-      [tableau(['Mission', 'Responsable e-commerce', 'Responsable marketing', 'Assistant marketing'], themes.map(t => [t.nom].concat(ORDRE.map(k => part(k, t.nom)))))],
+    const part = (k, nom) => { const x = M.par_poste[k].themes.find(y => y.nom === nom); return x ? x.part : 0; };
+    const top = k => M.par_poste[k].themes.slice(0, 2).map(x => '« ' + x.nom.split(' (')[0] + ' »').join(' puis ');
+    const t3 = el('table', {});
+    tableauChaleur(t3, ['Mission'].concat(ORDRE.map(k => COURT[k])), themes.map(x => ({ nom: x.nom, valeurs: ORDRE.map(k => part(k, x.nom)) })));
+    const verbes = el('div', { className: 'chips' }, M.tous.verbes.slice(0, 8).map(vb => el('span', { className: 'chip' }, [document.createTextNode(vb.nom)])));
+    box.appendChild(bloc('3. Quelles sont les missions récurrentes des quatre postes ?',
+      'Assistant : ' + top('assistant-marketing') + '. Responsable marketing : ' + top('responsable-marketing') + '. Responsable e-commerce : ' + top('responsable-ecommerce') + '.',
+      [el('div', { className: 'tableau' }, [t3]), el('p', { className: 'legende', textContent: 'Les verbes qui ouvrent le plus les lignes de missions :' }), verbes],
       'Part des annonces dont les missions sont lisibles (' + M.tous.avec_missions + ' sur ' + M.tous.offres + ') qui citent le thème. Les thèmes sont repérés par mots-clés dans les lignes de missions : une annonce peut en cumuler plusieurs, et les pourcentages ne s\'additionnent pas.'));
   }
 
-  // 4. Expérience
+  // 4. expérience
   {
-    const E = Q.experience;
-    const noms = ['Débutant accepté', '1 à 2 ans', '3 à 5 ans', '6 ans et plus', 'Expérience exigée, durée non précisée'];
-    const cell = (k, nom) => { const r = E[k].repartition.find(x => x.nom === nom); return r ? r.part + ' %' : '0 %'; };
-    conteneurAutres.appendChild(bloc('4. Quelle expérience est demandée ?',
-      'Un débutant est accepté dans ' + cell('responsable-marketing', 'Débutant accepté') + ' des offres de responsable marketing, ' + cell('assistant-marketing', 'Débutant accepté') + ' de celles d\'assistant marketing et ' +
-      cell('responsable-ecommerce', 'Débutant accepté') + ' de celles de responsable e-commerce. ' + E['responsable-marketing'].cadre + ' % des offres de responsable marketing sont des postes cadres.',
-      [tableau(['Expérience demandée', 'Responsable e-commerce', 'Responsable marketing', 'Assistant marketing'],
-        noms.map(n => [n].concat(ORDRE.map(k => cell(k, n)))).concat([['Poste cadre'].concat(ORDRE.map(k => E[k].cadre + ' %'))]))],
-      'Expérience connue pour ' + E['assistant-marketing'].n + ' des ' + E['assistant-marketing'].sur + ' offres d\'assistant marketing (seules celles encore en ligne le 14/11 la fournissent pour l\'instant) ; les autres postes : toutes.'));
+    const X = Q.experience;
+    const segs = [['Débutant accepté', '#e2d8cb', '#022e4a'], ['1 à 2 ans', '#9fb8cb', '#022e4a'], ['3 à 5 ans', '#507593'], ['6 ans et plus', '#022e4a'], ['Expérience exigée, durée non précisée', '#56061d']];
+    const legende = legendePile(segs.map(s => ({ nom: s[0], couleur: s[1] })));
+    const piles = ORDRE.map(k => {
+      const rep = X[k].repartition;
+      const n = nom => (rep.find(r => r.nom === nom) || { n: 0 }).n;
+      return el('div', {}, [
+        el('p', { className: 'pile-nom' }, [el('span', { textContent: noms(k) }), el('span', { textContent: X[k].n + ' annonces avec l\'expérience renseignée · ' + X[k].cadre + ' % de postes cadres' })]),
+        pile(segs.map(s => ({ nom: s[0], couleur: s[1], texte: s[2], n: n(s[0]) })), X[k].n || 1),
+      ]);
+    });
+    const deb = k => (X[k].repartition.find(r => r.nom === 'Débutant accepté') || { part: 0 }).part;
+    box.appendChild(bloc('4. Quelle expérience est demandée ?',
+      'Un débutant est accepté dans ' + deb('assistant-marketing') + ' % des offres d\'assistant, ' + deb('charge-marketing') + ' % de chargé(e), ' + deb('responsable-marketing') + ' % de responsable marketing et ' +
+      deb('responsable-ecommerce') + ' % de responsable e-commerce.',
+      [legende, ...piles],
+      'Expérience connue pour ' + X['assistant-marketing'].n + ' des ' + X['assistant-marketing'].sur + ' offres d\'assistant et ' + X['charge-marketing'].n + ' des ' + X['charge-marketing'].sur + ' de chargé(e) de marketing (seules les offres encore en ligne depuis le 14/11 la fournissent pour l\'instant, elle se complète chaque jour) ; pour les responsables, toutes les offres. ' +
+      'Peu d\'annonces pour le chargé(e) : à lire avec précaution.'));
   }
 
-  // 5. Qui recrute
+  // 5. qui recrute
   {
-    const R = Q.recruteurs, rm = R['responsable-marketing'];
-    const types = [...new Set(ORDRE.flatMap(k => R[k].types.slice(0, 5).map(t => t.nom)))];
-    const n = (k, nom) => { const t = R[k].types.find(x => x.nom === nom); return t ? t.n : 0; };
-    const ligne = (p, texte) => R[p].secteur_connu ? texte(R[p]) : '';
-    conteneurAutres.appendChild(bloc('5. Qui recrute vraiment : agences, entreprises utilisatrices, quels secteurs ?',
-      'Pour le responsable marketing, sur les ' + rm.secteur_connu + ' offres dont le secteur est connu : ' + rm.pour_clients + ' viennent d\'entreprises qui travaillent pour des clients (intérim, agences, conseil, informatique), ' +
-      rm.pour_eux_memes + ' d\'entreprises qui travaillent pour elles-mêmes (industrie, commerce, santé, finance…) et ' + rm.formation_medias + ' de la formation ou des médias. ' + rm.sans_nom + ' offres sur ' + rm.n + ' n\'ont aucun nom d\'employeur. ' +
-      'Pour l\'assistant marketing : ' + R['assistant-marketing'].pour_clients + ' pour des clients et ' + R['assistant-marketing'].pour_eux_memes + ' pour elles-mêmes, sur ' + R['assistant-marketing'].secteur_connu + ' offres dont le secteur est connu (' + R['assistant-marketing'].n + ' offres au total).',
-      [tableau(['Type d\'entreprise (d\'après son code d\'activité)', 'Responsable e-commerce', 'Responsable marketing', 'Assistant marketing'], types.map(t => [t].concat(ORDRE.map(k => String(n(k, t))))))],
+    const R = Q.recruteurs;
+    const types = [...new Set(ORDRE.flatMap(k => R[k].types.slice(0, 5).map(x => x.nom)))];
+    const n = (k, nom) => { const x = R[k].types.find(y => y.nom === nom); return x ? x.n : 0; };
+    const maxN = Math.max(1, ...types.flatMap(tp => ORDRE.map(k => n(k, tp))));
+    const t5 = el('table', {});
+    tableauChaleur(t5, ['Type d\'entreprise (d\'après son code d\'activité)'].concat(ORDRE.map(k => COURT[k])),
+      types.map(tp => ({ nom: tp, valeurs: ORDRE.map(k => n(k, tp)), echelle: maxN, format: v => String(v) })));
+    const segs = [['Travaille pour des clients (agence, conseil, intérim…)', '#507593'], ['Travaille pour elle-même (industrie, commerce, santé…)', '#56061d'], ['Formation ou médias', '#e2d8cb', '#022e4a']];
+    const piles = ORDRE.map(k => el('div', {}, [
+      el('p', { className: 'pile-nom' }, [el('span', { textContent: noms(k) }), el('span', { textContent: R[k].secteur_connu + ' offres sur ' + R[k].n + ' avec un secteur connu · ' + R[k].sans_nom + ' sans nom d\'employeur' })]),
+      pile([{ nom: segs[0][0], couleur: segs[0][1], n: R[k].pour_clients }, { nom: segs[1][0], couleur: segs[1][1], n: R[k].pour_eux_memes }, { nom: segs[2][0], couleur: segs[2][1], texte: segs[2][2], n: R[k].formation_medias }], R[k].secteur_connu || 1),
+    ]));
+    const rm = R['responsable-marketing'];
+    box.appendChild(bloc('5. Qui recrute vraiment : agences, entreprises utilisatrices, quels secteurs ?',
+      'Pour le responsable marketing, ' + rm.types[0].nom.split(',')[0] + ' est le type d\'employeur le plus fréquent (' + rm.types[0].n + ' offres) ; ' + rm.pour_eux_memes + ' offres sur ' + rm.secteur_connu +
+      ' viennent d\'entreprises qui travaillent pour elles-mêmes, contre ' + rm.pour_clients + ' pour des clients.',
+      [legendePile(segs.map(s => ({ nom: s[0], couleur: s[1] }))), ...piles, el('div', { className: 'tableau', style: 'margin-top:1rem' }, [t5])],
       'Le type est déduit du code d\'activité (NAF) de l\'établissement quand l\'annonce le renseigne : secteur inconnu pour ' + (rm.n - rm.secteur_connu) + ' offres sur ' + rm.n + ' (responsable marketing) et ' +
-      (R['assistant-marketing'].n - R['assistant-marketing'].secteur_connu) + ' sur ' + R['assistant-marketing'].n + ' (assistant marketing, où le secteur n\'est connu que pour les offres encore en ligne le 14/11 : il se complète à chaque extraction). Une entreprise de conseil ou une agence peut aussi être un employeur direct : la frontière est indicative.'));
+      (R['assistant-marketing'].n - R['assistant-marketing'].secteur_connu) + ' sur ' + R['assistant-marketing'].n + ' (assistant, où le secteur n\'est connu que pour les offres encore en ligne depuis le 14/11 : il se complète à chaque extraction). ' +
+      'Le tableau donne le nombre d\'offres. Une entreprise de conseil ou une agence peut aussi être un employeur direct : la frontière est indicative.'));
   }
-}).catch(() => {
-  document.getElementById('erreur').textContent =
-    'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
+}).catch(err => {
+  console.error(err);
+  document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
 });
 </script>
 </body>

@@ -1,6 +1,6 @@
 {
   "vue": "tout",
-  "genere_le": "2026-11-16T14:17:43+00:00",
+  "genere_le": "2026-11-17T08:46:41+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -2405,7 +2405,8 @@
           "n": 9
         }
       ],
-      "assistant_marketing": 65,
+      "assistant_marketing": 72,
+      "charge_marketing": 8,
       "avec_digital": 6,
       "avec_alternance": 26,
       "sans_marketing": 27,

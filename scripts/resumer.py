@@ -85,6 +85,26 @@ VARIANTES = [
     ("Assistant(e) marketing et communication", r"(?i)marketing\s*(?:et|&)\s*communication|communication\s*(?:et|&)\s*marketing"),
 ]
 VARIANTES = [(nom, re.compile(motif)) for nom, motif in VARIANTES]
+# Un même poste sous plusieurs intitulés : l'assistant marketing et ses variantes aux missions proches.
+INTITULES_ASSISTANT = [
+    ("Assistant(e) marketing", r"(?i)assistant\S*\s+(?:\S+\s+)?marketing"),
+    ("Assistant(e) commercial(e) et marketing", r"(?i)assistant\S*.*commercia\S*.*marketing|assistant\S*.*marketing.*commercia"),
+    ("Assistant(e) marketing et communication", r"(?i)assistant\S*.*(?:marketing\s*(?:&|et|/|-)\s*communication|communication\s*(?:&|et|/|-)\s*marketing)"),
+    ("Assistant(e) web ou digital marketing", r"(?i)assistant\S*.*(?:web\s?marketing|marketing\s+digital)|(?:web\s?marketing|digital).*assistant"),
+]
+INTITULES_ASSISTANT = [(nom, re.compile(motif)) for nom, motif in INTITULES_ASSISTANT]
+# Échelon intermédiaire : chargé(e) de marketing (hors titres déjà classés « assistant »).
+CHARGE_MARKETING = re.compile(r"(?i)charg[ée]\S*\s+(?:\S+\s+){0,3}marketing")
+
+
+def est_assistant(titre):
+    return any(motif.search(titre) for _, motif in INTITULES_ASSISTANT)
+
+
+def est_charge(titre):
+    return bool(CHARGE_MARKETING.search(titre)) and not est_assistant(titre)
+
+
 PUB_FORMATION = re.compile(r"(?i)en suivant la formation|formation .{0,40}à distance")
 TELETRAVAIL = re.compile(r"(?i)télétravail|teletravail|\bremote\b|travail à distance|home ?office|hybride")
 
@@ -173,7 +193,8 @@ def calculer_variantes(offres):
         "titres": len(titres),
         "liste": sorted([{"nom": nom, "n": sum(1 for t in titres if motif.search(t))} for nom, motif in VARIANTES],
                         key=lambda v: -v["n"]),
-        "assistant_marketing": sum(1 for t in titres if re.search(r"(?i)assistant\S*\s+(?:\S+\s+)?marketing", t)),
+        "assistant_marketing": sum(1 for t in titres if est_assistant(t)),
+        "charge_marketing": sum(1 for t in titres if est_charge(t)),
         "avec_digital": sum(1 for t in titres if re.search(r"(?i)digital|web ?marketing", t)),
         "avec_alternance": sum(1 for t in titres if re.search(r"(?i)altern", t)),
         "sans_marketing": len([t for t in titres if not re.search(r"(?i)marketing", t)]),

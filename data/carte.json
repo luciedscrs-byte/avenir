@@ -1,21 +1,26 @@
 {
- "genere_le": "2026-11-16T14:18:19+00:00",
+ "genere_le": "2026-11-17T08:46:45+00:00",
  "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
  "postes": {
-  "responsable-ecommerce": {
-   "libelle": "Responsable e-commerce",
-   "n": 12,
-   "depuis": "2026-11-14"
+  "assistant-marketing": {
+   "libelle": "Assistant marketing",
+   "n": 48,
+   "depuis": "2026-10-07"
+  },
+  "charge-marketing": {
+   "libelle": "Chargé(e) de marketing",
+   "n": 13,
+   "depuis": "2026-10-07"
   },
   "responsable-marketing": {
    "libelle": "Responsable marketing",
    "n": 43,
    "depuis": "2026-11-14"
   },
-  "assistant-marketing": {
-   "libelle": "Assistant marketing",
-   "n": 39,
-   "depuis": "2026-10-07"
+  "responsable-ecommerce": {
+   "libelle": "Responsable e-commerce",
+   "n": 12,
+   "depuis": "2026-11-14"
   }
  },
  "groupes": [
@@ -78,8 +83,8 @@
     "total": 596
    },
    "offres": {
-    "responsable-ecommerce": 1,
     "assistant-marketing": 2,
+    "responsable-ecommerce": 1,
     "total": 3
    }
   },
@@ -108,8 +113,9 @@
     "total": 1118
    },
    "offres": {
+    "charge-marketing": 2,
     "responsable-marketing": 2,
-    "total": 2
+    "total": 4
    }
   },
   "14": {
@@ -263,9 +269,9 @@
     "total": 887
    },
    "offres": {
+    "assistant-marketing": 5,
     "responsable-marketing": 2,
-    "assistant-marketing": 1,
-    "total": 3
+    "total": 7
    }
   },
   "34": {
@@ -300,8 +306,9 @@
     "total": 780
    },
    "offres": {
+    "charge-marketing": 3,
     "responsable-marketing": 2,
-    "total": 2
+    "total": 5
    }
   },
   "37": {
@@ -370,8 +377,9 @@
     "total": 1032
    },
    "offres": {
-    "assistant-marketing": 2,
-    "total": 2
+    "assistant-marketing": 3,
+    "charge-marketing": 1,
+    "total": 4
    }
   },
   "45": {
@@ -389,6 +397,17 @@
    },
    "offres": {
     "total": 0
+   }
+  },
+  "46": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "charge-marketing": 1,
+    "total": 1
    }
   },
   "49": {
@@ -523,6 +542,17 @@
     "total": 1
    }
   },
+  "62": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "charge-marketing": 2,
+    "total": 2
+   }
+  },
   "63": {
    "ville": "Clermont-Ferrand",
    "couvert": true,
@@ -537,8 +567,8 @@
     "total": 348
    },
    "offres": {
-    "responsable-ecommerce": 1,
     "responsable-marketing": 1,
+    "responsable-ecommerce": 1,
     "total": 2
    }
   },
@@ -573,8 +603,8 @@
     "total": 786
    },
    "offres": {
-    "responsable-marketing": 2,
     "assistant-marketing": 1,
+    "responsable-marketing": 2,
     "total": 3
    }
   },
@@ -610,10 +640,21 @@
     "total": 1854
    },
    "offres": {
-    "responsable-ecommerce": 2,
-    "responsable-marketing": 3,
     "assistant-marketing": 5,
+    "responsable-marketing": 3,
+    "responsable-ecommerce": 2,
     "total": 10
+   }
+  },
+  "71": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
    }
   },
   "72": {
@@ -665,10 +706,11 @@
     "total": 6643
    },
    "offres": {
-    "responsable-ecommerce": 3,
+    "assistant-marketing": 5,
+    "charge-marketing": 2,
     "responsable-marketing": 2,
-    "assistant-marketing": 4,
-    "total": 9
+    "responsable-ecommerce": 3,
+    "total": 12
    }
   },
   "76": {
@@ -695,9 +737,10 @@
     "total": 0
    },
    "offres": {
-    "responsable-marketing": 1,
     "assistant-marketing": 1,
-    "total": 2
+    "charge-marketing": 1,
+    "responsable-marketing": 1,
+    "total": 3
    }
   },
   "78": {
@@ -765,9 +808,9 @@
     "total": 284
    },
    "offres": {
+    "assistant-marketing": 2,
     "responsable-marketing": 1,
-    "assistant-marketing": 1,
-    "total": 2
+    "total": 3
    }
   },
   "84": {
@@ -816,8 +859,8 @@
     "total": 0
    },
    "offres": {
-    "responsable-marketing": 2,
     "assistant-marketing": 1,
+    "responsable-marketing": 2,
     "total": 3
    }
   },
@@ -835,9 +878,9 @@
     "total": 2508
    },
    "offres": {
-    "responsable-ecommerce": 1,
-    "responsable-marketing": 7,
     "assistant-marketing": 1,
+    "responsable-marketing": 7,
+    "responsable-ecommerce": 1,
     "total": 9
    }
   },
@@ -855,8 +898,8 @@
     "total": 729
    },
    "offres": {
-    "responsable-marketing": 1,
     "assistant-marketing": 1,
+    "responsable-marketing": 1,
     "total": 2
    }
   },
@@ -867,9 +910,10 @@
     "total": 0
    },
    "offres": {
+    "assistant-marketing": 2,
+    "charge-marketing": 1,
     "responsable-marketing": 2,
-    "assistant-marketing": 1,
-    "total": 3
+    "total": 5
    }
   },
   "95": {

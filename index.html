@@ -13,27 +13,27 @@
   <div class="bento">
     <header class="hero">
       <p class="etiquette" id="suivi">Séminaires métiers · M2 MOD</p>
-      <h1>Que ferai-je <em>une fois diplômée</em> ?</h1>
+      <h1>Que ferai-je une fois diplômée ?</h1>
       <p class="sub">Pour le savoir, j'observe le marché : quels postes, combien d'offres, quels salaires, où en France. Les chiffres se mettent à jour tout seuls chaque jour, à partir des offres publiques de France Travail.</p>
       <div class="actions">
         <a class="btn" href="offres.html">Voir les offres</a>
         <a class="btn sec" href="entreprises.html#carte-territoire">Explorer la carte</a>
       </div>
       <div class="chiffres-hero">
-        <div><b>3</b><span>postes comparés</span></div>
+        <div><b>3</b><span>niveaux de poste</span></div>
         <div><b id="h-entreprises">–</b><span>entreprises recensées</span></div>
         <div><b>100 %</b><span>données publiques</span></div>
       </div>
     </header>
     <div class="colonne">
       <div class="tuile navy"><p class="gros" id="t-jours">–</p><p class="legende" id="t-jours-leg">extractions quotidiennes</p></div>
-      <div class="tuile blue"><p class="gros" id="t-offres">–</p><p class="legende">offres actives en CDI ou CDD pour mes trois postes</p></div>
+      <div class="tuile blue"><p class="gros" id="t-offres">–</p><p class="legende">offres actives en CDI ou CDD pour mes quatre intitulés</p></div>
     </div>
   </div>
-  <div class="defile" aria-hidden="true"><div class="piste-defile"><span>Assistant marketing ✦</span><span>Responsable marketing ✦</span><span>Responsable e-commerce ✦</span><span>Marché caché ✦</span><span>Carte de France ✦</span><span>Offres du jour ✦</span><span>Assistant marketing ✦</span><span>Responsable marketing ✦</span><span>Responsable e-commerce ✦</span><span>Marché caché ✦</span><span>Carte de France ✦</span><span>Offres du jour ✦</span></div></div>
+  <div class="bandeau-intitules"><p class="etiquette">Les intitulés suivis</p><div class="chips" style="margin:0"><span class="chip">Assistant marketing</span><span class="chip">Chargé(e) de marketing</span><span class="chip">Responsable marketing</span><span class="chip">Responsable e-commerce</span></div></div>
   <p id="erreur"></p>
 
-  <h2 class="st">Ma démarche, <em>en cinq étapes</em></h2>
+  <h2 class="st">Ma démarche, en cinq étapes</h2>
   <p class="intro">Le cours demande de passer d'un objectif à une décision. Voici le chemin que suit ce site, et la page où chaque étape est détaillée.</p>
   <div class="etapes">
     <div class="etape">
@@ -44,7 +44,7 @@
     <a class="etape" href="metier.html">
       <span class="num-etape">2</span>
       <h3>Le métier souhaité</h3>
-      <p>Trois postes visés, classés par intérêt. Comment les annonces les nomment, et ce que ma formation prépare.</p>
+      <p>De l'assistant au responsable marketing : quatre intitulés en trois niveaux, comment les annonces les nomment, et ce que ma formation prépare.</p>
       <span class="va">Voir le métier →</span>
     </a>
     <a class="etape" href="offres.html">
@@ -67,15 +67,15 @@
     </a>
   </div>
 
-  <h2 class="st">Le marché <em>aujourd'hui</em></h2>
+  <h2 class="st">Le marché aujourd'hui</h2>
   <p class="intro" id="chiffres-intro">Offres actives en vrais CDI ou CDD, sans stage, alternance ni intérim.</p>
   <div class="chiffres" id="chiffres"></div>
 
-  <h2 class="st">Ce que j'ai <em>trouvé</em></h2>
+  <h2 class="st">Ce que j'ai trouvé</h2>
   <p class="intro">Quatre constats tirés des offres. Chacun repose sur peu d'offres : les pages détaillées donnent le nombre à côté de chaque chiffre.</p>
   <div class="grille" id="constats" style="grid-template-columns:repeat(auto-fit,minmax(215px,1fr))"></div>
 
-  <h2 class="st">Comment ce site est <em>fabriqué</em></h2>
+  <h2 class="st">Comment ce site est fabriqué</h2>
   <p class="intro">Rien n'est saisi à la main : un robot refait le travail tous les jours, sans mon ordinateur.</p>
   <div class="grille">
     <div class="carte"><h3 style="margin:0 0 0.3rem">1. Il interroge</h3><p class="legende" style="margin:0">Chaque jour, GitHub lance des scripts qui interrogent l'API officielle de France Travail et celle des entreprises (data.gouv.fr).</p></div>
@@ -119,13 +119,11 @@ Promise.all([
   document.getElementById('genere').textContent = dateFr(emploi.genere_le.slice(0, 10));
 
   const zone = document.getElementById('chiffres');
-  const eco = postes.postes['responsable-ecommerce'], mkt = postes.postes['responsable-marketing'];
-  zone.appendChild(carteChiffre(String(eco.derniere.total), 'offres de responsable e-commerce', 'metier.html'));
-  zone.appendChild(carteChiffre(String(mkt.derniere.total), 'offres de responsable marketing', 'metier.html'));
-  zone.appendChild(carteChiffre(String(emploi.derniere.variantes.assistant_marketing), 'offres d\'assistant marketing', 'offres.html'));
-  document.getElementById('t-offres').textContent = String(eco.derniere.total + mkt.derniere.total + emploi.derniere.variantes.assistant_marketing);
-  zone.appendChild(carteChiffre(fr(ent.total), 'entreprises recensées dans le marché caché', 'entreprises.html'));
-
+  const E = q.echelle;
+  const ordre = ['assistant-marketing', 'charge-marketing', 'responsable-marketing', 'responsable-ecommerce'];
+  const noms = { 'assistant-marketing': 'offres d\'assistant marketing', 'charge-marketing': 'offres de chargé(e) de marketing', 'responsable-marketing': 'offres de responsable marketing', 'responsable-ecommerce': 'offres de responsable e-commerce' };
+  ordre.forEach(k => zone.appendChild(carteChiffre(String(E[k].actives), noms[k], 'metier.html')));
+  document.getElementById('t-offres').textContent = String(ordre.reduce((s, k) => s + E[k].actives, 0));
   const c = document.getElementById('constats');
   const monte = q.outils.outils.filter(o => o.ecart > 0)[0];
   if (monte) c.appendChild(constat(monte.assistant + ' % → ' + monte.responsable_marketing + ' %',

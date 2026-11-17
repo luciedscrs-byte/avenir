@@ -23,7 +23,7 @@
   main { max-width: 1120px; margin: 0 auto; background: var(--page); border-radius: 32px; padding: 1.25rem 1.5rem 3rem; }
   h1, h2, h3, .gros, .st { font-family: var(--serif); font-weight: 500; }
   h1 { font-size: 2.6rem; line-height: 1.08; margin: 0 0 0.75rem; letter-spacing: -0.015em; }
-  h1 em, .st em, h2 em { font-style: italic; color: var(--blue); }
+  h1 em, .st em, h2 em { font-style: normal; color: inherit; }
   h2 { font-size: 1.15rem; margin: 0 0 1rem; }
   h3 { font-size: 1.05rem; }
   .sub { color: var(--muted); margin: 0; font-size: 1.05rem; max-width: 44rem; }
@@ -77,12 +77,14 @@
   @media (max-width: 800px) { .bento { grid-template-columns: minmax(0, 1fr); } .bento .colonne { grid-template-rows: none; grid-template-columns: 1fr 1fr; } .tuile .gros { font-size: 2.4rem; } }
   @media (max-width: 480px) { .bento .colonne { grid-template-columns: minmax(0, 1fr); } }
 
-  /* bandeau défilant */
-  .defile { overflow: hidden; margin: 1.75rem -1.5rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 0.9rem 0; white-space: nowrap; }
-  .defile .piste-defile { display: inline-flex; animation: defile 38s linear infinite; font-family: var(--serif); font-size: 2.4rem; line-height: 1.2; color: var(--navy); }
-  .defile span { padding-right: 1.6rem; } .defile span:nth-child(even) { font-style: italic; color: var(--blue); }
-  @keyframes defile { to { transform: translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce) { .defile .piste-defile { animation: none; } }
+  /* pastilles : intitulés, outils, métiers visés */
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1.25rem; }
+  .chip { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; padding: 0.4rem 0.9rem; border-radius: 999px; background: var(--card); border: 1px solid var(--line); color: var(--text); }
+  .chip b { display: inline-flex; align-items: center; justify-content: center; min-width: 1.6rem; height: 1.6rem; padding: 0 0.35rem; border-radius: 999px; background: var(--mulberry); color: var(--paper); font-size: 0.8rem; }
+  .chip.bleu b { background: var(--blue); } .chip.marine b { background: var(--navy); }
+  .chip.code { font-family: var(--mono); font-size: 0.8rem; background: var(--oat); border-color: var(--oat); }
+  .bandeau-intitules { margin: 1.5rem 0 0; padding: 1.1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .bandeau-intitules .chip { font-family: var(--serif); font-size: 1.05rem; background: transparent; border-color: var(--line); }
 
   /* titres de partie */
   .st { font-size: 2rem; line-height: 1.15; margin: 3.25rem 0 0.5rem; letter-spacing: -0.01em; }
@@ -173,9 +175,10 @@
   .carte-grille { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 1.25rem; align-items: start; }
   @media (max-width: 720px) {
     .carte-grille { grid-template-columns: minmax(0, 1fr); }
+    .tableau table { font-size: 0.78rem; } .tableau th, .tableau td { padding: 0.35rem 0.3rem; } .tableau td:first-child { min-width: 6.5rem; }
     nav { border-radius: 24px; } nav .marque { width: 100%; margin-bottom: 0.15rem; }
     body { padding: 8px; } main { border-radius: 24px; padding: 1rem 1rem 2.5rem; }
-    .hero { padding: 1.6rem 1.25rem; } h1 { font-size: 2rem; } .st { font-size: 1.6rem; } .defile { margin: 1.5rem -1rem; } .defile .piste-defile { font-size: 1.8rem; }
+    .hero { padding: 1.6rem 1.25rem; } h1 { font-size: 2rem; } .st { font-size: 1.6rem; }
   }
   #carte-svg { width: 100%; height: auto; display: block; }
   #carte-svg .dep { cursor: pointer; }
@@ -192,3 +195,41 @@
   .carte-detail h3 { margin: 0 0 0.25rem; font-size: 1.15rem; }
   tr.ligne-choisie { background: var(--accent-soft); }
   #date.gros { font-size: 1.7rem; line-height: 1.3; }
+
+  /* page « Le métier » : marches, tableaux colorés, piles */
+  .marches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; align-items: end; margin-bottom: 1.5rem; }
+  .marche { border-radius: 28px; padding: 1.4rem; position: relative; overflow: hidden; }
+  .marche:nth-child(1) { background: var(--mulberry); color: var(--oat); min-height: 17rem; }
+  .marche:nth-child(2) { background: var(--blue); color: #fff; min-height: 20rem; }
+  .marche:nth-child(3) { background: var(--navy); color: var(--oat); min-height: 23rem; }
+  .marche:nth-child(4) { background: var(--oat); color: var(--navy); min-height: 23rem; }
+  .marche .etiquette { color: inherit; opacity: 0.85; margin-bottom: 0.6rem; }
+  .marche h3 { font-size: 1.3rem; margin: 0 0 0.4rem; line-height: 1.15; }
+  .marche .gros { color: inherit; font-size: 3rem; }
+  .marche .legende { color: inherit; opacity: 0.88; margin-bottom: 0.9rem; }
+  .marche ul { list-style: none; margin: 0; padding: 0.8rem 0 0; border-top: 1px solid rgba(255, 255, 255, 0.28); font-size: 0.88rem; }
+  .marche:nth-child(4) ul { border-top-color: rgba(2, 46, 74, 0.25); }
+  .marche li { margin-bottom: 0.3rem; }
+  .marche li b { font-weight: 600; }
+  @media (max-width: 900px) { .marches { grid-template-columns: minmax(0, 1fr); } .marche:nth-child(n) { min-height: 0; } }
+  td.chaud { text-align: center; font-variant-numeric: tabular-nums; border-bottom: 2px solid var(--card); }
+  th.court { text-align: center; font-size: 0.8rem; }
+  .pile { display: flex; height: 1.7rem; border-radius: 999px; overflow: hidden; background: var(--oat); margin: 0.2rem 0 0.9rem; }
+  .pile span { display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 600; color: #fff; min-width: 0; overflow: hidden; }
+  .pile-nom { font-size: 0.85rem; margin: 0.6rem 0 0; display: flex; justify-content: space-between; gap: 1rem; }
+  .pile-nom span:last-child { color: var(--muted); }
+  .legende-pile { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; font-size: 0.8rem; color: var(--muted); margin: 0.25rem 0 0.5rem; }
+  .legende-pile i { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 3px; margin-right: 0.35rem; vertical-align: -1px; }
+  .repere { font-family: var(--serif); font-size: 1.25rem; line-height: 1.35; margin: 0 0 1rem; }
+  .bloc-question { display: flex; flex-direction: column; }
+  .bloc-question .gros { font-size: 2.3rem; margin-top: 0.2rem; }
+  .bloc-question h3 { margin: 0 0 0.4rem; font-size: 1rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 600; }
+  details.mini { margin-top: 0.9rem; font-size: 0.88rem; }
+  details.mini > summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+  details.mini > p { color: var(--muted); margin: 0.6rem 0 0; }
+  .carte-bloc { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 1.5rem; margin-bottom: 1rem; }
+  .carte-bloc > h3 { font-family: var(--serif); font-size: 1.35rem; margin: 0 0 0.5rem; }
+  .tuiles-mini { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.6rem; margin: 0.25rem 0 1rem; }
+  .tuiles-mini div { background: var(--oat); border-radius: 16px; padding: 0.7rem 0.9rem; }
+  .tuiles-mini b { display: block; font-family: var(--serif); font-size: 1.6rem; font-weight: 500; color: var(--mulberry); line-height: 1.15; }
+  .tuiles-mini span { font-size: 0.8rem; color: var(--muted); }
