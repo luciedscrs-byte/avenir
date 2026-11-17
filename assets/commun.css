@@ -241,3 +241,10 @@
   .tuiles-mini div { background: var(--oat); border-radius: 16px; padding: 0.7rem 0.9rem; }
   .tuiles-mini b { display: block; font-family: var(--serif); font-variant-numeric: lining-nums; font-size: 1.6rem; font-weight: 400; color: var(--mulberry); line-height: 1.15; }
   .tuiles-mini span { font-size: 0.8rem; color: var(--muted); }
+
+  /* conclusion */
+  .position { background: var(--mulberry); color: var(--oat); border-radius: 28px; padding: 2rem; }
+  .position .etiquette { color: inherit; opacity: 0.85; }
+  .position .gros-texte { font-family: var(--serif); font-size: 1.7rem; line-height: 1.3; margin: 0 0 1rem; color: #fff; }
+  .position p:last-child { margin: 0; max-width: 52rem; }
+  @media (max-width: 720px) { .position { padding: 1.4rem; } .position .gros-texte { font-size: 1.3rem; } }

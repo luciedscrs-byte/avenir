@@ -199,3 +199,14 @@ Ces actions sont **prévues, pas encore réalisées** : le projet s'arrête au r
 | **Candidatures spontanées ciblées** dans le marché caché, choisies avec la carte territoire × secteur, adressées à une fonction (responsable marketing, RH) et jamais à une personne hors de sa fonction | à partir de décembre 2026 | 36 des 113 offres localisées sont hors des départements couverts, et l'industrie est le premier employeur du responsable marketing dans les offres lues |
 | **Relire la veille une fois par mois** (page *Comment il bouge*) et mettre à jour mon bilan d'outils (`data/formation.json`) | chaque mois dès décembre 2026 | la série quotidienne ne vaut que si on la relit |
 
+## 10. Conclusion et position
+
+*(Chiffres au 17/11/2026 ; la même conclusion est sur la page d'accueil du site, où les chiffres se mettent à jour.)*
+
+**Ma position.** Je vise d'abord un poste d'assistant marketing en CDI ou CDD, sous ses différents intitulés, avec pour finalité un poste à responsabilité : responsable e-commerce ou responsable marketing, si possible en passant par un poste de chargé(e) de marketing. Au vu de mon parcours professionnel (deux stages), il me paraît cohérent de ne pas viser tout de suite un poste de responsable. Les offres le confirment : 17 % des annonces de responsable e-commerce et 35 % de celles de responsable marketing acceptent un débutant, contre 41 % pour l'assistant ; 40 % des annonces de responsable marketing sont des postes cadres, contre 0 % pour l'assistant. Le salaire affiché suit la même pente : environ 2 134 € bruts par mois pour l'assistant, 2,500 € pour le chargé(e), 3 750 € pour le responsable marketing.
+
+**Où chercher.** Pas seulement à Paris : l'Île-de-France ne regroupe que 23 % des offres d'assistant et 37 % de celles de responsable marketing. Pas seulement dans le numérique et les agences : « Industrie » est le type d'employeur le plus fréquent du responsable marketing (6 offres, à égalité avec le conseil). Et pas seulement dans les annonces : la carte du marché caché indique où envoyer des candidatures spontanées.
+
+**Ce que je dois acquérir.** Les outils de pilotage qui montent avec le poste : LinkedIn (6 % des annonces d'assistant, 21 % de celles de responsable marketing), un CRM (10 % puis 26 %), ainsi que l'emailing et Adobe, que j'ai repérés comme écarts (voir la section 9).
+
+**Ce que ces chiffres ne disent pas.** Peu d'offres actives : 14 pour l'assistant, 4 pour le chargé(e), 42 pour le responsable marketing, 12 pour le responsable e-commerce. Des suivis de longueurs différentes : 41 extractions pour l'assistant et le chargé(e), 3 pour les responsables. Un salaire affiché dans une minorité d'annonces. Ce sont des tendances, pas des vérités.
