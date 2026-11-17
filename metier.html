@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Le métier tel que le marché le nomme</title>
-<link rel="stylesheet" href="assets/commun.css?v=10">
+<link rel="stylesheet" href="assets/commun.css?v=11">
 </head>
 <body>
 <main>
   <nav id="nav"></nav>
 
   <header class="hero">
-    <p class="etiquette">Étape 2 · Le métier souhaité</p>
+    <p class="etiquette">Étape 1 · Le métier choisi</p>
     <h1>Le métier tel que le marché le nomme</h1>
     <p class="sub" id="sous-titre">Le diplôme dit « marketing opérationnel et digital » ; les annonces disent autre chose.</p>
   </header>
@@ -35,11 +35,6 @@
     <div id="variantes"></div>
     <p class="note" id="variantes-note"></p>
   </details>
-
-  <h2 class="st">Ce que ma formation vise</h2>
-  <div class="chips" id="formation-chips"></div>
-  <p class="intro" id="formation-vise"></p>
-  <p class="note" id="formation-source" style="margin-top:-0.75rem"></p>
 
   <h2 class="st">Les quatre questions du cours</h2>
   <p class="intro">Chaque carte donne le chiffre à retenir ; le détail se déplie.</p>
@@ -169,17 +164,6 @@ Promise.all([
   document.getElementById('regroupe').textContent =
     v.sans_marketing + ' intitulés sur ' + v.titres + ' ne contiennent pas le mot « marketing » (par exemple : ' +
     v.exemples_sans_marketing.join(' ; ') + '). Le code M1620 est plus large que l\'intitulé : on y trouve de l\'intérim, de l\'alternance, des stages et des annonces de formation, qui ne sont pas comptés dans le poste.';
-
-  // ---------- 3. La formation
-  const zoneChips = document.getElementById('formation-chips');
-  f.metiers_vises_descriptif.forEach(m => zoneChips.appendChild(el('span', { className: 'chip marine' }, [document.createTextNode(m)])));
-  f.codes_rome_vises_descriptif.forEach(c => zoneChips.appendChild(el('span', { className: 'chip code', textContent: c })));
-  document.getElementById('formation-vise').textContent =
-    'Le M2 Marketing opérationnel et digital de l\'IAE Clermont Auvergne vise surtout des postes de responsable (en bleu, les métiers cités dans son descriptif ; en gris, ses codes ROME). ' +
-    'M1620 n\'en fait pas partie. La page de la formation cite en revanche « Assistant-e marketing » parmi les métiers visés. ' +
-    'Selon sa fiche France Travail, M1620 est accessible dès Bac+2 / Bac+3, alors que le diplôme est de niveau Bac+5.';
-  document.getElementById('formation-source').textContent =
-    'Sources : page de la formation et descriptif PDF 2026-2027, lus le ' + dateFr(f.lu_le) + '. Les unités du parcours : ' + f.unites.map(u => u.nom).join(', ') + '.';
 
   // ---------- 4. Les quatre questions
   const actives = ORDRE.reduce((s, k) => s + E[k].actives, 0);

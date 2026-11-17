@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Les offres</title>
-<link rel="stylesheet" href="assets/commun.css?v=10">
+<link rel="stylesheet" href="assets/commun.css?v=11">
 </head>
 <body>
 <main>
   <nav id="nav"></nav>
   <header class="hero">
-    <p class="etiquette">Étape 3 · Le marché</p>
+    <p class="etiquette">Étape 3 · Ce qui en ressort (1/2)</p>
     <h1 id="metier">Chargement…</h1>
     <p class="sub">Combien d'offres, quels contrats, quels salaires, où en France et quels outils demandés : le marché d'après les offres publiées chaque jour sur France Travail.</p>
   </header>
@@ -50,17 +50,8 @@
     <p class="note" id="salaires-note"></p>
   </div>
 
-  <h2 class="st">Les outils demandés, et mon niveau</h2>
-  <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Ce que le M2 m'a appris, et ce qu'il me reste à acquérir</h2>
-    <p class="repere" id="a-acquerir"></p>
-    <div class="bilan" id="bilan"></div>
-    <p class="note">Le chiffre à droite de chaque outil est le nombre d'entreprises différentes qui le citent dans les annonces. Les outils entourés sont ceux que je dois acquérir cette année.</p>
-    <details class="mini"><summary>Sources et limites de ce bilan</summary><p id="formation-note"></p></details>
-  </div>
-
   <details class="depliant">
-    <summary>Les compétences et outils cités dans les annonces (listes complètes)</summary>
+    <summary>Les compétences et outils les plus cités dans les annonces</summary>
     <div class="grille" style="margin-bottom:0">
       <div class="carte"><h2>Compétences les plus citées</h2><div id="competences"></div></div>
       <div class="carte"><h2>Outils cités dans les annonces</h2><div id="outils"></div><p class="note" id="outils-note"></p></div>
@@ -139,37 +130,6 @@ fetch(fichierResume())
     document.getElementById('outils-note').textContent =
       'Classés par nombre d\'entreprises différentes qui les citent (annonces lues : ' + x.outils.avec_texte + '), pour qu\'un employeur qui répète la même annonce ne fausse pas le classement.' +
       (x.outils.absents.length ? ' Suivis mais cités dans aucune annonce : ' + x.outils.absents.join(', ') + '.' : '');
-
-    fetch('data/formation.json').then(r => r.json()).then(f => {
-      const NIVEAUX = [
-        { cle: 'col-1', titre: 'Vu en cours', sous: 'ou déjà maîtrisé', test: n => /vu en cours|je le connais/.test(n) },
-        { cle: 'col-2', titre: 'Théorie seulement', sous: 'ou un peu pratiqué', test: n => /théorie|un peu/.test(n) },
-        { cle: 'col-3', titre: 'Pas vu en cours', sous: 'ou que je ne connais pas', test: n => /pas vu|ne le connais pas/.test(n) },
-        { cle: 'col-4', titre: 'Notions de base', sous: 'non enseignées, mais acquises', test: n => /notion de base/.test(n) },
-      ];
-      const outilsVus = x.outils.liste.filter(o => f.outils[o.nom] && f.outils[o.nom].vu);
-      const zoneBilan = document.getElementById('bilan');
-      NIVEAUX.forEach(nv => {
-        const col = el('div', { className: nv.cle }, [el('h3', { textContent: nv.titre }), el('p', { className: 'sous', textContent: nv.sous })]);
-        const liste = outilsVus.filter(o => nv.test((f.outils[o.nom].vu.niveau || '').toLowerCase()));
-        liste.forEach(o => {
-          const cible = f.outils[o.nom].vu.a_acquerir && o.entreprises >= SEUIL_ENTREPRISES;
-          col.appendChild(el('span', { className: 'pastille' + (cible ? ' cible' : ''), title: f.outils[o.nom].vu.precision || '' }, [document.createTextNode(o.nom.replace(/ \(.*\)$/, '').replace(/ \/ .*/, '')), el('b', { textContent: String(o.entreprises) })]));
-        });
-        if (!liste.length) col.appendChild(el('p', { className: 'vide', textContent: 'Aucun outil cité' }));
-        zoneBilan.appendChild(col);
-      });
-      const absentsVus = x.outils.absents.filter(n => f.outils[n] && f.outils[n].vu).map(n => n + ' (' + f.outils[n].vu.niveau + ')');
-      if (absentsVus.length) document.getElementById('outils-note').textContent += ' Mon bilan sur ceux-là : ' + absentsVus.join(', ') + '.';
-      const aAcquerir = x.outils.liste.filter(o => (f.outils[o.nom]?.vu || {}).a_acquerir && o.entreprises >= SEUIL_ENTREPRISES);
-      document.getElementById('a-acquerir').textContent = aAcquerir.length
-        ? 'À acquérir cette année : ' + aAcquerir.map(o => o.nom.replace(/ \(.*\)$/, '') + ' (' + o.entreprises + ' entreprises)').join(', ') + '.'
-        : '';
-      const note = document.getElementById('formation-note');
-      note.append(f.limites + ' Sources : ');
-      f.sources.forEach((s, i) => { if (i) note.append(' et '); note.appendChild(el('a', { href: s.url, target: '_blank', rel: 'noopener', textContent: s.libelle })); });
-      note.append(', lus le ' + dateFr(f.lu_le) + '.');
-    });
 
     const sal = document.getElementById('salaires');
     x.salaires.groupes.forEach(g => sal.appendChild(el('tr', {}, [

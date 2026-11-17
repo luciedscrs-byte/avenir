@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>avenir — Ma formation</title>
+<link rel="stylesheet" href="assets/commun.css?v=11">
+</head>
+<body>
+<main>
+  <nav id="nav"></nav>
+
+  <header class="hero">
+    <p class="etiquette">Étape 5 · Ma formation</p>
+    <h1>Ce que ma formation m'apporte, et ce qu'il me manque</h1>
+    <p class="sub">Je compare les métiers visés par le M2 et les outils demandés dans les annonces à ce que j'ai réellement vu en cours.</p>
+  </header>
+  <p id="erreur"></p>
+
+  <h2 class="st">Ce que le M2 vise</h2>
+  <div class="chips" id="formation-chips"></div>
+  <p class="intro" id="formation-vise"></p>
+
+  <h2 class="st">Ce que j'ai vu, ce qu'il me manque</h2>
+  <div class="carte" style="margin-bottom:1.5rem">
+    <p class="repere" id="a-acquerir"></p>
+    <div class="bilan" id="bilan"></div>
+    <p class="note">Le chiffre à droite de chaque outil est le nombre d'entreprises différentes qui le citent dans les annonces de vrais CDI et CDD du code M1620. Les outils entourés sont ceux que je dois acquérir cette année.</p>
+    <details class="mini"><summary>Sources et limites de ce bilan</summary><p id="formation-note"></p></details>
+  </div>
+
+  <footer>Sources : page de la formation et descriptif PDF 2026-2027 de l'IAE Clermont Auvergne, <span id="lu-le"></span>.</footer>
+</main>
+
+<script src="assets/commun.js"></script>
+<script>
+navigation('formation.html');
+const SEUIL_ENTREPRISES = 3;
+
+Promise.all([
+  fetch('data/resume_emploi.json').then(r => r.json()),
+  fetch('data/formation.json').then(r => r.json()),
+  fetch('data/questions.json').then(r => r.json()),
+]).then(([d, f, q]) => {
+  const x = d.derniere;
+  document.getElementById('lu-le').textContent = 'lus le ' + dateFr(f.lu_le);
+  const zoneChips = document.getElementById('formation-chips');
+  f.metiers_vises_descriptif.forEach(m => zoneChips.appendChild(el('span', { className: 'chip marine' }, [document.createTextNode(m)])));
+  f.codes_rome_vises_descriptif.forEach(c => zoneChips.appendChild(el('span', { className: 'chip code', textContent: c })));
+  document.getElementById('formation-vise').textContent =
+    'Le M2 Marketing opérationnel et digital de l\'IAE Clermont Auvergne vise surtout des postes de responsable (en bleu, les métiers cités dans son descriptif ; en gris, ses codes ROME). ' +
+    'M1620 n\'en fait pas partie, mais la page de la formation cite « Assistant-e marketing » parmi les métiers visés. ' +
+    'Selon sa fiche France Travail, M1620 est accessible dès Bac+2 / Bac+3, alors que le diplôme est de niveau Bac+5.';
+      const NIVEAUX = [
+        { cle: 'col-1', titre: 'Vu en cours', sous: 'ou déjà maîtrisé', test: n => /vu en cours|je le connais/.test(n) },
+        { cle: 'col-2', titre: 'Théorie seulement', sous: 'ou un peu pratiqué', test: n => /théorie|un peu/.test(n) },
+        { cle: 'col-3', titre: 'Pas vu en cours', sous: 'ou que je ne connais pas', test: n => /pas vu|ne le connais pas/.test(n) },
+        { cle: 'col-4', titre: 'Notions de base', sous: 'non enseignées, mais acquises', test: n => /notion de base/.test(n) },
+      ];
+      const outilsVus = x.outils.liste.filter(o => f.outils[o.nom] && f.outils[o.nom].vu);
+      const zoneBilan = document.getElementById('bilan');
+      NIVEAUX.forEach(nv => {
+        const col = el('div', { className: nv.cle }, [el('h3', { textContent: nv.titre }), el('p', { className: 'sous', textContent: nv.sous })]);
+        const liste = outilsVus.filter(o => nv.test((f.outils[o.nom].vu.niveau || '').toLowerCase()));
+        liste.forEach(o => {
+          const cible = f.outils[o.nom].vu.a_acquerir && o.entreprises >= SEUIL_ENTREPRISES;
+          col.appendChild(el('span', { className: 'pastille' + (cible ? ' cible' : ''), title: f.outils[o.nom].vu.precision || '' }, [document.createTextNode(o.nom.replace(/ \(.*\)$/, '').replace(/ \/ .*/, '')), el('b', { textContent: String(o.entreprises) })]));
+        });
+        if (!liste.length) col.appendChild(el('p', { className: 'vide', textContent: 'Aucun outil cité' }));
+        zoneBilan.appendChild(col);
+      });
+      const aAcquerir = x.outils.liste.filter(o => (f.outils[o.nom]?.vu || {}).a_acquerir && o.entreprises >= SEUIL_ENTREPRISES);
+      document.getElementById('a-acquerir').textContent = aAcquerir.length
+        ? 'À acquérir cette année : ' + aAcquerir.map(o => o.nom.replace(/ \(.*\)$/, '') + ' (' + o.entreprises + ' entreprises)').join(', ') + '.'
+        : '';
+      const note = document.getElementById('formation-note');
+      note.append(f.limites + ' Sources : ');
+      f.sources.forEach((s, i) => { if (i) note.append(' et '); note.appendChild(el('a', { href: s.url, target: '_blank', rel: 'noopener', textContent: s.libelle })); });
+      note.append(', lus le ' + dateFr(f.lu_le) + '.');
+
+  // LinkedIn est peu cité dans les annonces d'assistant, mais beaucoup plus dans celles de responsable : on le dit
+  const li = q.outils.outils.find(o => o.nom === 'LinkedIn');
+  const deja = document.getElementById('a-acquerir');
+  if (li && f.outils['LinkedIn'] && f.outils['LinkedIn'].vu && f.outils['LinkedIn'].vu.a_acquerir && !/LinkedIn/.test(deja.textContent)) {
+    deja.textContent = (deja.textContent || 'À acquérir cette année :').replace(/\.$/, '') + ', et LinkedIn, cité dans ' + li.assistant + ' % des annonces d\'assistant mais ' + li.responsable_marketing + ' % de celles de responsable marketing.';
+  }
+}).catch(err => {
+  console.error(err);
+  document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
+});
+</script>
+</body>
+</html>

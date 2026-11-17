@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>avenir — Comment j'ai fait</title>
+<link rel="stylesheet" href="assets/commun.css?v=11">
+</head>
+<body>
+<main>
+  <nav id="nav"></nav>
+
+  <header class="hero">
+    <p class="etiquette">Étape 2 · Comment j'ai fait</p>
+    <h1>Comment j'ai mis en place la recherche</h1>
+    <p class="sub">Un petit programme interroge chaque jour les offres d'emploi, les enregistre, et ce site les affiche. Tout tient en cinq maillons.</p>
+  </header>
+  <p id="erreur"></p>
+
+  <h2 class="st">La chaîne en cinq maillons</h2>
+  <p class="intro">Chaque maillon donne ce que je fais, en une phrase, et l'outil utilisé.</p>
+  <div class="chaine">
+    <div class="maillon">
+      <span class="num-etape">1</span>
+      <h3>Choisir le métier</h3>
+      <p>Je choisis un code ROME, qui classe chaque métier chez France Travail (M1620 pour l'assistant marketing), et des mots-clés pour les postes de responsable.</p>
+      <span class="outil">Métierscope</span>
+    </div>
+    <div class="maillon">
+      <span class="num-etape">2</span>
+      <h3>Obtenir l'accès</h3>
+      <p>Je crée un compte développeur France Travail. Il me donne une clé (des identifiants) qui m'autorise à interroger les offres.</p>
+      <span class="outil">API France Travail</span>
+    </div>
+    <div class="maillon">
+      <span class="num-etape">3</span>
+      <h3>Récupérer les offres</h3>
+      <p>Un script interroge l'API et enregistre les offres du jour dans un fichier daté. Un autre croise les entreprises de data.gouv.</p>
+      <span class="outil">Python</span>
+    </div>
+    <div class="maillon">
+      <span class="num-etape">4</span>
+      <h3>Automatiser</h3>
+      <p>GitHub lance le script tout seul chaque jour, sans que mon ordinateur soit allumé, et sauvegarde le résultat. Mes clés sont cachées dans ses « secrets ».</p>
+      <span class="outil">GitHub Actions</span>
+    </div>
+    <div class="maillon">
+      <span class="num-etape">5</span>
+      <h3>Afficher</h3>
+      <p>Ce site, hébergé gratuitement, lit les fichiers et affiche les chiffres : il se met à jour sans que je touche à rien.</p>
+      <span class="outil">GitHub Pages</span>
+    </div>
+  </div>
+
+  <h2 class="st">Ce que ça donne</h2>
+  <div class="tuiles-mini" id="chiffres-methode" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))"></div>
+  <p class="note">Pour vérifier : l'onglet « Actions » du dépôt GitHub montre une exécution verte par jour, et l'onglet « commits » un enregistrement par jour signé « veille-bot ».</p>
+
+  <h2 class="st">Ce que j'ai respecté</h2>
+  <div class="grille">
+    <div class="carte"><h3 style="margin:0 0 0.4rem">Des sources officielles</h3><p style="margin:0">Uniquement des API publiques (France Travail, data.gouv, geo.api.gouv). Aucune copie de LinkedIn, de l'Apec ou d'Indeed.</p></div>
+    <div class="carte"><h3 style="margin:0 0 0.4rem">Aucune donnée personnelle</h3><p style="margin:0">Le site ne contient que des données sur les offres et les entreprises, aucun nom de personne (règle RGPD).</p></div>
+    <div class="carte"><h3 style="margin:0 0 0.4rem">Des clés protégées</h3><p style="margin:0">Mes identifiants ne sont jamais écrits dans le code : ils restent dans les « secrets » de GitHub.</p></div>
+  </div>
+
+  <details class="depliant">
+    <summary>Pour aller plus loin : le détail technique</summary>
+    <p style="margin:0 0 0.75rem">Le dépôt GitHub contient les scripts (dossier <code>scripts</code>), les fichiers de données datés (dossier <code>data</code>) et ce site. Le README explique chaque fichier, les sources, les limites et la règle de comptage des offres. L'automatisation demande 7 h, mais GitHub l'exécute en pratique entre 11 h et 16 h, car il retarde les tâches planifiées quand il est chargé.</p>
+    <p style="margin:0"><a href="https://github.com/luciedscrs-byte/avenir#readme" target="_blank" rel="noopener">Lire le README</a></p>
+  </details>
+
+  <footer>Le code et les données sont publics : <a href="https://github.com/luciedscrs-byte/avenir" target="_blank" rel="noopener">github.com/luciedscrs-byte/avenir</a>.</footer>
+</main>
+
+<script src="assets/commun.js"></script>
+<script>
+navigation('methode.html');
+Promise.all([
+  fetch('data/resume.json').then(r => r.json()),
+  fetch('data/entreprises_resume.json').then(r => r.json()),
+]).then(([d, ent]) => {
+  const zone = document.getElementById('chiffres-methode');
+  const tuile = (gros, texte) => zone.appendChild(el('div', {}, [el('b', { textContent: gros }), el('span', { textContent: texte })]));
+  tuile(String(d.serie.length), 'extractions depuis le ' + dateCourte(d.serie[0].date));
+  tuile('1 / jour', 'sans mon ordinateur');
+  tuile(fr(ent.total), 'entreprises recensées (data.gouv)');
+  tuile('0', 'serveur à payer');
+}).catch(() => {
+  document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
+});
+</script>
+</body>
+</html>

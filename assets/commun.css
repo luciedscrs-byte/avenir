@@ -299,3 +299,14 @@
   .evo-texte b { display: inline-block; min-width: 4.5rem; }
   .evo-hausse { color: var(--mulberry); font-weight: 600; } .evo-baisse { color: var(--blue); font-weight: 600; }
   @media (max-width: 720px) { .evo-ligne { grid-template-columns: minmax(0, 1fr) 6.5rem; } .evo-piste { grid-column: 1 / -1; } .evo-ligne > :last-child { display: none; } }
+
+  /* méthode : la chaîne en cinq maillons */
+  .chaine { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.4rem; counter-reset: m; }
+  .maillon { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 1.25rem; position: relative; display: flex; flex-direction: column; }
+  .maillon:not(:last-child)::after { content: "→"; position: absolute; right: -1.25rem; top: 1.6rem; width: 1.1rem; text-align: center; color: var(--mulberry); font-size: 1.2rem; }
+  .maillon .num-etape { display: inline-flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--mulberry); color: var(--paper); font-family: var(--serif); margin-bottom: 0.7rem; }
+  .maillon:nth-child(2n) .num-etape { background: var(--blue); } .maillon:nth-child(3n) .num-etape { background: var(--navy); }
+  .maillon h3 { margin: 0 0 0.4rem; }
+  .maillon p { margin: 0 0 0.9rem; font-size: 0.88rem; color: var(--muted); }
+  .maillon .outil { margin-top: auto; align-self: flex-start; font-size: 0.78rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 999px; background: var(--oat); color: var(--navy); }
+  @media (max-width: 900px) { .chaine { grid-template-columns: minmax(0, 1fr); } .maillon:not(:last-child)::after { content: "↓"; right: auto; left: 1.9rem; top: auto; bottom: -1.3rem; } }

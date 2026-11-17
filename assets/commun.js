@@ -50,9 +50,11 @@ function courbe(valeurs, largeur, hauteur, etiquette, plafond) {
 const PAGES = [
   ['index.html', 'Accueil'],
   ['metier.html', 'Le métier'],
+  ['methode.html', 'Méthode'],
   ['offres.html', 'Les offres'],
   ['mouvement.html', 'Comment ça bouge'],
   ['entreprises.html', 'Marché caché'],
+  ['formation.html', 'Formation'],
   ['actions.html', 'Conclusion'],
 ];
 
