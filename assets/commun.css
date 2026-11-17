@@ -80,8 +80,18 @@
   .chip b { display: inline-flex; align-items: center; justify-content: center; min-width: 1.6rem; height: 1.6rem; padding: 0 0.35rem; border-radius: 999px; background: var(--mulberry); color: var(--paper); font-size: 0.8rem; }
   .chip.bleu b { background: var(--blue); } .chip.marine b { background: var(--navy); }
   .chip.code { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.03em; background: var(--oat); border-color: var(--oat); }
-  .bandeau-intitules { margin: 1.5rem 0 0; padding: 1.1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .bandeau-intitules .chip { font-family: var(--serif); font-size: 1.05rem; background: transparent; border-color: var(--line); }
+  /* les quatre intitulés : une bande sur toute la largeur de la page */
+  .intitules-bande { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1.5rem -1.5rem; }
+  .intitules-bande a { display: flex; flex-direction: column; justify-content: space-between; gap: 1.6rem; min-height: 9.5rem; padding: 1.4rem 1.5rem; text-decoration: none; border-radius: 0; }
+  .intitules-bande a:hover { filter: brightness(1.1); background: inherit; }
+  .intitules-bande b { font-family: var(--serif); font-weight: 400; font-size: 1.75rem; line-height: 1.1; letter-spacing: -0.01em; }
+  .intitules-bande .etiquette { color: inherit; opacity: 0.85; margin: 0; }
+  .intitules-bande .etiquette::after { content: ")"; }
+  .intitules-bande a:nth-child(1) { background: var(--mulberry); color: var(--oat); }
+  .intitules-bande a:nth-child(2) { background: var(--blue); color: #fff; }
+  .intitules-bande a:nth-child(3) { background: var(--navy); color: var(--oat); }
+  .intitules-bande a:nth-child(4) { background: var(--oat); color: var(--navy); }
+  @media (max-width: 800px) { .intitules-bande { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 1.25rem -1rem; } .intitules-bande a { min-height: 7.5rem; padding: 1.1rem; } .intitules-bande b { font-size: 1.4rem; } }
 
   /* titres de partie */
   .st { font-size: 2rem; line-height: 1.15; margin: 3.25rem 0 0.5rem; letter-spacing: -0.015em; }
