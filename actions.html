@@ -3,18 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>avenir — Ce que je ferai ensuite</title>
-<link rel="stylesheet" href="assets/commun.css?v=7">
+<title>avenir — Conclusion et suite</title>
+<link rel="stylesheet" href="assets/commun.css?v=8">
 </head>
 <body>
 <main>
   <nav id="nav"></nav>
 
   <header class="hero">
-    <p class="etiquette">Et ensuite</p>
-    <h1>Ce que je ferai ensuite</h1>
-    <p class="sub">Ces actions sont prévues, pas encore réalisées : le projet s'arrête au rendu du 19 novembre 2026. Chacune s'appuie sur un chiffre de ce site (état au 17 novembre 2026), et les échéances sont indicatives.</p>
+    <p class="etiquette">Étape 6 · Conclusion et suite</p>
+    <h1>Ce que j'en conclus, et ce que je ferai ensuite</h1>
+    <p class="sub">Les constats des pages précédentes, ma position, puis mes prochaines actions.</p>
   </header>
+  <p id="erreur"></p>
+
+  <h2 class="st">Ce que j'ai trouvé</h2>
+  <p class="intro">Quatre constats tirés des offres. Chacun repose sur peu d'offres : les pages détaillées donnent le nombre à côté de chaque chiffre.</p>
+  <div class="grille" id="constats" style="grid-template-columns:repeat(auto-fit,minmax(215px,1fr))"></div>
+
+  <h2 class="st">Ma conclusion</h2>
+  <p class="intro">Ce que je retiens de ces offres, et ce que je compte en faire.</p>
+  <div class="conclusion">
+    <div class="position">
+      <p class="etiquette">Ma position</p>
+      <p class="gros-texte" id="c-position"></p>
+      <p id="c-marche"></p>
+    </div>
+    <div class="grille" style="margin:1rem 0 0">
+      <div class="carte"><h3 style="margin:0 0 0.4rem">Où chercher</h3><p id="c-ou" style="margin:0"></p></div>
+      <div class="carte"><h3 style="margin:0 0 0.4rem">Ce que je dois acquérir</h3><p id="c-acquerir" style="margin:0"></p></div>
+      <div class="carte"><h3 style="margin:0 0 0.4rem">Ce que ces chiffres ne disent pas</h3><p id="c-limites" style="margin:0"></p></div>
+    </div>
+  </div>
+
+  <h2 class="st">Mes prochaines actions</h2>
+  <p class="intro">Ces actions sont prévues, pas encore réalisées : le projet s'arrête au rendu du 19 novembre 2026. Chacune s'appuie sur un chiffre de ce site, et les échéances sont indicatives.</p>
 
   <h2 class="st">Me rendre visible</h2>
   <div class="grille">
@@ -61,6 +84,58 @@
   <footer>Ces actions figurent aussi dans le <a href="https://github.com/luciedscrs-byte/avenir#9-ce-que-je-ferai-ensuite-actions-%C3%A0-mener" target="_blank" rel="noopener">README</a>.</footer>
 </main>
 <script src="assets/commun.js"></script>
-<script>navigation('actions.html', false);</script>
+<script>
+navigation('actions.html', false);
+
+function constat(gros, texte, lien, libelle) {
+  return el('div', { className: 'carte decouverte' }, [
+    el('p', { className: 'gros', textContent: gros }),
+    el('p', { textContent: texte }),
+    el('a', { href: lien, textContent: libelle + ' →' }),
+  ]);
+}
+const part = (rep, nom) => { const r = rep.find(x => x.nom === nom); return r ? r.part : 0; };
+
+fetch('data/questions.json').then(r => r.json()).then(q => {
+  const c = document.getElementById('constats');
+  const monte = q.outils.outils.filter(o => o.ecart > 0)[0];
+  if (monte) c.appendChild(constat(monte.assistant + ' % → ' + monte.responsable_marketing + ' %',
+    'Des assistants aux responsables marketing, les outils de pilotage montent : ' + monte.nom + ' passe de ' + monte.assistant + ' % à ' + monte.responsable_marketing + ' % des annonces.', 'metier.html', 'Voir les outils'));
+  const p = q.paris['responsable-marketing'];
+  c.appendChild(constat(p.idf_part + ' %',
+    'des offres de responsable marketing sont en Île-de-France' + (p.idf_part < 50 ? ' : la majorité des offres est ailleurs en France.' : '.'), 'entreprises.html#carte-territoire', 'Voir la carte'));
+  const e = q.experience['responsable-marketing'];
+  c.appendChild(constat(part(e.repartition, 'Débutant accepté') + ' %',
+    'des offres de responsable marketing acceptent un débutant ; ' + e.cadre + ' % sont des postes cadres.', 'metier.html', 'Voir l\'expérience demandée'));
+  const t = q.recruteurs['responsable-marketing'].types.slice(0, 2);
+  c.appendChild(constat(t[0].nom.split(',')[0],
+    'est le type d\'employeur le plus fréquent du responsable marketing (' + t[0].n + ' offres), ' + (t[0].n === t[1].n ? 'à égalité avec ' : 'devant ') + t[1].nom.split(',')[0].toLowerCase() + ' (' + t[1].n + ') : le secteur compte autant que l\'intitulé.', 'metier.html', 'Voir qui recrute'));
+
+  // ---------- Ma conclusion (le texte est écrit à la main, les chiffres viennent des données)
+  const X = q.echelle, A = X['assistant-marketing'], C = X['charge-marketing'], RM = X['responsable-marketing'], RE = X['responsable-ecommerce'];
+  document.getElementById('c-position').textContent =
+    'Je vise d\'abord un poste d\'assistant marketing en CDI ou CDD, sous ses différents intitulés, avec pour finalité un poste à responsabilité : responsable e-commerce ou responsable marketing, si possible en passant par un poste de chargé(e) de marketing.';
+  document.getElementById('c-marche').textContent =
+    'Au vu de mon parcours professionnel (deux stages), il me paraît cohérent de ne pas viser tout de suite un poste de responsable. Les offres le confirment : ' + RE.debutant + ' % des annonces de responsable e-commerce et ' + RM.debutant +
+    ' % de celles de responsable marketing acceptent un débutant, contre ' + A.debutant + ' % pour l\'assistant ; ' + RM.cadre + ' % des annonces de responsable marketing sont des postes cadres, contre ' + A.cadre + ' % pour l\'assistant. ' +
+    'Le salaire affiché suit la même pente : environ ' + fr(A.salaire.mediane) + ' € bruts par mois pour l\'assistant, ' + fr(C.salaire.mediane) + ' € pour le chargé(e), ' + fr(RM.salaire.mediane) + ' € pour le responsable marketing.';
+  const P = q.paris;
+  const ind = q.recruteurs['responsable-marketing'].types[0];
+  document.getElementById('c-ou').textContent =
+    'Pas seulement à Paris : l\'Île-de-France ne regroupe que ' + P['assistant-marketing'].idf_part + ' % des offres d\'assistant et ' + P['responsable-marketing'].idf_part + ' % de celles de responsable marketing. ' +
+    'Pas seulement dans le numérique et les agences : « ' + ind.nom.split(',')[0] + ' » est le type d\'employeur le plus fréquent du responsable marketing (' + ind.n + ' offres). ' +
+    'Et pas seulement dans les annonces : la carte du marché caché me dit où envoyer des candidatures spontanées.';
+  const outil = nom => q.outils.outils.find(o => o.nom === nom);
+  const li = outil('LinkedIn'), crm = outil('CRM');
+  document.getElementById('c-acquerir').textContent =
+    'Les outils de pilotage qui montent avec le poste : ' + (li ? 'LinkedIn (' + li.assistant + ' % des annonces d\'assistant, ' + li.responsable_marketing + ' % de celles de responsable marketing)' : 'LinkedIn') +
+    (crm ? ', un CRM (' + crm.assistant + ' % puis ' + crm.responsable_marketing + ' %)' : ', un CRM') + ', ainsi que l\'emailing et Adobe, que j\'ai repérés comme écarts. Mes prochaines actions sont sur la page « Et ensuite ».';
+  document.getElementById('c-limites').textContent =
+    'Peu d\'offres actives : ' + A.actives + ' pour l\'assistant, ' + C.actives + ' pour le chargé(e), ' + RM.actives + ' pour le responsable marketing, ' + RE.actives + ' pour le responsable e-commerce. ' +
+    'Des suivis de longueurs différentes : ' + A.jours + ' extractions pour l\'assistant et le chargé(e), ' + RM.jours + ' pour les responsables. Un salaire affiché dans une minorité d\'annonces. Ce sont des tendances, pas des vérités.';
+}).catch(() => {
+  document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
+});
+</script>
 </body>
 </html>

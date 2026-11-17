@@ -21,8 +21,9 @@
   h1, h2, h3, h4, .gros, .st, details.depliant > summary { font-family: var(--serif); font-weight: 400; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
   h1 { font-size: 2.7rem; line-height: 1.08; margin: 0 0 0.75rem; letter-spacing: -0.02em; }
   h1 em, .st em, h2 em { font-style: normal; color: inherit; }
-  h2 { font-size: 1.15rem; margin: 0 0 1rem; }
-  h3 { font-size: 1.05rem; }
+  h2 { font-size: 1.05rem; margin: 0 0 1rem; letter-spacing: 0.04em; text-transform: uppercase; }
+  h3 { font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; }
+  h1 { text-transform: none; }
   .sub { color: var(--muted); margin: 0; font-size: 1.05rem; max-width: 44rem; }
   .sub code { background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; font-size: 0.85em; }
 
@@ -94,7 +95,7 @@
   @media (max-width: 800px) { .intitules-bande { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 1.25rem -1rem; } .intitules-bande a { min-height: 7.5rem; padding: 1.1rem; } .intitules-bande b { font-size: 1.4rem; } }
 
   /* titres de partie */
-  .st { font-size: 2rem; line-height: 1.15; margin: 3.25rem 0 0.5rem; letter-spacing: -0.015em; }
+  .st { font-size: 1.6rem; line-height: 1.2; margin: 3.25rem 0 0.5rem; letter-spacing: 0.04em; text-transform: uppercase; }
   .st::before { content: "✦"; color: var(--blue); font-size: 0.55em; margin-right: 0.6rem; vertical-align: 0.25em; }
   .intro { color: var(--muted); margin: 0 0 1.25rem; max-width: 44rem; }
 
@@ -248,3 +249,47 @@
   .position .gros-texte { font-family: var(--serif); font-size: 1.7rem; line-height: 1.3; margin: 0 0 1rem; color: #fff; }
   .position p:last-child { margin: 0; max-width: 52rem; }
   @media (max-width: 720px) { .position { padding: 1.4rem; } .position .gros-texte { font-size: 1.3rem; } }
+
+  /* les titres de questions restent en minuscules : trop longs pour des capitales */
+  .bloc-question h3, .carte-bloc > h3, details.depliant h2, .intitules-bande b, .marche h3, .position .gros-texte, .carte-detail h3 { text-transform: none; letter-spacing: -0.005em; }
+  .marche h3 { font-size: 1.3rem; }
+  .carte-detail h3 { font-size: 1.15rem; }
+
+  /* page suivante, pour dérouler le site à l'oral */
+  .suite { display: flex; justify-content: flex-end; margin-top: 3rem; }
+  .suite .btn { font-size: 1.05rem; }
+
+  /* démarche en six étapes */
+  .etapes.six { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 800px) { .etapes.six { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 480px) { .etapes.six { grid-template-columns: minmax(0, 1fr); } }
+
+  /* bilan des outils par niveau */
+  .bilan { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin: 0.5rem 0 0.75rem; }
+  .bilan > div { border-radius: 20px; padding: 1rem; }
+  .bilan h3 { font-size: 0.85rem; margin: 0 0 0.2rem; text-transform: none; letter-spacing: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 600; }
+  .bilan .sous { font-size: 0.75rem; margin: 0 0 0.7rem; opacity: 0.85; }
+  .bilan .col-1 { background: var(--mulberry); color: var(--oat); }
+  .bilan .col-2 { background: var(--blue); color: #fff; }
+  .bilan .col-3 { background: var(--navy); color: var(--oat); }
+  .bilan .col-4 { background: var(--oat); color: var(--navy); }
+  .bilan .pastille { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; padding: 0.25rem 0.3rem 0.25rem 0.7rem; margin: 0 0.3rem 0.4rem 0; border-radius: 999px; background: rgba(255, 255, 255, 0.16); }
+  .bilan .col-4 .pastille { background: rgba(2, 46, 74, 0.1); }
+  .bilan .pastille b { display: inline-flex; align-items: center; justify-content: center; min-width: 1.4rem; height: 1.4rem; padding: 0 0.3rem; border-radius: 999px; background: var(--paper); color: var(--navy); font-size: 0.72rem; }
+  .bilan .pastille.cible { outline: 2px solid var(--paper); }
+  .bilan .col-4 .pastille.cible { outline-color: var(--mulberry); }
+  .bilan .vide { font-size: 0.8rem; opacity: 0.8; margin: 0; }
+  @media (max-width: 900px) { .bilan { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 480px) { .bilan { grid-template-columns: minmax(0, 1fr); } }
+
+  /* mouvement : tuiles, barres jour par jour, évolution des outils */
+  .flux-svg { width: 100%; height: auto; display: block; margin: 0.5rem 0; }
+  .evo-ligne { display: grid; grid-template-columns: 11rem minmax(0, 1fr) 9.5rem 100px; gap: 0.75rem; align-items: center; padding: 0.45rem 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+  .evo-ligne:last-child { border-bottom: none; }
+  .evo-piste { position: relative; height: 10px; background: var(--oat); border-radius: 5px; }
+  .evo-piste span { position: absolute; left: 0; top: 0; height: 100%; border-radius: 5px; background: var(--mulberry); }
+  .evo-piste i { position: absolute; top: -3px; width: 3px; height: 16px; background: var(--blue); border-radius: 2px; }
+  .evo-texte { font-variant-numeric: tabular-nums; }
+  .evo-texte b { display: inline-block; min-width: 4.5rem; }
+  .evo-hausse { color: var(--mulberry); font-weight: 600; } .evo-baisse { color: var(--blue); font-weight: 600; }
+  @media (max-width: 720px) { .evo-ligne { grid-template-columns: minmax(0, 1fr) 6.5rem; } .evo-piste { grid-column: 1 / -1; } .evo-ligne > :last-child { display: none; } }

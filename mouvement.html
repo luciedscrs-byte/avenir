@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Comment le métier bouge</title>
-<link rel="stylesheet" href="assets/commun.css?v=7">
+<link rel="stylesheet" href="assets/commun.css?v=8">
 </head>
 <body>
 <main>
@@ -26,22 +26,32 @@
 
   <h2 class="st">Offres nouvelles et disparues</h2>
   <div class="carte" style="margin-bottom:1.5rem">
-    <p id="flux-resume"></p>
-    <div class="tableau">
-      <table>
-        <thead><tr><th>Extraction du</th><th class="num">Offres</th><th class="num">Nouvelles</th><th class="num">Disparues</th></tr></thead>
-        <tbody id="flux"></tbody>
-      </table>
-    </div>
-    <p class="note" id="flux-note"></p>
+    <div class="tuiles-mini" id="flux-tuiles"></div>
+    <div id="flux-graph"></div>
+    <div class="legende-pile"><span><i style="background:var(--mulberry)"></i>Offres nouvelles</span><span><i style="background:var(--blue)"></i>Offres disparues</span></div>
+    <details class="mini"><summary>Le détail, jour par jour</summary>
+      <p id="flux-resume"></p>
+      <div class="tableau">
+        <table>
+          <thead><tr><th>Extraction du</th><th class="num">Offres</th><th class="num">Nouvelles</th><th class="num">Disparues</th></tr></thead>
+          <tbody id="flux"></tbody>
+        </table>
+      </div>
+      <p class="note" id="flux-note"></p>
+    </details>
   </div>
 
   <h2 class="st">Les outils et les mots qu'on suit</h2>
   <div class="carte" style="margin-bottom:1.5rem">
-    <h3 style="font-size:0.95rem;margin:0 0 0.5rem">Outils</h3>
-    <div class="tableau"><table id="t-outils"></table></div>
-    <h3 style="font-size:0.95rem;margin:1.25rem 0 0.5rem">Mots surveillés</h3>
-    <div class="tableau"><table id="t-mots"></table></div>
+    <h3 style="margin:0 0 0.2rem">Outils</h3>
+    <p class="note" style="margin:0 0 0.5rem">La barre montre la part des annonces qui citent l'outil à la dernière extraction ; le trait bleu, sa part à la première.</p>
+    <div id="v-outils"></div>
+    <h3 style="margin:1.5rem 0 0.2rem">Mots surveillés</h3>
+    <div id="v-mots"></div>
+    <details class="mini"><summary>Voir les tableaux complets</summary>
+      <div class="tableau"><table id="t-outils"></table></div>
+      <div class="tableau" style="margin-top:1rem"><table id="t-mots"></table></div>
+    </details>
     <p class="note" id="evolution-note"></p>
   </div>
 
@@ -141,6 +151,51 @@ function evolution(idTable, so, cle, nomsMax) {
     el('tbody', {}, corps));
 }
 
+function evolutionVisuelle(idZone, so, cle, nomsMax) {
+  const part = (s, nom) => 100 * ((s[cle] || {})[nom] || 0) / s.avec_texte;
+  const premiere = so[0], derniere = so[so.length - 1];
+  const noms = [...new Set(so.flatMap(s => Object.keys(s[cle] || {})))]
+    .sort((a, b) => Math.max(part(derniere, b), part(premiere, b)) - Math.max(part(derniere, a), part(premiere, a)))
+    .slice(0, nomsMax);
+  const plafond = Math.max(...noms.flatMap(n => [part(premiere, n), part(derniere, n)]), 1) * 1.1;
+  const zone = document.getElementById(idZone);
+  noms.forEach(nom => {
+    const a = part(premiere, nom), b = part(derniere, nom), ecart = Math.round(b - a);
+    zone.appendChild(el('div', { className: 'evo-ligne' }, [
+      el('span', { textContent: nom.replace(/ \(.*\)$/, '') }),
+      el('div', { className: 'evo-piste' }, [
+        el('span', { style: 'width:' + (100 * b / plafond).toFixed(1) + '%' }),
+        el('i', { style: 'left:calc(' + (100 * a / plafond).toFixed(1) + '% - 1px)', title: 'Première extraction : ' + Math.round(a) + ' %' }),
+      ]),
+      el('span', { className: 'evo-texte' }, [
+        el('b', { textContent: Math.round(a) + ' % → ' + Math.round(b) + ' %' }),
+        el('span', { className: ecart > 0 ? 'evo-hausse' : ecart < 0 ? 'evo-baisse' : '', textContent: ecart === 0 ? '=' : (ecart > 0 ? '▲ +' : '▼ ') + ecart + ' pt' }),
+      ]),
+      el('span', { style: 'color: var(--accent)' }, [courbe(so.map(s => part(s, nom)), 100, 26, 'Part des annonces citant ' + nom, plafond)]),
+    ]));
+  });
+}
+
+function fluxVisuel(m) {
+  const W = 640, H = 210, mid = 105, g = 4;
+  const vmax = Math.max(...m.flux.map(f => Math.max(f.nouvelles, f.disparues)), 1);
+  const racine = svg('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Offres nouvelles et disparues, jour par jour' }, { width: '100%', height: 'auto' });
+  racine.setAttribute('class', 'flux-svg');
+  racine.appendChild(svg('line', { x1: 0, x2: W, y1: mid, y2: mid }, { stroke: 'var(--line)' }));
+  const pas = (W - 2 * g) / m.flux.length, l = Math.max(2, pas * 0.7);
+  m.flux.forEach((f, i) => {
+    const x = g + i * pas + (pas - l) / 2;
+    const hn = f.nouvelles / vmax * (mid - 14), hd = f.disparues / vmax * (H - mid - 22);
+    racine.appendChild(svg('rect', { x: x.toFixed(1), y: (mid - hn).toFixed(1), width: l.toFixed(1), height: hn.toFixed(1), rx: 1.5 }, { fill: 'var(--mulberry)' }));
+    racine.appendChild(svg('rect', { x: x.toFixed(1), y: mid, width: l.toFixed(1), height: hd.toFixed(1), rx: 1.5 }, { fill: 'var(--blue)' }));
+  });
+  [[0, 'start'], [m.flux.length - 1, 'end']].forEach(([i, ancre]) => {
+    const t = svg('text', { x: ancre === 'start' ? g : W - g, y: H - 4, 'text-anchor': ancre, 'font-size': 11 }, { fill: 'var(--muted)' });
+    t.textContent = dateCourte(m.flux[i].date); racine.appendChild(t);
+  });
+  return racine;
+}
+
 fetch(fichierResume()).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => {
   const s = d.serie, premier = s[0], dernier = s[s.length - 1], m = d.mouvement, so = d.serie_outils;
   const pct = (a, b) => Math.round(100 * (b - a) / a);
@@ -169,6 +224,11 @@ fetch(fichierResume()).then(r => { if (!r.ok) throw new Error(r.status); return 
       m.vues + ' offres différentes vues entre le ' + dateFr(m.du) + ' et le ' + dateFr(m.au) + '. ' + m.toute_la_periode +
       ' étaient déjà là le premier jour et le sont encore le dernier. En moyenne par jour : ' + moy('nouvelles') + ' nouvelles, ' + moy('disparues') + ' disparues.' +
       (m.duree_mediane_jours ? ' Durée de vie médiane observée : ' + m.duree_mediane_jours + ' jours (sur ' + m.n_duree + ' offres apparues et disparues pendant la période).' : '');
+    const tu = (gros, texte) => el('div', {}, [el('b', { textContent: gros }), el('span', { textContent: texte })]);
+    const zt = document.getElementById('flux-tuiles');
+    zt.append(tu(moy('nouvelles'), 'nouvelles offres par jour'), tu(moy('disparues'), 'offres disparues par jour'),
+      ...(m.duree_mediane_jours ? [tu(m.duree_mediane_jours + ' jours', 'durée de vie médiane d\'une offre')] : []), tu(String(m.vues), 'offres différentes vues'));
+    document.getElementById('flux-graph').appendChild(fluxVisuel(m));
     const corps = document.getElementById('flux');
     m.flux.slice(-14).reverse().forEach(f => corps.appendChild(el('tr', {}, [
       el('td', { textContent: dateFr(f.date) }),
@@ -180,6 +240,8 @@ fetch(fichierResume()).then(r => { if (!r.ok) throw new Error(r.status); return 
       'Les 14 dernières extractions. « Nouvelle » = identifiant absent de l\'extraction précédente ; une annonce republiée avec un nouvel identifiant compte donc comme une nouvelle.';
   }
 
+  evolutionVisuelle('v-outils', so, 'outils', 12);
+  evolutionVisuelle('v-mots', so, 'mots', 8);
   evolution('t-outils', so, 'outils', 12);
   evolution('t-mots', so, 'mots', 8);
   document.getElementById('evolution-note').textContent =

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Le métier tel que le marché le nomme</title>
-<link rel="stylesheet" href="assets/commun.css?v=7">
+<link rel="stylesheet" href="assets/commun.css?v=8">
 </head>
 <body>
 <main>
@@ -46,13 +46,12 @@
   <h2 class="st">Les quatre questions du cours</h2>
   <p class="intro">Chaque carte donne le chiffre à retenir ; le détail se déplie.</p>
   <div class="grille" id="questions"></div>
-  <p class="note" id="chiffres-note"></p>
 
   <h2 class="st">Ce que m'apprennent d'autres questions</h2>
   <p class="intro" id="autres-intro"></p>
   <div id="autres"></div>
 
-  <footer>Chiffres recalculés à chaque extraction quotidienne : voir les pages <a href="offres.html">Les offres</a> et <a href="mouvement.html">Comment ça bouge</a> pour la requête, la date, le canal et les limites de chacun.</footer>
+  <footer>Les requêtes, dates, canaux et limites de ces chiffres sont détaillés sur la page <a href="offres.html">Les offres</a>.</footer>
 </main>
 
 <script src="assets/commun.js"></script>
@@ -230,13 +229,9 @@ Promise.all([
     ' dans les grandes villes, qu\'elles publient une offre ou non : la liste ne le vérifie pas.',
     'mouvement.html', 'Voir le mouvement.');
 
-  document.getElementById('chiffres-note').textContent =
-    'Source des offres : API France Travail « Offres d\'emploi v2 », extraction du ' + jour + ' (assistant et chargé(e) : code M1620, France entière ; responsables : codes ' + [...ecom.codes, ...mkt.codes].join(', ') +
-    ' et mots-clés, titre vérifié). Source des entreprises : API Recherche d\'entreprises, extraction du ' + dateFr(ent.genere_le) + '.';
-
   // ---------- 5. D'autres questions
   document.getElementById('autres-intro').textContent =
-    'Le cours conseille de poser d\'autres questions au marché et de garder celles qui apprennent quelque chose. Voici celles que j\'ai gardées, pour les quatre postes. Chaque offre est comptée une fois depuis le début du suivi de son poste (' +
+    'Le cours conseille de poser d\'autres questions au marché et de garder celles qui apprennent quelque chose. Voici celles que j\'ai gardées, pour les quatre postes. Le suivi de chaque poste commence à des dates différentes (' +
     ORDRE.map(k => COURT[k] + ' : depuis le ' + dateCourte(Q.postes[k].depuis)).join(' ; ') + '), et les chiffres se recalculent à chaque extraction. Plus une case est foncée, plus la part est élevée.';
   const box = document.getElementById('autres');
   const noms = k => Q.postes[k].libelle;

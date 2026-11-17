@@ -53,7 +53,7 @@ const PAGES = [
   ['offres.html', 'Les offres'],
   ['mouvement.html', 'Comment ça bouge'],
   ['entreprises.html', 'Marché caché'],
-  ['actions.html', 'Et ensuite'],
+  ['actions.html', 'Conclusion'],
 ];
 
 function vue() {
@@ -68,8 +68,18 @@ function fr(n) {
   return Number(n).toLocaleString('fr-FR');
 }
 
+function boutonSuite(courante) {
+  const i = PAGES.findIndex(p => p[0] === courante);
+  if (i < 0 || i >= PAGES.length - 1) return;
+  const [href, nom] = PAGES[i + 1];
+  const bloc = el('div', { className: 'suite' }, [el('a', { className: 'btn', href, textContent: 'Suite : ' + nom })]);
+  const pied = document.querySelector('main > footer');
+  if (pied) pied.before(bloc); else document.querySelector('main').appendChild(bloc);
+}
+
 function navigation(courante, avecVue) {
   const nav = document.getElementById('nav');
+  boutonSuite(courante);
   nav.appendChild(el('a', { className: 'marque', href: 'index.html', textContent: 'avenir' }));
   PAGES.forEach(([href, nom]) => {
     const a = el('a', { href, textContent: nom });
