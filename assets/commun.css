@@ -1,6 +1,5 @@
-  /* Polices : Playfair Display (licence SIL OFL, hébergée sur ce site, voir assets/fonts) pour les titres, police système pour le texte. */
-  @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/playfair-display-latin-600-normal.woff2") format("woff2"); }
-  @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/playfair-display-latin-700-normal.woff2") format("woff2"); }
+  /* Polices : Gloock (licence SIL OFL, hébergée sur ce site, voir assets/fonts) pour les titres, police système pour le texte. */
+  @font-face { font-family: "Gloock"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/gloock-latin-400-normal.woff2") format("woff2"); }
 
   /* Palette : Oat Silk, Mulberry Kiss, Blue Reverie, Midnight Custard (+ « papier », un oat éclairci pour le fond).
      Pour changer les couleurs du site, modifier seulement ces variables. */
@@ -9,7 +8,7 @@
     --bg: var(--mulberry); --page: var(--paper); --card: #fbf8f3; --text: var(--navy); --muted: #4d6276;
     --line: #d9cdbf; --accent: var(--mulberry); --accent-soft: var(--oat); --on-accent: #f5f0e9;
     --accent2: var(--blue); --accent2-text: #3d5f7a; --hero: var(--oat);
-    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --serif: "Gloock", Georgia, "Times New Roman", serif;
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
@@ -20,7 +19,7 @@
   }
   /* la page est une grande feuille arrondie posée sur un cadre coloré */
   main { max-width: 1120px; margin: 0 auto; background: var(--page); border-radius: 32px; padding: 1.25rem 1.5rem 3rem; }
-  h1, h2, h3, .gros, .st { font-family: var(--serif); font-weight: 600; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+  h1, h2, h3, .gros, .st { font-family: var(--serif); font-weight: 400; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
   h1 { font-size: 2.7rem; line-height: 1.08; margin: 0 0 0.75rem; letter-spacing: -0.02em; }
   h1 em, .st em, h2 em { font-style: normal; color: inherit; }
   h2 { font-size: 1.15rem; margin: 0 0 1rem; }
@@ -31,7 +30,7 @@
   /* navigation */
   nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; margin-bottom: 1.25rem; font-size: 0.92rem;
         background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 0.5rem; }
-  nav .marque { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--serif); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  nav .marque { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--serif); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
                 color: var(--mulberry); text-decoration: none; padding: 0.2rem 1rem 0.2rem 0.3rem; margin-right: auto; font-size: 1.05rem; }
   nav .marque::before { content: "✦"; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%;
                         background: var(--mulberry); color: var(--paper); font-size: 0.95rem; letter-spacing: 0; }
@@ -71,7 +70,7 @@
   .tuile::after { content: "✦"; position: absolute; right: 1.1rem; top: 0.9rem; font-size: 1.3rem; opacity: 0.8; }
   .chiffres-hero { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin-top: auto; padding-top: 1.75rem; border-top: 1px solid rgba(2, 46, 74, 0.2); }
   .chiffres-hero div { min-width: 5.5rem; }
-  .chiffres-hero b { display: block; font-family: var(--serif); font-size: 1.9rem; font-weight: 600; font-variant-numeric: lining-nums; line-height: 1.1; }
+  .chiffres-hero b { display: block; font-family: var(--serif); font-size: 1.9rem; font-weight: 400; font-variant-numeric: lining-nums; line-height: 1.1; }
   .chiffres-hero span { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
   @media (max-width: 800px) { .bento { grid-template-columns: minmax(0, 1fr); } .bento .colonne { grid-template-rows: none; grid-template-columns: 1fr 1fr; } .tuile .gros { font-size: 2.4rem; } }
   @media (max-width: 480px) { .bento .colonne { grid-template-columns: minmax(0, 1fr); } }
@@ -137,7 +136,7 @@
   .etape { display: block; text-decoration: none; color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 1.25rem; position: relative; }
   a.etape:hover { background: var(--oat); }
   .etape .num-etape { display: inline-flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--mulberry); color: var(--paper);
-                      font-family: var(--serif); font-weight: 700; margin-bottom: 0.7rem; }
+                      font-family: var(--serif); font-weight: 400; margin-bottom: 0.7rem; }
   .etape:nth-child(2n) .num-etape { background: var(--blue); } .etape:nth-child(3n) .num-etape { background: var(--navy); }
   .etape h3 { margin: 0 0 0.3rem; font-size: 1.1rem; }
   .etape p { margin: 0; color: var(--muted); font-size: 0.9rem; }
@@ -164,7 +163,7 @@
   ol.questions li { margin-bottom: 1rem; }
   ol.questions .reponse { color: var(--muted); font-size: 0.92rem; margin: 0.25rem 0 0; }
   .source { border-left: 3px solid var(--blue); padding: 0.1rem 0 0.1rem 1rem; margin: 1rem 0; }
-  .source .valeur { font-family: var(--serif); font-weight: 600; font-variant-numeric: lining-nums; font-size: 1.8rem; color: var(--accent); margin: 0; line-height: 1.2; }
+  .source .valeur { font-family: var(--serif); font-weight: 400; font-variant-numeric: lining-nums; font-size: 1.8rem; color: var(--accent); margin: 0; line-height: 1.2; }
   .source p { margin: 0.25rem 0; }
   .legende-graphique { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
   .legende-graphique i { display: inline-block; width: 18px; border-top: 2px solid var(--accent); vertical-align: middle; margin-right: 6px; }
@@ -219,7 +218,7 @@
   .pile-nom span:last-child { color: var(--muted); }
   .legende-pile { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; font-size: 0.8rem; color: var(--muted); margin: 0.25rem 0 0.5rem; }
   .legende-pile i { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 3px; margin-right: 0.35rem; vertical-align: -1px; }
-  .repere { font-family: var(--serif); font-weight: 600; font-variant-numeric: lining-nums; font-size: 1.2rem; line-height: 1.4; margin: 0 0 1rem; }
+  .repere { font-family: var(--serif); font-weight: 400; font-variant-numeric: lining-nums; font-size: 1.2rem; line-height: 1.4; margin: 0 0 1rem; }
   .bloc-question { display: flex; flex-direction: column; }
   .bloc-question .gros { font-size: 2.3rem; margin-top: 0.2rem; }
   .bloc-question h3 { margin: 0 0 0.4rem; font-size: 1rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 600; }
@@ -230,5 +229,5 @@
   .carte-bloc > h3 { font-family: var(--serif); font-size: 1.35rem; margin: 0 0 0.5rem; }
   .tuiles-mini { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.6rem; margin: 0.25rem 0 1rem; }
   .tuiles-mini div { background: var(--oat); border-radius: 16px; padding: 0.7rem 0.9rem; }
-  .tuiles-mini b { display: block; font-family: var(--serif); font-variant-numeric: lining-nums; font-size: 1.6rem; font-weight: 600; color: var(--mulberry); line-height: 1.15; }
+  .tuiles-mini b { display: block; font-family: var(--serif); font-variant-numeric: lining-nums; font-size: 1.6rem; font-weight: 400; color: var(--mulberry); line-height: 1.15; }
   .tuiles-mini span { font-size: 0.8rem; color: var(--muted); }
