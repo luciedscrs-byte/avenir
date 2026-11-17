@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-17T08:46:44+00:00",
+  "genere_le": "2026-11-17T09:11:42+00:00",
   "regle": "vrais CDI et CDD, une offre comptée une fois",
   "poste_de_reference": "assistant-marketing",
   "postes": {
@@ -840,11 +840,11 @@
             "part": 55
           },
           {
-            "nom": "développer",
+            "nom": "accompagner",
             "part": 45
           },
           {
-            "nom": "accompagner",
+            "nom": "développer",
             "part": 45
           },
           {
@@ -964,11 +964,11 @@
           "part": 25
         },
         {
-          "nom": "développer",
+          "nom": "mettre",
           "part": 24
         },
         {
-          "nom": "mettre",
+          "nom": "développer",
           "part": 24
         },
         {
