@@ -9,7 +9,6 @@
     --line: #d9cdbf; --accent: var(--mulberry); --accent-soft: var(--oat); --on-accent: #f5f0e9;
     --accent2: var(--blue); --accent2-text: #3d5f7a; --hero: var(--oat);
     --serif: "Gloock", Georgia, "Times New Roman", serif;
-    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -19,7 +18,7 @@
   }
   /* la page est une grande feuille arrondie posée sur un cadre coloré */
   main { max-width: 1120px; margin: 0 auto; background: var(--page); border-radius: 32px; padding: 1.25rem 1.5rem 3rem; }
-  h1, h2, h3, .gros, .st { font-family: var(--serif); font-weight: 400; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+  h1, h2, h3, h4, .gros, .st, details.depliant > summary { font-family: var(--serif); font-weight: 400; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
   h1 { font-size: 2.7rem; line-height: 1.08; margin: 0 0 0.75rem; letter-spacing: -0.02em; }
   h1 em, .st em, h2 em { font-style: normal; color: inherit; }
   h2 { font-size: 1.15rem; margin: 0 0 1rem; }
@@ -46,7 +45,7 @@
   .hero::before { content: "✦"; position: absolute; right: 70px; top: 38px; z-index: 2; color: var(--paper); font-size: 1.6rem; }
   .hero > * { position: relative; z-index: 1; }
   .hero .sub, .hero h1 { max-width: 40rem; }
-  .etiquette { display: inline-block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 1rem; }
+  .etiquette { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 1rem; }
   .etiquette::before { content: "("; } .etiquette::after { content: ")"; }
   .carte .etiquette { margin-bottom: 0.5rem; }
   .hero .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
@@ -71,7 +70,7 @@
   .chiffres-hero { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin-top: auto; padding-top: 1.75rem; border-top: 1px solid rgba(2, 46, 74, 0.2); }
   .chiffres-hero div { min-width: 5.5rem; }
   .chiffres-hero b { display: block; font-family: var(--serif); font-size: 1.9rem; font-weight: 400; font-variant-numeric: lining-nums; line-height: 1.1; }
-  .chiffres-hero span { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+  .chiffres-hero span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
   @media (max-width: 800px) { .bento { grid-template-columns: minmax(0, 1fr); } .bento .colonne { grid-template-rows: none; grid-template-columns: 1fr 1fr; } .tuile .gros { font-size: 2.4rem; } }
   @media (max-width: 480px) { .bento .colonne { grid-template-columns: minmax(0, 1fr); } }
 
@@ -80,7 +79,7 @@
   .chip { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; padding: 0.4rem 0.9rem; border-radius: 999px; background: var(--card); border: 1px solid var(--line); color: var(--text); }
   .chip b { display: inline-flex; align-items: center; justify-content: center; min-width: 1.6rem; height: 1.6rem; padding: 0 0.35rem; border-radius: 999px; background: var(--mulberry); color: var(--paper); font-size: 0.8rem; }
   .chip.bleu b { background: var(--blue); } .chip.marine b { background: var(--navy); }
-  .chip.code { font-family: var(--mono); font-size: 0.8rem; background: var(--oat); border-color: var(--oat); }
+  .chip.code { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.03em; background: var(--oat); border-color: var(--oat); }
   .bandeau-intitules { margin: 1.5rem 0 0; padding: 1.1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .bandeau-intitules .chip { font-family: var(--serif); font-size: 1.05rem; background: transparent; border-color: var(--line); }
 
@@ -123,7 +122,7 @@
 
   /* parties repliables : méthode, limites, détails */
   details.depliant { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 0.95rem 1.4rem; margin-bottom: 1.25rem; }
-  details.depliant > summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 0.7rem; }
+  details.depliant > summary { cursor: pointer; font-size: 1.1rem; list-style: none; display: flex; align-items: center; gap: 0.7rem; }
   details.depliant > summary::-webkit-details-marker { display: none; }
   details.depliant > summary::before { content: "+"; display: inline-flex; align-items: center; justify-content: center; width: 1.6rem; height: 1.6rem;
                                        border-radius: 50%; background: var(--navy); color: var(--paper); font-weight: 700; flex: none; }
@@ -214,6 +213,7 @@
   th.court { text-align: center; font-size: 0.8rem; }
   .pile { display: flex; height: 1.7rem; border-radius: 999px; overflow: hidden; background: var(--oat); margin: 0.2rem 0 0.9rem; }
   .pile span { display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 600; color: #fff; min-width: 0; overflow: hidden; }
+  .pile-nom span:first-child { font-family: var(--serif); font-size: 1rem; }
   .pile-nom { font-size: 0.85rem; margin: 0.6rem 0 0; display: flex; justify-content: space-between; gap: 1rem; }
   .pile-nom span:last-child { color: var(--muted); }
   .legende-pile { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; font-size: 0.8rem; color: var(--muted); margin: 0.25rem 0 0.5rem; }
@@ -221,7 +221,7 @@
   .repere { font-family: var(--serif); font-weight: 400; font-variant-numeric: lining-nums; font-size: 1.2rem; line-height: 1.4; margin: 0 0 1rem; }
   .bloc-question { display: flex; flex-direction: column; }
   .bloc-question .gros { font-size: 2.3rem; margin-top: 0.2rem; }
-  .bloc-question h3 { margin: 0 0 0.4rem; font-size: 1rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-weight: 600; }
+  .bloc-question h3 { margin: 0 0 0.4rem; font-size: 1.15rem; line-height: 1.3; }
   details.mini { margin-top: 0.9rem; font-size: 0.88rem; }
   details.mini > summary { cursor: pointer; color: var(--accent); font-weight: 600; }
   details.mini > p { color: var(--muted); margin: 0.6rem 0 0; }
