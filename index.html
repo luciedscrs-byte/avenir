@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Que ferai-je une fois diplômée ?</title>
-<link rel="stylesheet" href="assets/commun.css?v=8">
+<link rel="stylesheet" href="assets/commun.css?v=10">
 </head>
 <body>
 <main>
@@ -78,10 +78,6 @@
     </a>
   </div>
 
-  <h2 class="st">Le marché aujourd'hui</h2>
-  <p class="intro" id="chiffres-intro">Offres actives en vrais CDI ou CDD, sans stage, alternance ni intérim.</p>
-  <div class="chiffres" id="chiffres"></div>
-
   <h2 class="st">Comment ce site est fabriqué</h2>
   <p class="intro">Rien n'est saisi à la main : un robot refait le travail tous les jours, sans mon ordinateur.</p>
   <div class="grille">
@@ -127,10 +123,7 @@ Promise.all([
 
   const zone = document.getElementById('chiffres');
   const E = q.echelle;
-  const ordre = ['assistant-marketing', 'charge-marketing', 'responsable-marketing', 'responsable-ecommerce'];
-  const noms = { 'assistant-marketing': 'offres d\'assistant marketing', 'charge-marketing': 'offres de chargé(e) de marketing', 'responsable-marketing': 'offres de responsable marketing', 'responsable-ecommerce': 'offres de responsable e-commerce' };
-  ordre.forEach(k => zone.appendChild(carteChiffre(String(E[k].actives), noms[k], 'metier.html')));
-  document.getElementById('t-offres').textContent = String(ordre.reduce((s, k) => s + E[k].actives, 0));
+  document.getElementById('t-offres').textContent = String(['assistant-marketing', 'charge-marketing', 'responsable-marketing', 'responsable-ecommerce'].reduce((s, k) => s + E[k].actives, 0));
 }).catch(() => {
   document.getElementById('erreur').textContent =
     'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';

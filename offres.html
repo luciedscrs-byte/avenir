@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Les offres</title>
-<link rel="stylesheet" href="assets/commun.css?v=8">
+<link rel="stylesheet" href="assets/commun.css?v=10">
 </head>
 <body>
 <main>
@@ -25,17 +25,18 @@
     <div class="carte"><p class="gros" id="date">–</p><p class="legende">date de la dernière extraction</p></div>
   </div>
 
-  <h2 class="st">Qui recrute, et avec quels contrats</h2>
+  <h2 class="st">Contrats, et où en France</h2>
   <div class="grille">
     <div class="carte"><h2>Contrats</h2><div id="contrats"></div></div>
-    <div class="carte"><h2>Entreprises qui publient le plus</h2><div id="entreprises"></div></div>
-  </div>
-
-  <h2 class="st">Où en France</h2>
-  <div class="grille">
     <div class="carte"><h2>Départements</h2><div id="departements"></div></div>
-    <div class="carte"><h2>Régions</h2><div id="regions"></div><p class="note" id="geo-note"></p></div>
   </div>
+  <details class="depliant">
+    <summary>Qui publie le plus, et les régions</summary>
+    <div class="grille" style="margin-bottom:0">
+      <div class="carte"><h2>Entreprises qui publient le plus</h2><div id="entreprises"></div></div>
+      <div class="carte"><h2>Régions</h2><div id="regions"></div><p class="note" id="geo-note"></p></div>
+    </div>
+  </details>
 
   <h2 class="st">Combien ça paie</h2>
   <div class="carte" style="margin-bottom:1.5rem">
@@ -49,11 +50,7 @@
     <p class="note" id="salaires-note"></p>
   </div>
 
-  <h2 class="st">Compétences et outils demandés</h2>
-  <div class="grille">
-    <div class="carte"><h2>Compétences les plus citées</h2><div id="competences"></div></div>
-    <div class="carte"><h2>Outils cités dans les annonces</h2><div id="outils"></div><p class="note" id="outils-note"></p></div>
-  </div>
+  <h2 class="st">Les outils demandés, et mon niveau</h2>
   <div class="carte" style="margin-bottom:1.5rem">
     <h2>Ce que le M2 m'a appris, et ce qu'il me reste à acquérir</h2>
     <p class="repere" id="a-acquerir"></p>
@@ -61,6 +58,14 @@
     <p class="note">Le chiffre à droite de chaque outil est le nombre d'entreprises différentes qui le citent dans les annonces. Les outils entourés sont ceux que je dois acquérir cette année.</p>
     <details class="mini"><summary>Sources et limites de ce bilan</summary><p id="formation-note"></p></details>
   </div>
+
+  <details class="depliant">
+    <summary>Les compétences et outils cités dans les annonces (listes complètes)</summary>
+    <div class="grille" style="margin-bottom:0">
+      <div class="carte"><h2>Compétences les plus citées</h2><div id="competences"></div></div>
+      <div class="carte"><h2>Outils cités dans les annonces</h2><div id="outils"></div><p class="note" id="outils-note"></p></div>
+    </div>
+  </details>
 
   <h2 class="st">Pour aller plus loin</h2>
   <p class="intro">L'évolution des outils cités, le rythme des offres et la source emploi sont sur la page <a href="mouvement.html" style="color:var(--accent)">Comment le métier bouge</a>.</p>

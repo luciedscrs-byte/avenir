@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Comment le métier bouge</title>
-<link rel="stylesheet" href="assets/commun.css?v=8">
+<link rel="stylesheet" href="assets/commun.css?v=10">
 </head>
 <body>
 <main>
@@ -46,9 +46,9 @@
     <h3 style="margin:0 0 0.2rem">Outils</h3>
     <p class="note" style="margin:0 0 0.5rem">La barre montre la part des annonces qui citent l'outil à la dernière extraction ; le trait bleu, sa part à la première.</p>
     <div id="v-outils"></div>
-    <h3 style="margin:1.5rem 0 0.2rem">Mots surveillés</h3>
-    <div id="v-mots"></div>
-    <details class="mini"><summary>Voir les tableaux complets</summary>
+    <details class="mini"><summary>Les mots surveillés et les tableaux complets</summary>
+      <h3 style="margin:1rem 0 0.2rem">Mots surveillés</h3>
+      <div id="v-mots"></div>
       <div class="tableau"><table id="t-outils"></table></div>
       <div class="tableau" style="margin-top:1rem"><table id="t-mots"></table></div>
     </details>
@@ -240,7 +240,7 @@ fetch(fichierResume()).then(r => { if (!r.ok) throw new Error(r.status); return 
       'Les 14 dernières extractions. « Nouvelle » = identifiant absent de l\'extraction précédente ; une annonce republiée avec un nouvel identifiant compte donc comme une nouvelle.';
   }
 
-  evolutionVisuelle('v-outils', so, 'outils', 12);
+  evolutionVisuelle('v-outils', so, 'outils', 8);
   evolutionVisuelle('v-mots', so, 'mots', 8);
   evolution('t-outils', so, 'outils', 12);
   evolution('t-mots', so, 'mots', 8);
