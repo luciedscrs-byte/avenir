@@ -1,10 +1,9 @@
-"""Questions supplémentaires posées au marché, pour les quatre postes suivis (assistant, chargé, responsable marketing, responsable e-commerce) : data/questions.json,
+"""Questions supplémentaires posées au marché, pour les trois postes suivis (assistant, responsable marketing, responsable e-commerce) : data/questions.json,
 lu par la page « Le métier ». Tout est recalculé à partir des fichiers datés et du texte des annonces.
 
 Une offre est comptée une fois (dernière version connue de son identifiant) ; seules les offres de vrais
 CDI et CDD sont gardées. Assistant marketing = offres du code M1620 dont le titre est l'un des intitulés d'assistant (marketing,
-commercial et marketing, marketing et communication, web ou digital marketing) ; chargé(e) de marketing = offres du code M1620 au titre
-« chargé(e) … marketing » qui ne sont pas déjà classées assistant."""
+commercial et marketing, marketing et communication, web ou digital marketing)."""
 import csv
 import glob
 import json
@@ -17,7 +16,6 @@ import resumer
 
 POSTES = [  # du premier échelon au dernier
     ("assistant-marketing", "Assistant marketing"),
-    ("charge-marketing", "Chargé(e) de marketing"),
     ("responsable-marketing", "Responsable marketing"),
     ("responsable-ecommerce", "Responsable e-commerce"),
 ]
@@ -54,14 +52,13 @@ def charger_postes(textes):
     garder = resumer.emploi_seulement(textes)
     postes = {}
     for cle, libelle in POSTES:
-        if cle in ("assistant-marketing", "charge-marketing"):
+        if cle == "assistant-marketing":
             brut, dates = lire_fichiers("data/offres_M1620_*.csv")
-            classe = resumer.est_assistant if cle == "assistant-marketing" else resumer.est_charge
-            offres = [dict(r) for r in brut.values() if garder(r) and classe(r["intitule"])]
+            offres = [dict(r) for r in brut.values() if garder(r) and resumer.est_assistant(r["intitule"])]
         else:
             brut, dates = lire_fichiers(f"data/offres_{cle}_*.csv")
             offres = [dict(r) for r in brut.values()]
-        ids_derniere = set(derniers_ids(f"data/offres_M1620_*.csv" if cle in ("assistant-marketing", "charge-marketing") else f"data/offres_{cle}_*.csv"))
+        ids_derniere = set(derniers_ids(f"data/offres_M1620_*.csv" if cle == "assistant-marketing" else f"data/offres_{cle}_*.csv"))
         for r in offres:
             for champ in CHAMPS_APPOINT:
                 if not r.get(champ):
@@ -84,16 +81,16 @@ def mediane(valeurs):
 def question_outils(postes, textes):
     def part(offres, motif):
         return sum(1 for o in offres if motif.search(textes.get(o["id"], "") + " " + o["intitule"]))
-    a, ch, rm, re_ = (postes[k]["offres"] for k in ("assistant-marketing", "charge-marketing", "responsable-marketing", "responsable-ecommerce"))
+    a, rm, re_ = (postes[k]["offres"] for k in ("assistant-marketing", "responsable-marketing", "responsable-ecommerce"))
     lignes = []
     for nom, motif in resumer.OUTILS:
-        na, nc, nr, ne = part(a, motif), part(ch, motif), part(rm, motif), part(re_, motif)
+        na, nr, ne = part(a, motif), part(rm, motif), part(re_, motif)
         if max(na, nr) < 2:
             continue
-        lignes.append({"nom": nom, "assistant": pct(na, len(a)), "charge": pct(nc, len(ch)), "responsable_marketing": pct(nr, len(rm)),
+        lignes.append({"nom": nom, "assistant": pct(na, len(a)), "responsable_marketing": pct(nr, len(rm)),
                        "responsable_ecommerce": pct(ne, len(re_)), "ecart": pct(nr, len(rm)) - pct(na, len(a))})
     lignes.sort(key=lambda x: -x["ecart"])
-    return {"n_assistant": len(a), "n_charge": len(ch), "n_responsable_marketing": len(rm), "n_responsable_ecommerce": len(re_), "outils": lignes}
+    return {"n_assistant": len(a), "n_responsable_marketing": len(rm), "n_responsable_ecommerce": len(re_), "outils": lignes}
 
 
 # ---- 2. Paris : vaut-il mieux s'y intéresser ?
@@ -268,7 +265,7 @@ def question_recruteurs(postes):
     return sortie
 
 
-# ---- 0. Les niveaux de poste : assistant, chargé(e), responsable
+# ---- 0. Les niveaux de poste : assistant, responsable
 def echelle(postes, textes, missions, experience):
     sortie = {}
     for cle, p in postes.items():

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Le métier tel que le marché le nomme</title>
-<link rel="stylesheet" href="assets/commun.css?v=11">
+<link rel="stylesheet" href="assets/commun.css?v=12">
 </head>
 <body>
 <main>
@@ -51,8 +51,8 @@
 <script>
 navigation('metier.html');
 
-const ORDRE = ['assistant-marketing', 'charge-marketing', 'responsable-marketing', 'responsable-ecommerce'];
-const COURT = { 'assistant-marketing': 'Assistant', 'charge-marketing': 'Chargé(e)', 'responsable-marketing': 'Resp. marketing', 'responsable-ecommerce': 'Resp. e-commerce' };
+const ORDRE = ['assistant-marketing', 'responsable-marketing', 'responsable-ecommerce'];
+const COURT = { 'assistant-marketing': 'Assistant', 'responsable-marketing': 'Resp. marketing', 'responsable-ecommerce': 'Resp. e-commerce' };
 
 const regionsTexte = regions => regions.slice(0, 3).map(r => r.nom + ' (' + r.n + ')').join(', ');
 
@@ -113,13 +113,11 @@ Promise.all([
 
   // ---------- 1. Les marches
   document.getElementById('echelle-intro').textContent =
-    'Je vise d\'abord l\'assistant marketing, qui correspond à mon stage chez Mapache. Chargé(e) de marketing est l\'échelon intermédiaire. ' +
-    'Responsable marketing et responsable e-commerce (ajouté après mon stage, qui m\'a donné de nouvelles idées d\'intitulés) sont les postes que je vise à terme.';
+    'Je vise d\'abord l\'assistant marketing, qui correspond à mon stage chez Mapache. Responsable marketing et responsable e-commerce (ajouté après mon stage, qui m\'a donné de nouvelles idées d\'intitulés) sont les postes que je vise à terme.';
   const etapes = {
-    'assistant-marketing': ['Étape 1', 'mon premier poste'],
-    'charge-marketing': ['Étape 2', 'l\'échelon intermédiaire'],
-    'responsable-marketing': ['Étape 3', 'objectif à terme'],
-    'responsable-ecommerce': ['Étape 3', 'objectif à terme, ajouté après mon stage'],
+    'assistant-marketing': ['Niveau 1', 'mon premier poste'],
+    'responsable-marketing': ['Niveau 2', 'objectif à terme'],
+    'responsable-ecommerce': ['Niveau 2', 'objectif à terme, ajouté après mon stage'],
   };
   const marches = document.getElementById('marches');
   ORDRE.forEach(k => {
@@ -139,10 +137,10 @@ Promise.all([
   });
 
   document.getElementById('echelle-note').textContent =
-    'Le chargé(e) de marketing est bien un échelon intermédiaire : aucune annonce cadre, un salaire proche de celui de l\'assistant (' + fr(E['charge-marketing'].salaire.mediane) + ' € contre ' + fr(E['assistant-marketing'].salaire.mediane) +
-    ' €), mais le management y est déjà cité dans ' + E['charge-marketing'].management + ' % des annonces, contre ' + E['assistant-marketing'].management + ' % pour l\'assistant et ' + E['responsable-marketing'].management + ' % pour le responsable marketing. Peu d\'annonces pour le chargé(e) (' + E['charge-marketing'].n + ') : ce sont des tendances.';
-    document.getElementById('postes-note').textContent =
-    'Les quatre postes ne sont comptés qu\'en vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation). L\'assistant et le chargé(e) viennent du code ROME M1620 : ils sont suivis depuis le ' +
+    'Du poste d\'assistant à celui de responsable, le niveau monte : aucune annonce cadre pour l\'assistant contre ' + E['responsable-marketing'].cadre + ' % pour le responsable marketing, un salaire médian de ' + fr(E['assistant-marketing'].salaire.mediane) +
+    ' € contre ' + fr(E['responsable-marketing'].salaire.mediane) + ' €, et le management cité dans ' + E['assistant-marketing'].management + ' % des annonces contre ' + E['responsable-marketing'].management + ' %.';
+  document.getElementById('postes-note').textContent =
+    'Les trois postes ne sont comptés qu\'en vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation). L\'assistant vient du code ROME M1620 : il est suivi depuis le ' +
     dateFr(E['assistant-marketing'].depuis) + ' (' + E['assistant-marketing'].jours + ' extractions). Les deux responsables sont suivis depuis le ' + dateFr(ecom.depuis) +
     ' (' + ecom.serie.length + ' extractions à ce jour) : peu de recul, donc aucune tendance à en tirer, seulement une photographie. Chaque offre n\'est comptée qu\'une fois, même si elle reste en ligne plusieurs jours. ' +
     'Un intitulé qui contient « responsable » et « e-commerce » peut être un poste technique ou de gestion (par exemple « Responsable Technique E-commerce »). ' +
@@ -154,7 +152,6 @@ Promise.all([
     'je les regroupe en un seul poste (' + E['assistant-marketing'].n + ' annonces distinctes en CDI / CDD depuis le ' + dateCourte(E['assistant-marketing'].depuis) + '). Un titre peut compter dans plusieurs lignes.';
   const chips = document.getElementById('intitules');
   fa.forEach(i => chips.appendChild(el('span', { className: 'chip' }, [el('b', { textContent: String(i.n) }), document.createTextNode(i.nom)])));
-  chips.appendChild(el('span', { className: 'chip bleu', title: 'Échelon au-dessus, compté à part' }, [el('b', { textContent: String(E['charge-marketing'].n) }), document.createTextNode('Chargé(e) de marketing, compté à part')]));
 
   const v = t.variantes;
   barres('variantes', v.liste.map(l => ({ nom: l.nom, n: l.n })));
@@ -168,11 +165,8 @@ Promise.all([
   // ---------- 4. Les quatre questions
   const actives = ORDRE.reduce((s, k) => s + E[k].actives, 0);
   carteQuestion(1, 'Combien d\'offres, où (régions, villes) et avec quels contrats ?', String(actives),
-    'offres actives aujourd\'hui, en vrais CDI / CDD, pour les quatre postes',
-    'Au ' + jour + ' : ' + E['assistant-marketing'].actives + ' offres d\'assistant marketing (' + e.total + ' pour le code M1620 entier), ' + E['charge-marketing'].actives + ' de chargé(e) de marketing, ' + mkt.derniere.total +
-    ' de responsable marketing et ' + ecom.derniere.total + ' de responsable e-commerce. Pour le code M1620, régions en tête : ' + regionsTexte(e.regions) +
-    '. Toutes offres confondues (alternance, intérim, stages et annonces de formation comprises), il y en a ' + t.total + ', dont ' + t.alternance + ' en alternance et ' + t.n_puy_de_dome + ' dans le Puy-de-Dôme.',
-    'offres.html', 'Voir les offres.');
+    'offres actives aujourd\'hui, en vrais CDI / CDD, pour les trois postes',
+    '', 'offres.html', 'Voir les offres.');
 
   const topsListe = e.outils.liste.slice(0, 3);
   const shopify = e.outils.liste.find(o => o.nom === 'Shopify');
@@ -189,7 +183,7 @@ Promise.all([
   carteQuestion(3, 'Quelle fourchette de salaire, comparée au salaire d\'insertion ?', (sa ? fr(sa) : '–') + ' € → ' + (sr ? fr(sr) : '–') + ' €',
     'salaire médian brut affiché par mois, de l\'assistant au responsable marketing (insertion du M2 : ' + fr(t.salaires.mediane_insertion) + ' €)',
     'Salaire affiché, médiane brute. Code M1620 : ' + sal.map(phrase).filter(Boolean).join(' ; ') + '. Assistant marketing (avec ses variantes) : ' + fr(sa) + ' € par mois (' + E['assistant-marketing'].salaire.n + ' offres). ' +
-    'Chargé(e) de marketing : ' + fr(E['charge-marketing'].salaire.mediane) + ' € (' + E['charge-marketing'].salaire.n + '). Responsable marketing : ' + fr(sr) + ' € (' + E['responsable-marketing'].salaire.n + '). Responsable e-commerce : ' +
+    'Responsable marketing : ' + fr(sr) + ' € (' + E['responsable-marketing'].salaire.n + '). Responsable e-commerce : ' +
     fr(E['responsable-ecommerce'].salaire.mediane) + ' € (' + E['responsable-ecommerce'].salaire.n + '). À comparer aux ' + fr(t.salaires.mediane_insertion) + ' € bruts par mois d\'insertion (deck de rentrée de l\'IAE). ' +
     'Seules ' + e.part_salaire_affiche + ' % des offres du code M1620 en CDI / CDD affichent un salaire.',
     'offres.html', 'Voir les salaires.');
@@ -206,7 +200,7 @@ Promise.all([
 
   // ---------- 5. D'autres questions
   document.getElementById('autres-intro').textContent =
-    'Le cours conseille de poser d\'autres questions au marché et de garder celles qui apprennent quelque chose. Voici celles que j\'ai gardées, pour les quatre postes : clique sur une question pour l\'ouvrir. Le suivi de chaque poste commence à des dates différentes (' +
+    'Le cours conseille de poser d\'autres questions au marché et de garder celles qui apprennent quelque chose. Voici celles que j\'ai gardées, pour les trois postes : clique sur une question pour l\'ouvrir. Le suivi de chaque poste commence à des dates différentes (' +
     ORDRE.map(k => COURT[k] + ' : depuis le ' + dateCourte(Q.postes[k].depuis)).join(' ; ') + '), et les chiffres se recalculent à chaque extraction. Plus une case est foncée, plus la part est élevée.';
   const box = document.getElementById('autres');
   const noms = k => Q.postes[k].libelle;
@@ -219,7 +213,7 @@ Promise.all([
     const baisse = o.outils.filter(x => x.ecart < 0).sort((a, b) => a.ecart - b.ecart).slice(0, 4);
     const lignes = monte.concat(baisse).map(x => ({
       nom: x.nom.replace(/ \(.*\)$/, '').replace(/ \/ .*/, ''),
-      valeurs: [x.assistant, x.charge, x.responsable_marketing, x.responsable_ecommerce],
+      valeurs: [x.assistant, x.responsable_marketing, x.responsable_ecommerce],
       extra: (f.outils[x.nom] && f.outils[x.nom].vu && f.outils[x.nom].vu.niveau) || '–',
     }));
     const t1 = el('table', {});
@@ -228,7 +222,7 @@ Promise.all([
     box.appendChild(bloc('1. Qu\'est-ce qui change dans les outils quand on monte d\'assistant à responsable ?',
       m0.nom + ' passe de ' + m0.assistant + ' % à ' + m0.responsable_marketing + ' % des annonces, alors que ' + b0.nom.replace(/ \(.*\)$/, '') + ' recule de ' + b0.assistant + ' % à ' + b0.responsable_marketing + ' %.',
       [el('div', { className: 'tableau' }, [t1])],
-      'Part des annonces qui citent l\'outil : ' + o.n_assistant + ' annonces d\'assistant, ' + o.n_charge + ' de chargé(e), ' + o.n_responsable_marketing + ' de responsable marketing et ' + o.n_responsable_ecommerce +
+      'Part des annonces qui citent l\'outil : ' + o.n_assistant + ' annonces d\'assistant, ' + o.n_responsable_marketing + ' de responsable marketing et ' + o.n_responsable_ecommerce +
       ' de responsable e-commerce. Les écarts sont calculés entre l\'assistant et le responsable marketing ; les outils d\'exécution reculent, ceux de pilotage montent. Écarts indicatifs.'));
   }
 
@@ -261,7 +255,7 @@ Promise.all([
     const t3 = el('table', {});
     tableauChaleur(t3, ['Mission'].concat(ORDRE.map(k => COURT[k])), themes.map(x => ({ nom: x.nom, valeurs: ORDRE.map(k => part(k, x.nom)) })));
     const verbes = el('div', { className: 'chips' }, M.tous.verbes.slice(0, 8).map(vb => el('span', { className: 'chip' }, [document.createTextNode(vb.nom)])));
-    box.appendChild(bloc('3. Quelles sont les missions récurrentes des quatre postes ?',
+    box.appendChild(bloc('3. Quelles sont les missions récurrentes des trois postes ?',
       'Assistant : ' + top('assistant-marketing') + '. Responsable marketing : ' + top('responsable-marketing') + '. Responsable e-commerce : ' + top('responsable-ecommerce') + '.',
       [el('div', { className: 'tableau' }, [t3])],
       'Part des annonces dont les missions sont lisibles (' + M.tous.avec_missions + ' sur ' + M.tous.offres + ') qui citent le thème. Les thèmes sont repérés par mots-clés dans les lignes de missions : une annonce peut en cumuler plusieurs, et les pourcentages ne s\'additionnent pas. Les verbes qui ouvrent le plus les lignes de missions :', [verbes]));
@@ -282,11 +276,10 @@ Promise.all([
     });
     const deb = k => (X[k].repartition.find(r => r.nom === 'Débutant accepté') || { part: 0 }).part;
     box.appendChild(bloc('4. Quelle expérience est demandée ?',
-      'Un débutant est accepté dans ' + deb('assistant-marketing') + ' % des offres d\'assistant, ' + deb('charge-marketing') + ' % de chargé(e), ' + deb('responsable-marketing') + ' % de responsable marketing et ' +
+      'Un débutant est accepté dans ' + deb('assistant-marketing') + ' % des offres d\'assistant, ' + deb('responsable-marketing') + ' % de responsable marketing et ' +
       deb('responsable-ecommerce') + ' % de responsable e-commerce.',
       [legende, ...piles],
-      'Expérience connue pour ' + X['assistant-marketing'].n + ' des ' + X['assistant-marketing'].sur + ' offres d\'assistant et ' + X['charge-marketing'].n + ' des ' + X['charge-marketing'].sur + ' de chargé(e) de marketing (seules les offres encore en ligne depuis le 14/11 la fournissent pour l\'instant, elle se complète chaque jour) ; pour les responsables, toutes les offres. ' +
-      'Peu d\'annonces pour le chargé(e) : à lire avec précaution.'));
+      'Expérience connue pour ' + X['assistant-marketing'].n + ' des ' + X['assistant-marketing'].sur + ' offres d\'assistant (seules les offres encore en ligne depuis le 14/11 la fournissent pour l\'instant, elle se complète chaque jour) ; pour les responsables, toutes les offres.'));
   }
 
   // 5. qui recrute

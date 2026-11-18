@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Que ferai-je une fois diplômée ?</title>
-<link rel="stylesheet" href="assets/commun.css?v=11">
+<link rel="stylesheet" href="assets/commun.css?v=12">
 </head>
 <body>
 <main>
@@ -20,21 +20,20 @@
         <a class="btn sec" href="entreprises.html#carte-territoire">Explorer la carte</a>
       </div>
       <div class="chiffres-hero">
-        <div><b>3</b><span>niveaux de poste</span></div>
+        <div><b>3</b><span>intitulés suivis</span></div>
         <div><b id="h-entreprises">–</b><span>entreprises recensées</span></div>
         <div><b>100 %</b><span>données publiques</span></div>
       </div>
     </header>
     <div class="colonne">
       <div class="tuile navy"><p class="gros" id="t-jours">–</p><p class="legende" id="t-jours-leg">extractions quotidiennes</p></div>
-      <div class="tuile blue"><p class="gros" id="t-offres">–</p><p class="legende">offres actives en CDI ou CDD pour mes quatre intitulés</p></div>
+      <div class="tuile blue"><p class="gros" id="t-offres">–</p><p class="legende">offres actives en CDI ou CDD pour mes trois intitulés</p></div>
     </div>
   </div>
-  <div class="intitules-bande" role="group" aria-label="Les quatre intitulés suivis">
+  <div class="intitules-bande" role="group" aria-label="Les trois intitulés suivis">
     <a href="metier.html"><span class="etiquette">Niveau 1</span><b>Assistant marketing</b></a>
-    <a href="metier.html"><span class="etiquette">Niveau 2</span><b>Chargé(e) de marketing</b></a>
-    <a href="metier.html"><span class="etiquette">Niveau 3</span><b>Responsable marketing</b></a>
-    <a href="metier.html"><span class="etiquette">Niveau 3</span><b>Responsable e-commerce</b></a>
+    <a href="metier.html"><span class="etiquette">Niveau 2</span><b>Responsable marketing</b></a>
+    <a href="metier.html"><span class="etiquette">Niveau 2</span><b>Responsable e-commerce</b></a>
   </div>
   <p id="erreur"></p>
 
@@ -115,7 +114,7 @@ Promise.all([
 
   const zone = document.getElementById('chiffres');
   const E = q.echelle;
-  document.getElementById('t-offres').textContent = String(['assistant-marketing', 'charge-marketing', 'responsable-marketing', 'responsable-ecommerce'].reduce((s, k) => s + E[k].actives, 0));
+  document.getElementById('t-offres').textContent = String(['assistant-marketing', 'responsable-marketing', 'responsable-ecommerce'].reduce((s, k) => s + E[k].actives, 0));
 }).catch(() => {
   document.getElementById('erreur').textContent =
     'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';

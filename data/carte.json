@@ -1,15 +1,10 @@
 {
- "genere_le": "2026-11-18T14:48:14+00:00",
+ "genere_le": "2026-11-18T20:13:30+00:00",
  "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
  "postes": {
   "assistant-marketing": {
    "libelle": "Assistant marketing",
    "n": 49,
-   "depuis": "2026-10-07"
-  },
-  "charge-marketing": {
-   "libelle": "Chargé(e) de marketing",
-   "n": 13,
    "depuis": "2026-10-07"
   },
   "responsable-marketing": {
@@ -115,9 +110,8 @@
     "total": 1118
    },
    "offres": {
-    "charge-marketing": 2,
     "responsable-marketing": 2,
-    "total": 4
+    "total": 2
    }
   },
   "14": {
@@ -308,9 +302,8 @@
     "total": 780
    },
    "offres": {
-    "charge-marketing": 3,
     "responsable-marketing": 2,
-    "total": 5
+    "total": 2
    }
   },
   "37": {
@@ -380,8 +373,7 @@
    },
    "offres": {
     "assistant-marketing": 4,
-    "charge-marketing": 1,
-    "total": 5
+    "total": 4
    }
   },
   "45": {
@@ -399,17 +391,6 @@
    },
    "offres": {
     "total": 0
-   }
-  },
-  "46": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
-    "total": 0
-   },
-   "offres": {
-    "charge-marketing": 1,
-    "total": 1
    }
   },
   "49": {
@@ -543,17 +524,6 @@
    "offres": {
     "responsable-marketing": 1,
     "total": 1
-   }
-  },
-  "62": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
-    "total": 0
-   },
-   "offres": {
-    "charge-marketing": 2,
-    "total": 2
    }
   },
   "63": {
@@ -710,10 +680,9 @@
    },
    "offres": {
     "assistant-marketing": 5,
-    "charge-marketing": 2,
     "responsable-marketing": 4,
     "responsable-ecommerce": 3,
-    "total": 14
+    "total": 12
    }
   },
   "76": {
@@ -741,9 +710,8 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "charge-marketing": 1,
     "responsable-marketing": 1,
-    "total": 3
+    "total": 2
    }
   },
   "78": {
@@ -915,9 +883,8 @@
    },
    "offres": {
     "assistant-marketing": 2,
-    "charge-marketing": 1,
     "responsable-marketing": 2,
-    "total": 5
+    "total": 4
    }
   },
   "95": {

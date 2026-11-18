@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Conclusion et suite</title>
-<link rel="stylesheet" href="assets/commun.css?v=11">
+<link rel="stylesheet" href="assets/commun.css?v=12">
 </head>
 <body>
 <main>
@@ -94,13 +94,13 @@ const part = (rep, nom) => { const r = rep.find(x => x.nom === nom); return r ? 
 
 fetch('data/questions.json').then(r => r.json()).then(q => {
   // ---------- Ma conclusion (le texte est écrit à la main, les chiffres viennent des données)
-  const X = q.echelle, A = X['assistant-marketing'], C = X['charge-marketing'], RM = X['responsable-marketing'], RE = X['responsable-ecommerce'];
+  const X = q.echelle, A = X['assistant-marketing'], RM = X['responsable-marketing'], RE = X['responsable-ecommerce'];
   document.getElementById('c-position').textContent =
-    'Je vise d\'abord un poste d\'assistant marketing en CDI ou CDD, sous ses différents intitulés, avec pour finalité un poste à responsabilité : responsable e-commerce ou responsable marketing, si possible en passant par un poste de chargé(e) de marketing.';
+    'Je vise d\'abord un poste d\'assistant marketing en CDI ou CDD, sous ses différents intitulés, avec pour finalité un poste à responsabilité : responsable e-commerce ou responsable marketing.';
   document.getElementById('c-marche').textContent =
     'Au vu de mon parcours professionnel (deux stages), il me paraît cohérent de ne pas viser tout de suite un poste de responsable. Les offres le confirment : ' + RE.debutant + ' % des annonces de responsable e-commerce et ' + RM.debutant +
     ' % de celles de responsable marketing acceptent un débutant, contre ' + A.debutant + ' % pour l\'assistant ; ' + RM.cadre + ' % des annonces de responsable marketing sont des postes cadres, contre ' + A.cadre + ' % pour l\'assistant. ' +
-    'Le salaire affiché suit la même pente : environ ' + fr(A.salaire.mediane) + ' € bruts par mois pour l\'assistant, ' + fr(C.salaire.mediane) + ' € pour le chargé(e), ' + fr(RM.salaire.mediane) + ' € pour le responsable marketing.';
+    'Le salaire affiché suit la même pente : environ ' + fr(A.salaire.mediane) + ' € bruts par mois pour l\'assistant, ' + fr(RM.salaire.mediane) + ' € pour le responsable marketing.';
   const P = q.paris;
   const ind = q.recruteurs['responsable-marketing'].types[0];
   document.getElementById('c-ou').textContent =
@@ -113,8 +113,8 @@ fetch('data/questions.json').then(r => r.json()).then(q => {
     'Les outils de pilotage qui montent avec le poste : ' + (li ? 'LinkedIn (' + li.assistant + ' % des annonces d\'assistant, ' + li.responsable_marketing + ' % de celles de responsable marketing)' : 'LinkedIn') +
     (crm ? ', un CRM (' + crm.assistant + ' % puis ' + crm.responsable_marketing + ' %)' : ', un CRM') + ', ainsi que l\'emailing et Adobe, que j\'ai repérés comme écarts. Mes prochaines actions sont sur la page « Et ensuite ».';
   document.getElementById('c-limites').textContent =
-    'Peu d\'offres actives : ' + A.actives + ' pour l\'assistant, ' + C.actives + ' pour le chargé(e), ' + RM.actives + ' pour le responsable marketing, ' + RE.actives + ' pour le responsable e-commerce. ' +
-    'Des suivis de longueurs différentes : ' + A.jours + ' extractions pour l\'assistant et le chargé(e), ' + RM.jours + ' pour les responsables. Un salaire affiché dans une minorité d\'annonces. Ce sont des tendances, pas des vérités.';
+    'Peu d\'offres actives : ' + A.actives + ' pour l\'assistant, ' + RM.actives + ' pour le responsable marketing, ' + RE.actives + ' pour le responsable e-commerce. ' +
+    'Des suivis de longueurs différentes : ' + A.jours + ' extractions pour l\'assistant, ' + RM.jours + ' pour les responsables. Un salaire affiché dans une minorité d\'annonces. Ce sont des tendances, pas des vérités.';
 }).catch(() => {
   document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
 });
