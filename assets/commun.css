@@ -32,8 +32,7 @@
         background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 0.5rem; }
   nav .marque { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--serif); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
                 color: var(--mulberry); text-decoration: none; padding: 0.2rem 1rem 0.2rem 0.3rem; margin-right: auto; font-size: 1.05rem; }
-  nav .marque::before { content: "✦"; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%;
-                        background: var(--mulberry); color: var(--paper); font-size: 0.95rem; letter-spacing: 0; }
+  nav .marque::before { content: ""; display: inline-block; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--mulberry); }
   nav a { color: var(--muted); text-decoration: none; padding: 0.4rem 0.85rem; border-radius: 999px; }
   nav a.marque { color: var(--mulberry); }
   nav a:hover { background: var(--accent-soft); color: var(--text); }
@@ -43,7 +42,6 @@
   /* bandeau d'entrée de chaque page */
   .hero { position: relative; overflow: hidden; background: var(--hero); border-radius: 28px; padding: 2.5rem 2.25rem; margin-bottom: 1.5rem; }
   .hero::after { content: ""; position: absolute; right: -50px; top: -50px; width: 220px; height: 220px; border-radius: 50%; background: var(--blue); opacity: 0.9; }
-  .hero::before { content: "✦"; position: absolute; right: 70px; top: 38px; z-index: 2; color: var(--paper); font-size: 1.6rem; }
   .hero > * { position: relative; z-index: 1; }
   .hero .sub, .hero h1 { max-width: 40rem; }
   .etiquette { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 1rem; }
@@ -67,7 +65,6 @@
   .tuile .legende { color: inherit; opacity: 0.88; font-size: 0.95rem; }
   .tuile.navy { background: var(--navy); color: var(--oat); }
   .tuile.blue { background: var(--blue); color: #fff; }
-  .tuile::after { content: "✦"; position: absolute; right: 1.1rem; top: 0.9rem; font-size: 1.3rem; opacity: 0.8; }
   .chiffres-hero { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin-top: auto; padding-top: 1.75rem; border-top: 1px solid rgba(2, 46, 74, 0.2); }
   .chiffres-hero div { min-width: 5.5rem; }
   .chiffres-hero b { display: block; font-family: var(--serif); font-size: 1.9rem; font-weight: 400; font-variant-numeric: lining-nums; line-height: 1.1; }
@@ -96,7 +93,6 @@
 
   /* titres de partie */
   .st { font-size: 1.6rem; line-height: 1.2; margin: 3.25rem 0 0.5rem; letter-spacing: 0.04em; text-transform: uppercase; }
-  .st::before { content: "✦"; color: var(--blue); font-size: 0.55em; margin-right: 0.6rem; vertical-align: 0.25em; }
   .intro { color: var(--muted); margin: 0 0 1.25rem; max-width: 44rem; }
 
   .chiffres { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
@@ -111,7 +107,6 @@
   .chiffres > .carte:nth-child(4n), #constats > .carte:nth-child(4n) { background: var(--oat); color: var(--navy); }
   .chiffres > .carte .gros, #constats > .carte .gros { color: inherit; }
   .chiffres > .carte .legende, #constats > .carte .legende { color: inherit; opacity: 0.88; }
-  .chiffres > .carte::after, #constats > .carte::after { content: "✦"; position: absolute; right: 1rem; top: 0.8rem; opacity: 0.7; }
   #constats > .carte a, .chiffres > a.carte { color: inherit; }
   #constats > .carte a { text-decoration: underline; text-underline-offset: 3px; }
   .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
