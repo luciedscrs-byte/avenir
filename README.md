@@ -204,7 +204,7 @@ Ces actions sont **prévues, pas encore réalisées** : le projet s'arrête au r
 
 *(Chiffres au 19/11/2026 ; la même conclusion est sur la page « Conclusion » du site, où les chiffres se mettent à jour.)*
 
-**Ma position.** Je me concentre sur le poste d'assistant marketing en CDI ou CDD, sous ses différents intitulés : c'est celui qui me paraît le plus plausible pour moi aujourd'hui. J'ai hésité entre plusieurs postes, mais mon parcours professionnel (deux stages) correspond au niveau d'assistant. Les offres le confirment : 39 % des annonces d'assistant acceptent un débutant et aucune n'est un poste cadre. Le salaire médian affiché est d'environ 2184 € bruts par mois.
+**Ma position.** Je me concentre sur le poste d'assistant marketing en CDI ou CDD, sous ses différents intitulés : c'est celui qui me paraît le plus plausible pour moi aujourd'hui. J'ai hésité entre plusieurs postes, mais mon parcours professionnel (deux stages) correspond au niveau d'assistant. Les offres le confirment : 39 % des annonces d'assistant acceptent un débutant, et aucune n'est classée « cadre » par France Travail : ce sont des postes de premier niveau, accessibles à mon profil. Le salaire médian affiché est d'environ 2184 € bruts par mois.
 
 **Où chercher.** Pas seulement à Paris : l'Île-de-France ne regroupe que 22 % des offres d'assistant. Et pas seulement dans les annonces : la carte du marché caché indique où envoyer des candidatures spontanées.
 

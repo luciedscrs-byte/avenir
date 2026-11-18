@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Le métier tel que le marché le nomme</title>
-<link rel="stylesheet" href="assets/commun.css?v=23">
+<link rel="stylesheet" href="assets/commun.css?v=24">
 </head>
 <body>
 <main>
@@ -120,7 +120,7 @@ Promise.all([
     tuileA(String(A.actives), 'offres actives en CDI / CDD (' + A.n + ' vues depuis le ' + dateCourte(A.depuis) + ')'),
     tuileA(A.salaire.mediane ? fr(A.salaire.mediane) + ' €' : '–', 'salaire médian brut par mois (' + A.salaire.n + ' offres avec salaire)'),
     tuileA(A.debutant + ' %', 'des annonces acceptent un débutant'),
-    tuileA(A.cadre + ' %', 'de postes cadres'));
+    tuileA(A.cadre + ' %', 'des annonces classées « cadre » (' + (A.cadre === 0 ? 'aucune : des postes de premier niveau' : 'le reste : des postes de premier niveau') + ')'));
   document.getElementById('postes-note').textContent =
     'Seuls les vrais CDI et CDD sont comptés (sans alternance, stage, intérim ni annonce de formation). Le poste vient du code ROME M1620 et il est suivi depuis le ' +
     dateFr(A.depuis) + ' (' + A.jours + ' extractions). Chaque offre n\'est comptée qu\'une fois, même si elle reste en ligne plusieurs jours. Les chiffres incluent les variantes d\'intitulé (voir plus bas).';
@@ -214,7 +214,7 @@ Promise.all([
     const n = nom => (X.repartition.find(r => r.nom === nom) || { n: 0 }).n;
     const deb = (X.repartition.find(r => r.nom === 'Débutant accepté') || { part: 0 }).part;
     box.appendChild(bloc('3. Quelle expérience est demandée ?',
-      'Un débutant est accepté dans ' + deb + ' % des offres d\'assistant, et ' + X.cadre + ' % sont des postes cadres.',
+      'Un débutant est accepté dans ' + deb + ' % des offres d\'assistant, et ' + X.cadre + ' % sont classées « cadre » (postes de niveau supérieur).',
       [legendePile(segs.map(s => ({ nom: s[0], couleur: s[1] }))), pile(segs.map(s => ({ nom: s[0], couleur: s[1], texte: s[2], n: n(s[0]) })), X.n || 1)],
       'Expérience connue pour ' + X.n + ' des ' + X.sur + ' offres (seules les offres encore en ligne depuis le 14/11 la fournissent pour l\'instant ; elle se complète chaque jour).'));
   }
