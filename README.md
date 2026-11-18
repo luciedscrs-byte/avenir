@@ -40,7 +40,7 @@ flowchart LR
 
 ## 1. Métiers ciblés
 
-**Une progression en deux niveaux.** Je vise d'abord l'assistant marketing, qui correspond à mon stage chez Mapache. Responsable marketing et responsable e-commerce sont les postes que je vise à terme ; le responsable e-commerce a été ajouté après mon stage, qui m'a donné de nouvelles idées d'intitulés, d'où un suivi plus récent pour les deux postes de responsable.
+**Une progression en deux niveaux.** Je vise d'abord l'assistant marketing, qui correspond à mon stage chez Mapache. Responsable marketing et responsable e-commerce sont les postes que je vise à terme ; le responsable e-commerce a été ajouté après avoir commencé mon stage chez Monbento, qui m'a donné de nouvelles idées d'intitulés, d'où un suivi plus récent pour les deux postes de responsable.
 
 | Niveau | Poste | Code ROME ou repérage | Suivi depuis le | Offres CDI / CDD vues depuis le début | Actives au 18/11/2026 |
 |---|---|---|---|---|---|
