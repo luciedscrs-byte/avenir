@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Comment j'ai fait</title>
-<link rel="stylesheet" href="assets/commun.css?v=17">
+<link rel="stylesheet" href="assets/commun.css?v=18">
 </head>
 <body>
 <main>
@@ -13,44 +13,64 @@
   <header class="hero">
     <p class="etiquette">Étape 2 · Comment j'ai fait</p>
     <h1>Comment j'ai mis en place la recherche</h1>
-    <p class="sub">Un petit programme interroge chaque jour les offres d'emploi, les enregistre, et ce site les affiche. Tout tient en cinq maillons.</p>
+    <p class="sub">Un petit programme interroge chaque jour les offres d'emploi, les enregistre, et ce site les affiche. Tout tient en quatre blocs.</p>
   </header>
   <p id="erreur"></p>
 
-  <h2 class="st">La chaîne en cinq maillons</h2>
-  <p class="intro">Chaque maillon donne ce que je fais, en une phrase, et l'outil utilisé.</p>
-  <div class="chaine">
-    <div class="maillon">
-      <span class="num-etape">1</span>
-      <h3>Choisir le métier</h3>
-      <p>Je choisis un code ROME, qui classe chaque métier chez France Travail (M1620 pour l'assistant marketing), et des mots-clés pour les postes de responsable.</p>
-      <span class="outil">Métierscope</span>
-    </div>
-    <div class="maillon">
-      <span class="num-etape">2</span>
-      <h3>Obtenir l'accès</h3>
-      <p>Je crée un compte développeur France Travail. Il me donne une clé (des identifiants) qui m'autorise à interroger les offres.</p>
-      <span class="outil">API France Travail</span>
-    </div>
-    <div class="maillon">
-      <span class="num-etape">3</span>
-      <h3>Récupérer les offres</h3>
-      <p>Un script interroge l'API et enregistre les offres du jour dans un fichier daté. Un autre croise les entreprises de data.gouv.</p>
-      <span class="outil">Python</span>
-    </div>
-    <div class="maillon">
-      <span class="num-etape">4</span>
-      <h3>Automatiser</h3>
-      <p>GitHub lance le script tout seul chaque jour, sans que mon ordinateur soit allumé, et sauvegarde le résultat. Mes clés sont cachées dans ses « secrets ».</p>
-      <span class="outil">GitHub Actions</span>
-    </div>
-    <div class="maillon">
-      <span class="num-etape">5</span>
-      <h3>Afficher</h3>
-      <p>Ce site, hébergé gratuitement, lit les fichiers et affiche les chiffres : il se met à jour sans que je touche à rien.</p>
-      <span class="outil">GitHub Pages</span>
-    </div>
+  <h2 class="st">Le schéma, de la clé API au site</h2>
+  <p class="intro">Quatre blocs, de gauche à droite : la clé obtenue chez France Travail sert à mon script, que GitHub lance ensuite tous les jours à ma place.</p>
+  <div class="schema">
+    <div class="bs s1"><h3>1. France Travail</h3>
+      <p><b>1</b> Compte développeur</p>
+      <p><b>2</b> Abonnement à l'API « Offres d'emploi v2 »</p>
+      <p><b>3</b> Clé : identifiant + secret</p></div>
+    <div class="bs s2"><h3>2. Mon ordinateur</h3>
+      <p><b>4</b> Fichier .env : la clé reste chez moi</p>
+      <p><b>5</b> Script Python : demande les offres du code M1620</p></div>
+    <div class="bs s3"><h3>3. GitHub</h3>
+      <p><b>6</b> Dépôt public : le code et les données</p>
+      <p><b>7</b> Secrets : la clé y est cachée</p>
+      <p><b>8</b> Action : lance le script chaque jour, sans mon ordinateur</p></div>
+    <div class="bs s4"><h3>4. Le site</h3>
+      <p><b>9</b> Fichiers du jour enregistrés</p>
+      <p><b>10</b> GitHub Pages : le site s'affiche</p></div>
   </div>
+
+  <details class="depliant">
+    <summary>Les cinq maillons, expliqués en une phrase</summary>
+  <div class="chaine">
+      <div class="maillon">
+        <span class="num-etape">1</span>
+        <h3>Choisir le métier</h3>
+        <p>Je choisis un code ROME, qui classe chaque métier chez France Travail (M1620 pour l'assistant marketing), et des mots-clés pour les postes de responsable.</p>
+        <span class="outil">Métierscope</span>
+      </div>
+      <div class="maillon">
+        <span class="num-etape">2</span>
+        <h3>Obtenir l'accès</h3>
+        <p>Je crée un compte développeur France Travail. Il me donne une clé (des identifiants) qui m'autorise à interroger les offres.</p>
+        <span class="outil">API France Travail</span>
+      </div>
+      <div class="maillon">
+        <span class="num-etape">3</span>
+        <h3>Récupérer les offres</h3>
+        <p>Un script interroge l'API et enregistre les offres du jour dans un fichier daté. Un autre croise les entreprises de data.gouv.</p>
+        <span class="outil">Python</span>
+      </div>
+      <div class="maillon">
+        <span class="num-etape">4</span>
+        <h3>Automatiser</h3>
+        <p>GitHub lance le script tout seul chaque jour, sans que mon ordinateur soit allumé, et sauvegarde le résultat. Mes clés sont cachées dans ses « secrets ».</p>
+        <span class="outil">GitHub Actions</span>
+      </div>
+      <div class="maillon">
+        <span class="num-etape">5</span>
+        <h3>Afficher</h3>
+        <p>Ce site, hébergé gratuitement, lit les fichiers et affiche les chiffres : il se met à jour sans que je touche à rien.</p>
+        <span class="outil">GitHub Pages</span>
+      </div>
+    </div>
+  </details>
 
   <h2 class="st">Ce que ça donne</h2>
   <div class="tuiles-mini" id="chiffres-methode" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))"></div>

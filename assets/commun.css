@@ -309,3 +309,14 @@
   /* les cinq questions de la page « Le métier » : réponse en police du texte, plus petite, pour être lisible */
   .carte-bloc .repere { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 1rem; line-height: 1.5; color: var(--text); }
   .carte-bloc h3 { font-size: 1.15rem; }
+
+  /* méthode : schéma en quatre blocs */
+  .schema { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.6rem; margin-bottom: 1.5rem; }
+  .bs { border-radius: 20px; overflow: visible; position: relative; background: var(--card); border: 1px solid var(--line); }
+  .bs h3 { margin: 0; padding: 0.8rem 1rem; border-radius: 19px 19px 0 0; font-size: 0.95rem; }
+  .bs p { margin: 0; padding: 0.7rem 1rem; font-size: 0.88rem; line-height: 1.35; border-top: 1px solid var(--line); }
+  .bs p b { display: inline-flex; align-items: center; justify-content: center; min-width: 1.4rem; height: 1.4rem; margin-right: 0.4rem; border-radius: 50%; background: var(--oat); color: var(--navy); font-size: 0.72rem; }
+  .bs.s1 h3 { background: var(--mulberry); color: var(--oat); } .bs.s2 h3 { background: var(--blue); color: #fff; }
+  .bs.s3 h3 { background: var(--navy); color: var(--oat); } .bs.s4 h3 { background: var(--oat); color: var(--navy); }
+  .bs:not(:last-child)::after { content: "→"; position: absolute; right: -1.35rem; top: 0.7rem; width: 1.1rem; text-align: center; font-size: 1.2rem; color: var(--mulberry); }
+  @media (max-width: 900px) { .schema { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; } .bs:not(:last-child)::after { content: "↓"; right: auto; left: 1.2rem; top: auto; bottom: -1.5rem; } }
