@@ -40,6 +40,8 @@ flowchart LR
 
 ## 1. Métiers ciblés
 
+**Pour l'affichage du site et l'oral, je me concentre sur l'assistant marketing**, le poste que je juge le plus plausible ; les deux postes de responsable restent suivis dans les données (`data/`) mais ne sont plus détaillés sur le site.
+
 **Une progression en deux niveaux.** Je vise d'abord l'assistant marketing, qui correspond à mon stage chez Mapache. Responsable marketing et responsable e-commerce sont les postes que je vise à terme ; le responsable e-commerce a été ajouté après avoir commencé mon stage chez Monbento, qui m'a donné de nouvelles idées d'intitulés, d'où un suivi plus récent pour les deux postes de responsable.
 
 | Niveau | Poste | Code ROME ou repérage | Suivi depuis le | Offres CDI / CDD vues depuis le début | Actives au 18/11/2026 |
@@ -200,12 +202,12 @@ Ces actions sont **prévues, pas encore réalisées** : le projet s'arrête au r
 
 ## 10. Conclusion et position
 
-*(Chiffres au 18/11/2026 ; la même conclusion est sur la page « Conclusion » du site, où les chiffres se mettent à jour.)*
+*(Chiffres au 19/11/2026 ; la même conclusion est sur la page « Conclusion » du site, où les chiffres se mettent à jour.)*
 
-**Ma position.** Je vise d'abord un poste d'assistant marketing en CDI ou CDD, sous ses différents intitulés, avec pour finalité un poste à responsabilité : responsable e-commerce ou responsable marketing. Au vu de mon parcours professionnel (deux stages), il me paraît cohérent de ne pas viser tout de suite un poste de responsable. Les offres le confirment : 15 % des annonces de responsable e-commerce et 31 % de celles de responsable marketing acceptent un débutant, contre 39 % pour l'assistant ; 33 % des annonces de responsable marketing sont des postes cadres, contre 0 % pour l'assistant. Le salaire affiché suit la même pente : environ 2184 € bruts par mois pour l'assistant, 3646 € pour le responsable marketing.
+**Ma position.** Je me concentre sur le poste d'assistant marketing en CDI ou CDD, sous ses différents intitulés : c'est celui qui me paraît le plus plausible pour moi aujourd'hui. J'ai hésité entre plusieurs postes, mais mon parcours professionnel (deux stages) correspond au niveau d'assistant. Les offres le confirment : 39 % des annonces d'assistant acceptent un débutant et aucune n'est un poste cadre. Le salaire médian affiché est d'environ 2184 € bruts par mois.
 
-**Où chercher.** Pas seulement à Paris : l'Île-de-France ne regroupe que 22 % des offres d'assistant et 35 % de celles de responsable marketing. Pas seulement dans le numérique et les agences : « Industrie » est le type d'employeur le plus fréquent du responsable marketing (7 offres). Et pas seulement dans les annonces : la carte du marché caché indique où envoyer des candidatures spontanées.
+**Où chercher.** Pas seulement à Paris : l'Île-de-France ne regroupe que 22 % des offres d'assistant. Et pas seulement dans les annonces : la carte du marché caché indique où envoyer des candidatures spontanées.
 
-**Ce que je dois acquérir.** Les outils de pilotage qui montent avec le poste : LinkedIn (6 % des annonces d'assistant, 23 % de celles de responsable marketing), un CRM (10 % puis 31 %), ainsi que l'emailing et Adobe, que j'ai repérés comme écarts (voir la section 9).
+**Ce que je dois acquérir.** Les outils que les annonces citent et que je n'ai vus qu'en théorie ou un peu : l'emailing, Adobe et LinkedIn (6 % des annonces d'assistant). Mes prochaines actions sont dans la section 9.
 
-**Ce que ces chiffres ne disent pas.** Peu d'offres actives : 12 pour l'assistant, 43 pour le responsable marketing, 12 pour le responsable e-commerce. Des suivis de longueurs différentes : 43 extractions pour l'assistant, 5 pour les responsables. Un salaire affiché dans une minorité d'annonces. Ce sont des tendances, pas des vérités.
+**Ce que ces chiffres ne disent pas.** Peu d'offres actives (12 d'assistant au 19/11/2026), même si le suivi dure depuis 43 jours. Un salaire affiché dans une minorité d'annonces. Ce sont des tendances, pas des vérités.

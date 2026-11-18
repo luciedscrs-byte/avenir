@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Ma formation</title>
-<link rel="stylesheet" href="assets/commun.css?v=21">
+<link rel="stylesheet" href="assets/commun.css?v=23">
 </head>
 <body>
 <main>
@@ -48,7 +48,7 @@ Promise.all([
   f.metiers_vises_descriptif.forEach(m => zoneChips.appendChild(el('span', { className: 'chip marine' }, [document.createTextNode(m)])));
   f.codes_rome_vises_descriptif.forEach(c => zoneChips.appendChild(el('span', { className: 'chip code', textContent: c })));
   document.getElementById('formation-vise').textContent =
-    'Le M2 Marketing opérationnel et digital de l\'IAE Clermont Auvergne vise surtout des postes de responsable (en bleu, les métiers cités dans son descriptif ; en gris, ses codes ROME). ' +
+    'Le M2 Marketing opérationnel et digital de l\'IAE Clermont Auvergne vise des postes de marketing opérationnel et digital (en bleu, les métiers cités dans son descriptif ; en gris, ses codes ROME). ' +
     'M1620 n\'en fait pas partie, mais la page de la formation cite « Assistant-e marketing » parmi les métiers visés. ' +
     'Selon sa fiche France Travail, M1620 est accessible dès Bac+2 / Bac+3, alors que le diplôme est de niveau Bac+5.';
       const NIVEAUX = [
@@ -82,7 +82,7 @@ Promise.all([
   const li = q.outils.outils.find(o => o.nom === 'LinkedIn');
   const deja = document.getElementById('a-acquerir');
   if (li && f.outils['LinkedIn'] && f.outils['LinkedIn'].vu && f.outils['LinkedIn'].vu.a_acquerir && !/LinkedIn/.test(deja.textContent)) {
-    deja.textContent = (deja.textContent || 'À acquérir cette année :').replace(/\.$/, '') + ', et LinkedIn, cité dans ' + li.assistant + ' % des annonces d\'assistant mais ' + li.responsable_marketing + ' % de celles de responsable marketing.';
+    deja.textContent = (deja.textContent || 'À acquérir cette année :').replace(/\.$/, '') + ', et LinkedIn, cité dans ' + li.assistant + ' % des annonces d\'assistant.';
   }
 }).catch(err => {
   console.error(err);

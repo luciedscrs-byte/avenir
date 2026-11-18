@@ -1,21 +1,11 @@
 {
- "genere_le": "2026-11-18T20:13:30+00:00",
+ "genere_le": "2026-11-18T23:02:07+00:00",
  "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
  "postes": {
   "assistant-marketing": {
    "libelle": "Assistant marketing",
    "n": 49,
    "depuis": "2026-10-07"
-  },
-  "responsable-marketing": {
-   "libelle": "Responsable marketing",
-   "n": 52,
-   "depuis": "2026-11-14"
-  },
-  "responsable-ecommerce": {
-   "libelle": "Responsable e-commerce",
-   "n": 13,
-   "depuis": "2026-11-14"
   }
  },
  "groupes": [
@@ -27,9 +17,7 @@
   "Édition et médias",
   "Événementiel"
  ],
- "offres_sans_departement": {
-  "responsable-marketing": 4
- },
+ "offres_sans_departement": {},
  "departements": {
   "01": {
    "ville": "",
@@ -39,8 +27,7 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "responsable-ecommerce": 1,
-    "total": 2
+    "total": 1
    }
   },
   "02": {
@@ -51,8 +38,7 @@
    },
    "offres": {
     "assistant-marketing": 2,
-    "responsable-marketing": 1,
-    "total": 3
+    "total": 2
    }
   },
   "05": {
@@ -81,18 +67,6 @@
    },
    "offres": {
     "assistant-marketing": 2,
-    "responsable-ecommerce": 1,
-    "total": 3
-   }
-  },
-  "12": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
-    "total": 0
-   },
-   "offres": {
-    "responsable-marketing": 2,
     "total": 2
    }
   },
@@ -110,8 +84,7 @@
     "total": 1118
    },
    "offres": {
-    "responsable-marketing": 2,
-    "total": 2
+    "total": 0
    }
   },
   "14": {
@@ -159,17 +132,6 @@
     "total": 0
    }
   },
-  "22": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
-    "total": 0
-   },
-   "offres": {
-    "responsable-marketing": 1,
-    "total": 1
-   }
-  },
   "25": {
    "ville": "Besançon",
    "couvert": true,
@@ -201,8 +163,7 @@
     "total": 446
    },
    "offres": {
-    "responsable-marketing": 1,
-    "total": 1
+    "total": 0
    }
   },
   "30": {
@@ -236,19 +197,7 @@
     "total": 878
    },
    "offres": {
-    "responsable-ecommerce": 1,
-    "total": 1
-   }
-  },
-  "32": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
     "total": 0
-   },
-   "offres": {
-    "responsable-ecommerce": 1,
-    "total": 1
    }
   },
   "33": {
@@ -266,8 +215,7 @@
    },
    "offres": {
     "assistant-marketing": 5,
-    "responsable-marketing": 2,
-    "total": 7
+    "total": 5
    }
   },
   "34": {
@@ -302,8 +250,7 @@
     "total": 780
    },
    "offres": {
-    "responsable-marketing": 2,
-    "total": 2
+    "total": 0
    }
   },
   "37": {
@@ -407,19 +354,7 @@
     "total": 563
    },
    "offres": {
-    "responsable-marketing": 1,
-    "total": 1
-   }
-  },
-  "50": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
     "total": 0
-   },
-   "offres": {
-    "responsable-marketing": 1,
-    "total": 1
    }
   },
   "51": {
@@ -437,17 +372,6 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "total": 1
-   }
-  },
-  "53": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
-    "total": 0
-   },
-   "offres": {
-    "responsable-ecommerce": 1,
     "total": 1
    }
   },
@@ -485,17 +409,6 @@
     "total": 0
    }
   },
-  "58": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
-    "total": 0
-   },
-   "offres": {
-    "responsable-ecommerce": 1,
-    "total": 1
-   }
-  },
   "59": {
    "ville": "Lille",
    "couvert": true,
@@ -511,19 +424,7 @@
    },
    "offres": {
     "assistant-marketing": 2,
-    "responsable-marketing": 2,
-    "total": 4
-   }
-  },
-  "60": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
-    "total": 0
-   },
-   "offres": {
-    "responsable-marketing": 1,
-    "total": 1
+    "total": 2
    }
   },
   "63": {
@@ -540,9 +441,7 @@
     "total": 348
    },
    "offres": {
-    "responsable-marketing": 1,
-    "responsable-ecommerce": 1,
-    "total": 2
+    "total": 0
    }
   },
   "66": {
@@ -577,8 +476,7 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "responsable-marketing": 2,
-    "total": 3
+    "total": 1
    }
   },
   "68": {
@@ -614,9 +512,7 @@
    },
    "offres": {
     "assistant-marketing": 5,
-    "responsable-marketing": 5,
-    "responsable-ecommerce": 2,
-    "total": 12
+    "total": 5
    }
   },
   "71": {
@@ -661,8 +557,7 @@
     "total": 576
    },
    "offres": {
-    "responsable-marketing": 1,
-    "total": 1
+    "total": 0
    }
   },
   "75": {
@@ -680,9 +575,7 @@
    },
    "offres": {
     "assistant-marketing": 5,
-    "responsable-marketing": 4,
-    "responsable-ecommerce": 3,
-    "total": 12
+    "total": 5
    }
   },
   "76": {
@@ -710,18 +603,6 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "responsable-marketing": 1,
-    "total": 2
-   }
-  },
-  "78": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
-    "total": 0
-   },
-   "offres": {
-    "responsable-marketing": 1,
     "total": 1
    }
   },
@@ -750,19 +631,7 @@
     "total": 238
    },
    "offres": {
-    "responsable-marketing": 1,
-    "total": 1
-   }
-  },
-  "82": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
     "total": 0
-   },
-   "offres": {
-    "responsable-marketing": 1,
-    "total": 1
    }
   },
   "83": {
@@ -780,8 +649,7 @@
    },
    "offres": {
     "assistant-marketing": 2,
-    "responsable-marketing": 1,
-    "total": 3
+    "total": 2
    }
   },
   "84": {
@@ -820,8 +688,7 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "responsable-marketing": 1,
-    "total": 2
+    "total": 1
    }
   },
   "91": {
@@ -832,8 +699,7 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "responsable-marketing": 2,
-    "total": 3
+    "total": 1
    }
   },
   "92": {
@@ -851,9 +717,7 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "responsable-marketing": 7,
-    "responsable-ecommerce": 1,
-    "total": 9
+    "total": 1
    }
   },
   "93": {
@@ -871,8 +735,7 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "responsable-marketing": 1,
-    "total": 2
+    "total": 1
    }
   },
   "94": {
@@ -883,8 +746,7 @@
    },
    "offres": {
     "assistant-marketing": 2,
-    "responsable-marketing": 2,
-    "total": 4
+    "total": 2
    }
   },
   "95": {
@@ -912,17 +774,6 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "total": 1
-   }
-  },
-  "973": {
-   "ville": "",
-   "couvert": false,
-   "entreprises": {
-    "total": 0
-   },
-   "offres": {
-    "responsable-marketing": 1,
     "total": 1
    }
   },

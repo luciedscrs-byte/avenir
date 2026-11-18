@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Conclusion et suite</title>
-<link rel="stylesheet" href="assets/commun.css?v=21">
+<link rel="stylesheet" href="assets/commun.css?v=23">
 </head>
 <body>
 <main>
@@ -40,13 +40,13 @@
       <span class="etiquette">dès décembre 2026, puis chaque mois</span>
       <h3 style="margin:0 0 0.4rem">Entretenir mon profil LinkedIn</h3>
       <p style="margin:0">Le mettre à jour avec mes stages (Monbento, Mapache) et le vocabulaire des offres, et publier régulièrement : résultats de ce projet, retours de stage, formations suivies.</p>
-      <p class="note">Pourquoi : LinkedIn est cité dans 22 % des offres de responsable marketing, contre 5 % pour l'assistant, et mon bilan d'outils dit « théorie seulement ».</p>
+      <p class="note">Pourquoi : LinkedIn figure parmi les outils cités dans les annonces, et mon bilan d'outils dit « théorie seulement ».</p>
     </div>
     <div class="carte">
       <span class="etiquette">à partir de décembre 2026</span>
       <h3 style="margin:0 0 0.4rem">Candidatures spontanées ciblées</h3>
       <p style="margin:0">Choisir des entreprises avec la carte territoire × secteur et écrire à une fonction (responsable marketing, RH), jamais à une personne hors de sa fonction.</p>
-      <p class="note">Pourquoi : 36 offres localisées sur 113 sont hors des départements couverts par la liste, et l'industrie est un employeur majeur du responsable marketing.</p>
+      <p class="note">Pourquoi : beaucoup d'entreprises ne publient pas d'annonce, et la carte montre où elles se concentrent.</p>
     </div>
   </div>
 
@@ -55,7 +55,7 @@
       <span class="etiquette">d'ici fin janvier 2027</span>
       <h3 style="margin:0 0 0.4rem">Trois formations au maximum</h3>
       <p style="margin:0">À choisir parmi celles qui comblent un écart mesuré : un CRM (HubSpot Academy, gratuit), Shopify (la plateforme que je maîtrise le mieux, pour aller plus loin), l'emailing (HubSpot ou Brevo, gratuit) ou Adobe (certification payante ou accès via mon établissement).</p>
-      <p class="note">Pourquoi : l'emailing est l'outil le plus cité des offres d'assistant (44 %) ; Adobe l'est dans 21 % des offres d'assistant et 14 % de celles de responsable ; aucun CRM ne domine (HubSpot, Salesforce, Pipedrive cités une à quatre fois), donc mieux vaut apprendre la logique d'un CRM qu'un seul logiciel.</p>
+      <p class="note">Pourquoi : l'emailing, Adobe et LinkedIn sont cités dans les annonces alors que mon bilan les classe en « théorie seulement » ou « un peu ».</p>
     </div>
     <div class="carte">
       <span class="etiquette">à étudier début 2027</span>
@@ -91,27 +91,21 @@ const part = (rep, nom) => { const r = rep.find(x => x.nom === nom); return r ? 
 
 fetch('data/questions.json').then(r => r.json()).then(q => {
   // ---------- Ma conclusion (le texte est écrit à la main, les chiffres viennent des données)
-  const X = q.echelle, A = X['assistant-marketing'], RM = X['responsable-marketing'], RE = X['responsable-ecommerce'];
-  document.getElementById('c-position').textContent =
-    'Je vise d\'abord un poste d\'assistant marketing en CDI ou CDD, sous ses différents intitulés, avec pour finalité un poste à responsabilité : responsable e-commerce ou responsable marketing.';
-  document.getElementById('c-marche').textContent =
-    'Au vu de mon parcours professionnel (deux stages), il me paraît cohérent de ne pas viser tout de suite un poste de responsable. Les offres le confirment : ' + RE.debutant + ' % des annonces de responsable e-commerce et ' + RM.debutant +
-    ' % de celles de responsable marketing acceptent un débutant, contre ' + A.debutant + ' % pour l\'assistant ; ' + RM.cadre + ' % des annonces de responsable marketing sont des postes cadres, contre ' + A.cadre + ' % pour l\'assistant. ' +
-    'Le salaire affiché suit la même pente : environ ' + fr(A.salaire.mediane) + ' € bruts par mois pour l\'assistant, ' + fr(RM.salaire.mediane) + ' € pour le responsable marketing.';
-  const P = q.paris;
-  const ind = q.recruteurs['responsable-marketing'].types[0];
-  document.getElementById('c-ou').textContent =
-    'Pas seulement à Paris : l\'Île-de-France ne regroupe que ' + P['assistant-marketing'].idf_part + ' % des offres d\'assistant et ' + P['responsable-marketing'].idf_part + ' % de celles de responsable marketing. ' +
-    'Pas seulement dans le numérique et les agences : « ' + ind.nom.split(',')[0] + ' » est le type d\'employeur le plus fréquent du responsable marketing (' + ind.n + ' offres). ' +
-    'Et pas seulement dans les annonces : la carte du marché caché me dit où envoyer des candidatures spontanées.';
+  const X = q.echelle, A = X['assistant-marketing'];
+  const P = q.paris['assistant-marketing'];
   const outil = nom => q.outils.outils.find(o => o.nom === nom);
-  const li = outil('LinkedIn'), crm = outil('CRM');
+  const li = outil('LinkedIn');
+  document.getElementById('c-position').textContent =
+    'Je me concentre sur le poste d\'assistant marketing en CDI ou CDD, sous ses différents intitulés : c\'est celui qui me paraît le plus plausible pour moi aujourd\'hui.';
+  document.getElementById('c-marche').textContent =
+    'J\'ai hésité entre plusieurs postes, mais mon parcours professionnel (deux stages) correspond au niveau d\'assistant. Les offres le confirment : ' + A.debutant + ' % des annonces d\'assistant acceptent un débutant et aucune n\'est un poste cadre. ' +
+    'Le salaire médian affiché est d\'environ ' + fr(A.salaire.mediane) + ' € bruts par mois.';
+  document.getElementById('c-ou').textContent =
+    'Pas seulement à Paris : l\'Île-de-France ne regroupe que ' + P.idf_part + ' % des offres d\'assistant. Et pas seulement dans les annonces : la carte du marché caché indique où envoyer des candidatures spontanées.';
   document.getElementById('c-acquerir').textContent =
-    'Les outils de pilotage qui montent avec le poste : ' + (li ? 'LinkedIn (' + li.assistant + ' % des annonces d\'assistant, ' + li.responsable_marketing + ' % de celles de responsable marketing)' : 'LinkedIn') +
-    (crm ? ', un CRM (' + crm.assistant + ' % puis ' + crm.responsable_marketing + ' %)' : ', un CRM') + ', ainsi que l\'emailing et Adobe, que j\'ai repérés comme écarts. Mes prochaines actions sont sur la page « Et ensuite ».';
+    'Les outils que les annonces citent et que je n\'ai vus qu\'en théorie ou un peu : l\'emailing, Adobe' + (li ? ' et LinkedIn (' + li.assistant + ' % des annonces d\'assistant)' : ' et LinkedIn') + '. Mes prochaines actions sont ci-dessous.';
   document.getElementById('c-limites').textContent =
-    'Peu d\'offres actives : ' + A.actives + ' pour l\'assistant, ' + RM.actives + ' pour le responsable marketing, ' + RE.actives + ' pour le responsable e-commerce. ' +
-    'Des suivis de longueurs différentes : ' + A.jours + ' extractions pour l\'assistant, ' + RM.jours + ' pour les responsables. Un salaire affiché dans une minorité d\'annonces. Ce sont des tendances, pas des vérités.';
+    'Peu d\'offres actives (' + A.actives + ' d\'assistant aujourd\'hui), même si le suivi dure depuis ' + A.jours + ' jours. Un salaire affiché dans une minorité d\'annonces. Ce sont des tendances, pas des vérités.';
 }).catch(() => {
   document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
 });

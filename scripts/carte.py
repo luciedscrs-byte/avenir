@@ -1,5 +1,5 @@
 """Carte territoire × secteur : recoupe la liste des entreprises (marché caché) avec les offres publiées
-(les trois postes, vrais CDI / CDD) par département. Sortie : data/carte.json, lue par entreprises.html.
+(assistant marketing, vrais CDI / CDD) par département. Sortie : data/carte.json, lue par entreprises.html.
 
 Entreprises : département du siège (data/entreprises.csv). Offres : département du lieu de travail,
 chaque offre comptée une fois depuis le début du suivi de son poste."""
@@ -22,7 +22,7 @@ def main():
             ville[r["departement"]] = r["grande_ville"]
 
     textes = resumer.charger_textes()
-    postes = questions.charger_postes(textes)
+    postes = {k: p for k, p in questions.charger_postes(textes).items() if k == "assistant-marketing"}
     offres = defaultdict(Counter)
     sans_lieu = Counter()
     for cle, p in postes.items():

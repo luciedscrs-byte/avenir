@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Que ferai-je une fois diplômée ?</title>
-<link rel="stylesheet" href="assets/commun.css?v=21">
+<link rel="stylesheet" href="assets/commun.css?v=23">
 </head>
 <body>
 <main>
@@ -21,28 +21,28 @@
         <a class="btn sec" href="oral.html">Mode présentation</a>
       </div>
       <div class="chiffres-hero">
-        <div><b>3</b><span>intitulés suivis</span></div>
+        <div><b>1</b><span>poste retenu</span></div>
         <div><b id="h-entreprises">–</b><span>entreprises recensées</span></div>
         <div><b>100 %</b><span>données publiques</span></div>
       </div>
     </header>
     <div class="colonne">
       <div class="tuile navy"><p class="gros" id="t-jours">–</p><p class="legende" id="t-jours-leg">extractions quotidiennes</p></div>
-      <div class="tuile blue"><p class="gros" id="t-offres">–</p><p class="legende">offres actives en CDI ou CDD pour mes trois intitulés</p></div>
+      <div class="tuile blue"><p class="gros" id="t-offres">–</p><p class="legende">offres actives en CDI ou CDD pour l'assistant marketing</p></div>
     </div>
   </div>
   <div class="intitules-bande" role="group" aria-label="Les trois intitulés suivis">
-    <a href="metier.html"><span class="etiquette">Niveau 1</span><b>Assistant marketing</b></a>
-    <a href="metier.html"><span class="etiquette">Niveau 2</span><b>Responsable marketing</b></a>
-    <a href="metier.html"><span class="etiquette">Niveau 2</span><b>Responsable e-commerce</b></a>
+    <a href="metier.html"><span class="etiquette">Mon choix</span><b>Assistant marketing</b></a>
+    <a href="metier.html"><span class="etiquette">Je n'exclus pas</span><b>Responsable marketing</b></a>
+    <a href="metier.html"><span class="etiquette">Je n'exclus pas</span><b>Responsable e-commerce</b></a>
   </div>
   <p id="erreur"></p>
 
   <h2 class="st" id="metier-choisi">Le métier choisi, et pourquoi</h2>
   <div class="grille" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
     <div class="carte"><h3 style="margin:0 0 0.4rem">Mon point de départ</h3><p style="margin:0">Assistant marketing : c'est ce que j'ai fait en stage chez Mapache (SEO sur Shopify, segmentation de clients pour les newsletters, fiches produit).</p></div>
-    <div class="carte"><h3 style="margin:0 0 0.4rem">Pourquoi trois intitulés</h3><p style="margin:0">Je ne suis pas encore certaine du poste exact : je suis trois intitulés autour du même sujet, de l'assistant au responsable.</p></div>
-    <div class="carte"><h3 style="margin:0 0 0.4rem">Le responsable e-commerce</h3><p style="margin:0">Je l'ai ajouté après avoir commencé mon stage chez Monbento, qui m'a donné de nouvelles idées d'intitulés.</p></div>
+    <div class="carte"><h3 style="margin:0 0 0.4rem">Pourquoi j'hésite</h3><p style="margin:0">Je suis encore hésitante entre trois postes autour du même sujet : assistant marketing, responsable marketing et responsable e-commerce (ajouté après avoir commencé mon stage chez Monbento).</p></div>
+    <div class="carte"><h3 style="margin:0 0 0.4rem">Mon choix</h3><p style="margin:0">Je me focalise sur l'assistant marketing : c'est le poste qui me paraît le plus plausible aujourd'hui.</p></div>
   </div>
 
   <footer>Données collectées automatiquement via des API officielles. Dernière génération : <span id="genere"></span>. <a href="actions.html">Mes prochaines actions</a>.</footer>
@@ -81,7 +81,7 @@ Promise.all([
 
   const zone = document.getElementById('chiffres');
   const E = q.echelle;
-  document.getElementById('t-offres').textContent = String(['assistant-marketing', 'responsable-marketing', 'responsable-ecommerce'].reduce((s, k) => s + E[k].actives, 0));
+  document.getElementById('t-offres').textContent = String(E['assistant-marketing'].actives);
 }).catch(() => {
   document.getElementById('erreur').textContent =
     'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
