@@ -1,10 +1,10 @@
 {
- "genere_le": "2026-11-17T15:10:35+00:00",
+ "genere_le": "2026-11-18T14:48:14+00:00",
  "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
  "postes": {
   "assistant-marketing": {
    "libelle": "Assistant marketing",
-   "n": 48,
+   "n": 49,
    "depuis": "2026-10-07"
   },
   "charge-marketing": {
@@ -14,7 +14,7 @@
   },
   "responsable-marketing": {
    "libelle": "Responsable marketing",
-   "n": 50,
+   "n": 52,
    "depuis": "2026-11-14"
   },
   "responsable-ecommerce": {
@@ -379,9 +379,9 @@
     "total": 1032
    },
    "offres": {
-    "assistant-marketing": 3,
+    "assistant-marketing": 4,
     "charge-marketing": 1,
-    "total": 4
+    "total": 5
    }
   },
   "45": {
@@ -711,9 +711,9 @@
    "offres": {
     "assistant-marketing": 5,
     "charge-marketing": 2,
-    "responsable-marketing": 3,
+    "responsable-marketing": 4,
     "responsable-ecommerce": 3,
-    "total": 13
+    "total": 14
    }
   },
   "76": {
@@ -852,7 +852,8 @@
    },
    "offres": {
     "assistant-marketing": 1,
-    "total": 1
+    "responsable-marketing": 1,
+    "total": 2
    }
   },
   "91": {

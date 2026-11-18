@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-17T15:10:34+00:00",
+  "genere_le": "2026-11-18T14:48:13+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -27,14 +27,18 @@
         {
           "date": "2026-11-17",
           "total": 44
+        },
+        {
+          "date": "2026-11-18",
+          "total": 43
         }
       ],
       "derniere": {
-        "date": "2026-11-17",
-        "total": 44,
+        "date": "2026-11-18",
+        "total": 43,
         "contrats": {
           "CDI": 39,
-          "CDD": 5
+          "CDD": 4
         },
         "regions": [
           {
@@ -50,7 +54,7 @@
             "n": 5
           },
           {
-            "nom": "Occitanie",
+            "nom": "Grand Est",
             "n": 3
           },
           {
@@ -58,17 +62,21 @@
             "n": 3
           }
         ],
-        "debutant_accepte": 27,
-        "cadre": 36,
+        "debutant_accepte": 28,
+        "cadre": 37,
         "salaire_affiche": {
-          "offres": 18,
+          "offres": 17,
           "mediane_mensuelle": 3750
         },
-        "sans_nom_employeur": 14,
+        "sans_nom_employeur": 13,
         "entreprises": [
           {
             "nom": "Walter Learning",
             "n": 2
+          },
+          {
+            "nom": "NUMALLIANCE",
+            "n": 1
           },
           {
             "nom": "LES FRUITS ROUGES DE L'AISNE",
@@ -80,10 +88,6 @@
           },
           {
             "nom": "MANPOWER FRANCE",
-            "n": 1
-          },
-          {
-            "nom": "ADECCO",
             "n": 1
           }
         ]
@@ -111,10 +115,14 @@
         {
           "date": "2026-11-17",
           "total": 12
+        },
+        {
+          "date": "2026-11-18",
+          "total": 12
         }
       ],
       "derniere": {
-        "date": "2026-11-17",
+        "date": "2026-11-18",
         "total": 12,
         "contrats": {
           "CDI": 12
