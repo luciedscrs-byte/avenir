@@ -89,4 +89,5 @@ function navigation(courante, avecVue) {
     if (href === courante) a.setAttribute('aria-current', 'page');
     nav.appendChild(a);
   });
+  nav.appendChild(el('a', { className: 'pres', href: 'oral.html', textContent: 'Présentation' }));
 }

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Présentation</title>
-<link rel="stylesheet" href="assets/commun.css?v=19">
+<link rel="stylesheet" href="assets/commun.css?v=20">
 <style>
   .pres { min-height: calc(100vh - 28px); display: flex; flex-direction: column; }
   .pres-haut { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
@@ -43,12 +43,30 @@
   .deux-col .chip { font-size: 1.05rem; margin: 0 0.4rem 0.5rem 0; background: rgba(255,255,255,0.16); border-color: transparent; color: inherit; }
   .lien-carte { display: inline-block; margin-bottom: 1.5rem; }
   @media (max-width: 480px) { .pres-bas button { padding: 0.55rem 0.9rem; font-size: 0.9rem; } .points { display: none; } .pres-haut a { font-size: 0.8rem; text-align: right; } }
+  .petites { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.8rem; margin-bottom: 1.5rem; }
+  .petites > div { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 0.9rem 1.1rem; }
+  .petites b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.5rem; color: var(--mulberry); line-height: 1.15; }
+  .petites span { font-size: 0.95rem; color: var(--muted); }
+  .etapes-schema p { margin: 0.35rem 0 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 0.95rem; line-height: 1.3; }
+  .etapes-schema p b { display: inline-flex; align-items: center; justify-content: center; min-width: 1.3rem; height: 1.3rem; margin-right: 0.4rem; border-radius: 50%; background: rgba(255,255,255,0.22); font-size: 0.72rem; font-weight: 600; }
+  .b4 .etapes-schema p b, .b4 p b { background: rgba(2,46,74,0.14); }
+  .tuile .detail { font-size: 0.95rem; margin: 0.5rem 0 0; opacity: 0.9; }
+  .carte-presentation { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 1.2rem; align-items: center; margin-bottom: 1rem; }
+  .carte-presentation svg { width: 100%; height: auto; display: block; max-height: 52vh; }
+  .carte-presentation .gros { font-size: 3rem; color: var(--mulberry); margin: 0; }
+  .carte-presentation .legende { font-size: 1rem; margin: 0.2rem 0 0.8rem; }
+  .bascule { display: flex; gap: 0.5rem; margin: 0.8rem 0; }
+  .bascule button { font: inherit; padding: 0.45rem 1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--card); cursor: pointer; }
+  .bascule button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--paper); }
+  .dep { stroke: var(--card); stroke-width: 0.8; }
+  .rond { fill: var(--blue); stroke: var(--paper); stroke-width: 1.4; }
+  @media (max-width: 800px) { .carte-presentation { grid-template-columns: minmax(0, 1fr); } }
   @media (max-width: 800px) { .diapo h1 { font-size: 2rem; } .blocs-schema { grid-template-columns: minmax(0, 1fr); } .blocs-schema > div:not(:last-child)::after { content: "↓"; right: auto; left: 1.3rem; top: auto; bottom: -1.5rem; } .deux-col { grid-template-columns: minmax(0, 1fr); } .je-dis { font-size: 1.05rem; } }
 </style>
 </head>
 <body>
 <main class="pres">
-  <div class="pres-haut"><span class="marque">avenir · présentation</span><a href="index.html">Quitter la présentation, voir le site complet</a></div>
+  <div class="pres-haut"><span class="marque">avenir · présentation</span><a href="index.html" target="_blank" rel="noopener">Ouvrir le site complet (nouvel onglet)</a></div>
   <p id="erreur"></p>
   <div id="diapos" style="flex:1;display:flex;flex-direction:column"></div>
   <div class="pres-bas">
@@ -65,7 +83,9 @@ Promise.all([
   fetch('data/resume_emploi.json').then(r => r.json()),
   fetch('data/entreprises_resume.json').then(r => r.json()),
   fetch('data/formation.json').then(r => r.json()),
-]).then(([q, emploi, ent, f]) => {
+  fetch('assets/departements.geojson').then(r => r.json()),
+  fetch('data/carte.json').then(r => r.json()),
+]).then(([q, emploi, ent, f, geo, carte]) => {
   const E = q.echelle, A = E['assistant-marketing'], RM = E['responsable-marketing'], RE = E['responsable-ecommerce'], P = q.paris;
   const m = emploi.mouvement, moy = c => (m.flux.reduce((s, x) => s + x[c], 0) / m.flux.length);
   const arrondi = x => Math.round(x);
@@ -77,17 +97,58 @@ Promise.all([
   const blocs = lignes => el('div', { className: 'blocs-schema' }, lignes.map(([cls, t, p]) => el('div', { className: cls }, [el('h3', { textContent: t }), el('p', { textContent: p })])));
 
   const vus = Object.entries(f.outils).filter(([n, o]) => o.vu && /vu en cours/.test((o.vu.niveau || '').toLowerCase()) && ['SEO', 'Canva', 'CRM', 'Anglais'].includes(n)).map(([n]) => n);
-  const manque = ['Emailing / newsletter', 'Adobe (Photoshop, Illustrator, InDesign…)', 'LinkedIn'].filter(n => f.outils[n]).map(n => n.replace(/ \(.*\)$/, '').replace(/ \/ .*/, ''));
+  const manque = ['Emailing / newsletter', 'Adobe (Photoshop, Illustrator, InDesign…)', 'LinkedIn'].filter(n => f.outils[n]);
+  const court = n => n.replace(/ \(.*\)$/, '').replace(/ \/ .*/, '');
+  const liste_outils = emploi.derniere.outils.liste;
+  const nb = n => { const o = liste_outils.find(x => x.nom === n); return o ? o.entreprises : 0; };
+  const outil = nom => q.outils.outils.find(o => o.nom === nom);
+  const li = outil('LinkedIn'), crm = outil('CRM');
+  const petite = (gros, texte) => el('div', {}, [el('b', { textContent: gros }), el('span', { textContent: texte })]);
+  const bloc = (cls, t, lignes) => el('div', { className: cls + ' etapes-schema' }, [el('h3', { textContent: t }), ...lignes.map(([n, x]) => el('p', {}, [el('b', { textContent: n }), document.createTextNode(x)]))]);
+
+  // ----- la carte de la diapo 5
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = (tag, attrs, enfants) => { const e = document.createElementNS(NS, tag); Object.entries(attrs || {}).forEach(([k, v]) => e.setAttribute(k, v)); (enfants || []).forEach(c => e.appendChild(c)); return e; };
+  const COEF = Math.cos(46.5 * Math.PI / 180);
+  const proj = ([lon, lat]) => [(lon + 5.2) * COEF * 100, (51.3 - lat) * 100];
+  const chemin = g => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).map(p => p.map(a => 'M' + a.map(pt => proj(pt).map(v => v.toFixed(1)).join(',')).join('L') + 'Z').join('')).join('');
+  const centre = g => { let best = null, aireMax = -1; (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).forEach(p => { const a0 = p[0]; let a = 0, cx = 0, cy = 0; for (let i = 0; i < a0.length - 1; i++) { const [x0, y0] = a0[i], [x1, y1] = a0[i + 1], f2 = x0 * y1 - x1 * y0; a += f2; cx += (x0 + x1) * f2; cy += (y0 + y1) * f2; } a /= 2; if (Math.abs(a) > aireMax && a !== 0) { aireMax = Math.abs(a); best = [cx / (6 * a), cy / (6 * a)]; } }); return best; };
+  const zoneCarte = el('div', {});
+  let groupe = 'total';
+  const dessinerCarte = () => {
+    zoneCarte.replaceChildren();
+    const deps = carte.departements, couverts = Object.keys(deps).filter(d => deps[d].couvert);
+    const valeurs = couverts.map(d => deps[d].entreprises[groupe] || 0).filter(v => v > 0).sort((a, b) => a - b);
+    const seuil = p => valeurs[Math.min(valeurs.length - 1, Math.floor(p * valeurs.length))] || 0;
+    const bornes = [seuil(0.2), seuil(0.4), seuil(0.6), seuil(0.8)], OP = [0.25, 0.42, 0.6, 0.8, 0.97];
+    const largeur = (9.9 + 5.2) * COEF * 100, hauteur = 910;
+    const s = svg('svg', { viewBox: '0 0 ' + Math.round(largeur) + ' ' + hauteur, role: 'img', 'aria-label': 'Carte de France des entreprises et des offres' });
+    geo.features.forEach(f2 => {
+      const d = f2.properties.code, v = ((deps[d] || {}).entreprises || {})[groupe] || 0, ok = deps[d] && deps[d].couvert && v > 0;
+      const cl = bornes.filter(b => v > b).length;
+      s.appendChild(svg('path', { d: chemin(f2.geometry), class: 'dep', fill: ok ? 'var(--accent)' : 'var(--muted)', 'fill-opacity': ok ? OP[cl] : 0.1 }));
+    });
+    geo.features.forEach(f2 => { const d = f2.properties.code, n = ((deps[d] || {}).offres || {}).total || 0; if (!n) return; const [x, y] = proj(centre(f2.geometry)); s.appendChild(svg('circle', { cx: x.toFixed(1), cy: y.toFixed(1), r: (7 + 4 * Math.sqrt(n)).toFixed(1), class: 'rond' })); });
+    zoneCarte.appendChild(s);
+  };
 
   const liste = [
     diapo('Étape 1', 'Le métier choisi', 'Assistant marketing d\'abord, avec deux postes de responsable pour viser plus haut.', [
       el('div', { className: 'gros-chiffres' }, [
-        tuile('mulb', 'Assistant marketing', 'Niveau 1 · mon point de départ : mon stage chez Mapache'),
-        tuile('blue', 'Responsable marketing', 'Niveau 2 · l\'objectif à terme'),
-        tuile('navy', 'Responsable e-commerce', 'Niveau 2 · ajouté après avoir commencé mon stage chez Monbento'),
-      ])], 'Je ne suis pas encore certaine : je suis trois intitulés autour du même sujet.'),
+        el('div', { className: 'tuile mulb' }, [el('p', { className: 'gros mot', textContent: 'Assistant marketing' }), el('p', { className: 'legende', textContent: 'Niveau 1 · mon point de départ' }), el('p', { className: 'detail', textContent: 'Stage chez Mapache : SEO sur Shopify, newsletters, fiches produit.' })]),
+        el('div', { className: 'tuile blue' }, [el('p', { className: 'gros mot', textContent: 'Responsable marketing' }), el('p', { className: 'legende', textContent: 'Niveau 2 · l\'objectif à terme' })]),
+        el('div', { className: 'tuile navy' }, [el('p', { className: 'gros mot', textContent: 'Responsable e-commerce' }), el('p', { className: 'legende', textContent: 'Niveau 2 · ajouté après avoir commencé mon stage chez Monbento' })]),
+      ]),
+      el('p', { className: 'sous', style: 'margin:0 0 0.6rem', textContent: 'Le même poste d\'assistant sous plusieurs noms :' }),
+      el('div', { className: 'chips' }, q.intitules_assistant.map(i => el('span', { className: 'chip', textContent: i.nom }))),
+    ], 'Je ne suis pas encore certaine : je suis trois intitulés autour du même sujet.'),
     diapo('Étape 2', 'Comment j\'ai fait', 'Une clé API, un script, et GitHub qui le lance chaque jour.', [
-      blocs([['b1', 'France Travail', 'Une clé API'], ['b2', 'Mon ordinateur', 'Un script Python'], ['b3', 'GitHub', 'Lancé chaque jour, sans mon ordinateur'], ['b4', 'Le site', 'Il se met à jour tout seul']]),
+      el('div', { className: 'blocs-schema' }, [
+        bloc('b1', 'France Travail', [['1', 'Compte développeur'], ['2', 'Abonnement à l\'API'], ['3', 'Clé : identifiant + secret']]),
+        bloc('b2', 'Mon ordinateur', [['4', 'Fichier .env : la clé reste chez moi'], ['5', 'Script Python : demande les offres du code M1620']]),
+        bloc('b3', 'GitHub', [['6', 'Dépôt public'], ['7', 'Secrets : la clé y est cachée'], ['8', 'Action : lance le script chaque jour, sans mon ordinateur']]),
+        bloc('b4', 'Le site', [['9', 'Fichiers du jour enregistrés'], ['10', 'GitHub Pages : le site s\'affiche']]),
+      ]),
       el('div', { className: 'chips' }, [el('span', { className: 'chip', textContent: 'API officielles uniquement' }), el('span', { className: 'chip', textContent: 'Aucune donnée personnelle' }), el('span', { className: 'chip', textContent: A.jours + ' jours de suivi' })])],
       'Tout tourne tout seul chaque jour, avec des données publiques.'),
     diapo('Étape 3 · le poste', 'Ce qui en ressort : le niveau monte', 'De l\'assistant au responsable.', [
@@ -95,26 +156,44 @@ Promise.all([
         tuile('mulb', fr(A.salaire.mediane) + ' € → ' + fr(RM.salaire.mediane) + ' €', 'salaire médian affiché, brut par mois : assistant puis responsable marketing'),
         tuile('blue', A.debutant + ' % · ' + RM.debutant + ' % · ' + RE.debutant + ' %', 'des annonces acceptent un débutant : assistant, responsable marketing, responsable e-commerce'),
         tuile('navy', A.cadre + ' % → ' + RM.cadre + ' %', 'de postes cadres : assistant puis responsable marketing'),
+      ]),
+      el('div', { className: 'petites' }, [
+        petite(A.management + ' % → ' + RM.management + ' %', 'des annonces citent le management : assistant puis responsable marketing'),
+        petite(li ? li.assistant + ' % → ' + li.responsable_marketing + ' %' : '–', 'des annonces citent LinkedIn : assistant puis responsable marketing'),
+        petite(crm ? crm.assistant + ' % → ' + crm.responsable_marketing + ' %' : '–', 'des annonces citent un CRM : assistant puis responsable marketing'),
       ])], 'Plus on monte, plus le salaire et le niveau demandé augmentent.'),
     diapo('Étape 3 · le marché', 'Ce qui en ressort : où, et comment ça bouge', 'Peu d\'offres : ce sont des tendances.', [
       el('div', { className: 'gros-chiffres' }, [
         tuile('mulb', P['assistant-marketing'].idf_part + ' % · ' + P['responsable-marketing'].idf_part + ' %', 'des offres sont en Île-de-France : assistant puis responsable marketing'),
         tuile('blue', '≈ ' + arrondi(moy('nouvelles')) + ' par jour', 'nouvelles offres, et autant qui disparaissent'),
         tuile('navy', (m.duree_mediane_jours || '–') + ' jours', 'durée de vie médiane d\'une offre'),
+      ]),
+      el('div', { className: 'petites' }, [
+        petite('Apec', '13 % des offres cadre qui parlent d\'IA sont des offres commercial-marketing : l\'IA entre dans le métier'),
+        petite(A.actives + ' · ' + RM.actives + ' · ' + RE.actives, 'offres actives : assistant, responsable marketing, responsable e-commerce'),
+        petite(A.jours + ' · ' + RM.jours, 'jours de suivi : assistant, responsables'),
       ])], 'Ce n\'est pas que Paris, et le marché bouge tous les jours.'),
     diapo('Étape 4', 'Le marché caché', 'Les annonces ne montrent que les entreprises qui publient.', [
-      el('div', { className: 'gros-chiffres' }, [tuile('mulb', fr(ent.total), 'entreprises recensées dans les grandes villes'), tuile('blue', 'Industrie', 'un employeur important du responsable marketing')]),
-      el('a', { className: 'btn lien-carte', href: 'entreprises.html#carte-territoire', textContent: 'Ouvrir la carte' })],
-      'La carte me dit où envoyer des candidatures spontanées.'),
+      el('div', { className: 'carte-presentation' }, [zoneCarte, el('div', {}, [
+        el('p', { className: 'gros', textContent: fr(ent.total) }), el('p', { className: 'legende', textContent: 'entreprises recensées dans les grandes villes. Plus un département est foncé, plus il y en a ; les ronds bleus sont les offres publiées.' }),
+        el('div', { className: 'bascule', id: 'bascule' }),
+      ])])], 'La carte me dit où envoyer des candidatures spontanées.'),
     diapo('Étape 5', 'Ma formation', 'Ce que j\'ai vu, et ce qu\'il me manque.', [
       el('div', { className: 'deux-col' }, [
-        el('div', { className: 'mulb tuile' }, [el('h3', { textContent: 'Vu en cours' }), ...vus.map(n => el('span', { className: 'chip', textContent: n }))]),
-        el('div', { className: 'tuile blue' }, [el('h3', { textContent: 'Il me manque' }), ...manque.map(n => el('span', { className: 'chip', textContent: n }))]),
-      ])], 'Mon diplôme vise des postes de responsable : il me manque quelques outils pour y arriver.'),
+        el('div', { className: 'mulb tuile' }, [el('h3', { textContent: 'Vu en cours' }), ...vus.map(n => el('span', { className: 'chip', textContent: n + (nb(n) ? ' · ' + nb(n) : '') }))]),
+        el('div', { className: 'tuile blue' }, [el('h3', { textContent: 'Il me manque' }), ...manque.map(n => el('span', { className: 'chip', textContent: court(n) + (nb(n) ? ' · ' + nb(n) : '') }))]),
+      ]),
+      el('p', { className: 'sous', style: 'margin:0', textContent: 'Le chiffre est le nombre d\'entreprises qui citent l\'outil dans les annonces. Le M2 vise : ' + f.metiers_vises_descriptif.slice(0, 4).join(', ') + '…' })],
+      'Mon diplôme vise des postes de responsable : il me manque quelques outils pour y arriver.'),
     diapo('Étape 6', 'Conclusion', 'Assistant d\'abord, responsable ensuite.', [
       el('div', { className: 'gros-chiffres' }, [
         tuile('mulb', RE.debutant + ' % contre ' + A.debutant + ' %', 'des annonces acceptent un débutant : responsable e-commerce contre assistant'),
-        tuile('blue', 'LinkedIn', 'entretenir mon profil'), tuile('navy', 'Formations', 'trois au maximum'), tuile('oat', 'Candidatures', 'spontanées, ciblées avec la carte'),
+        tuile('blue', 'Deux stages', 'mon parcours à ce jour : cohérent de commencer par assistant'),
+      ]),
+      el('div', { className: 'petites' }, [
+        petite('LinkedIn', 'entretenir mon profil, avec mes stages, et publier'),
+        petite('Formations', 'trois au maximum : un CRM, l\'emailing, Adobe'),
+        petite('Candidatures', 'spontanées, ciblées avec la carte du marché caché'),
       ])], 'Je commence par assistant, car je n\'ai fait que deux stages. La finalité reste un poste à responsabilité.'),
   ];
 
@@ -126,7 +205,7 @@ Promise.all([
     [...pts.children].forEach((p, i) => p.classList.toggle('actif', i === n));
     document.getElementById('prec').disabled = n === 0;
     document.getElementById('suiv').disabled = n === liste.length - 1;
-    try { history.replaceState(null, '', '#' + (n + 1)); } catch (e) { /* ignoré */ }
+    try { history.replaceState(null, '', '#' + (n + 1)); sessionStorage.setItem('diapo', String(n + 1)); } catch (e) { /* ignoré */ }
   };
   document.getElementById('prec').onclick = () => { if (n > 0) { n--; afficher(); } };
   document.getElementById('suiv').onclick = () => { if (n < liste.length - 1) { n++; afficher(); } };
@@ -134,7 +213,15 @@ Promise.all([
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); document.getElementById('suiv').click(); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); document.getElementById('prec').click(); }
   });
-  const h = parseInt(location.hash.slice(1), 10);
+  const bas = document.getElementById('bascule');
+  [['total', 'Tous les secteurs'], ['Industrie', 'Industrie']].forEach(([cle, nom]) => {
+    const b = el('button', { textContent: nom }); b.setAttribute('aria-pressed', String(cle === groupe));
+    b.onclick = () => { groupe = cle; [...bas.children].forEach(x => x.setAttribute('aria-pressed', String(x === b))); dessinerCarte(); };
+    bas.appendChild(b);
+  });
+  dessinerCarte();
+  let memo = 0; try { memo = parseInt(sessionStorage.getItem('diapo'), 10) || 0; } catch (e) { /* ignoré */ }
+  const h = parseInt(location.hash.slice(1), 10) || memo;
   if (h >= 1 && h <= liste.length) n = h - 1;
   afficher();
 }).catch(err => {

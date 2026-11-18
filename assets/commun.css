@@ -320,3 +320,6 @@
   .bs.s3 h3 { background: var(--navy); color: var(--oat); } .bs.s4 h3 { background: var(--oat); color: var(--navy); }
   .bs:not(:last-child)::after { content: "→"; position: absolute; right: -1.35rem; top: 0.7rem; width: 1.1rem; text-align: center; font-size: 1.2rem; color: var(--mulberry); }
   @media (max-width: 900px) { .schema { grid-template-columns: minmax(0, 1fr); gap: 1.6rem; } .bs:not(:last-child)::after { content: "↓"; right: auto; left: 1.2rem; top: auto; bottom: -1.5rem; } }
+
+  nav a.pres { border: 1.5px solid var(--mulberry); color: var(--mulberry); margin-left: 0.25rem; }
+  nav a.pres:hover { background: var(--mulberry); color: var(--paper); }
