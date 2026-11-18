@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>avenir — Présentation</title>
+<link rel="stylesheet" href="assets/commun.css?v=19">
+<style>
+  .pres { min-height: calc(100vh - 28px); display: flex; flex-direction: column; }
+  .pres-haut { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+  .pres-haut a { color: var(--muted); font-size: 0.9rem; text-decoration: none; }
+  .pres-haut .marque { font-family: var(--serif); letter-spacing: 0.08em; text-transform: uppercase; color: var(--mulberry); }
+  .diapo { flex: 1; display: none; flex-direction: column; }
+  .diapo.active { display: flex; }
+  .diapo h1 { font-size: 2.8rem; margin: 0 0 0.5rem; }
+  .diapo .sous { color: var(--muted); font-size: 1.15rem; margin: 0 0 1.5rem; }
+  .gros-chiffres { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+  .gros-chiffres .tuile { padding: 1.6rem; }
+  .gros-chiffres .tuile .gros { font-size: 3.2rem; margin-bottom: 0.3rem; }
+  .gros-chiffres .tuile.mulb { background: var(--mulberry); color: var(--oat); }
+  .gros-chiffres .tuile.oat { background: var(--oat); color: var(--navy); }
+  .gros-chiffres .tuile .legende { font-size: 1rem; }
+  .gros-chiffres .tuile .gros { overflow-wrap: anywhere; }
+  .gros-chiffres .tuile .gros.mot { font-size: 2.1rem; line-height: 1.15; }
+  .je-dis { margin-top: auto; background: var(--oat); border-radius: 20px; padding: 1.1rem 1.4rem; font-size: 1.25rem; line-height: 1.4; }
+  .je-dis small { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+  .pres-bas { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+  .pres-bas button { font: inherit; font-weight: 600; font-size: 1rem; padding: 0.6rem 1.3rem; border-radius: 999px; border: 1.5px solid var(--mulberry); background: var(--mulberry); color: var(--paper); cursor: pointer; }
+  .pres-bas button.sec { background: transparent; color: var(--mulberry); }
+  .pres-bas button:disabled { opacity: 0.3; cursor: default; }
+  .points { display: flex; gap: 0.5rem; }
+  .points i { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--line); display: block; }
+  .points i.actif { background: var(--mulberry); }
+  .blocs-schema { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; margin-bottom: 1.5rem; }
+  .blocs-schema > div { border-radius: 22px; padding: 1.3rem; position: relative; }
+  .blocs-schema > div:not(:last-child)::after { content: "→"; position: absolute; right: -1.2rem; top: 50%; font-size: 1.4rem; color: var(--mulberry); }
+  .blocs-schema h3 { margin: 0 0 0.4rem; font-size: 0.85rem; }
+  .blocs-schema p { margin: 0; font-family: var(--serif); font-size: 1.35rem; line-height: 1.2; }
+  .b1 { background: var(--mulberry); color: var(--oat); } .b2 { background: var(--blue); color: #fff; } .b3 { background: var(--navy); color: var(--oat); } .b4 { background: var(--oat); color: var(--navy); }
+  .deux-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+  .deux-col > div { border-radius: 24px; padding: 1.6rem; }
+  .deux-col h3 { margin: 0 0 0.8rem; font-size: 1rem; }
+  .deux-col .chip { font-size: 1.05rem; margin: 0 0.4rem 0.5rem 0; background: rgba(255,255,255,0.16); border-color: transparent; color: inherit; }
+  .lien-carte { display: inline-block; margin-bottom: 1.5rem; }
+  @media (max-width: 480px) { .pres-bas button { padding: 0.55rem 0.9rem; font-size: 0.9rem; } .points { display: none; } .pres-haut a { font-size: 0.8rem; text-align: right; } }
+  @media (max-width: 800px) { .diapo h1 { font-size: 2rem; } .blocs-schema { grid-template-columns: minmax(0, 1fr); } .blocs-schema > div:not(:last-child)::after { content: "↓"; right: auto; left: 1.3rem; top: auto; bottom: -1.5rem; } .deux-col { grid-template-columns: minmax(0, 1fr); } .je-dis { font-size: 1.05rem; } }
+</style>
+</head>
+<body>
+<main class="pres">
+  <div class="pres-haut"><span class="marque">avenir · présentation</span><a href="index.html">Quitter la présentation, voir le site complet</a></div>
+  <p id="erreur"></p>
+  <div id="diapos" style="flex:1;display:flex;flex-direction:column"></div>
+  <div class="pres-bas">
+    <button id="prec" class="sec">← Précédent</button>
+    <div class="points" id="points"></div>
+    <button id="suiv">Suivant →</button>
+  </div>
+</main>
+
+<script src="assets/commun.js"></script>
+<script>
+Promise.all([
+  fetch('data/questions.json').then(r => r.json()),
+  fetch('data/resume_emploi.json').then(r => r.json()),
+  fetch('data/entreprises_resume.json').then(r => r.json()),
+  fetch('data/formation.json').then(r => r.json()),
+]).then(([q, emploi, ent, f]) => {
+  const E = q.echelle, A = E['assistant-marketing'], RM = E['responsable-marketing'], RE = E['responsable-ecommerce'], P = q.paris;
+  const m = emploi.mouvement, moy = c => (m.flux.reduce((s, x) => s + x[c], 0) / m.flux.length);
+  const arrondi = x => Math.round(x);
+
+  const tuile = (cls, gros, legende) => el('div', { className: 'tuile ' + cls }, [el('p', { className: 'gros' + (/\d/.test(gros) ? '' : ' mot'), textContent: gros }), el('p', { className: 'legende', textContent: legende })]);
+  const dis = txt => el('div', { className: 'je-dis' }, [el('small', { textContent: 'Je dis' }), document.createTextNode(txt)]);
+  const diapo = (etape, titre, sous, corps, phrase) => el('section', { className: 'diapo' }, [
+    el('p', { className: 'etiquette', textContent: etape }), el('h1', { textContent: titre }), el('p', { className: 'sous', textContent: sous }), ...corps, dis(phrase)]);
+  const blocs = lignes => el('div', { className: 'blocs-schema' }, lignes.map(([cls, t, p]) => el('div', { className: cls }, [el('h3', { textContent: t }), el('p', { textContent: p })])));
+
+  const vus = Object.entries(f.outils).filter(([n, o]) => o.vu && /vu en cours/.test((o.vu.niveau || '').toLowerCase()) && ['SEO', 'Canva', 'CRM', 'Anglais'].includes(n)).map(([n]) => n);
+  const manque = ['Emailing / newsletter', 'Adobe (Photoshop, Illustrator, InDesign…)', 'LinkedIn'].filter(n => f.outils[n]).map(n => n.replace(/ \(.*\)$/, '').replace(/ \/ .*/, ''));
+
+  const liste = [
+    diapo('Étape 1', 'Le métier choisi', 'Assistant marketing d\'abord, avec deux postes de responsable pour viser plus haut.', [
+      el('div', { className: 'gros-chiffres' }, [
+        tuile('mulb', 'Assistant marketing', 'Niveau 1 · mon point de départ : mon stage chez Mapache'),
+        tuile('blue', 'Responsable marketing', 'Niveau 2 · l\'objectif à terme'),
+        tuile('navy', 'Responsable e-commerce', 'Niveau 2 · ajouté après avoir commencé mon stage chez Monbento'),
+      ])], 'Je ne suis pas encore certaine : je suis trois intitulés autour du même sujet.'),
+    diapo('Étape 2', 'Comment j\'ai fait', 'Une clé API, un script, et GitHub qui le lance chaque jour.', [
+      blocs([['b1', 'France Travail', 'Une clé API'], ['b2', 'Mon ordinateur', 'Un script Python'], ['b3', 'GitHub', 'Lancé chaque jour, sans mon ordinateur'], ['b4', 'Le site', 'Il se met à jour tout seul']]),
+      el('div', { className: 'chips' }, [el('span', { className: 'chip', textContent: 'API officielles uniquement' }), el('span', { className: 'chip', textContent: 'Aucune donnée personnelle' }), el('span', { className: 'chip', textContent: A.jours + ' jours de suivi' })])],
+      'Tout tourne tout seul chaque jour, avec des données publiques.'),
+    diapo('Étape 3 · le poste', 'Ce qui en ressort : le niveau monte', 'De l\'assistant au responsable.', [
+      el('div', { className: 'gros-chiffres' }, [
+        tuile('mulb', fr(A.salaire.mediane) + ' € → ' + fr(RM.salaire.mediane) + ' €', 'salaire médian affiché, brut par mois : assistant puis responsable marketing'),
+        tuile('blue', A.debutant + ' % · ' + RM.debutant + ' % · ' + RE.debutant + ' %', 'des annonces acceptent un débutant : assistant, responsable marketing, responsable e-commerce'),
+        tuile('navy', A.cadre + ' % → ' + RM.cadre + ' %', 'de postes cadres : assistant puis responsable marketing'),
+      ])], 'Plus on monte, plus le salaire et le niveau demandé augmentent.'),
+    diapo('Étape 3 · le marché', 'Ce qui en ressort : où, et comment ça bouge', 'Peu d\'offres : ce sont des tendances.', [
+      el('div', { className: 'gros-chiffres' }, [
+        tuile('mulb', P['assistant-marketing'].idf_part + ' % · ' + P['responsable-marketing'].idf_part + ' %', 'des offres sont en Île-de-France : assistant puis responsable marketing'),
+        tuile('blue', '≈ ' + arrondi(moy('nouvelles')) + ' par jour', 'nouvelles offres, et autant qui disparaissent'),
+        tuile('navy', (m.duree_mediane_jours || '–') + ' jours', 'durée de vie médiane d\'une offre'),
+      ])], 'Ce n\'est pas que Paris, et le marché bouge tous les jours.'),
+    diapo('Étape 4', 'Le marché caché', 'Les annonces ne montrent que les entreprises qui publient.', [
+      el('div', { className: 'gros-chiffres' }, [tuile('mulb', fr(ent.total), 'entreprises recensées dans les grandes villes'), tuile('blue', 'Industrie', 'un employeur important du responsable marketing')]),
+      el('a', { className: 'btn lien-carte', href: 'entreprises.html#carte-territoire', textContent: 'Ouvrir la carte' })],
+      'La carte me dit où envoyer des candidatures spontanées.'),
+    diapo('Étape 5', 'Ma formation', 'Ce que j\'ai vu, et ce qu\'il me manque.', [
+      el('div', { className: 'deux-col' }, [
+        el('div', { className: 'mulb tuile' }, [el('h3', { textContent: 'Vu en cours' }), ...vus.map(n => el('span', { className: 'chip', textContent: n }))]),
+        el('div', { className: 'tuile blue' }, [el('h3', { textContent: 'Il me manque' }), ...manque.map(n => el('span', { className: 'chip', textContent: n }))]),
+      ])], 'Mon diplôme vise des postes de responsable : il me manque quelques outils pour y arriver.'),
+    diapo('Étape 6', 'Conclusion', 'Assistant d\'abord, responsable ensuite.', [
+      el('div', { className: 'gros-chiffres' }, [
+        tuile('mulb', RE.debutant + ' % contre ' + A.debutant + ' %', 'des annonces acceptent un débutant : responsable e-commerce contre assistant'),
+        tuile('blue', 'LinkedIn', 'entretenir mon profil'), tuile('navy', 'Formations', 'trois au maximum'), tuile('oat', 'Candidatures', 'spontanées, ciblées avec la carte'),
+      ])], 'Je commence par assistant, car je n\'ai fait que deux stages. La finalité reste un poste à responsabilité.'),
+  ];
+
+  const zone = document.getElementById('diapos'), pts = document.getElementById('points');
+  liste.forEach((d, i) => { zone.appendChild(d); pts.appendChild(el('i', {})); });
+  let n = 0;
+  const afficher = () => {
+    [...zone.children].forEach((d, i) => d.classList.toggle('active', i === n));
+    [...pts.children].forEach((p, i) => p.classList.toggle('actif', i === n));
+    document.getElementById('prec').disabled = n === 0;
+    document.getElementById('suiv').disabled = n === liste.length - 1;
+    try { history.replaceState(null, '', '#' + (n + 1)); } catch (e) { /* ignoré */ }
+  };
+  document.getElementById('prec').onclick = () => { if (n > 0) { n--; afficher(); } };
+  document.getElementById('suiv').onclick = () => { if (n < liste.length - 1) { n++; afficher(); } };
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); document.getElementById('suiv').click(); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); document.getElementById('prec').click(); }
+  });
+  const h = parseInt(location.hash.slice(1), 10);
+  if (h >= 1 && h <= liste.length) n = h - 1;
+  afficher();
+}).catch(err => {
+  console.error(err);
+  document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
+});
+</script>
+</body>
+</html>
