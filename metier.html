@@ -280,30 +280,6 @@ Promise.all([
       [legende, ...piles],
       'Expérience connue pour ' + X['assistant-marketing'].n + ' des ' + X['assistant-marketing'].sur + ' offres d\'assistant (seules les offres encore en ligne depuis le 14/11 la fournissent pour l\'instant, elle se complète chaque jour) ; pour les responsables, toutes les offres.'));
   }
-
-  // 5. qui recrute
-  {
-    const R = Q.recruteurs;
-    const types = [...new Set(ORDRE.flatMap(k => R[k].types.slice(0, 5).map(x => x.nom)))];
-    const n = (k, nom) => { const x = R[k].types.find(y => y.nom === nom); return x ? x.n : 0; };
-    const maxN = Math.max(1, ...types.flatMap(tp => ORDRE.map(k => n(k, tp))));
-    const t5 = el('table', {});
-    tableauChaleur(t5, ['Type d\'entreprise (d\'après son code d\'activité)'].concat(ORDRE.map(k => COURT[k])),
-      types.map(tp => ({ nom: tp, valeurs: ORDRE.map(k => n(k, tp)), echelle: maxN, format: v => String(v) })));
-    const segs = [['Travaille pour des clients (agence, conseil, intérim…)', '#507593'], ['Travaille pour elle-même (industrie, commerce, santé…)', '#56061d'], ['Formation ou médias', '#e2d8cb', '#022e4a']];
-    const piles = ORDRE.map(k => el('div', {}, [
-      el('p', { className: 'pile-nom' }, [el('span', { textContent: noms(k) }), el('span', { textContent: R[k].secteur_connu + ' offres sur ' + R[k].n + ' avec un secteur connu · ' + R[k].sans_nom + ' sans nom d\'employeur' })]),
-      pile([{ nom: segs[0][0], couleur: segs[0][1], n: R[k].pour_clients }, { nom: segs[1][0], couleur: segs[1][1], n: R[k].pour_eux_memes }, { nom: segs[2][0], couleur: segs[2][1], texte: segs[2][2], n: R[k].formation_medias }], R[k].secteur_connu || 1),
-    ]));
-    const rm = R['responsable-marketing'];
-    box.appendChild(bloc('5. Qui recrute vraiment : agences, entreprises utilisatrices, quels secteurs ?',
-      'Pour le responsable marketing, ' + rm.types[0].nom.split(',')[0] + ' est le type d\'employeur le plus fréquent (' + rm.types[0].n + ' offres) ; ' + rm.pour_eux_memes + ' offres sur ' + rm.secteur_connu +
-      ' viennent d\'entreprises qui travaillent pour elles-mêmes, contre ' + rm.pour_clients + ' pour des clients.',
-      [legendePile(segs.map(s => ({ nom: s[0], couleur: s[1] }))), ...piles],
-      'Le type est déduit du code d\'activité (NAF) de l\'établissement quand l\'annonce le renseigne : secteur inconnu pour ' + (rm.n - rm.secteur_connu) + ' offres sur ' + rm.n + ' (responsable marketing) et ' +
-      (R['assistant-marketing'].n - R['assistant-marketing'].secteur_connu) + ' sur ' + R['assistant-marketing'].n + ' (assistant, où le secteur n\'est connu que pour les offres encore en ligne depuis le 14/11 : il se complète à chaque extraction). ' +
-      'Le tableau donne le nombre d\'offres. Une entreprise de conseil ou une agence peut aussi être un employeur direct : la frontière est indicative.', [el('div', { className: 'tableau', style: 'margin-top:0.75rem' }, [t5])]));
-  }
 }).catch(err => {
   console.error(err);
   document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
