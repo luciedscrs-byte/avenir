@@ -58,8 +58,9 @@ const PAGES = [
   ['actions.html', 'Conclusion'],
 ];
 
+// Une seule vue : les vrais CDI et CDD (la vue « toutes les offres » n'est plus proposée).
 function vue() {
-  try { return localStorage.getItem('vue') === 'emploi' ? 'emploi' : 'tout'; } catch (e) { return 'tout'; }
+  return 'emploi';
 }
 
 function fichierResume() {
@@ -88,14 +89,4 @@ function navigation(courante, avecVue) {
     if (href === courante) a.setAttribute('aria-current', 'page');
     nav.appendChild(a);
   });
-  if (avecVue) {
-    const bloc = el('div', { className: 'onglets', id: 'vue' }, [el('span', { className: 'note', style: 'margin:0 0.25rem 0 0', textContent: 'Afficher :' })]);
-    [['tout', 'Toutes les offres'], ['emploi', 'CDI / CDD seulement']].forEach(([cle, nom]) => {
-      const b = el('button', { textContent: nom });
-      b.setAttribute('aria-pressed', String(vue() === cle));
-      b.onclick = () => { try { localStorage.setItem('vue', cle); } catch (e) { /* stockage indisponible */ } location.reload(); };
-      bloc.appendChild(b);
-    });
-    nav.after(bloc);
-  }
 }
