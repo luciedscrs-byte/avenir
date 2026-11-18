@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Le métier tel que le marché le nomme</title>
-<link rel="stylesheet" href="assets/commun.css?v=20">
+<link rel="stylesheet" href="assets/commun.css?v=21">
 </head>
 <body>
 <main>
@@ -36,9 +36,10 @@
     <p class="note" id="variantes-note"></p>
   </details>
 
-  <h2 class="st">Les quatre questions du cours</h2>
-  <p class="intro">Chaque carte donne le chiffre à retenir ; le détail se déplie.</p>
-  <div class="grille" id="questions" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"></div>
+  <details class="depliant">
+    <summary>Les quatre questions du cours, avec leur chiffre clé</summary>
+    <div class="grille" id="questions" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:0"></div>
+  </details>
 
   <h2 class="st">Ce que m'apprennent d'autres questions</h2>
   <p class="intro" id="autres-intro"></p>
@@ -198,9 +199,7 @@ Promise.all([
     'mouvement.html', 'Voir le mouvement.');
 
   // ---------- 5. D'autres questions
-  document.getElementById('autres-intro').textContent =
-    'Le cours conseille de poser d\'autres questions au marché et de garder celles qui apprennent quelque chose. Voici celles que j\'ai gardées, pour les trois postes : clique sur une question pour l\'ouvrir. Le suivi de chaque poste commence à des dates différentes (' +
-    ORDRE.map(k => COURT[k] + ' : depuis le ' + dateCourte(Q.postes[k].depuis)).join(' ; ') + '), et les chiffres se recalculent à chaque extraction. Plus une case est foncée, plus la part est élevée.';
+  document.getElementById('autres-intro').textContent = 'Clique sur une question pour l\'ouvrir. Plus une case est foncée, plus la part est élevée.';
   const box = document.getElementById('autres');
   const noms = k => Q.postes[k].libelle;
   const entetes = [''].concat(ORDRE.map(k => COURT[k]));

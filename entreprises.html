@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Le marché caché</title>
-<link rel="stylesheet" href="assets/commun.css?v=20">
+<link rel="stylesheet" href="assets/commun.css?v=21">
 </head>
 <body>
 <main>
@@ -16,7 +16,8 @@
   </header>
   <p id="erreur"></p>
 
-  <h2 class="st">En un coup d'œil</h2>
+  <details class="depliant">
+    <summary>Les chiffres de la liste, par section</summary>
   <p class="note" id="requete" style="margin:0 0 1rem"></p>
 
   <div class="chiffres">
@@ -26,6 +27,7 @@
     <div class="carte"><p class="gros" id="n-agences">–</p><p class="legende">agences (à part)</p></div>
     <div class="carte"><p class="gros" id="n-nord">–</p><p class="legende">villes du nord (à part)</p></div>
   </div>
+  </details>
 
   <h2 class="st" id="carte-titre">La carte territoire × secteur</h2>
   <p class="intro">Ma mission : voir où se concentrent les entreprises susceptibles d'embaucher un profil marketing, et la comparer aux offres publiées.</p>
@@ -39,6 +41,7 @@
       </div>
       <div class="carte-detail" id="carte-detail"></div>
     </div>
+    <details class="mini"><summary>Lecture de la carte, classement des départements et limites</summary>
     <p class="note" id="carte-lecture"></p>
     <h3 style="font-size:1rem;margin:1.25rem 0 0.4rem">Les départements qui comptent le plus d'entreprises</h3>
     <div class="tableau">
@@ -48,9 +51,11 @@
       </table>
     </div>
     <p class="note" id="carte-limites"></p>
+    </details>
   </div>
 
-  <h2 class="st">La liste des entreprises</h2>
+  <details class="depliant">
+    <summary>Explorer la liste des entreprises (filtres par région, ville, secteur et taille)</summary>
   <p class="intro">Toutes les entreprises recensées, à filtrer par région, ville, secteur ou taille. Les plus grandes d'abord.</p>
   <div class="carte" style="margin-bottom:1.5rem">
     <div class="onglets" id="onglets"></div>
@@ -73,6 +78,7 @@
       <a href="data/entreprises.csv" download style="margin-left:auto;color:var(--accent)">Télécharger le CSV complet</a>
     </div>
   </div>
+  </details>
 
   <details class="depliant" id="limites">
     <summary>Comment lire cette liste, et ses limites</summary>

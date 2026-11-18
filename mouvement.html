@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Comment le métier bouge</title>
-<link rel="stylesheet" href="assets/commun.css?v=20">
+<link rel="stylesheet" href="assets/commun.css?v=21">
 </head>
 <body>
 <main>
@@ -61,10 +61,12 @@
       <a href="https://www.apec.fr/tendances-emploi-cadre/evolution-des-metiers-et-competences/quel-impact-de-l-ia-sur-les-competences-des-metiers-du-commercial-et-du-marketing-.html" target="_blank" rel="noopener">lire la page</a>.</p>
     <div class="source"><p class="valeur">13 %</p><p>des offres d'emploi <strong>cadre</strong> mentionnant l'intelligence artificielle, publiées sur apec.fr en 2025, sont des offres commercial-marketing : deuxième rang, derrière l'informatique.</p></div>
     <div class="source"><p class="valeur">2 %</p><p>seulement des offres cadre de la fonction commercial-marketing mentionnent l'IA.</p></div>
+    <details class="mini"><summary>Le détail de l'étude et ses limites</summary>
     <div class="source"><p>Compétences liées à l'IA attendues des marketeurs dans ces offres : campagnes personnalisées (emailing, marketing automation, retargeting), segmentation et scoring, automatisation de campagnes en no-code / low-code, intégration d'IA génératives. Côté formation, les besoins portent surtout sur des compétences transversales d'IA générative, comme la rédaction de prompts.</p></div>
     <p><strong>Ce que ça autorise à conclure.</strong> L'IA est encore peu citée mais elle entre dans les offres marketing, et les compétences attendues (emailing personnalisé, segmentation, automatisation) sont proches de ce que je pratique avec les newsletters.
       <span id="ia-nous"></span></p>
     <p><strong>Limites.</strong> L'étude porte sur des offres de <em>cadres</em> ; mon métier, assistant, l'est rarement. Ces pourcentages ne se comparent pas aux miens : ni la population, ni l'année, ni la façon de compter ne sont les mêmes. C'est une seule étude, utile pour la direction, pas pour mesurer mon marché.</p>
+    </details>
   </div>
 
   <footer>Données : API France Travail « Offres d'emploi v2 », codeROME=M1620, France entière, une extraction par jour. Dernière génération : <span id="genere"></span>.</footer>
@@ -201,7 +203,7 @@ fetch(fichierResume()).then(r => { if (!r.ok) throw new Error(r.status); return 
     document.getElementById('leg-alt').style.display = 'none';
     document.getElementById('graphique-note').textContent =
       'Vrais CDI et CDD : ' + premier.total + ' le ' + dateCourte(premier.date) + ', ' + dernier.total + ' le ' + dateCourte(dernier.date) +
-      ' (' + pct(premier.total, dernier.total) + ' %). Cette vue commence le 07/10, première extraction avec identifiants et texte des annonces. Je ne sais pas si cette évolution est saisonnière ou durable : il faudrait un an de recul.';
+      ' (' + pct(premier.total, dernier.total) + ' %). Je ne sais pas si cette évolution est saisonnière ou durable : il faudrait un an de recul.';
   } else {
     document.getElementById('graphique-note').textContent =
       'Toutes les offres : ' + premier.total + ' le ' + dateCourte(premier.date) + ', ' + dernier.total + ' le ' + dateCourte(dernier.date) +
@@ -231,7 +233,7 @@ fetch(fichierResume()).then(r => { if (!r.ok) throw new Error(r.status); return 
       'Les 14 dernières extractions. « Nouvelle » = identifiant absent de l\'extraction précédente ; une annonce republiée avec un nouvel identifiant compte donc comme une nouvelle.';
   }
 
-  evolutionVisuelle('v-outils', so, 'outils', 8);
+  evolutionVisuelle('v-outils', so, 'outils', 6);
   evolutionVisuelle('v-mots', so, 'mots', 8);
   evolution('t-outils', so, 'outils', 12);
   evolution('t-mots', so, 'mots', 8);

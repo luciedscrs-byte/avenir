@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Comment j'ai fait</title>
-<link rel="stylesheet" href="assets/commun.css?v=20">
+<link rel="stylesheet" href="assets/commun.css?v=21">
 </head>
 <body>
 <main>
@@ -72,10 +72,6 @@
     </div>
   </details>
 
-  <h2 class="st">Ce que ça donne</h2>
-  <div class="tuiles-mini" id="chiffres-methode" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))"></div>
-  <p class="note">Pour vérifier : l'onglet « Actions » du dépôt GitHub montre une exécution verte par jour, et l'onglet « commits » un enregistrement par jour signé « veille-bot ».</p>
-
   <h2 class="st">Ce que j'ai respecté</h2>
   <div class="grille">
     <div class="carte"><h3 style="margin:0 0 0.4rem">Des sources officielles</h3><p style="margin:0">Uniquement des API publiques (France Travail, data.gouv, geo.api.gouv). Aucune copie de LinkedIn, de l'Apec ou d'Indeed.</p></div>
@@ -95,19 +91,6 @@
 <script src="assets/commun.js"></script>
 <script>
 navigation('methode.html');
-Promise.all([
-  fetch('data/resume.json').then(r => r.json()),
-  fetch('data/entreprises_resume.json').then(r => r.json()),
-]).then(([d, ent]) => {
-  const zone = document.getElementById('chiffres-methode');
-  const tuile = (gros, texte) => zone.appendChild(el('div', {}, [el('b', { textContent: gros }), el('span', { textContent: texte })]));
-  tuile(String(d.serie.length), 'extractions depuis le ' + dateCourte(d.serie[0].date));
-  tuile('1 / jour', 'sans mon ordinateur');
-  tuile(fr(ent.total), 'entreprises recensées (data.gouv)');
-  tuile('0', 'serveur à payer');
-}).catch(() => {
-  document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
-});
 </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Les offres</title>
-<link rel="stylesheet" href="assets/commun.css?v=20">
+<link rel="stylesheet" href="assets/commun.css?v=21">
 </head>
 <body>
 <main>
@@ -43,7 +43,7 @@
     <h2>Salaires affichés (brut, par mois et par an)</h2>
     <div class="tableau">
     <table>
-      <thead><tr><th>Groupe</th><th class="num">Offres</th><th class="num">Salaire affiché</th><th class="num">Médiane par mois</th><th class="num">Min – max par mois</th><th class="num">Médiane par an</th><th class="num">Min – max par an</th></tr></thead>
+      <thead><tr><th>Groupe</th><th class="num">Offres</th><th class="num">Médiane par mois</th><th class="num">Médiane par an</th></tr></thead>
       <tbody id="salaires"></tbody>
     </table>
     </div>
@@ -134,16 +134,12 @@ fetch(fichierResume())
     const sal = document.getElementById('salaires');
     x.salaires.groupes.forEach(g => sal.appendChild(el('tr', {}, [
       el('td', { textContent: g.nom }),
-      el('td', { className: 'num', textContent: g.total }),
-      el('td', { className: 'num', textContent: g.affichent }),
+      el('td', { className: 'num', textContent: g.total + ' (' + g.affichent + ' avec salaire)' }),
       el('td', { className: 'num', textContent: g.affichent ? fr(g.mediane) + ' €' : '–' }),
-      el('td', { className: 'num', textContent: g.affichent ? fr(g.min) + ' – ' + fr(g.max) + ' €' : '–' }),
       el('td', { className: 'num', textContent: g.affichent ? fr(g.mediane_annuelle) + ' €' : '–' }),
-      el('td', { className: 'num', textContent: g.affichent ? fr(g.min_annuel) + ' – ' + fr(g.max_annuel) + ' €' : '–' }),
     ])));
     document.getElementById('salaires-note').textContent =
-      'Repère : ' + fr(x.salaires.mediane_insertion) + ' € brut par mois, soit ' + fr(x.salaires.mediane_insertion * 12) + ' € par an (médiane d\'insertion à un an : chiffre du deck de rentrée de l\'IAE, cité dans le cours). ' +
-      'Le mensuel vient de l\'annuel ÷ 12 ou de l\'horaire × 35 h × 52 ÷ 12 ; l\'annuel est le mensuel × 12. Seules ' + x.part_salaire_affiche + ' % des offres affichent un salaire.';
+      'Salaires bruts affichés dans les annonces. Repère : ' + fr(x.salaires.mediane_insertion) + ' € bruts par mois d\'insertion à un an (deck de rentrée de l\'IAE). Seules ' + x.part_salaire_affiche + ' % des offres affichent un salaire.';
 
     if (emploi) {
       document.getElementById('lim-canaux').textContent =
