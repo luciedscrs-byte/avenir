@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Le métier tel que le marché le nomme</title>
-<link rel="stylesheet" href="assets/commun.css?v=24">
+<link rel="stylesheet" href="assets/commun.css?v=25">
 </head>
 <body>
 <main>
@@ -203,7 +203,7 @@ Promise.all([
     box.appendChild(bloc('2. Quelles sont les missions récurrentes de l\'assistant marketing ?',
       'Les plus citées : ' + th.slice(0, 3).map(x => '« ' + x.nom.split(' (')[0] + ' »').join(', ') + '.',
       [zoneM],
-      'Part des annonces dont les missions sont lisibles (' + Q.missions.par_poste[k].avec_missions + ' sur ' + Q.missions.par_poste[k].offres + ') qui citent le thème. Les thèmes sont repérés par mots-clés : une annonce peut en cumuler plusieurs, et les pourcentages ne s\'additionnent pas.'));
+      'Part des annonces dont les missions sont lisibles (' + Q.missions.par_poste[k].avec_missions + ' sur ' + Q.missions.par_poste[k].offres + ') qui citent le thème. Les thèmes sont repérés par mots-clés : une annonce peut en cumuler plusieurs, et les pourcentages ne s\'additionnent pas. Les intitulés « assistant commercial et marketing » et « assistant marketing et communication » font monter l\'appui commercial et la communication : en ne gardant que les titres « assistant marketing » (une vingtaine d\'annonces lisibles), les missions sont plus équilibrées, avec les contenus, l\'analyse et le reporting, l\'appui commercial, la communication, l\'emailing et le SEO. Petit échantillon : à lire comme une tendance.'));
     barres('barres-missions', th.map(x => ({ nom: x.nom, n: x.part })));
   }
 
