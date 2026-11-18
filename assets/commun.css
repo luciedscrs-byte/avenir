@@ -305,3 +305,7 @@
   .maillon p { margin: 0 0 0.9rem; font-size: 0.88rem; color: var(--muted); }
   .maillon .outil { margin-top: auto; align-self: flex-start; font-size: 0.78rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 999px; background: var(--oat); color: var(--navy); }
   @media (max-width: 900px) { .chaine { grid-template-columns: minmax(0, 1fr); } .maillon:not(:last-child)::after { content: "↓"; right: auto; left: 1.9rem; top: auto; bottom: -1.3rem; } }
+
+  /* les cinq questions de la page « Le métier » : réponse en police du texte, plus petite, pour être lisible */
+  .carte-bloc .repere { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 1rem; line-height: 1.5; color: var(--text); }
+  .carte-bloc h3 { font-size: 1.15rem; }
