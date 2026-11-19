@@ -182,8 +182,11 @@ def question_missions(postes, textes):
                 "themes": [{"nom": k, "n": v, "part": pct(v, n)} for k, v in themes.most_common()],
                 "verbes": [{"nom": k, "part": pct(v, n)} for k, v in verbes.most_common(8)]}
     par_poste = {cle: analyser(p["offres"]) for cle, p in postes.items()}
+    # missions des seules annonces intitulées « assistant marketing » (sans « commercial » ni « communication » dans le titre)
+    strict = [o for o in postes["assistant-marketing"]["offres"]
+              if re.search(r"(?i)assistant\S*\s+(?:\S+\s+)?marketing", o["intitule"]) and not re.search(r"(?i)commercia|communication", o["intitule"])]
     toutes = [o for p in postes.values() for o in p["offres"]]
-    return {"par_poste": par_poste, "tous": analyser(toutes)}
+    return {"par_poste": par_poste, "tous": analyser(toutes), "assistant_strict": analyser(strict)}
 
 
 # ---- 4. Expérience demandée

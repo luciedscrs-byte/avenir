@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Les offres</title>
-<link rel="stylesheet" href="assets/commun.css?v=25">
+<link rel="stylesheet" href="assets/commun.css?v=27">
 </head>
 <body>
 <main>
@@ -12,7 +12,7 @@
   <header class="hero">
     <p class="etiquette">Étape 3 · Ce qui en ressort (2/3)</p>
     <h1 id="metier">Chargement…</h1>
-    <p class="sub">Combien d'offres, quels contrats, quels salaires, où en France et quels outils demandés : le marché d'après les offres publiées chaque jour sur France Travail.</p>
+    <p class="sub">Combien d'offres, où en France, quels salaires, quelles missions et quels outils demandés : le marché d'après les offres publiées chaque jour sur France Travail.</p>
   </header>
   <p id="erreur"></p>
 
@@ -25,22 +25,15 @@
     <div class="carte"><p class="gros" id="date">–</p><p class="legende">date de la dernière extraction</p></div>
   </div>
 
-  <h2 class="st">Contrats, et où en France</h2>
+  <h2 class="st">Où en France</h2>
+  <p class="intro" id="ou-intro"></p>
   <div class="grille">
-    <div class="carte"><h2>Contrats</h2><div id="contrats"></div></div>
-    <div class="carte"><h2>Départements</h2><div id="departements"></div></div>
+    <div class="carte"><h3 style="margin:0 0 0.6rem">Les départements qui publient le plus</h3><div id="ou-deps"></div></div>
+    <div class="carte"><h3 style="margin:0 0 0.6rem">L'Île-de-France, département par département</h3><div id="ou-idf"></div><p class="note" id="ou-note"></p></div>
   </div>
-  <details class="depliant">
-    <summary>Qui publie le plus, et les régions</summary>
-    <div class="grille" style="margin-bottom:0">
-      <div class="carte"><h2>Entreprises qui publient le plus</h2><div id="entreprises"></div></div>
-      <div class="carte"><h2>Régions</h2><div id="regions"></div><p class="note" id="geo-note"></p></div>
-    </div>
-  </details>
 
   <h2 class="st">Combien ça paie</h2>
   <div class="carte" style="margin-bottom:1.5rem">
-    <h2>Salaires affichés (brut, par mois et par an)</h2>
     <div class="tableau">
     <table>
       <thead><tr><th>Groupe</th><th class="num">Offres</th><th class="num">Médiane par mois</th><th class="num">Médiane par an</th></tr></thead>
@@ -50,11 +43,35 @@
     <p class="note" id="salaires-note"></p>
   </div>
 
+  <h2 class="st">Les missions</h2>
+  <div class="carte" style="margin-bottom:1.5rem">
+    <p class="note" style="margin:0 0 0.6rem" id="o-missions-intro"></p>
+    <div id="o-missions"></div>
+  </div>
+
+  <h2 class="st">Les compétences et les outils</h2>
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h3 style="margin:0 0 0.6rem">Outils cités dans les annonces</h3>
+    <div id="outils"></div><p class="note" id="outils-note"></p>
+    <details class="mini"><summary>Les compétences les plus citées</summary><div id="competences" style="margin-top:0.6rem"></div></details>
+  </div>
+
+  <h2 class="st">Les questions que je me suis posées</h2>
+  <p class="intro">Les questions du cours, puis les miennes, avec leur réponse en une ligne.</p>
+  <div class="carte" style="margin-bottom:1.5rem">
+    <h3 style="margin:0 0 0.6rem">Les questions du cours</h3>
+    <ul class="liste-q" id="q-cours"></ul>
+    <h3 style="margin:1.2rem 0 0.6rem">Mes questions</h3>
+    <ul class="liste-q" id="q-miennes"></ul>
+  </div>
+
   <details class="depliant">
-    <summary>Les compétences et outils les plus cités dans les annonces</summary>
+    <summary>Les chiffres bruts du code M1620 : contrats, départements, régions, employeurs</summary>
     <div class="grille" style="margin-bottom:0">
-      <div class="carte"><h2>Compétences les plus citées</h2><div id="competences"></div></div>
-      <div class="carte"><h2>Outils cités dans les annonces</h2><div id="outils"></div><p class="note" id="outils-note"></p></div>
+      <div class="carte"><h3 style="margin:0 0 0.6rem">Contrats</h3><div id="contrats"></div></div>
+      <div class="carte"><h3 style="margin:0 0 0.6rem">Départements (code M1620)</h3><div id="departements"></div></div>
+      <div class="carte"><h3 style="margin:0 0 0.6rem">Entreprises qui publient le plus</h3><div id="entreprises"></div></div>
+      <div class="carte"><h3 style="margin:0 0 0.6rem">Régions</h3><div id="regions"></div><p class="note" id="geo-note"></p></div>
     </div>
   </details>
 
@@ -170,6 +187,47 @@ fetch(fichierResume())
       el('td', { className: 'num', textContent: s.alternance }),
     ])));
     document.querySelectorAll('#limites li').forEach(li => { if (!li.textContent.trim()) li.remove(); });
+
+    // ---- nouvelles sections, calculées sur le poste d'assistant (même base que le reste du site)
+    Promise.all([
+      fetch('data/questions.json').then(r => r.json()),
+      fetch('data/carte.json').then(r => r.json()),
+      fetch('assets/departements.geojson').then(r => r.json()),
+    ]).then(([Q, carte, geo]) => {
+      const noms = {}; geo.features.forEach(f2 => { noms[f2.properties.code] = f2.properties.nom; }); Object.assign(noms, { '971': 'Guadeloupe', '972': 'Martinique', '973': 'Guyane', '974': 'La Réunion', '976': 'Mayotte' });
+      const P = Q.paris['assistant-marketing'], A = Q.echelle['assistant-marketing'], emploi_ins = x.salaires.mediane_insertion;
+      const deps = Object.entries(carte.departements).map(([d, v]) => ({ d, n: v.offres.total || 0 })).filter(x => x.n > 0).sort((a, b) => b.n - a.n);
+      const IDF = ['75', '77', '78', '91', '92', '93', '94', '95'];
+      const nIdf = deps.filter(x => IDF.includes(x.d)).reduce((s, x) => s + x.n, 0);
+      document.getElementById('ou-intro').textContent =
+        'Sur les ' + P.n + ' offres d\'assistant marketing suivies depuis le ' + dateCourte(A.depuis) + ', ' + P.idf_part + ' % sont en Île-de-France et ' + (100 - P.idf_part) + ' % ailleurs : les offres sont réparties dans toute la France. L\'Île-de-France reste une minorité des offres.';
+      barres('ou-deps', deps.slice(0, 8).map(x => ({ nom: noms[x.d] ? noms[x.d] + ' (' + x.d + ')' : x.d, n: x.n })));
+      const idfLignes = IDF.map(d => ({ nom: (noms[d] || d) + ' (' + d + ')', n: (carte.departements[d] || { offres: { total: 0 } }).offres.total || 0 })).filter(x => x.n > 0).sort((a, b) => b.n - a.n);
+      barres('ou-idf', idfLignes);
+      const paris = (carte.departements['75'] || { offres: { total: 0 } }).offres.total || 0;
+      document.getElementById('ou-note').textContent =
+        'L\'Île-de-France regroupe 8 départements : ses ' + nIdf + ' offres se répartissent entre Paris (' + paris + ') et les autres. Paris intra-muros pèse donc ' + Math.round(100 * paris / P.n) + ' % des offres, et l\'Île-de-France entière ' + P.idf_part + ' %. Les deux sont vrais : l\'Île-de-France est une région de 8 départements, dont les offres s\'additionnent, alors que Paris n\'est qu\'un de ces départements.';
+
+      // missions (annonces « assistant marketing » seulement)
+      const S = Q.missions.assistant_strict;
+      document.getElementById('o-missions-intro').textContent =
+        'Seulement les annonces intitulées « assistant marketing » (' + S.avec_missions + ' dont les missions sont lisibles), pour écarter celles qui ne me parlent pas. Le code ROME est plus global : avec les autres intitulés, les missions sont plus variées (voir la page Les intitulés).';
+      barres('o-missions', S.themes.slice(0, 6).map(x => ({ nom: x.nom, n: x.part })));
+
+      // questions
+      const deb = (Q.experience['assistant-marketing'].repartition.find(r => r.nom === 'Débutant accepté') || { part: 0 }).part;
+      const li = (t, r) => el('li', {}, [el('b', { textContent: t + ' ' }), document.createTextNode(r)]);
+      const cours = document.getElementById('q-cours'), miennes = document.getElementById('q-miennes');
+      cours.append(
+        li('Combien d\'offres, où, quels contrats ?', A.actives + ' offres actives en CDI / CDD, réparties dans toute la France (' + P.idf_part + ' % en Île-de-France).'),
+        li('Quelles compétences et quels outils ?', 'Voir la section « Les compétences et les outils » ci-dessus.'),
+        li('Quel salaire, comparé à l\'insertion ?', 'Environ ' + fr(A.salaire.mediane) + ' € bruts par mois en médiane affichée (insertion du M2 : ' + fr(emploi_ins) + ' €).'),
+        li('Comment le marché bouge-t-il, et qui recrute sans annonce ?', 'Voir la page Comment ça bouge, et la page Le marché caché.'));
+      miennes.append(
+        li('S\'intéresser à Paris est-il mieux ?', 'Non : Paris pèse ' + Math.round(100 * paris / P.n) + ' % des offres et l\'Île-de-France ' + P.idf_part + ' %. Mais Paris compte le plus d\'entreprises (voir le marché caché).'),
+        li('Quelles missions reviennent ?', 'Voir la section « Les missions » ci-dessus.'),
+        li('Quelle expérience est demandée ?', deb + ' % des annonces acceptent un débutant.'));
+    });
   })
   .catch(() => {
     document.getElementById('metier').textContent = 'Assistant / Assistante marketing';

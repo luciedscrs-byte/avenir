@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Comment j'ai fait</title>
-<link rel="stylesheet" href="assets/commun.css?v=25">
+<link rel="stylesheet" href="assets/commun.css?v=27">
 </head>
 <body>
 <main>
@@ -36,41 +36,34 @@
       <p><b>10</b> GitHub Pages : le site s'affiche</p></div>
   </div>
 
-  <details class="depliant">
-    <summary>Les cinq maillons, expliqués en une phrase</summary>
-  <div class="chaine">
-      <div class="maillon">
-        <span class="num-etape">1</span>
-        <h3>Choisir le métier</h3>
-        <p>Je choisis un code ROME, qui classe chaque métier chez France Travail (M1620 pour l'assistant marketing), et des mots-clés pour les postes de responsable.</p>
-        <span class="outil">Métierscope</span>
-      </div>
-      <div class="maillon">
-        <span class="num-etape">2</span>
-        <h3>Obtenir l'accès</h3>
-        <p>Je crée un compte développeur France Travail. Il me donne une clé (des identifiants) qui m'autorise à interroger les offres.</p>
-        <span class="outil">API France Travail</span>
-      </div>
-      <div class="maillon">
-        <span class="num-etape">3</span>
-        <h3>Récupérer les offres</h3>
-        <p>Un script interroge l'API et enregistre les offres du jour dans un fichier daté. Un autre croise les entreprises de data.gouv.</p>
-        <span class="outil">Python</span>
-      </div>
-      <div class="maillon">
-        <span class="num-etape">4</span>
-        <h3>Automatiser</h3>
-        <p>GitHub lance le script tout seul chaque jour, sans que mon ordinateur soit allumé, et sauvegarde le résultat. Mes clés sont cachées dans ses « secrets ».</p>
-        <span class="outil">GitHub Actions</span>
-      </div>
-      <div class="maillon">
-        <span class="num-etape">5</span>
-        <h3>Afficher</h3>
-        <p>Ce site, hébergé gratuitement, lit les fichiers et affiche les chiffres : il se met à jour sans que je touche à rien.</p>
-        <span class="outil">GitHub Pages</span>
-      </div>
-    </div>
-  </details>
+  <h2 class="st">À quoi sert chaque pièce</h2>
+  <p class="intro">Les cinq pièces du schéma, expliquées simplement, de la clé jusqu'au site.</p>
+  <div class="pieces">
+    <div class="piece"><span class="num-etape">1</span><div>
+      <h3>La clé API</h3>
+      <p><b>À quoi ça sert :</b> c'est l'équivalent d'un identifiant et d'un mot de passe pour mon programme : sans elle, France Travail refuse de lui donner les offres.</p>
+      <p><b>Comment je l'ai obtenue :</b> j'ai créé un compte développeur sur francetravail.io, je me suis abonnée à l'API « Offres d'emploi v2 », puis j'ai récupéré deux codes : un identifiant et un secret.</p>
+    </div></div>
+    <div class="piece"><span class="num-etape">2</span><div>
+      <h3>Le fichier .env</h3>
+      <p><b>À quoi ça sert :</b> c'est un carnet secret sur mon ordinateur où je range la clé. Le script le lit pour se connecter, sans que la clé apparaisse dans le code.</p>
+      <p><b>Pourquoi c'est important :</b> ce fichier n'est jamais publié sur GitHub : la clé reste privée.</p>
+    </div></div>
+    <div class="piece"><span class="num-etape">3</span><div>
+      <h3>Le script Python</h3>
+      <p><b>À quoi ça sert :</b> c'est le petit programme qui fait le travail. Il se connecte à France Travail avec la clé, demande toutes les offres du code ROME M1620, et les enregistre dans un fichier daté (un par jour).</p>
+    </div></div>
+    <div class="piece"><span class="num-etape">4</span><div>
+      <h3>GitHub : le dépôt, les secrets et l'Action</h3>
+      <p><b>Le dépôt :</b> l'endroit en ligne où sont rangés mon code et mes fichiers.</p>
+      <p><b>Les secrets :</b> une copie cachée de ma clé, pour que GitHub puisse utiliser le script à ma place.</p>
+      <p><b>L'Action :</b> un robot qui, tous les jours, lance le script, récupère les offres et enregistre les nouveaux fichiers. C'est ce qui fait tourner le projet <b>sans mon ordinateur</b>.</p>
+    </div></div>
+    <div class="piece"><span class="num-etape">5</span><div>
+      <h3>Le site</h3>
+      <p><b>À quoi ça sert :</b> GitHub Pages transforme les fichiers du jour en pages web, et le site se met à jour tout seul.</p>
+    </div></div>
+  </div>
 
   <h2 class="st">Ce que j'ai respecté</h2>
   <div class="grille">

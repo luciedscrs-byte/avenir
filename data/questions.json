@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-18T20:13:16+00:00",
+  "genere_le": "2026-11-19T08:25:24+00:00",
   "regle": "vrais CDI et CDD, une offre comptée une fois",
   "poste_de_reference": "responsable-marketing",
   "postes": {
@@ -440,11 +440,11 @@
             "part": 49
           },
           {
-            "nom": "contribuer",
+            "nom": "gérer",
             "part": 40
           },
           {
-            "nom": "gérer",
+            "nom": "contribuer",
             "part": 40
           },
           {
@@ -664,11 +664,11 @@
             "part": 42
           },
           {
-            "nom": "garantir",
+            "nom": "coordonner",
             "part": 33
           },
           {
-            "nom": "coordonner",
+            "nom": "garantir",
             "part": 33
           },
           {
@@ -786,6 +786,117 @@
         {
           "nom": "coordonner",
           "part": 24
+        }
+      ]
+    },
+    "assistant_strict": {
+      "offres": 30,
+      "avec_missions": 18,
+      "couverture": 60,
+      "themes": [
+        {
+          "nom": "Contenus et supports (création, rédaction)",
+          "n": 10,
+          "part": 56
+        },
+        {
+          "nom": "Analyse, reporting, études, veille",
+          "n": 10,
+          "part": 56
+        },
+        {
+          "nom": "Appui commercial, ventes, promotion",
+          "n": 10,
+          "part": 56
+        },
+        {
+          "nom": "Communication interne et externe, presse",
+          "n": 10,
+          "part": 56
+        },
+        {
+          "nom": "Emailing, newsletters, CRM, fidélisation",
+          "n": 9,
+          "part": 50
+        },
+        {
+          "nom": "Site web, SEO, acquisition, e-commerce",
+          "n": 9,
+          "part": 50
+        },
+        {
+          "nom": "Produit, offre, catalogue, merchandising",
+          "n": 9,
+          "part": 50
+        },
+        {
+          "nom": "Événements, salons, webinaires",
+          "n": 8,
+          "part": 44
+        },
+        {
+          "nom": "Campagnes (conception, pilotage, suivi)",
+          "n": 7,
+          "part": 39
+        },
+        {
+          "nom": "Suivi administratif, planning, coordination",
+          "n": 7,
+          "part": 39
+        },
+        {
+          "nom": "Réseaux sociaux et communication digitale",
+          "n": 7,
+          "part": 39
+        },
+        {
+          "nom": "Budget, prestataires et agences",
+          "n": 5,
+          "part": 28
+        },
+        {
+          "nom": "Management et coordination d'équipe",
+          "n": 2,
+          "part": 11
+        },
+        {
+          "nom": "Stratégie et plan marketing",
+          "n": 2,
+          "part": 11
+        }
+      ],
+      "verbes": [
+        {
+          "nom": "suivre",
+          "part": 44
+        },
+        {
+          "nom": "assurer",
+          "part": 44
+        },
+        {
+          "nom": "participer",
+          "part": 44
+        },
+        {
+          "nom": "contribuer",
+          "part": 39
+        },
+        {
+          "nom": "gérer",
+          "part": 33
+        },
+        {
+          "nom": "réaliser",
+          "part": 33
+        },
+        {
+          "nom": "mettre",
+          "part": 33
+        },
+        {
+          "nom": "concevoir",
+          "part": 28
         }
       ]
     }

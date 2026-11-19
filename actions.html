@@ -4,108 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Conclusion et suite</title>
-<link rel="stylesheet" href="assets/commun.css?v=25">
+<link rel="stylesheet" href="assets/commun.css?v=27">
 </head>
 <body>
 <main>
   <nav id="nav"></nav>
 
   <header class="hero">
-    <p class="etiquette">Étape 6 · Conclusion et suite</p>
+    <p class="etiquette">Étape 6 · Conclusion</p>
     <h1>Ce que j'en conclus, et ce que je ferai ensuite</h1>
-    <p class="sub">Ma position, puis mes prochaines actions.</p>
+    <p class="sub">Ma position, puis mes actions.</p>
   </header>
   <p id="erreur"></p>
 
   <h2 class="st">Ma conclusion</h2>
-  <p class="intro">Ce que je retiens de ces offres, et ce que je compte en faire.</p>
   <div class="conclusion">
     <div class="position">
       <p class="etiquette">Ma position</p>
       <p class="gros-texte" id="c-position"></p>
-      <p id="c-marche"></p>
-    </div>
-    <div class="grille" style="margin:1rem 0 0">
-      <div class="carte"><h3 style="margin:0 0 0.4rem">Où chercher</h3><p id="c-ou" style="margin:0"></p></div>
-      <div class="carte"><h3 style="margin:0 0 0.4rem">Ce que je dois acquérir</h3><p id="c-acquerir" style="margin:0"></p></div>
-      <div class="carte"><h3 style="margin:0 0 0.4rem">Ce que ces chiffres ne disent pas</h3><p id="c-limites" style="margin:0"></p></div>
+      <div class="chips" id="c-preuves"></div>
     </div>
   </div>
 
-  <h2 class="st">Mes prochaines actions</h2>
-  <p class="intro">Ces actions sont prévues, pas encore réalisées : le projet s'arrête au rendu du 19 novembre 2026. Chacune s'appuie sur un chiffre de ce site, et les échéances sont indicatives.</p>
-
-  <div class="grille">
-    <div class="carte">
-      <span class="etiquette">dès décembre 2026, puis chaque mois</span>
-      <h3 style="margin:0 0 0.4rem">Entretenir mon profil LinkedIn</h3>
-      <p style="margin:0">Le mettre à jour avec mes stages (Monbento, Mapache) et le vocabulaire des offres, et publier régulièrement : résultats de ce projet, retours de stage, formations suivies.</p>
-      <p class="note">Pourquoi : LinkedIn figure parmi les outils cités dans les annonces, et mon bilan d'outils dit « théorie seulement ».</p>
-    </div>
-    <div class="carte">
-      <span class="etiquette">à partir de décembre 2026</span>
-      <h3 style="margin:0 0 0.4rem">Candidatures spontanées ciblées</h3>
-      <p style="margin:0">Choisir des entreprises avec la carte territoire × secteur et écrire à une fonction (responsable marketing, RH), jamais à une personne hors de sa fonction.</p>
-      <p class="note">Pourquoi : beaucoup d'entreprises ne publient pas d'annonce, et la carte montre où elles se concentrent.</p>
-    </div>
+  <h2 class="st">Mes actions</h2>
+  <div class="chiffres" id="c-actions" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+    <div class="carte"><h3 class="gros-titre">Entretenir mon profil LinkedIn</h3><p class="legende">dès décembre 2026, puis chaque mois</p></div>
+    <div class="carte"><h3 class="gros-titre">Faire trois formations</h3><p class="legende">emailing, Adobe, CRM : d'ici fin janvier 2027</p></div>
+    <div class="carte"><h3 class="gros-titre">Envoyer des candidatures spontanées</h3><p class="legende">ciblées grâce à la carte : dès décembre 2026</p></div>
+    <div class="carte"><h3 class="gros-titre">Adapter ma lettre à chaque offre</h3><p class="legende">à étudier début 2027</p></div>
   </div>
+  <p class="note" id="c-limites"></p>
 
-  <div class="grille">
-    <div class="carte">
-      <span class="etiquette">d'ici fin janvier 2027</span>
-      <h3 style="margin:0 0 0.4rem">Trois formations au maximum</h3>
-      <p style="margin:0">À choisir parmi celles qui comblent un écart mesuré : un CRM (HubSpot Academy, gratuit), Shopify (la plateforme que je maîtrise le mieux, pour aller plus loin), l'emailing (HubSpot ou Brevo, gratuit) ou Adobe (certification payante ou accès via mon établissement).</p>
-      <p class="note">Pourquoi : l'emailing, Adobe et LinkedIn sont cités dans les annonces alors que mon bilan les classe en « théorie seulement » ou « un peu ».</p>
-    </div>
-    <div class="carte">
-      <span class="etiquette">à étudier début 2027</span>
-      <h3 style="margin:0 0 0.4rem">Une lettre de motivation adaptée à chaque offre</h3>
-      <p style="margin:0">Un script repérerait les missions et les outils d'une annonce (le dépôt garde déjà le texte de chaque annonce) et proposerait un brouillon à partir de mes expériences. Je le relis et le corrige toujours avant envoi, et mes expériences restent dans un fichier hors du dépôt public.</p>
-      <p class="note">Pourquoi : adapter la candidature à l'annonce, sans envoi automatique.</p>
-    </div>
-  </div>
-
-  <div class="grille">
-    <div class="carte">
-      <span class="etiquette">chaque mois dès décembre 2026</span>
-      <h3 style="margin:0 0 0.4rem">Relire la veille</h3>
-      <p style="margin:0">Une demi-heure par mois sur la page <a href="mouvement.html">Comment ça bouge</a>, et mise à jour de mon bilan d'outils.</p>
-      <p class="note">Pourquoi : une série quotidienne ne vaut que si on la relit.</p>
-    </div>
-  </div>
-
-  <footer>Ces actions figurent aussi dans le <a href="https://github.com/luciedscrs-byte/avenir#9-ce-que-je-ferai-ensuite-actions-%C3%A0-mener" target="_blank" rel="noopener">README</a>.</footer>
+  <footer>Ces actions figurent aussi dans le <a href="https://github.com/luciedscrs-byte/avenir#readme" target="_blank" rel="noopener">README</a>.</footer>
 </main>
 <script src="assets/commun.js"></script>
 <script>
-navigation('actions.html', false);
-
-function constat(gros, texte, lien, libelle) {
-  return el('div', { className: 'carte decouverte' }, [
-    el('p', { className: 'gros', textContent: gros }),
-    el('p', { textContent: texte }),
-    el('a', { href: lien, textContent: libelle + ' →' }),
-  ]);
-}
-const part = (rep, nom) => { const r = rep.find(x => x.nom === nom); return r ? r.part : 0; };
+navigation('actions.html');
 
 fetch('data/questions.json').then(r => r.json()).then(q => {
-  // ---------- Ma conclusion (le texte est écrit à la main, les chiffres viennent des données)
-  const X = q.echelle, A = X['assistant-marketing'];
-  const P = q.paris['assistant-marketing'];
-  const outil = nom => q.outils.outils.find(o => o.nom === nom);
-  const li = outil('LinkedIn');
-  document.getElementById('c-position').textContent =
-    'Je me concentre sur le poste d\'assistant marketing en CDI ou CDD, sous ses différents intitulés : c\'est celui qui me paraît le plus plausible pour moi aujourd\'hui.';
-  document.getElementById('c-marche').textContent =
-    'J\'ai hésité entre plusieurs postes, mais mon parcours professionnel (deux stages) correspond au niveau d\'assistant. Les offres le confirment : ' + A.debutant + ' % des annonces d\'assistant acceptent un débutant, et ' + (A.cadre === 0 ? 'aucune n\'est classée « cadre » par France Travail : ce sont des postes de premier niveau, accessibles à mon profil. ' : A.cadre + ' % seulement sont classées « cadre » : ce sont surtout des postes de premier niveau. ') +
-    'Le salaire médian affiché est d\'environ ' + fr(A.salaire.mediane) + ' € bruts par mois.';
-  document.getElementById('c-ou').textContent =
-    'Pas seulement à Paris : l\'Île-de-France ne regroupe que ' + P.idf_part + ' % des offres d\'assistant. Et pas seulement dans les annonces : la carte du marché caché indique où envoyer des candidatures spontanées.';
-  document.getElementById('c-acquerir').textContent =
-    'Les outils que les annonces citent et que je n\'ai vus qu\'en théorie ou un peu : l\'emailing, Adobe' + (li ? ' et LinkedIn (' + li.assistant + ' % des annonces d\'assistant)' : ' et LinkedIn') + '. Mes prochaines actions sont ci-dessous.';
+  const A = q.echelle['assistant-marketing'];
+  document.getElementById('c-position').textContent = 'Je me concentre sur le poste d\'assistant marketing.';
+  const preuves = document.getElementById('c-preuves');
+  [A.debutant + ' % des annonces acceptent un débutant', 'Salaire médian affiché : ' + fr(A.salaire.mediane) + ' € bruts par mois', 'Des offres dans toute la France'].forEach(t =>
+    preuves.appendChild(el('span', { className: 'chip', style: 'background:rgba(255,255,255,0.16);border-color:transparent;color:inherit;font-size:1rem', textContent: t })));
   document.getElementById('c-limites').textContent =
-    'Peu d\'offres actives (' + A.actives + ' d\'assistant aujourd\'hui), même si le suivi dure depuis ' + A.jours + ' jours. Un salaire affiché dans une minorité d\'annonces. Ce sont des tendances, pas des vérités.';
+    'Peu d\'offres actives (' + A.actives + ' aujourd\'hui) : ce sont des tendances, pas des certitudes.';
 }).catch(() => {
   document.getElementById('erreur').textContent = 'Impossible de charger les données. En local, ouvre la page via un petit serveur (python3 -m http.server).';
 });

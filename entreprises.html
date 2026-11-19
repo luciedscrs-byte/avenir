@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Le marché caché</title>
-<link rel="stylesheet" href="assets/commun.css?v=25">
+<link rel="stylesheet" href="assets/commun.css?v=27">
 </head>
 <body>
 <main>
@@ -31,6 +31,15 @@
 
   <h2 class="st" id="carte-titre">La carte territoire × secteur</h2>
   <p class="intro">Ma mission : voir où se concentrent les entreprises susceptibles d'embaucher un profil marketing, et la comparer aux offres publiées.</p>
+  <div class="carte" style="margin-bottom:1.25rem">
+    <h3 style="margin:0 0 0.5rem">Ce que contient la carte</h3>
+    <ul class="liste-q">
+      <li><b>Pas toutes les entreprises de France :</b> 29 080 entreprises actives, trouvées avec l'API Recherche d'entreprises (data.gouv).</li>
+      <li><b>Comment je les ai choisies :</b> au moins 6 salariés (20 pour l'industrie), avec un siège dans l'un des 37 départements qui abritent une commune de plus de 100 000 habitants.</li>
+      <li><b>Les secteurs retenus :</b> numérique, e-commerce, médias, événementiel, marques et commerce spécialisé, agences, industrie : là où un assistant marketing peut travailler.</li>
+      <li><b>Ce qui n'y est pas :</b> les petites entreprises, les autres départements, les autres secteurs.</li>
+    </ul>
+  </div>
   <div class="carte" style="margin-bottom:1.5rem" id="carte-territoire">
     <p id="carte-mission" style="margin-top:0"></p>
     <div class="filtres"><label>Secteur affiché<select id="c-groupe"></select></label></div>
@@ -41,6 +50,7 @@
       </div>
       <div class="carte-detail" id="carte-detail"></div>
     </div>
+    <p class="repere" id="carte-retient" style="margin-top:1rem"></p>
     <details class="mini"><summary>Lecture de la carte, classement des départements et limites</summary>
     <p class="note" id="carte-lecture"></p>
     <h3 style="font-size:1rem;margin:1.25rem 0 0.4rem">Les départements qui comptent le plus d'entreprises</h3>
@@ -55,7 +65,8 @@
   </div>
 
   <details class="depliant">
-    <summary>Explorer la liste des entreprises (filtres par région, ville, secteur et taille)</summary>
+    <summary>Explorer la liste des entreprises (une par une : secteur, taille, ville)</summary>
+    <p class="note" style="margin:0 0 1rem">La carte montre où se trouvent les entreprises, département par département. La liste donne les entreprises une par une, avec leur secteur et leur taille : elle sert à choisir qui contacter une fois la zone choisie.</p>
   <p class="intro">Toutes les entreprises recensées, à filtrer par région, ville, secteur ou taille. Les plus grandes d'abord.</p>
   <div class="carte" style="margin-bottom:1.5rem">
     <div class="onglets" id="onglets"></div>
@@ -326,6 +337,9 @@ function initCarte(geo, carte, resume) {
     const horsCouv = Object.values(departements).filter(d => !d.couvert).reduce((s, d) => s + (d.offres.total || 0), 0);
     const totalLoc = Object.values(departements).reduce((s, d) => s + (d.offres.total || 0), 0);
     const pct = (a, b) => b ? Math.round(100 * a / b) : 0;
+    const par = departements['75'] || { entreprises: { total: 0 }, offres: { total: 0 } };
+    document.getElementById('carte-retient').textContent =
+      'Ce que je retiens : Paris compte le plus d\'entreprises (' + fr(par.entreprises.total) + ') mais seulement ' + par.offres.total + ' offres d\'assistant sur ' + totalLoc + '. Le marché caché y est donc le plus grand en nombre d\'entreprises, alors que les offres sont réparties dans toute la France. Je ne mesure pas la concurrence : Paris n\'est pas forcément le plus facile pour une candidature spontanée.';
     document.getElementById('carte-lecture').textContent =
       'Plus la zone est foncée, plus il y a d\'entreprises ; chaque rond bleu montre les offres publiées. Une zone foncée sans rond, c\'est du marché caché. ' +
       'Les 5 départements les plus riches en entreprises (' + tete.map(d => noms[d]).join(', ') + ') regroupent ' + pct(partEnt, totalEnt) + ' % des entreprises recensées' +

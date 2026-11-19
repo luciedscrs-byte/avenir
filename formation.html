@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Ma formation</title>
-<link rel="stylesheet" href="assets/commun.css?v=25">
+<link rel="stylesheet" href="assets/commun.css?v=27">
 </head>
 <body>
 <main>
@@ -24,8 +24,8 @@
   <h2 class="st">Ce que j'ai vu, ce qu'il me manque</h2>
   <div class="carte" style="margin-bottom:1.5rem">
     <p class="repere" id="a-acquerir"></p>
-    <div class="bilan" id="bilan"></div>
-    <p class="note">Le chiffre à droite de chaque outil est le nombre d'entreprises différentes qui le citent dans les annonces de vrais CDI et CDD du code M1620. Les outils entourés sont ceux que je dois acquérir cette année.</p>
+    <div class="bilan deux" id="bilan"></div>
+    <p class="note">Le chiffre à droite de chaque outil est le nombre d'entreprises différentes qui le citent dans les annonces de vrais CDI et CDD du code M1620.</p>
     <details class="mini"><summary>Sources et limites de ce bilan</summary><p id="formation-note"></p></details>
   </div>
 
@@ -52,16 +52,14 @@ Promise.all([
     'M1620 n\'en fait pas partie, mais la page de la formation cite « Assistant-e marketing » parmi les métiers visés. ' +
     'Selon sa fiche France Travail, M1620 est accessible dès Bac+2 / Bac+3, alors que le diplôme est de niveau Bac+5.';
       const NIVEAUX = [
-        { cle: 'col-1', titre: 'Vu en cours', sous: 'ou déjà maîtrisé', test: n => /vu en cours|je le connais/.test(n) },
-        { cle: 'col-2', titre: 'Théorie seulement', sous: 'ou un peu pratiqué', test: n => /théorie|un peu/.test(n) },
-        { cle: 'col-3', titre: 'Pas vu en cours', sous: 'ou que je ne connais pas', test: n => /pas vu|ne le connais pas/.test(n) },
-        { cle: 'col-4', titre: 'Notions de base', sous: 'non enseignées, mais acquises', test: n => /notion de base/.test(n) },
+        { cle: 'col-1', titre: 'Mes atouts', sous: 'ce que j\'ai vu en cours ou que je maîtrise déjà, bases comprises', test: (n, vu) => !vu.a_acquerir && /vu en cours|je le connais|notion de base/.test(n) },
+        { cle: 'col-2', titre: 'Je renforce', sous: 'mes actions pour progresser', test: (n, vu) => !!vu.a_acquerir },
       ];
       const outilsVus = x.outils.liste.filter(o => f.outils[o.nom] && f.outils[o.nom].vu);
       const zoneBilan = document.getElementById('bilan');
       NIVEAUX.forEach(nv => {
         const col = el('div', { className: nv.cle }, [el('h3', { textContent: nv.titre }), el('p', { className: 'sous', textContent: nv.sous })]);
-        const liste = outilsVus.filter(o => nv.test((f.outils[o.nom].vu.niveau || '').toLowerCase()));
+        const liste = outilsVus.filter(o => nv.test((f.outils[o.nom].vu.niveau || '').toLowerCase(), f.outils[o.nom].vu));
         liste.forEach(o => {
           const cible = f.outils[o.nom].vu.a_acquerir && o.entreprises >= SEUIL_ENTREPRISES;
           col.appendChild(el('span', { className: 'pastille' + (cible ? ' cible' : ''), title: f.outils[o.nom].vu.precision || '' }, [document.createTextNode(o.nom.replace(/ \(.*\)$/, '').replace(/ \/ .*/, '')), el('b', { textContent: String(o.entreprises) })]));

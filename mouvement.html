@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Comment le métier bouge</title>
-<link rel="stylesheet" href="assets/commun.css?v=25">
+<link rel="stylesheet" href="assets/commun.css?v=27">
 </head>
 <body>
 <main>
@@ -44,7 +44,7 @@
   <h2 class="st">Les outils et les mots qu'on suit</h2>
   <div class="carte" style="margin-bottom:1.5rem">
     <h3 style="margin:0 0 0.2rem">Outils</h3>
-    <p class="note" style="margin:0 0 0.5rem">La barre montre la part des annonces qui citent l'outil à la dernière extraction ; le trait bleu, sa part à la première.</p>
+    <p class="note" style="margin:0 0 0.5rem">Part des annonces qui citent l'outil : au début du suivi, puis aujourd'hui. Plus le pourcentage est haut, plus l'outil est demandé. Avec peu d'annonces, un écart de quelques points est surtout du bruit : à lire comme une tendance.</p>
     <div id="v-outils"></div>
     <details class="mini"><summary>Les mots surveillés et les tableaux complets</summary>
       <h3 style="margin:1rem 0 0.2rem">Mots surveillés</h3>
@@ -55,18 +55,9 @@
     <p class="note" id="evolution-note"></p>
   </div>
 
-  <h2 class="st">Une source qui observe l'emploi : l'Apec</h2>
-  <div class="carte" style="margin-bottom:1.5rem">
-    <p class="note" style="margin:0 0 0.5rem">Apec, <em>L'intelligence artificielle en commercial-marketing</em>, mars 2026 (article du 03/09/2026) —
-      <a href="https://www.apec.fr/tendances-emploi-cadre/evolution-des-metiers-et-competences/quel-impact-de-l-ia-sur-les-competences-des-metiers-du-commercial-et-du-marketing-.html" target="_blank" rel="noopener">lire la page</a>.</p>
-    <div class="source"><p class="valeur">13 %</p><p>des offres d'emploi <strong>cadre</strong> mentionnant l'intelligence artificielle, publiées sur apec.fr en 2025, sont des offres commercial-marketing : deuxième rang, derrière l'informatique.</p></div>
-    <div class="source"><p class="valeur">2 %</p><p>seulement des offres cadre de la fonction commercial-marketing mentionnent l'IA.</p></div>
-    <details class="mini"><summary>Le détail de l'étude et ses limites</summary>
-    <div class="source"><p>Compétences liées à l'IA attendues des marketeurs dans ces offres : campagnes personnalisées (emailing, marketing automation, retargeting), segmentation et scoring, automatisation de campagnes en no-code / low-code, intégration d'IA génératives. Côté formation, les besoins portent surtout sur des compétences transversales d'IA générative, comme la rédaction de prompts.</p></div>
-    <p><strong>Ce que ça autorise à conclure.</strong> L'IA est encore peu citée mais elle entre dans les offres marketing, et les compétences attendues (emailing personnalisé, segmentation, automatisation) sont proches de ce que je pratique avec les newsletters.
-      <span id="ia-nous"></span></p>
-    <p><strong>Limites.</strong> L'étude porte sur des offres de <em>cadres</em> ; mon métier, assistant, l'est rarement. Ces pourcentages ne se comparent pas aux miens : ni la population, ni l'année, ni la façon de compter ne sont les mêmes. C'est une seule étude, utile pour la direction, pas pour mesurer mon marché.</p>
-    </details>
+  <h2 class="st">Ce que j'en retiens</h2>
+  <div class="carte position-mini" style="margin-bottom:1.5rem">
+    <p class="repere" id="conclusion-bouge" style="margin:0"></p>
   </div>
 
   <footer>Données : API France Travail « Offres d'emploi v2 », codeROME=M1620, France entière, une extraction par jour. Dernière génération : <span id="genere"></span>.</footer>
@@ -150,21 +141,15 @@ function evolutionVisuelle(idZone, so, cle, nomsMax) {
   const noms = [...new Set(so.flatMap(s => Object.keys(s[cle] || {})))]
     .sort((a, b) => Math.max(part(derniere, b), part(premiere, b)) - Math.max(part(derniere, a), part(premiere, a)))
     .slice(0, nomsMax);
-  const plafond = Math.max(...noms.flatMap(n => [part(premiere, n), part(derniere, n)]), 1) * 1.1;
   const zone = document.getElementById(idZone);
   noms.forEach(nom => {
     const a = part(premiere, nom), b = part(derniere, nom), ecart = Math.round(b - a);
-    zone.appendChild(el('div', { className: 'evo-ligne' }, [
+    zone.appendChild(el('div', { className: 'evo-simple' }, [
       el('span', { textContent: nom.replace(/ \(.*\)$/, '') }),
-      el('div', { className: 'evo-piste' }, [
-        el('span', { style: 'width:' + (100 * b / plafond).toFixed(1) + '%' }),
-        el('i', { style: 'left:calc(' + (100 * a / plafond).toFixed(1) + '% - 1px)', title: 'Première extraction : ' + Math.round(a) + ' %' }),
-      ]),
       el('span', { className: 'evo-texte' }, [
-        el('b', { textContent: Math.round(a) + ' % → ' + Math.round(b) + ' %' }),
-        el('span', { className: ecart > 0 ? 'evo-hausse' : ecart < 0 ? 'evo-baisse' : '', textContent: ecart === 0 ? '=' : (ecart > 0 ? '▲ +' : '▼ ') + ecart + ' pt' }),
+        document.createTextNode(Math.round(a) + ' % → ' + Math.round(b) + ' %  '),
+        el('span', { className: ecart > 0 ? 'evo-hausse' : ecart < 0 ? 'evo-baisse' : '', textContent: ecart === 0 ? 'stable' : (ecart > 0 ? '▲ en hausse' : '▼ en baisse') }),
       ]),
-      el('span', { style: 'color: var(--accent)' }, [courbe(so.map(s => part(s, nom)), 100, 26, 'Part des annonces citant ' + nom, plafond)]),
     ]));
   });
 }
@@ -234,6 +219,11 @@ fetch(fichierResume()).then(r => { if (!r.ok) throw new Error(r.status); return 
   }
 
   evolutionVisuelle('v-outils', so, 'outils', 6);
+  if (m) {
+    const moyC = c => (m.flux.reduce((t, f) => t + f[c], 0) / m.flux.length);
+    document.getElementById('conclusion-bouge').textContent =
+      'Le marché se renouvelle vite : environ ' + Math.round(moyC('nouvelles')) + ' offres nouvelles et autant d\'offres disparues par jour, et une offre reste en ligne ' + (m.duree_mediane_jours || '–') + ' jours en médiane. Il faut donc surveiller les annonces régulièrement et candidater vite.';
+  }
   evolutionVisuelle('v-mots', so, 'mots', 8);
   evolution('t-outils', so, 'outils', 12);
   evolution('t-mots', so, 'mots', 8);
@@ -241,10 +231,6 @@ fetch(fichierResume()).then(r => { if (!r.ok) throw new Error(r.status); return 
     'Part des annonces dont le texte cite le terme (entre parenthèses : le nombre d\'annonces), du ' + dateFr(so[0].date) + ' au ' + dateFr(so[so.length - 1].date) +
     '. Le marché a rétréci : on compare des parts, pas des nombres. Chaque jour compte une centaine d\'annonces : un écart de quelques points peut n\'être que du bruit.';
 
-  const ia = 'IA (ChatGPT, IA générative…)';
-  const a = 100 * ((so[0].outils || {})[ia] || 0) / so[0].avec_texte, b = 100 * ((so[so.length - 1].outils || {})[ia] || 0) / so[so.length - 1].avec_texte;
-  document.getElementById('ia-nous').textContent =
-    'Dans mes annonces, l\'IA est citée dans ' + Math.round(a) + ' % des annonces le ' + dateFr(so[0].date) + ' et ' + Math.round(b) + ' % le ' + dateFr(so[so.length - 1].date) + '.';
 }).catch(() => {
   document.getElementById('erreur').textContent =
     'Impossible de charger data/resume.json. En local, ouvre la page via un petit serveur (python3 -m http.server).';
