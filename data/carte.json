@@ -1,10 +1,10 @@
 {
- "genere_le": "2026-11-18T23:02:07+00:00",
+ "genere_le": "2026-11-19T14:55:26+00:00",
  "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
  "postes": {
   "assistant-marketing": {
    "libelle": "Assistant marketing",
-   "n": 49,
+   "n": 51,
    "depuis": "2026-10-07"
   }
  },
@@ -427,6 +427,17 @@
     "total": 2
    }
   },
+  "62": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
   "63": {
    "ville": "Clermont-Ferrand",
    "couvert": true,
@@ -648,8 +659,8 @@
     "total": 284
    },
    "offres": {
-    "assistant-marketing": 2,
-    "total": 2
+    "assistant-marketing": 3,
+    "total": 3
    }
   },
   "84": {

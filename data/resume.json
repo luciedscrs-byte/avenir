@@ -1,6 +1,6 @@
 {
   "vue": "tout",
-  "genere_le": "2026-11-18T20:13:26+00:00",
+  "genere_le": "2026-11-19T14:54:52+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -224,6 +224,11 @@
       "date": "2026-11-18",
       "total": 116,
       "alternance": 39
+    },
+    {
+      "date": "2026-11-19",
+      "total": 119,
+      "alternance": 41
     }
   ],
   "serie_outils": [
@@ -1774,12 +1779,48 @@
         "Automatisation / marketing automation": 3,
         "Transition écologique / RSE": 1
       }
+    },
+    {
+      "date": "2026-11-19",
+      "avec_texte": 119,
+      "outils": {
+        "Pack Office": 14,
+        "Anglais": 11,
+        "Emailing / newsletter": 11,
+        "Excel": 12,
+        "Canva": 11,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 11,
+        "LinkedIn": 9,
+        "PowerPoint": 8,
+        "SEO": 8,
+        "IA (ChatGPT, IA générative…)": 7,
+        "CRM": 8,
+        "Instagram": 8,
+        "Word": 6,
+        "Facebook": 6,
+        "TikTok": 5,
+        "YouTube": 2,
+        "Google Analytics / GA4": 2,
+        "Google Ads": 2,
+        "Meta Ads / Facebook Ads": 1,
+        "HubSpot": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "WordPress": 1,
+        "Power BI / Looker Studio": 1,
+        "Semrush / Ahrefs": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 36,
+        "Analyse de données (data)": 5,
+        "Automatisation / marketing automation": 3,
+        "Transition écologique / RSE": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-18",
-    "extractions": 43,
+    "au": "2026-11-19",
+    "extractions": 44,
     "flux": [
       {
         "date": "2026-10-08",
@@ -2032,30 +2073,40 @@
         "total": 116,
         "nouvelles": 8,
         "disparues": 11
+      },
+      {
+        "date": "2026-11-19",
+        "total": 119,
+        "nouvelles": 10,
+        "disparues": 7
       }
     ],
-    "vues": 336,
-    "toute_la_periode": 34,
-    "duree_mediane_jours": 6.0,
-    "n_duree": 118
+    "vues": 345,
+    "toute_la_periode": 33,
+    "duree_mediane_jours": 6,
+    "n_duree": 123
   },
   "derniere": {
-    "date": "2026-11-18",
-    "total": 116,
-    "alternance": 39,
+    "date": "2026-11-19",
+    "total": 119,
+    "alternance": 41,
     "part_salaire_affiche": 22,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 58
+        "n": 56
       },
       {
         "nom": "CDD",
-        "n": 50
+        "n": 52
       },
       {
         "nom": "Intérim",
-        "n": 8
+        "n": 10
+      },
+      {
+        "nom": "Profession libérale",
+        "n": 1
       }
     ],
     "natures": [
@@ -2065,11 +2116,15 @@
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 30
+        "n": 31
       },
       {
         "nom": "Cont. professionnalisation",
-        "n": 9
+        "n": 10
+      },
+      {
+        "nom": "Emploi non salarié",
+        "n": 1
       }
     ],
     "departements": [
@@ -2079,7 +2134,7 @@
       },
       {
         "nom": "75",
-        "n": 16
+        "n": 18
       },
       {
         "nom": "93",
@@ -2094,7 +2149,7 @@
         "n": 4
       },
       {
-        "nom": "06",
+        "nom": "69",
         "n": 4
       },
       {
@@ -2106,33 +2161,33 @@
         "n": 4
       },
       {
-        "nom": "66",
-        "n": 3
+        "nom": "83",
+        "n": 4
       },
       {
-        "nom": "33",
+        "nom": "06",
         "n": 3
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 38
+        "n": 40
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
-        "n": 15
+        "n": 14
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
-        "n": 12
+        "n": 13
       },
       {
         "nom": "Occitanie",
-        "n": 8
+        "n": 9
       },
       {
-        "nom": "Nouvelle-Aquitaine",
+        "nom": "Hauts-de-France",
         "n": 7
       },
       {
@@ -2140,12 +2195,12 @@
         "n": 6
       },
       {
-        "nom": "Hauts-de-France",
+        "nom": "Nouvelle-Aquitaine",
         "n": 6
       },
       {
-        "nom": "Bourgogne-Franche-Comté",
-        "n": 5
+        "nom": "Normandie",
+        "n": 6
       },
       {
         "nom": "Pays de la Loire",
@@ -2165,8 +2220,8 @@
       ]
     },
     "teletravail": {
-      "offres": 7,
-      "sur": 116
+      "offres": 8,
+      "sur": 119
     },
     "entreprises": [
       {
@@ -2186,6 +2241,10 @@
         "n": 2
       },
       {
+        "nom": "SUPPLAY SIEGE",
+        "n": 2
+      },
+      {
         "nom": "AUREIS FORMATION",
         "n": 2
       },
@@ -2202,11 +2261,7 @@
         "n": 2
       },
       {
-        "nom": "MANPOWER",
-        "n": 1
-      },
-      {
-        "nom": "FEDE DEPART ASS LOC ADMR",
+        "nom": "LEBRUN SA",
         "n": 1
       }
     ],
@@ -2215,16 +2270,12 @@
         "EFC",
         "ISCOD"
       ],
-      "part": 30
+      "part": 29
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 23
-      },
-      {
-        "nom": "Analyser les performances de l'équipe et proposer des améliorations",
-        "n": 4
+        "n": 22
       },
       {
         "nom": "Concevoir des supports de communication et d'image",
@@ -2240,6 +2291,10 @@
       },
       {
         "nom": "Développer l'image et la notoriété de la structure",
+        "n": 2
+      },
+      {
+        "nom": "Analyser les performances de l'équipe et proposer des améliorations",
         "n": 2
       },
       {
@@ -2264,23 +2319,23 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 58,
+          "total": 56,
           "affichent": 12,
-          "mediane": 2161,
+          "mediane": 2083,
           "min": 1350,
           "max": 3542,
-          "mediane_annuelle": 25932,
+          "mediane_annuelle": 24996,
           "min_annuel": 16200,
           "max_annuel": 42504
         },
         {
           "nom": "Alternance",
-          "total": 39,
-          "affichent": 4,
-          "mediane": 1250,
+          "total": 41,
+          "affichent": 5,
+          "mediane": 1325,
           "min": 1144,
           "max": 1867,
-          "mediane_annuelle": 15000,
+          "mediane_annuelle": 15900,
           "min_annuel": 13728,
           "max_annuel": 22404
         },
@@ -2297,7 +2352,7 @@
         },
         {
           "nom": "Intérim",
-          "total": 8,
+          "total": 10,
           "affichent": 3,
           "mediane": 1972,
           "min": 1875,
@@ -2305,35 +2360,45 @@
           "mediane_annuelle": 23664,
           "min_annuel": 22500,
           "max_annuel": 30288
+        },
+        {
+          "nom": "Profession libérale",
+          "total": 1,
+          "affichent": 0
         }
       ]
     },
     "outils": {
-      "avec_texte": 116,
+      "avec_texte": 119,
       "liste": [
-        {
-          "nom": "Anglais",
-          "offres": 14,
-          "entreprises": 14
-        },
-        {
-          "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 15,
-          "entreprises": 12
-        },
-        {
-          "nom": "Emailing / newsletter",
-          "offres": 13,
-          "entreprises": 12
-        },
         {
           "nom": "Pack Office",
           "offres": 14,
+          "entreprises": 11
+        },
+        {
+          "nom": "Anglais",
+          "offres": 11,
+          "entreprises": 11
+        },
+        {
+          "nom": "Emailing / newsletter",
+          "offres": 11,
           "entreprises": 10
         },
         {
+          "nom": "Excel",
+          "offres": 12,
+          "entreprises": 9
+        },
+        {
           "nom": "Canva",
-          "offres": 10,
+          "offres": 11,
+          "entreprises": 9
+        },
+        {
+          "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
+          "offres": 11,
           "entreprises": 9
         },
         {
@@ -2342,23 +2407,23 @@
           "entreprises": 9
         },
         {
-          "nom": "Excel",
-          "offres": 10,
-          "entreprises": 8
+          "nom": "PowerPoint",
+          "offres": 8,
+          "entreprises": 7
         },
         {
           "nom": "SEO",
-          "offres": 9,
-          "entreprises": 8
+          "offres": 8,
+          "entreprises": 7
+        },
+        {
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 7,
+          "entreprises": 7
         },
         {
           "nom": "CRM",
-          "offres": 7,
-          "entreprises": 6
-        },
-        {
-          "nom": "PowerPoint",
-          "offres": 6,
+          "offres": 8,
           "entreprises": 6
         },
         {
@@ -2367,24 +2432,24 @@
           "entreprises": 5
         },
         {
+          "nom": "Word",
+          "offres": 6,
+          "entreprises": 5
+        },
+        {
           "nom": "Facebook",
           "offres": 6,
           "entreprises": 5
         },
         {
-          "nom": "Word",
+          "nom": "TikTok",
           "offres": 5,
-          "entreprises": 5
-        },
-        {
-          "nom": "IA (ChatGPT, IA générative…)",
-          "offres": 4,
           "entreprises": 4
         },
         {
-          "nom": "TikTok",
-          "offres": 4,
-          "entreprises": 3
+          "nom": "YouTube",
+          "offres": 2,
+          "entreprises": 2
         },
         {
           "nom": "Google Analytics / GA4",
@@ -2395,11 +2460,6 @@
           "nom": "Google Ads",
           "offres": 2,
           "entreprises": 2
-        },
-        {
-          "nom": "YouTube",
-          "offres": 1,
-          "entreprises": 1
         },
         {
           "nom": "Meta Ads / Facebook Ads",
@@ -2422,11 +2482,6 @@
           "entreprises": 1
         },
         {
-          "nom": "Shopify",
-          "offres": 1,
-          "entreprises": 1
-        },
-        {
           "nom": "Power BI / Looker Studio",
           "offres": 1,
           "entreprises": 1
@@ -2441,6 +2496,7 @@
         "Figma",
         "SEA",
         "Salesforce",
+        "Shopify",
         "Prestashop",
         "SQL",
         "Python",
@@ -2450,13 +2506,13 @@
       ]
     },
     "sans_nom_employeur": 26,
-    "part_competences": 21,
-    "debutant_accepte": 58,
+    "part_competences": 19,
+    "debutant_accepte": 61,
     "mots": [
       {
         "nom": "Réseaux sociaux",
-        "offres": 35,
-        "entreprises": 19
+        "offres": 36,
+        "entreprises": 18
       },
       {
         "nom": "Analyse de données (data)",
@@ -2475,25 +2531,25 @@
       }
     ],
     "variantes": {
-      "titres": 116,
+      "titres": 119,
       "liste": [
         {
           "nom": "Assistant / Assistante marketing",
           "n": 56
         },
         {
-          "nom": "Assistant(e) marketing et communication",
-          "n": 10
-        },
-        {
           "nom": "Assistant(e) commercial(e) et marketing",
           "n": 9
+        },
+        {
+          "nom": "Assistant(e) marketing et communication",
+          "n": 8
         }
       ],
-      "assistant_marketing": 69,
+      "assistant_marketing": 70,
       "avec_digital": 6,
-      "avec_alternance": 26,
-      "sans_marketing": 32,
+      "avec_alternance": 27,
+      "sans_marketing": 33,
       "exemples_sans_marketing": [
         "Directeur adjoint H/F",
         "Assistant(e) ADV (H/F)",

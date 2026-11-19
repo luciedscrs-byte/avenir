@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-18T20:13:30+00:00",
+  "genere_le": "2026-11-19T14:55:26+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -31,19 +31,23 @@
         {
           "date": "2026-11-18",
           "total": 43
+        },
+        {
+          "date": "2026-11-19",
+          "total": 44
         }
       ],
       "derniere": {
-        "date": "2026-11-18",
-        "total": 43,
+        "date": "2026-11-19",
+        "total": 44,
         "contrats": {
-          "CDI": 39,
+          "CDI": 40,
           "CDD": 4
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 15
+            "n": 16
           },
           {
             "nom": "Auvergne-Rhône-Alpes",
@@ -55,24 +59,28 @@
           },
           {
             "nom": "Grand Est",
-            "n": 3
+            "n": 4
           },
           {
-            "nom": "Non précisé",
+            "nom": "Nouvelle-Aquitaine",
             "n": 3
           }
         ],
-        "debutant_accepte": 28,
-        "cadre": 37,
+        "debutant_accepte": 27,
+        "cadre": 34,
         "salaire_affiche": {
-          "offres": 17,
+          "offres": 18,
           "mediane_mensuelle": 3750
         },
-        "sans_nom_employeur": 13,
+        "sans_nom_employeur": 14,
         "entreprises": [
           {
             "nom": "Walter Learning",
             "n": 2
+          },
+          {
+            "nom": "TOHO EUROPE LIMITED",
+            "n": 1
           },
           {
             "nom": "NUMALLIANCE",
@@ -84,10 +92,6 @@
           },
           {
             "nom": "MISTRAL CONSTRUCTEUR",
-            "n": 1
-          },
-          {
-            "nom": "MANPOWER FRANCE",
             "n": 1
           }
         ]
@@ -119,13 +123,17 @@
         {
           "date": "2026-11-18",
           "total": 12
+        },
+        {
+          "date": "2026-11-19",
+          "total": 13
         }
       ],
       "derniere": {
-        "date": "2026-11-18",
-        "total": 12,
+        "date": "2026-11-19",
+        "total": 13,
         "contrats": {
-          "CDI": 12
+          "CDI": 13
         },
         "regions": [
           {
@@ -134,7 +142,7 @@
           },
           {
             "nom": "Île-de-France",
-            "n": 3
+            "n": 4
           },
           {
             "nom": "Occitanie",
@@ -150,13 +158,17 @@
           }
         ],
         "debutant_accepte": 8,
-        "cadre": 25,
+        "cadre": 23,
         "salaire_affiche": {
-          "offres": 5,
-          "mediane_mensuelle": 4375
+          "offres": 6,
+          "mediane_mensuelle": 3958
         },
         "sans_nom_employeur": 2,
         "entreprises": [
+          {
+            "nom": "RESEAU TALENTS",
+            "n": 1
+          },
           {
             "nom": "ETS J ROSTAING",
             "n": 1
@@ -170,11 +182,7 @@
             "n": 1
           },
           {
-            "nom": "SOMI",
-            "n": 1
-          },
-          {
-            "nom": "Michael Page",
+            "nom": "Exolys",
             "n": 1
           }
         ]
