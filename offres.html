@@ -65,22 +65,6 @@
     <details class="mini"><summary>Les compétences les plus citées</summary><div id="competences" style="margin-top:0.6rem"></div></details>
   </div>
 
-  <details class="depliant">
-    <summary>Les chiffres bruts du code M1620 : contrats, départements, régions, employeurs</summary>
-  <div class="chiffres" style="margin-bottom:1rem">
-    <div class="carte"><p class="gros" id="total">–</p><p class="legende" id="total-legende">offres actives en France</p></div>
-    <div class="carte"><p class="gros" id="alternance">–</p><p class="legende" id="alternance-legende">dont en alternance</p></div>
-    <div class="carte"><p class="gros" id="salaire">–</p><p class="legende">affichent un salaire</p></div>
-    <div class="carte"><p class="gros" id="date">–</p><p class="legende">date de la dernière extraction</p></div>
-  </div>
-
-    <div class="grille" style="margin-bottom:0">
-      <div class="carte"><h3 style="margin:0 0 0.6rem">Contrats</h3><div id="contrats"></div></div>
-      <div class="carte"><h3 style="margin:0 0 0.6rem">Départements (code M1620)</h3><div id="departements"></div></div>
-      <div class="carte"><h3 style="margin:0 0 0.6rem">Entreprises qui publient le plus</h3><div id="entreprises"></div></div>
-      <div class="carte"><h3 style="margin:0 0 0.6rem">Régions</h3><div id="regions"></div><p class="note" id="geo-note"></p></div>
-    </div>
-  </details>
 
   <h2 class="st">Pour aller plus loin</h2>
   <p class="intro">L'évolution des outils cités, le rythme des offres et la source emploi sont sur la page <a href="mouvement.html" style="color:var(--accent)">Comment le métier bouge</a>.</p>
@@ -124,31 +108,8 @@ fetch(fichierResume())
     document.title = 'avenir — ' + d.metier;
     document.getElementById('metier').textContent = d.metier + ' — ROME ' + d.code_rome;
     document.getElementById('requete').textContent = 'Requête : ' + d.requete;
-    document.getElementById('total').textContent = x.total;
-    if (emploi) {
-      const cdi = x.contrats.find(c => c.nom === 'CDI');
-      document.getElementById('total-legende').textContent = 'offres CDI / CDD du code M1620, dont ' + x.variantes.assistant_marketing + ' avec « assistant marketing » dans le titre';
-      document.getElementById('alternance').textContent = cdi ? cdi.n : 0;
-      document.getElementById('alternance-legende').textContent = 'dont en CDI';
-    } else {
-      document.getElementById('alternance').textContent = x.alternance;
-    }
-    document.getElementById('salaire').textContent = x.part_salaire_affiche + ' %';
-    document.getElementById('date').textContent = dateFr(x.date);
     document.getElementById('genere').textContent = new Date(d.genere_le).toLocaleString('fr-FR');
-    barres('contrats', x.contrats);
-    barres('departements', x.departements);
-    barres('entreprises', x.entreprises);
     barres('competences', x.competences);
-
-    barres('regions', x.regions);
-    const pct = n => Math.round(100 * n / x.total) + ' %';
-    const dansRegion = nom => (x.regions.find(r => r.nom === nom) || { n: 0 }).n;
-    document.getElementById('geo-note').textContent =
-      'Puy-de-Dôme : ' + x.n_puy_de_dome + ' offre(s) (' + pct(x.n_puy_de_dome) + '). Auvergne-Rhône-Alpes, la région de Clermont : ' + dansRegion('Auvergne-Rhône-Alpes') +
-      ' offres (' + pct(dansRegion('Auvergne-Rhône-Alpes')) + '). Île-de-France : ' + dansRegion('Île-de-France') + ' (' + pct(dansRegion('Île-de-France')) + '). ' +
-      'Le télétravail est mentionné dans ' + x.teletravail.offres + ' annonces sur ' + x.teletravail.sur + ' (' + Math.round(100 * x.teletravail.offres / Math.max(x.teletravail.sur, 1)) +
-      ' %) ; une mention peut aussi l\'exclure.';
 
     barres('outils', x.outils.liste.slice(0, 12).map(o => ({ nom: o.nom + ' · ' + o.offres + ' offre' + (o.offres > 1 ? 's' : ''), n: o.entreprises })));
     document.getElementById('outils-note').textContent =
