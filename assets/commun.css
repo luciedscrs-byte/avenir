@@ -345,3 +345,10 @@
 
   h3.gros-titre { font-size: 1.35rem; line-height: 1.2; text-transform: none; letter-spacing: -0.005em; margin: 0 0 0.6rem; }
   .chiffres > .carte h3.gros-titre { color: inherit; }
+
+  .evo-simple.top { font-weight: 700; background: var(--accent-soft); border-radius: 10px; padding-left: 0.6rem; padding-right: 0.6rem; }
+
+  .piece .ou { background: var(--oat); border-radius: 12px; padding: 0.5rem 0.8rem; font-size: 0.88rem; }
+  .piece ul.ou-liste { margin: 0 0 0.35rem; padding-left: 1.2rem; font-size: 0.88rem; }
+  .piece ul.ou-liste li { margin-bottom: 0.25rem; }
+  .piece code { background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }

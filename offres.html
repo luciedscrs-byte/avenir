@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Les offres</title>
-<link rel="stylesheet" href="assets/commun.css?v=27">
+<link rel="stylesheet" href="assets/commun.css?v=29">
 </head>
 <body>
 <main>
   <nav id="nav"></nav>
   <header class="hero">
-    <p class="etiquette">Étape 3 · Ce qui en ressort (2/3)</p>
+    <p class="etiquette">Étape 3 · Ce qui en ressort (1/2)</p>
     <h1 id="metier">Chargement…</h1>
     <p class="sub">Combien d'offres, où en France, quels salaires, quelles missions et quels outils demandés : le marché d'après les offres publiées chaque jour sur France Travail.</p>
   </header>
@@ -18,12 +18,17 @@
 
   <h2 class="st">En un coup d'œil</h2>
   <p class="note" id="requete" style="margin:0 0 1rem"></p>
-  <div class="chiffres">
-    <div class="carte"><p class="gros" id="total">–</p><p class="legende" id="total-legende">offres actives en France</p></div>
-    <div class="carte"><p class="gros" id="alternance">–</p><p class="legende" id="alternance-legende">dont en alternance</p></div>
-    <div class="carte"><p class="gros" id="salaire">–</p><p class="legende">affichent un salaire</p></div>
-    <div class="carte"><p class="gros" id="date">–</p><p class="legende">date de la dernière extraction</p></div>
-  </div>
+  <div class="chiffres" id="tuiles-assistant"></div>
+
+  <h2 class="st">Les intitulés</h2>
+  <p class="intro" id="intitules-intro"></p>
+  <div class="chips" id="intitules"></div>
+  <details class="depliant">
+    <summary>Pourquoi le code ROME M1620 est plus large que l'intitulé</summary>
+    <p id="regroupe" style="margin:0 0 1rem"></p>
+    <div id="variantes"></div>
+    <p class="note" id="variantes-note"></p>
+  </details>
 
   <h2 class="st">Où en France</h2>
   <p class="intro" id="ou-intro"></p>
@@ -47,6 +52,10 @@
   <div class="carte" style="margin-bottom:1.5rem">
     <p class="note" style="margin:0 0 0.6rem" id="o-missions-intro"></p>
     <div id="o-missions"></div>
+    <details class="mini"><summary>Avec tous les intitulés, les missions sont plus variées</summary>
+      <p id="o-missions-note" style="margin-top:0.6rem"></p>
+      <div id="o-missions-tous"></div>
+    </details>
   </div>
 
   <h2 class="st">Les compétences et les outils</h2>
@@ -56,17 +65,15 @@
     <details class="mini"><summary>Les compétences les plus citées</summary><div id="competences" style="margin-top:0.6rem"></div></details>
   </div>
 
-  <h2 class="st">Les questions que je me suis posées</h2>
-  <p class="intro">Les questions du cours, puis les miennes, avec leur réponse en une ligne.</p>
-  <div class="carte" style="margin-bottom:1.5rem">
-    <h3 style="margin:0 0 0.6rem">Les questions du cours</h3>
-    <ul class="liste-q" id="q-cours"></ul>
-    <h3 style="margin:1.2rem 0 0.6rem">Mes questions</h3>
-    <ul class="liste-q" id="q-miennes"></ul>
-  </div>
-
   <details class="depliant">
     <summary>Les chiffres bruts du code M1620 : contrats, départements, régions, employeurs</summary>
+  <div class="chiffres" style="margin-bottom:1rem">
+    <div class="carte"><p class="gros" id="total">–</p><p class="legende" id="total-legende">offres actives en France</p></div>
+    <div class="carte"><p class="gros" id="alternance">–</p><p class="legende" id="alternance-legende">dont en alternance</p></div>
+    <div class="carte"><p class="gros" id="salaire">–</p><p class="legende">affichent un salaire</p></div>
+    <div class="carte"><p class="gros" id="date">–</p><p class="legende">date de la dernière extraction</p></div>
+  </div>
+
     <div class="grille" style="margin-bottom:0">
       <div class="carte"><h3 style="margin:0 0 0.6rem">Contrats</h3><div id="contrats"></div></div>
       <div class="carte"><h3 style="margin:0 0 0.6rem">Départements (code M1620)</h3><div id="departements"></div></div>
@@ -188,45 +195,53 @@ fetch(fichierResume())
     ])));
     document.querySelectorAll('#limites li').forEach(li => { if (!li.textContent.trim()) li.remove(); });
 
-    // ---- nouvelles sections, calculées sur le poste d'assistant (même base que le reste du site)
+    // ---- sections calculées sur le poste d'assistant (même base que le reste du site)
     Promise.all([
       fetch('data/questions.json').then(r => r.json()),
       fetch('data/carte.json').then(r => r.json()),
       fetch('assets/departements.geojson').then(r => r.json()),
     ]).then(([Q, carte, geo]) => {
-      const noms = {}; geo.features.forEach(f2 => { noms[f2.properties.code] = f2.properties.nom; }); Object.assign(noms, { '971': 'Guadeloupe', '972': 'Martinique', '973': 'Guyane', '974': 'La Réunion', '976': 'Mayotte' });
-      const P = Q.paris['assistant-marketing'], A = Q.echelle['assistant-marketing'], emploi_ins = x.salaires.mediane_insertion;
-      const deps = Object.entries(carte.departements).map(([d, v]) => ({ d, n: v.offres.total || 0 })).filter(x => x.n > 0).sort((a, b) => b.n - a.n);
+      const noms = {}; geo.features.forEach(f2 => { noms[f2.properties.code] = f2.properties.nom; });
+      Object.assign(noms, { '971': 'Guadeloupe', '972': 'Martinique', '973': 'Guyane', '974': 'La Réunion', '976': 'Mayotte' });
+      const P = Q.paris['assistant-marketing'], A = Q.echelle['assistant-marketing'];
+
+      // en un coup d'œil
+      const tuileA = (gros, legende) => el('div', { className: 'carte' }, [el('p', { className: 'gros', textContent: gros }), el('p', { className: 'legende', textContent: legende })]);
+      document.getElementById('tuiles-assistant').append(
+        tuileA(String(A.actives), 'offres actives d\'assistant marketing en CDI / CDD (' + A.n + ' vues depuis le ' + dateCourte(A.depuis) + ')'),
+        tuileA(A.salaire.mediane ? fr(A.salaire.mediane) + ' €' : '–', 'salaire médian brut par mois (' + A.salaire.n + ' offres avec salaire)'),
+        tuileA(A.debutant + ' %', 'des annonces acceptent un débutant'),
+        tuileA(String(A.jours), 'jours de suivi (extractions quotidiennes)'));
+
+      // intitulés
+      document.getElementById('intitules-intro').textContent =
+        'Le marché donne plusieurs noms au poste d\'assistant marketing. Ces intitulés ont des missions proches et le même niveau : je les regroupe en un seul poste (' + A.n + ' annonces distinctes). Un titre peut compter dans plusieurs lignes.';
+      Q.intitules_assistant.forEach(i => document.getElementById('intitules').appendChild(el('span', { className: 'chip' }, [el('b', { textContent: String(i.n) }), document.createTextNode(i.nom)])));
+      const v = x.variantes;
+      barres('variantes', v.liste.map(l => ({ nom: l.nom, n: l.n })));
+      document.getElementById('variantes-note').textContent = 'Sur ' + v.titres + ' offres CDI / CDD du code M1620 aujourd\'hui. Un titre peut relever de plusieurs variantes.';
+      document.getElementById('regroupe').textContent =
+        v.sans_marketing + ' intitulés sur ' + v.titres + ' ne contiennent pas le mot « marketing » (par exemple : ' + v.exemples_sans_marketing.join(' ; ') + '). Le code M1620 est plus large que l\'intitulé : il regroupe des postes proches mais pas identiques.';
+
+      // où en France
+      const deps = Object.entries(carte.departements).map(([d, vv]) => ({ d, n: vv.offres.total || 0 })).filter(y => y.n > 0).sort((a, b) => b.n - a.n);
       const IDF = ['75', '77', '78', '91', '92', '93', '94', '95'];
-      const nIdf = deps.filter(x => IDF.includes(x.d)).reduce((s, x) => s + x.n, 0);
+      const nIdf = deps.filter(y => IDF.includes(y.d)).reduce((s, y) => s + y.n, 0);
       document.getElementById('ou-intro').textContent =
         'Sur les ' + P.n + ' offres d\'assistant marketing suivies depuis le ' + dateCourte(A.depuis) + ', ' + P.idf_part + ' % sont en Île-de-France et ' + (100 - P.idf_part) + ' % ailleurs : les offres sont réparties dans toute la France. L\'Île-de-France reste une minorité des offres.';
-      barres('ou-deps', deps.slice(0, 8).map(x => ({ nom: noms[x.d] ? noms[x.d] + ' (' + x.d + ')' : x.d, n: x.n })));
-      const idfLignes = IDF.map(d => ({ nom: (noms[d] || d) + ' (' + d + ')', n: (carte.departements[d] || { offres: { total: 0 } }).offres.total || 0 })).filter(x => x.n > 0).sort((a, b) => b.n - a.n);
-      barres('ou-idf', idfLignes);
+      barres('ou-deps', deps.slice(0, 8).map(y => ({ nom: noms[y.d] ? noms[y.d] + ' (' + y.d + ')' : y.d, n: y.n })));
+      barres('ou-idf', IDF.map(d => ({ nom: (noms[d] || d) + ' (' + d + ')', n: (carte.departements[d] || { offres: { total: 0 } }).offres.total || 0 })).filter(y => y.n > 0).sort((a, b) => b.n - a.n));
       const paris = (carte.departements['75'] || { offres: { total: 0 } }).offres.total || 0;
       document.getElementById('ou-note').textContent =
         'L\'Île-de-France regroupe 8 départements : ses ' + nIdf + ' offres se répartissent entre Paris (' + paris + ') et les autres. Paris intra-muros pèse donc ' + Math.round(100 * paris / P.n) + ' % des offres, et l\'Île-de-France entière ' + P.idf_part + ' %. Les deux sont vrais : l\'Île-de-France est une région de 8 départements, dont les offres s\'additionnent, alors que Paris n\'est qu\'un de ces départements.';
 
-      // missions (annonces « assistant marketing » seulement)
-      const S = Q.missions.assistant_strict;
+      // missions
+      const S = Q.missions.assistant_strict, T = Q.missions.par_poste['assistant-marketing'];
       document.getElementById('o-missions-intro').textContent =
-        'Seulement les annonces intitulées « assistant marketing » (' + S.avec_missions + ' dont les missions sont lisibles), pour écarter celles qui ne me parlent pas. Le code ROME est plus global : avec les autres intitulés, les missions sont plus variées (voir la page Les intitulés).';
-      barres('o-missions', S.themes.slice(0, 6).map(x => ({ nom: x.nom, n: x.part })));
-
-      // questions
-      const deb = (Q.experience['assistant-marketing'].repartition.find(r => r.nom === 'Débutant accepté') || { part: 0 }).part;
-      const li = (t, r) => el('li', {}, [el('b', { textContent: t + ' ' }), document.createTextNode(r)]);
-      const cours = document.getElementById('q-cours'), miennes = document.getElementById('q-miennes');
-      cours.append(
-        li('Combien d\'offres, où, quels contrats ?', A.actives + ' offres actives en CDI / CDD, réparties dans toute la France (' + P.idf_part + ' % en Île-de-France).'),
-        li('Quelles compétences et quels outils ?', 'Voir la section « Les compétences et les outils » ci-dessus.'),
-        li('Quel salaire, comparé à l\'insertion ?', 'Environ ' + fr(A.salaire.mediane) + ' € bruts par mois en médiane affichée (insertion du M2 : ' + fr(emploi_ins) + ' €).'),
-        li('Comment le marché bouge-t-il, et qui recrute sans annonce ?', 'Voir la page Comment ça bouge, et la page Le marché caché.'));
-      miennes.append(
-        li('S\'intéresser à Paris est-il mieux ?', 'Non : Paris pèse ' + Math.round(100 * paris / P.n) + ' % des offres et l\'Île-de-France ' + P.idf_part + ' %. Mais Paris compte le plus d\'entreprises (voir le marché caché).'),
-        li('Quelles missions reviennent ?', 'Voir la section « Les missions » ci-dessus.'),
-        li('Quelle expérience est demandée ?', deb + ' % des annonces acceptent un débutant.'));
+        'Seulement les annonces intitulées « assistant marketing » (' + S.avec_missions + ' dont les missions sont lisibles), pour écarter celles qui ne me parlent pas. Le code ROME est assez global : avec les autres intitulés, les missions sont plus variées. Petit échantillon : une tendance.';
+      barres('o-missions', S.themes.slice(0, 6).map(y => ({ nom: y.nom, n: y.part })));
+      document.getElementById('o-missions-note').textContent = 'Avec tous les intitulés d\'assistant (' + T.avec_missions + ' annonces dont les missions sont lisibles). Les intitulés « commercial et marketing » et « marketing et communication » font monter l\'appui commercial et la communication.';
+      barres('o-missions-tous', T.themes.slice(0, 6).map(y => ({ nom: y.nom, n: y.part })));
     });
   })
   .catch(() => {

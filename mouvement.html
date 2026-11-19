@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Comment le métier bouge</title>
-<link rel="stylesheet" href="assets/commun.css?v=27">
+<link rel="stylesheet" href="assets/commun.css?v=29">
 </head>
 <body>
 <main>
   <nav id="nav"></nav>
   <header class="hero">
-    <p class="etiquette">Étape 3 · Ce qui en ressort (3/3)</p>
+    <p class="etiquette">Étape 3 · Ce qui en ressort (2/2)</p>
     <h1>Comment le métier bouge</h1>
     <p class="sub" id="sous-titre"></p>
   </header>
@@ -44,7 +44,7 @@
   <h2 class="st">Les outils et les mots qu'on suit</h2>
   <div class="carte" style="margin-bottom:1.5rem">
     <h3 style="margin:0 0 0.2rem">Outils</h3>
-    <p class="note" style="margin:0 0 0.5rem">Part des annonces qui citent l'outil : au début du suivi, puis aujourd'hui. Plus le pourcentage est haut, plus l'outil est demandé. Avec peu d'annonces, un écart de quelques points est surtout du bruit : à lire comme une tendance.</p>
+    <p class="note" style="margin:0 0 0.5rem">Part des annonces qui citent l'outil : au début du suivi, puis aujourd'hui. Plus le pourcentage est haut, plus l'outil est demandé. Les trois outils les plus demandés aujourd'hui sont en gras. Avec peu d'annonces, un écart de quelques points est surtout du bruit : à lire comme une tendance.</p>
     <div id="v-outils"></div>
     <details class="mini"><summary>Les mots surveillés et les tableaux complets</summary>
       <h3 style="margin:1rem 0 0.2rem">Mots surveillés</h3>
@@ -142,9 +142,10 @@ function evolutionVisuelle(idZone, so, cle, nomsMax) {
     .sort((a, b) => Math.max(part(derniere, b), part(premiere, b)) - Math.max(part(derniere, a), part(premiere, a)))
     .slice(0, nomsMax);
   const zone = document.getElementById(idZone);
+  const top3 = [...noms].sort((a, b) => part(derniere, b) - part(derniere, a)).slice(0, 3);
   noms.forEach(nom => {
     const a = part(premiere, nom), b = part(derniere, nom), ecart = Math.round(b - a);
-    zone.appendChild(el('div', { className: 'evo-simple' }, [
+    zone.appendChild(el('div', { className: 'evo-simple' + (top3.includes(nom) && idZone === 'v-outils' ? ' top' : '') }, [
       el('span', { textContent: nom.replace(/ \(.*\)$/, '') }),
       el('span', { className: 'evo-texte' }, [
         document.createTextNode(Math.round(a) + ' % → ' + Math.round(b) + ' %  '),

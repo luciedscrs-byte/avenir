@@ -50,7 +50,6 @@ function courbe(valeurs, largeur, hauteur, etiquette, plafond) {
 const PAGES = [
   ['index.html', 'Accueil'],
   ['methode.html', 'Méthode'],
-  ['metier.html', 'Les intitulés'],
   ['offres.html', 'Les offres'],
   ['mouvement.html', 'Comment ça bouge'],
   ['entreprises.html', 'Marché caché'],
@@ -89,5 +88,4 @@ function navigation(courante, avecVue) {
     if (href === courante) a.setAttribute('aria-current', 'page');
     nav.appendChild(a);
   });
-  nav.appendChild(el('a', { className: 'pres', href: 'oral.html', textContent: 'Présentation' }));
 }

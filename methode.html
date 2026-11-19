@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Comment j'ai fait</title>
-<link rel="stylesheet" href="assets/commun.css?v=27">
+<link rel="stylesheet" href="assets/commun.css?v=29">
 </head>
 <body>
 <main>
@@ -43,25 +43,36 @@
       <h3>La clé API</h3>
       <p><b>À quoi ça sert :</b> c'est l'équivalent d'un identifiant et d'un mot de passe pour mon programme : sans elle, France Travail refuse de lui donner les offres.</p>
       <p><b>Comment je l'ai obtenue :</b> j'ai créé un compte développeur sur francetravail.io, je me suis abonnée à l'API « Offres d'emploi v2 », puis j'ai récupéré deux codes : un identifiant et un secret.</p>
+      <p class="ou"><b>Où je suis allée :</b> sur le site francetravail.io (espace développeur) : créer un compte, puis « Ajouter ma première API » et choisir « Offres d'emploi v2 ». Les deux codes s'affichent dans mon espace.</p>
     </div></div>
     <div class="piece"><span class="num-etape">2</span><div>
       <h3>Le fichier .env</h3>
       <p><b>À quoi ça sert :</b> c'est un carnet secret sur mon ordinateur où je range la clé. Le script le lit pour se connecter, sans que la clé apparaisse dans le code.</p>
       <p><b>Pourquoi c'est important :</b> ce fichier n'est jamais publié sur GitHub : la clé reste privée.</p>
+      <p class="ou"><b>Où je suis allée :</b> dans le dossier du projet, sur mon ordinateur (fichier caché : Cmd + Maj + point pour l'afficher). Il figure dans le fichier .gitignore, donc GitHub ne le reçoit jamais.</p>
     </div></div>
     <div class="piece"><span class="num-etape">3</span><div>
       <h3>Le script Python</h3>
       <p><b>À quoi ça sert :</b> c'est le petit programme qui fait le travail. Il se connecte à France Travail avec la clé, demande toutes les offres du code ROME M1620, et les enregistre dans un fichier daté (un par jour).</p>
+      <p class="ou"><b>Où je suis allée :</b> dossier <code>scripts</code> du projet (fichier <code>fetch_offres.py</code>). Les fichiers du jour sont rangés dans le dossier <code>data</code>.</p>
     </div></div>
     <div class="piece"><span class="num-etape">4</span><div>
       <h3>GitHub : le dépôt, les secrets et l'Action</h3>
       <p><b>Le dépôt :</b> l'endroit en ligne où sont rangés mon code et mes fichiers.</p>
       <p><b>Les secrets :</b> une copie cachée de ma clé, pour que GitHub puisse utiliser le script à ma place.</p>
       <p><b>L'Action :</b> un robot qui, tous les jours, lance le script, récupère les offres et enregistre les nouveaux fichiers. C'est ce qui fait tourner le projet <b>sans mon ordinateur</b>.</p>
+      <p class="ou"><b>Où je suis allée :</b></p>
+      <ul class="ou-liste">
+        <li><b>Le dépôt :</b> github.com, bouton « New repository » (nom « avenir », public).</li>
+        <li><b>Le jeton pour envoyer le projet :</b> GitHub, Settings, Developer settings, Personal access tokens (cases « repo » et « workflow »).</li>
+        <li><b>Les secrets :</b> dans le dépôt, Settings, Secrets and variables, Actions, « New repository secret » (un secret par clé).</li>
+        <li><b>L'Action :</b> le fichier <code>.github/workflows/veille.yml</code> ; pour la lancer à la main : onglet Actions, « Veille quotidienne », « Run workflow ».</li>
+      </ul>
     </div></div>
     <div class="piece"><span class="num-etape">5</span><div>
       <h3>Le site</h3>
       <p><b>À quoi ça sert :</b> GitHub Pages transforme les fichiers du jour en pages web, et le site se met à jour tout seul.</p>
+      <p class="ou"><b>Où je suis allée :</b> dans le dépôt, Settings, Pages (le site est publié depuis la branche main).</p>
     </div></div>
   </div>
 

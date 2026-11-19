@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>avenir — Le marché caché</title>
-<link rel="stylesheet" href="assets/commun.css?v=27">
+<link rel="stylesheet" href="assets/commun.css?v=29">
 </head>
 <body>
 <main>
@@ -34,10 +34,13 @@
   <div class="carte" style="margin-bottom:1.25rem">
     <h3 style="margin:0 0 0.5rem">Ce que contient la carte</h3>
     <ul class="liste-q">
+      <li><b>Comment je l'ai récupérée :</b> l'API « Recherche d'entreprises » est publique et gratuite, sans clé ni compte (recherche-entreprises.api.gouv.fr). Un script (<code>entreprises.py</code>) lui envoie une requête par secteur d'activité et par département, puis enregistre les résultats dans un fichier.</li>
       <li><b>Pas toutes les entreprises de France :</b> 29 080 entreprises actives, trouvées avec l'API Recherche d'entreprises (data.gouv).</li>
       <li><b>Comment je les ai choisies :</b> au moins 6 salariés (20 pour l'industrie), avec un siège dans l'un des 37 départements qui abritent une commune de plus de 100 000 habitants.</li>
       <li><b>Les secteurs retenus :</b> numérique, e-commerce, médias, événementiel, marques et commerce spécialisé, agences, industrie : là où un assistant marketing peut travailler.</li>
+      <li><b>Pourquoi ces critères :</b> ce sont mes choix. Je pars du principe que de très petites entreprises recrutent rarement un profil marketing (d'où le minimum de 6 salariés), et je me limite aux grandes villes et aux secteurs cités plus haut pour garder une liste de taille raisonnable : l'API plafonne chaque requête à 10 000 résultats.</li>
       <li><b>Ce qui n'y est pas :</b> les petites entreprises, les autres départements, les autres secteurs.</li>
+      <li><b>La liste en dessous contient les mêmes entreprises que la carte</b> (pas toutes celles de France) : elle sert à les voir une par une.</li>
     </ul>
   </div>
   <div class="carte" style="margin-bottom:1.5rem" id="carte-territoire">
