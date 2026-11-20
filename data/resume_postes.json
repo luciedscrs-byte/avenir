@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-19T14:55:26+00:00",
+  "genere_le": "2026-11-20T14:36:22+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -35,19 +35,23 @@
         {
           "date": "2026-11-19",
           "total": 44
+        },
+        {
+          "date": "2026-11-20",
+          "total": 46
         }
       ],
       "derniere": {
-        "date": "2026-11-19",
-        "total": 44,
+        "date": "2026-11-20",
+        "total": 46,
         "contrats": {
-          "CDI": 40,
-          "CDD": 4
+          "CDD": 5,
+          "CDI": 41
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 16
+            "n": 19
           },
           {
             "nom": "Auvergne-Rhône-Alpes",
@@ -59,24 +63,24 @@
           },
           {
             "nom": "Grand Est",
-            "n": 4
+            "n": 3
           },
           {
             "nom": "Nouvelle-Aquitaine",
             "n": 3
           }
         ],
-        "debutant_accepte": 27,
-        "cadre": 34,
+        "debutant_accepte": 28,
+        "cadre": 37,
         "salaire_affiche": {
-          "offres": 18,
+          "offres": 21,
           "mediane_mensuelle": 3750
         },
-        "sans_nom_employeur": 14,
+        "sans_nom_employeur": 15,
         "entreprises": [
           {
-            "nom": "Walter Learning",
-            "n": 2
+            "nom": "MANPOWER FRANCE",
+            "n": 1
           },
           {
             "nom": "TOHO EUROPE LIMITED",
@@ -127,10 +131,14 @@
         {
           "date": "2026-11-19",
           "total": 13
+        },
+        {
+          "date": "2026-11-20",
+          "total": 13
         }
       ],
       "derniere": {
-        "date": "2026-11-19",
+        "date": "2026-11-20",
         "total": 13,
         "contrats": {
           "CDI": 13
@@ -157,13 +165,13 @@
             "n": 1
           }
         ],
-        "debutant_accepte": 8,
+        "debutant_accepte": 15,
         "cadre": 23,
         "salaire_affiche": {
           "offres": 6,
           "mediane_mensuelle": 3958
         },
-        "sans_nom_employeur": 2,
+        "sans_nom_employeur": 3,
         "entreprises": [
           {
             "nom": "RESEAU TALENTS",
@@ -182,7 +190,7 @@
             "n": 1
           },
           {
-            "nom": "Exolys",
+            "nom": "Michael Page",
             "n": 1
           }
         ]
