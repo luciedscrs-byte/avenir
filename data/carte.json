@@ -1,10 +1,10 @@
 {
- "genere_le": "2026-11-20T14:36:23+00:00",
+ "genere_le": "2026-11-21T13:54:31+00:00",
  "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
  "postes": {
   "assistant-marketing": {
    "libelle": "Assistant marketing",
-   "n": 53,
+   "n": 54,
    "depuis": "2026-10-07"
   }
  },
@@ -487,8 +487,8 @@
     "total": 786
    },
    "offres": {
-    "assistant-marketing": 1,
-    "total": 1
+    "assistant-marketing": 2,
+    "total": 2
    }
   },
   "68": {

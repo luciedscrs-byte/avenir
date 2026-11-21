@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-20T14:36:22+00:00",
+  "genere_le": "2026-11-21T13:54:30+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -39,10 +39,14 @@
         {
           "date": "2026-11-20",
           "total": 46
+        },
+        {
+          "date": "2026-11-21",
+          "total": 46
         }
       ],
       "derniere": {
-        "date": "2026-11-20",
+        "date": "2026-11-21",
         "total": 46,
         "contrats": {
           "CDD": 5,
@@ -54,12 +58,12 @@
             "n": 19
           },
           {
-            "nom": "Auvergne-Rhône-Alpes",
+            "nom": "Hauts-de-France",
             "n": 6
           },
           {
-            "nom": "Hauts-de-France",
-            "n": 5
+            "nom": "Auvergne-Rhône-Alpes",
+            "n": 6
           },
           {
             "nom": "Grand Est",
@@ -70,14 +74,18 @@
             "n": 3
           }
         ],
-        "debutant_accepte": 28,
-        "cadre": 37,
+        "debutant_accepte": 26,
+        "cadre": 41,
         "salaire_affiche": {
           "offres": 21,
           "mediane_mensuelle": 3750
         },
-        "sans_nom_employeur": 15,
+        "sans_nom_employeur": 13,
         "entreprises": [
+          {
+            "nom": "ISAGRI",
+            "n": 2
+          },
           {
             "nom": "MANPOWER FRANCE",
             "n": 1
@@ -92,10 +100,6 @@
           },
           {
             "nom": "LES FRUITS ROUGES DE L'AISNE",
-            "n": 1
-          },
-          {
-            "nom": "MISTRAL CONSTRUCTEUR",
             "n": 1
           }
         ]
@@ -135,22 +139,26 @@
         {
           "date": "2026-11-20",
           "total": 13
+        },
+        {
+          "date": "2026-11-21",
+          "total": 11
         }
       ],
       "derniere": {
-        "date": "2026-11-20",
-        "total": 13,
+        "date": "2026-11-21",
+        "total": 11,
         "contrats": {
-          "CDI": 13
+          "CDI": 11
         },
         "regions": [
           {
-            "nom": "Auvergne-Rhône-Alpes",
+            "nom": "Île-de-France",
             "n": 4
           },
           {
-            "nom": "Île-de-France",
-            "n": 4
+            "nom": "Auvergne-Rhône-Alpes",
+            "n": 3
           },
           {
             "nom": "Occitanie",
@@ -161,24 +169,20 @@
             "n": 1
           },
           {
-            "nom": "Pays de la Loire",
+            "nom": "Bourgogne-Franche-Comté",
             "n": 1
           }
         ],
-        "debutant_accepte": 15,
-        "cadre": 23,
+        "debutant_accepte": 18,
+        "cadre": 9,
         "salaire_affiche": {
-          "offres": 6,
-          "mediane_mensuelle": 3958
+          "offres": 5,
+          "mediane_mensuelle": 4375
         },
         "sans_nom_employeur": 3,
         "entreprises": [
           {
             "nom": "RESEAU TALENTS",
-            "n": 1
-          },
-          {
-            "nom": "ETS J ROSTAING",
             "n": 1
           },
           {
@@ -191,6 +195,10 @@
           },
           {
             "nom": "Michael Page",
+            "n": 1
+          },
+          {
+            "nom": "MAYOLY",
             "n": 1
           }
         ]

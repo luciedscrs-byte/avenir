@@ -1,6 +1,6 @@
 {
   "vue": "emploi",
-  "genere_le": "2026-11-20T14:35:52+00:00",
+  "genere_le": "2026-11-21T13:54:00+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026",
@@ -228,6 +228,11 @@
     {
       "date": "2026-11-20",
       "total": 41,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-21",
+      "total": 43,
       "alternance": 0
     }
   ],
@@ -1634,12 +1639,43 @@
         "Automatisation / marketing automation": 1,
         "Analyse de données (data)": 1
       }
+    },
+    {
+      "date": "2026-11-21",
+      "avec_texte": 43,
+      "outils": {
+        "Adobe (Photoshop, Illustrator, InDesign…)": 8,
+        "Canva": 7,
+        "Anglais": 7,
+        "Emailing / newsletter": 6,
+        "IA (ChatGPT, IA générative…)": 6,
+        "Pack Office": 7,
+        "PowerPoint": 5,
+        "LinkedIn": 4,
+        "Excel": 4,
+        "CRM": 3,
+        "SEO": 2,
+        "Google Ads": 2,
+        "HubSpot": 2,
+        "WordPress": 2,
+        "Instagram": 1,
+        "TikTok": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 13,
+        "Automatisation / marketing automation": 2,
+        "Analyse de données (data)": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-20",
-    "extractions": 45,
+    "au": "2026-11-21",
+    "extractions": 46,
     "flux": [
       {
         "date": "2026-10-08",
@@ -1904,22 +1940,28 @@
         "total": 41,
         "nouvelles": 3,
         "disparues": 0
+      },
+      {
+        "date": "2026-11-21",
+        "total": 43,
+        "nouvelles": 2,
+        "disparues": 0
       }
     ],
-    "vues": 150,
+    "vues": 152,
     "toute_la_periode": 2,
     "duree_mediane_jours": 5.0,
     "n_duree": 74
   },
   "derniere": {
-    "date": "2026-11-20",
-    "total": 41,
+    "date": "2026-11-21",
+    "total": 43,
     "alternance": 0,
-    "part_salaire_affiche": 41,
+    "part_salaire_affiche": 42,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 30
+        "n": 32
       },
       {
         "nom": "CDD",
@@ -1929,7 +1971,7 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 41
+        "n": 43
       }
     ],
     "departements": [
@@ -1958,19 +2000,19 @@
         "n": 2
       },
       {
+        "nom": "67",
+        "n": 2
+      },
+      {
         "nom": "72",
         "n": 2
       },
       {
+        "nom": "33",
+        "n": 2
+      },
+      {
         "nom": "83",
-        "n": 2
-      },
-      {
-        "nom": "59",
-        "n": 2
-      },
-      {
-        "nom": "06",
         "n": 2
       }
     ],
@@ -1992,11 +2034,11 @@
         "n": 4
       },
       {
-        "nom": "Pays de la Loire",
-        "n": 3
+        "nom": "Nouvelle-Aquitaine",
+        "n": 4
       },
       {
-        "nom": "Nouvelle-Aquitaine",
+        "nom": "Pays de la Loire",
         "n": 3
       },
       {
@@ -2004,12 +2046,12 @@
         "n": 2
       },
       {
-        "nom": "Outre-mer",
+        "nom": "Grand Est",
         "n": 2
       },
       {
-        "nom": "Grand Est",
-        "n": 1
+        "nom": "Outre-mer",
+        "n": 2
       },
       {
         "nom": "Bretagne",
@@ -2023,8 +2065,8 @@
       "noms": []
     },
     "teletravail": {
-      "offres": 5,
-      "sur": 41
+      "offres": 6,
+      "sur": 43
     },
     "entreprises": [
       {
@@ -2073,7 +2115,7 @@
         "TalenX",
         "SENTEO"
       ],
-      "part": 10
+      "part": 9
     },
     "competences": [
       {
@@ -2122,12 +2164,12 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 30,
-          "affichent": 11,
-          "mediane": 2189,
+          "total": 32,
+          "affichent": 12,
+          "mediane": 2365,
           "min": 1900,
           "max": 3542,
-          "mediane_annuelle": 26268,
+          "mediane_annuelle": 28380,
           "min_annuel": 22800,
           "max_annuel": 42504
         },
@@ -2145,10 +2187,15 @@
       ]
     },
     "outils": {
-      "avec_texte": 41,
+      "avec_texte": 43,
       "liste": [
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
+          "offres": 8,
+          "entreprises": 7
+        },
+        {
+          "nom": "Canva",
           "offres": 7,
           "entreprises": 6
         },
@@ -2158,23 +2205,18 @@
           "entreprises": 6
         },
         {
-          "nom": "Pack Office",
-          "offres": 7,
-          "entreprises": 5
-        },
-        {
-          "nom": "Canva",
-          "offres": 6,
-          "entreprises": 5
-        },
-        {
           "nom": "Emailing / newsletter",
-          "offres": 5,
-          "entreprises": 5
+          "offres": 6,
+          "entreprises": 6
         },
         {
           "nom": "IA (ChatGPT, IA générative…)",
-          "offres": 5,
+          "offres": 6,
+          "entreprises": 6
+        },
+        {
+          "nom": "Pack Office",
+          "offres": 7,
           "entreprises": 5
         },
         {
@@ -2208,6 +2250,11 @@
           "entreprises": 2
         },
         {
+          "nom": "HubSpot",
+          "offres": 2,
+          "entreprises": 2
+        },
+        {
           "nom": "WordPress",
           "offres": 2,
           "entreprises": 2
@@ -2233,7 +2280,7 @@
           "entreprises": 1
         },
         {
-          "nom": "HubSpot",
+          "nom": "Mailchimp, Brevo, Sendinblue, Klaviyo",
           "offres": 1,
           "entreprises": 1
         },
@@ -2250,7 +2297,6 @@
         "YouTube",
         "SEA",
         "Salesforce",
-        "Mailchimp, Brevo, Sendinblue, Klaviyo",
         "Shopify",
         "Prestashop",
         "SQL",
@@ -2261,19 +2307,19 @@
         "Zapier"
       ]
     },
-    "sans_nom_employeur": 12,
-    "part_competences": 41,
-    "debutant_accepte": 39,
+    "sans_nom_employeur": 13,
+    "part_competences": 40,
+    "debutant_accepte": 40,
     "mots": [
       {
         "nom": "Réseaux sociaux",
-        "offres": 12,
-        "entreprises": 10
+        "offres": 13,
+        "entreprises": 11
       },
       {
         "nom": "Automatisation / marketing automation",
-        "offres": 1,
-        "entreprises": 1
+        "offres": 2,
+        "entreprises": 2
       },
       {
         "nom": "Analyse de données (data)",
@@ -2282,30 +2328,30 @@
       }
     ],
     "variantes": {
-      "titres": 41,
+      "titres": 43,
       "liste": [
         {
           "nom": "Assistant / Assistante marketing",
-          "n": 12
+          "n": 13
         },
         {
           "nom": "Assistant(e) marketing et communication",
-          "n": 2
+          "n": 3
         },
         {
           "nom": "Assistant(e) commercial(e) et marketing",
           "n": 1
         }
       ],
-      "assistant_marketing": 14,
+      "assistant_marketing": 15,
       "avec_digital": 2,
       "avec_alternance": 0,
-      "sans_marketing": 21,
+      "sans_marketing": 22,
       "exemples_sans_marketing": [
         "Directeur adjoint H/F",
         "Assistant(e) ADV (H/F)",
         "agent de planning (H/F)",
-        "Campaign Manager confirmé H/F"
+        "Responsable Télévente H/F"
       ]
     }
   }
