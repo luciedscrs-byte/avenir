@@ -1,8 +1,8 @@
 # Le marché de « Assistant / Assistante marketing » (ROME M1620)
 
 - **Requête** : API France Travail — Offres d'emploi v2, codeROME=M1620, France entière
-- **Date d'extraction** : 2026-11-21 · **128 offres** · dont 43 en alternance
-- **Extractions disponibles** : 47, du 2026-09-22 au 2026-11-21
+- **Date d'extraction** : 2026-11-22 · **126 offres** · dont 43 en alternance
+- **Extractions disponibles** : 48, du 2026-09-22 au 2026-11-22
 
 **Comment ce rapport est fabriqué.** Un script lit le fichier CSV daté du jour (`data/offres_M1620_<date>.csv`) et le texte des annonces, et compte : les offres par région, département et contrat ; les salaires affichés ; les outils cités ; les employeurs. Chaque chiffre vient de ces fichiers, rien n'est saisi à la main, et le rapport se régénère à chaque extraction.
 
@@ -12,14 +12,14 @@
 |---|---|
 | Île-de-France | 45 |
 | Provence-Alpes-Côte d'Azur | 15 |
+| Auvergne-Rhône-Alpes | 12 |
 | Occitanie | 11 |
-| Auvergne-Rhône-Alpes | 11 |
-| Nouvelle-Aquitaine | 8 |
 | Hauts-de-France | 7 |
-| Outre-mer | 6 |
+| Nouvelle-Aquitaine | 7 |
 | Normandie | 6 |
-| Pays de la Loire | 4 |
+| Outre-mer | 5 |
 | Grand Est | 4 |
+| Bretagne | 4 |
 
 | Département | Offres |
 |---|---|
@@ -27,31 +27,31 @@
 | 75 | 19 |
 | 92 | 8 |
 | 93 | 6 |
+| 69 | 5 |
 | 13 | 5 |
 | 31 | 5 |
-| 69 | 4 |
 | 94 | 4 |
 | 974 | 4 |
 | 33 | 4 |
 
-Puy-de-Dôme (63) : **0** offre(s). Mentionnent le télétravail dans le texte : **10** sur 128 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
+Puy-de-Dôme (63) : **0** offre(s). Mentionnent le télétravail dans le texte : **10** sur 126 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
 
 ## Contrats
 
 | Contrat | Offres |
 |---|---|
-| CDI | 60 |
+| CDI | 58 |
 | CDD | 55 |
 | Intérim | 12 |
 | Profession libérale | 1 |
 
 ## Salaires affichés (brut)
 
-Seules 23 % des offres affichent un salaire (les autres n'en disent rien). Annuel ÷ 12 et horaire × 35 h × 52 ÷ 12 donnent le mensuel ; le mensuel × 12 donne l'annuel. Repère du cours : 2433 € brut par mois (médiane d'insertion à un an, deck de rentrée de l'IAE). Un salaire affiché n'est pas un salaire versé.
+Seules 24 % des offres affichent un salaire (les autres n'en disent rien). Annuel ÷ 12 et horaire × 35 h × 52 ÷ 12 donnent le mensuel ; le mensuel × 12 donne l'annuel. Repère du cours : 2433 € brut par mois (médiane d'insertion à un an, deck de rentrée de l'IAE). Un salaire affiché n'est pas un salaire versé.
 
 | Groupe | Offres | Avec salaire affiché | Médiane par mois | Min – max par mois | Médiane par an |
 |---|---|---|---|---|---|
-| CDI | 60 | 14 | 2136 € | 1350 – 3542 € | 25632 € |
+| CDI | 58 | 15 | 2189 € | 1350 – 3542 € | 26268 € |
 | Alternance | 43 | 4 | 1250 € | 1144 – 1600 € | 15000 € |
 | Intérim | 12 | 5 | 2524 € | 1875 – 3417 € | 30288 € |
 | CDD | 12 | 6 | 2292 € | 1867 – 3500 € | 27504 € |
@@ -59,23 +59,23 @@ Seules 23 % des offres affichent un salaire (les autres n'en disent rien). Annue
 
 ## Outils cités dans les annonces
 
-Texte lu pour 128 annonces. Classés par nombre d'**entreprises** distinctes qui les citent (pour ne pas laisser un employeur qui publie le même gabarit vingt fois peser sur le classement).
+Texte lu pour 126 annonces. Classés par nombre d'**entreprises** distinctes qui les citent (pour ne pas laisser un employeur qui publie le même gabarit vingt fois peser sur le classement).
 
 | Outil | Entreprises | Offres |
 |---|---|---|
 | Adobe (Photoshop, Illustrator, InDesign…) | 13 | 15 |
-| Canva | 12 | 14 |
+| Canva | 12 | 15 |
 | Anglais | 12 | 13 |
-| Emailing / newsletter | 11 | 14 |
+| Emailing / newsletter | 11 | 15 |
 | Pack Office | 10 | 14 |
 | LinkedIn | 10 | 10 |
-| Excel | 9 | 13 |
+| Excel | 9 | 14 |
 | IA (ChatGPT, IA générative…) | 9 | 9 |
 | SEO | 7 | 10 |
-| PowerPoint | 7 | 8 |
+| PowerPoint | 7 | 9 |
 | CRM | 6 | 9 |
+| Word | 6 | 7 |
 | Instagram | 5 | 8 |
-| Word | 5 | 6 |
 | Facebook | 5 | 6 |
 | TikTok | 4 | 5 |
 | YouTube | 2 | 2 |
@@ -97,15 +97,15 @@ Seules 18 % des offres ont ce champ rempli.
 | Compétence | Offres |
 |---|---|
 | Mettre en place des solutions d'amélioration de la performance | 22 |
+| Elaborer une stratégie de marketing digital | 3 |
+| Analyse concurrentielle | 2 |
+| Marketing des réseaux sociaux | 2 |
+| Utiliser les outils numériques | 2 |
 | Concevoir des supports de communication et d'image | 2 |
-| Elaborer une stratégie de marketing digital | 2 |
-| Elaborer un plan marketing, une stratégie de marque et de communication | 2 |
 | Développer l'image et la notoriété de la structure | 2 |
 | Analyser les performances de l'équipe et proposer des améliorations | 2 |
-| PERMIS + VEHICULE OBLIGATOIRE | 1 |
-| Analyse concurrentielle | 1 |
-| Analyse des besoins des clients | 1 |
-| Gestion de campagnes publicitaires | 1 |
+| Planification de campagnes publicitaires | 1 |
+| Analyser le retour sur investissement des campagnes publicitaires | 1 |
 
 ## Qui publie
 
@@ -122,14 +122,14 @@ Seules 18 % des offres ont ce champ rempli.
 | SOLANO | 1 |
 | SENTEO | 1 |
 
-33 offres n'ont aucun nom d'employeur et ne sont pas classées.
+32 offres n'ont aucun nom d'employeur et ne sont pas classées.
 
 ## Ce qui étonne dans ces chiffres
 
-- 23 annonces sur 128 (18 %) font la promotion d'une formation à distance, pas d'un emploi (publiées par EFC) ; France Travail les classe pourtant comme des offres.
-- 33 offres sur 128 (26 %) n'ont aucun nom d'employeur : on ne sait pas qui recrute.
-- Deux employeurs (EFC et ISCOD) publient 27 % des offres : leur poids fausse le « volume » du marché.
-- 43 offres sur 128 (34 %) sont de l'alternance.
-- Le salaire médian affiché en CDI (2136 € brut par mois, 14 offres seulement) est 12 % en dessous du repère d'insertion (2433 €).
+- 23 annonces sur 126 (18 %) font la promotion d'une formation à distance, pas d'un emploi (publiées par EFC) ; France Travail les classe pourtant comme des offres.
+- 32 offres sur 126 (25 %) n'ont aucun nom d'employeur : on ne sait pas qui recrute.
+- Deux employeurs (EFC et ISCOD) publient 28 % des offres : leur poids fausse le « volume » du marché.
+- 43 offres sur 126 (34 %) sont de l'alternance.
+- Le salaire médian affiché en CDI (2189 € brut par mois, 15 offres seulement) est 10 % en dessous du repère d'insertion (2433 €).
 - Seules 18 % des offres renseignent des compétences dans le champ France Travail, et la plus citée (« Mettre en place des solutions d'amélioration de la performance ») est générique : les outils se lisent surtout dans le texte des annonces.
-- 37 intitulés sur 128 ne contiennent pas le mot « marketing » : le code M1620 regroupe des postes proches mais pas identiques.
+- 35 intitulés sur 126 ne contiennent pas le mot « marketing » : le code M1620 regroupe des postes proches mais pas identiques.

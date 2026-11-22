@@ -1,6 +1,6 @@
 {
   "vue": "tout",
-  "genere_le": "2026-11-21T13:53:56+00:00",
+  "genere_le": "2026-11-22T13:46:57+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -238,6 +238,11 @@
     {
       "date": "2026-11-21",
       "total": 128,
+      "alternance": 43
+    },
+    {
+      "date": "2026-11-22",
+      "total": 126,
       "alternance": 43
     }
   ],
@@ -1897,12 +1902,48 @@
         "Analyse de données (data)": 4,
         "Transition écologique / RSE": 1
       }
+    },
+    {
+      "date": "2026-11-22",
+      "avec_texte": 126,
+      "outils": {
+        "Adobe (Photoshop, Illustrator, InDesign…)": 15,
+        "Canva": 15,
+        "Anglais": 13,
+        "Emailing / newsletter": 15,
+        "Pack Office": 14,
+        "LinkedIn": 10,
+        "Excel": 14,
+        "IA (ChatGPT, IA générative…)": 9,
+        "SEO": 10,
+        "PowerPoint": 9,
+        "CRM": 9,
+        "Word": 7,
+        "Instagram": 8,
+        "Facebook": 6,
+        "TikTok": 5,
+        "YouTube": 2,
+        "Google Analytics / GA4": 2,
+        "Google Ads": 2,
+        "HubSpot": 2,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 2,
+        "WordPress": 2,
+        "Meta Ads / Facebook Ads": 1,
+        "Power BI / Looker Studio": 1,
+        "Semrush / Ahrefs": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 40,
+        "Automatisation / marketing automation": 4,
+        "Analyse de données (data)": 3,
+        "Transition écologique / RSE": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-21",
-    "extractions": 46,
+    "au": "2026-11-22",
+    "extractions": 47,
     "flux": [
       {
         "date": "2026-10-08",
@@ -2173,22 +2214,28 @@
         "total": 128,
         "nouvelles": 8,
         "disparues": 3
+      },
+      {
+        "date": "2026-11-22",
+        "total": 126,
+        "nouvelles": 1,
+        "disparues": 3
       }
     ],
-    "vues": 359,
+    "vues": 360,
     "toute_la_periode": 30,
-    "duree_mediane_jours": 6,
-    "n_duree": 125
+    "duree_mediane_jours": 6.5,
+    "n_duree": 128
   },
   "derniere": {
-    "date": "2026-11-21",
-    "total": 128,
+    "date": "2026-11-22",
+    "total": 126,
     "alternance": 43,
-    "part_salaire_affiche": 23,
+    "part_salaire_affiche": 24,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 60
+        "n": 58
       },
       {
         "nom": "CDD",
@@ -2206,7 +2253,7 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 84
+        "n": 82
       },
       {
         "nom": "Contrat apprentissage",
@@ -2239,16 +2286,16 @@
         "n": 6
       },
       {
+        "nom": "69",
+        "n": 5
+      },
+      {
         "nom": "13",
         "n": 5
       },
       {
         "nom": "31",
         "n": 5
-      },
-      {
-        "nom": "69",
-        "n": 4
       },
       {
         "nom": "94",
@@ -2273,35 +2320,35 @@
         "n": 15
       },
       {
+        "nom": "Auvergne-Rhône-Alpes",
+        "n": 12
+      },
+      {
         "nom": "Occitanie",
         "n": 11
-      },
-      {
-        "nom": "Auvergne-Rhône-Alpes",
-        "n": 11
-      },
-      {
-        "nom": "Nouvelle-Aquitaine",
-        "n": 8
       },
       {
         "nom": "Hauts-de-France",
         "n": 7
       },
       {
-        "nom": "Outre-mer",
-        "n": 6
+        "nom": "Nouvelle-Aquitaine",
+        "n": 7
       },
       {
         "nom": "Normandie",
         "n": 6
       },
       {
-        "nom": "Pays de la Loire",
-        "n": 4
+        "nom": "Outre-mer",
+        "n": 5
       },
       {
         "nom": "Grand Est",
+        "n": 4
+      },
+      {
+        "nom": "Bretagne",
         "n": 4
       }
     ],
@@ -2315,7 +2362,7 @@
     },
     "teletravail": {
       "offres": 10,
-      "sur": 128
+      "sur": 126
     },
     "entreprises": [
       {
@@ -2364,7 +2411,7 @@
         "EFC",
         "ISCOD"
       ],
-      "part": 27
+      "part": 28
     },
     "competences": [
       {
@@ -2372,15 +2419,23 @@
         "n": 22
       },
       {
-        "nom": "Concevoir des supports de communication et d'image",
-        "n": 2
-      },
-      {
         "nom": "Elaborer une stratégie de marketing digital",
+        "n": 3
+      },
+      {
+        "nom": "Analyse concurrentielle",
         "n": 2
       },
       {
-        "nom": "Elaborer un plan marketing, une stratégie de marque et de communication",
+        "nom": "Marketing des réseaux sociaux",
+        "n": 2
+      },
+      {
+        "nom": "Utiliser les outils numériques",
+        "n": 2
+      },
+      {
+        "nom": "Concevoir des supports de communication et d'image",
         "n": 2
       },
       {
@@ -2392,19 +2447,11 @@
         "n": 2
       },
       {
-        "nom": "PERMIS + VEHICULE OBLIGATOIRE",
+        "nom": "Planification de campagnes publicitaires",
         "n": 1
       },
       {
-        "nom": "Analyse concurrentielle",
-        "n": 1
-      },
-      {
-        "nom": "Analyse des besoins des clients",
-        "n": 1
-      },
-      {
-        "nom": "Gestion de campagnes publicitaires",
+        "nom": "Analyser le retour sur investissement des campagnes publicitaires",
         "n": 1
       }
     ],
@@ -2413,12 +2460,12 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 60,
-          "affichent": 14,
-          "mediane": 2136,
+          "total": 58,
+          "affichent": 15,
+          "mediane": 2189,
           "min": 1350,
           "max": 3542,
-          "mediane_annuelle": 25632,
+          "mediane_annuelle": 26268,
           "min_annuel": 16200,
           "max_annuel": 42504
         },
@@ -2463,7 +2510,7 @@
       ]
     },
     "outils": {
-      "avec_texte": 128,
+      "avec_texte": 126,
       "liste": [
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
@@ -2472,7 +2519,7 @@
         },
         {
           "nom": "Canva",
-          "offres": 14,
+          "offres": 15,
           "entreprises": 12
         },
         {
@@ -2482,7 +2529,7 @@
         },
         {
           "nom": "Emailing / newsletter",
-          "offres": 14,
+          "offres": 15,
           "entreprises": 11
         },
         {
@@ -2497,7 +2544,7 @@
         },
         {
           "nom": "Excel",
-          "offres": 13,
+          "offres": 14,
           "entreprises": 9
         },
         {
@@ -2512,7 +2559,7 @@
         },
         {
           "nom": "PowerPoint",
-          "offres": 8,
+          "offres": 9,
           "entreprises": 7
         },
         {
@@ -2521,13 +2568,13 @@
           "entreprises": 6
         },
         {
-          "nom": "Instagram",
-          "offres": 8,
-          "entreprises": 5
+          "nom": "Word",
+          "offres": 7,
+          "entreprises": 6
         },
         {
-          "nom": "Word",
-          "offres": 6,
+          "nom": "Instagram",
+          "offres": 8,
           "entreprises": 5
         },
         {
@@ -2599,13 +2646,13 @@
         "Zapier"
       ]
     },
-    "sans_nom_employeur": 33,
+    "sans_nom_employeur": 32,
     "part_competences": 18,
     "debutant_accepte": 60,
     "mots": [
       {
         "nom": "Réseaux sociaux",
-        "offres": 39,
+        "offres": 40,
         "entreprises": 21
       },
       {
@@ -2615,8 +2662,8 @@
       },
       {
         "nom": "Analyse de données (data)",
-        "offres": 4,
-        "entreprises": 4
+        "offres": 3,
+        "entreprises": 3
       },
       {
         "nom": "Transition écologique / RSE",
@@ -2625,11 +2672,11 @@
       }
     ],
     "variantes": {
-      "titres": 128,
+      "titres": 126,
       "liste": [
         {
           "nom": "Assistant / Assistante marketing",
-          "n": 60
+          "n": 61
         },
         {
           "nom": "Assistant(e) marketing et communication",
@@ -2640,15 +2687,15 @@
           "n": 9
         }
       ],
-      "assistant_marketing": 74,
+      "assistant_marketing": 75,
       "avec_digital": 7,
       "avec_alternance": 32,
-      "sans_marketing": 37,
+      "sans_marketing": 35,
       "exemples_sans_marketing": [
-        "Directeur adjoint H/F",
         "Assistant(e) ADV (H/F)",
         "Assistant Packaging F/H",
-        "agent de planning (H/F)"
+        "agent de planning (H/F)",
+        "Responsable Télévente H/F"
       ]
     }
   }

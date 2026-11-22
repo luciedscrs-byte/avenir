@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-21T13:54:30+00:00",
+  "genere_le": "2026-11-22T13:47:26+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -43,19 +43,23 @@
         {
           "date": "2026-11-21",
           "total": 46
+        },
+        {
+          "date": "2026-11-22",
+          "total": 44
         }
       ],
       "derniere": {
-        "date": "2026-11-21",
-        "total": 46,
+        "date": "2026-11-22",
+        "total": 44,
         "contrats": {
           "CDD": 5,
-          "CDI": 41
+          "CDI": 39
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 19
+            "n": 18
           },
           {
             "nom": "Hauts-de-France",
@@ -74,11 +78,11 @@
             "n": 3
           }
         ],
-        "debutant_accepte": 26,
-        "cadre": 41,
+        "debutant_accepte": 25,
+        "cadre": 39,
         "salaire_affiche": {
-          "offres": 21,
-          "mediane_mensuelle": 3750
+          "offres": 20,
+          "mediane_mensuelle": 3792
         },
         "sans_nom_employeur": 13,
         "entreprises": [
@@ -143,13 +147,17 @@
         {
           "date": "2026-11-21",
           "total": 11
+        },
+        {
+          "date": "2026-11-22",
+          "total": 10
         }
       ],
       "derniere": {
-        "date": "2026-11-21",
-        "total": 11,
+        "date": "2026-11-22",
+        "total": 10,
         "contrats": {
-          "CDI": 11
+          "CDI": 10
         },
         "regions": [
           {
@@ -161,11 +169,11 @@
             "n": 3
           },
           {
-            "nom": "Occitanie",
-            "n": 2
+            "nom": "Provence-Alpes-Côte d'Azur",
+            "n": 1
           },
           {
-            "nom": "Provence-Alpes-Côte d'Azur",
+            "nom": "Occitanie",
             "n": 1
           },
           {
@@ -173,13 +181,13 @@
             "n": 1
           }
         ],
-        "debutant_accepte": 18,
-        "cadre": 9,
+        "debutant_accepte": 10,
+        "cadre": 10,
         "salaire_affiche": {
           "offres": 5,
           "mediane_mensuelle": 4375
         },
-        "sans_nom_employeur": 3,
+        "sans_nom_employeur": 2,
         "entreprises": [
           {
             "nom": "RESEAU TALENTS",
