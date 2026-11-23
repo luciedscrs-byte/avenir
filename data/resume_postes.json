@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-22T13:47:26+00:00",
+  "genere_le": "2026-11-23T16:50:52+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -47,27 +47,31 @@
         {
           "date": "2026-11-22",
           "total": 44
+        },
+        {
+          "date": "2026-11-23",
+          "total": 40
         }
       ],
       "derniere": {
-        "date": "2026-11-22",
-        "total": 44,
+        "date": "2026-11-23",
+        "total": 40,
         "contrats": {
           "CDD": 5,
-          "CDI": 39
+          "CDI": 35
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 18
-          },
-          {
-            "nom": "Hauts-de-France",
-            "n": 6
+            "n": 16
           },
           {
             "nom": "Auvergne-Rhône-Alpes",
             "n": 6
+          },
+          {
+            "nom": "Hauts-de-France",
+            "n": 5
           },
           {
             "nom": "Grand Est",
@@ -79,12 +83,12 @@
           }
         ],
         "debutant_accepte": 25,
-        "cadre": 39,
+        "cadre": 38,
         "salaire_affiche": {
-          "offres": 20,
-          "mediane_mensuelle": 3792
+          "offres": 19,
+          "mediane_mensuelle": 3835
         },
-        "sans_nom_employeur": 13,
+        "sans_nom_employeur": 12,
         "entreprises": [
           {
             "nom": "ISAGRI",
@@ -95,15 +99,15 @@
             "n": 1
           },
           {
-            "nom": "TOHO EUROPE LIMITED",
-            "n": 1
-          },
-          {
             "nom": "NUMALLIANCE",
             "n": 1
           },
           {
-            "nom": "LES FRUITS ROUGES DE L'AISNE",
+            "nom": "MISTRAL CONSTRUCTEUR",
+            "n": 1
+          },
+          {
+            "nom": "ADECCO",
             "n": 1
           }
         ]
@@ -151,21 +155,26 @@
         {
           "date": "2026-11-22",
           "total": 10
+        },
+        {
+          "date": "2026-11-23",
+          "total": 11
         }
       ],
       "derniere": {
-        "date": "2026-11-22",
-        "total": 10,
+        "date": "2026-11-23",
+        "total": 11,
         "contrats": {
-          "CDI": 10
+          "CDI": 10,
+          "CDD": 1
         },
         "regions": [
           {
-            "nom": "Île-de-France",
+            "nom": "Auvergne-Rhône-Alpes",
             "n": 4
           },
           {
-            "nom": "Auvergne-Rhône-Alpes",
+            "nom": "Île-de-France",
             "n": 3
           },
           {
@@ -173,19 +182,19 @@
             "n": 1
           },
           {
-            "nom": "Occitanie",
+            "nom": "Outre-mer",
             "n": 1
           },
           {
-            "nom": "Bourgogne-Franche-Comté",
+            "nom": "Occitanie",
             "n": 1
           }
         ],
-        "debutant_accepte": 10,
-        "cadre": 10,
+        "debutant_accepte": 9,
+        "cadre": 9,
         "salaire_affiche": {
           "offres": 5,
-          "mediane_mensuelle": 4375
+          "mediane_mensuelle": 3542
         },
         "sans_nom_employeur": 2,
         "entreprises": [
@@ -194,7 +203,7 @@
             "n": 1
           },
           {
-            "nom": "KQUEO",
+            "nom": "ETS J ROSTAING",
             "n": 1
           },
           {
@@ -202,11 +211,11 @@
             "n": 1
           },
           {
-            "nom": "Michael Page",
+            "nom": "COMPETENCES + INTERIM",
             "n": 1
           },
           {
-            "nom": "MAYOLY",
+            "nom": "Michael Page",
             "n": 1
           }
         ]
