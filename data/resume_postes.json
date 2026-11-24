@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-23T16:50:52+00:00",
+  "genere_le": "2026-11-24T16:43:03+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -51,26 +51,30 @@
         {
           "date": "2026-11-23",
           "total": 40
+        },
+        {
+          "date": "2026-11-24",
+          "total": 37
         }
       ],
       "derniere": {
-        "date": "2026-11-23",
-        "total": 40,
+        "date": "2026-11-24",
+        "total": 37,
         "contrats": {
-          "CDD": 5,
-          "CDI": 35
+          "CDI": 33,
+          "CDD": 4
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 16
-          },
-          {
-            "nom": "Auvergne-Rhône-Alpes",
-            "n": 6
+            "n": 15
           },
           {
             "nom": "Hauts-de-France",
+            "n": 5
+          },
+          {
+            "nom": "Auvergne-Rhône-Alpes",
             "n": 5
           },
           {
@@ -78,25 +82,21 @@
             "n": 3
           },
           {
-            "nom": "Nouvelle-Aquitaine",
-            "n": 3
+            "nom": "Occitanie",
+            "n": 2
           }
         ],
-        "debutant_accepte": 25,
-        "cadre": 38,
+        "debutant_accepte": 24,
+        "cadre": 35,
         "salaire_affiche": {
-          "offres": 19,
+          "offres": 17,
           "mediane_mensuelle": 3835
         },
-        "sans_nom_employeur": 12,
+        "sans_nom_employeur": 11,
         "entreprises": [
           {
             "nom": "ISAGRI",
             "n": 2
-          },
-          {
-            "nom": "MANPOWER FRANCE",
-            "n": 1
           },
           {
             "nom": "NUMALLIANCE",
@@ -108,6 +108,10 @@
           },
           {
             "nom": "ADECCO",
+            "n": 1
+          },
+          {
+            "nom": "SERPINET CONSEIL RH",
             "n": 1
           }
         ]
@@ -159,13 +163,17 @@
         {
           "date": "2026-11-23",
           "total": 11
+        },
+        {
+          "date": "2026-11-24",
+          "total": 12
         }
       ],
       "derniere": {
-        "date": "2026-11-23",
-        "total": 11,
+        "date": "2026-11-24",
+        "total": 12,
         "contrats": {
-          "CDI": 10,
+          "CDI": 11,
           "CDD": 1
         },
         "regions": [
@@ -175,7 +183,7 @@
           },
           {
             "nom": "Île-de-France",
-            "n": 3
+            "n": 4
           },
           {
             "nom": "Provence-Alpes-Côte d'Azur",
@@ -190,11 +198,11 @@
             "n": 1
           }
         ],
-        "debutant_accepte": 9,
-        "cadre": 9,
+        "debutant_accepte": 8,
+        "cadre": 17,
         "salaire_affiche": {
-          "offres": 5,
-          "mediane_mensuelle": 3542
+          "offres": 6,
+          "mediane_mensuelle": 3958
         },
         "sans_nom_employeur": 2,
         "entreprises": [
@@ -207,15 +215,15 @@
             "n": 1
           },
           {
+            "nom": "KQUEO",
+            "n": 1
+          },
+          {
             "nom": "FRANCE LOCATIONS IMMOBILIERES - FLI",
             "n": 1
           },
           {
             "nom": "COMPETENCES + INTERIM",
-            "n": 1
-          },
-          {
-            "nom": "Michael Page",
             "n": 1
           }
         ]

@@ -1,6 +1,6 @@
 {
   "vue": "emploi",
-  "genere_le": "2026-11-23T16:50:27+00:00",
+  "genere_le": "2026-11-24T16:42:36+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026",
@@ -243,6 +243,11 @@
     {
       "date": "2026-11-23",
       "total": 38,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-24",
+      "total": 43,
       "alternance": 0
     }
   ],
@@ -1741,12 +1746,43 @@
         "Réseaux sociaux": 12,
         "Automatisation / marketing automation": 2
       }
+    },
+    {
+      "date": "2026-11-24",
+      "avec_texte": 43,
+      "outils": {
+        "Adobe (Photoshop, Illustrator, InDesign…)": 9,
+        "Canva": 9,
+        "IA (ChatGPT, IA générative…)": 7,
+        "Emailing / newsletter": 7,
+        "Anglais": 6,
+        "PowerPoint": 7,
+        "Pack Office": 6,
+        "Excel": 7,
+        "LinkedIn": 4,
+        "CRM": 4,
+        "Word": 2,
+        "SEO": 2,
+        "Google Ads": 2,
+        "HubSpot": 2,
+        "WordPress": 2,
+        "Instagram": 1,
+        "TikTok": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 13,
+        "Automatisation / marketing automation": 2
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-23",
-    "extractions": 48,
+    "au": "2026-11-24",
+    "extractions": 49,
     "flux": [
       {
         "date": "2026-10-08",
@@ -2029,50 +2065,52 @@
         "total": 38,
         "nouvelles": 3,
         "disparues": 6
+      },
+      {
+        "date": "2026-11-24",
+        "total": 43,
+        "nouvelles": 6,
+        "disparues": 1
       }
     ],
-    "vues": 156,
+    "vues": 160,
     "toute_la_periode": 2,
-    "duree_mediane_jours": 5,
-    "n_duree": 83
+    "duree_mediane_jours": 5.5,
+    "n_duree": 82
   },
   "derniere": {
-    "date": "2026-11-23",
-    "total": 38,
+    "date": "2026-11-24",
+    "total": 43,
     "alternance": 0,
-    "part_salaire_affiche": 50,
+    "part_salaire_affiche": 51,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 26
+        "n": 29
       },
       {
         "nom": "CDD",
-        "n": 12
+        "n": 14
       }
     ],
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 38
+        "n": 43
       }
     ],
     "departements": [
       {
         "nom": "75",
+        "n": 6
+      },
+      {
+        "nom": "69",
         "n": 4
       },
       {
         "nom": "92",
         "n": 3
-      },
-      {
-        "nom": "69",
-        "n": 2
-      },
-      {
-        "nom": "13",
-        "n": 2
       },
       {
         "nom": "93",
@@ -2091,6 +2129,10 @@
         "n": 2
       },
       {
+        "nom": "31",
+        "n": 2
+      },
+      {
         "nom": "59",
         "n": 2
       },
@@ -2102,23 +2144,23 @@
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 12
+        "n": 14
+      },
+      {
+        "nom": "Auvergne-Rhône-Alpes",
+        "n": 6
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
-        "n": 7
+        "n": 6
       },
       {
         "nom": "Hauts-de-France",
         "n": 5
       },
       {
-        "nom": "Auvergne-Rhône-Alpes",
-        "n": 3
-      },
-      {
         "nom": "Occitanie",
-        "n": 3
+        "n": 4
       },
       {
         "nom": "Pays de la Loire",
@@ -2148,10 +2190,14 @@
       "noms": []
     },
     "teletravail": {
-      "offres": 6,
-      "sur": 38
+      "offres": 7,
+      "sur": 43
     },
     "entreprises": [
+      {
+        "nom": "BEAUTIFULSMILE",
+        "n": 1
+      },
       {
         "nom": "INST EDUCAT MOTRICE A CASARELLA",
         "n": 1
@@ -2187,59 +2233,55 @@
       {
         "nom": "ANDROS",
         "n": 1
-      },
-      {
-        "nom": "ITINOVA",
-        "n": 1
       }
     ],
     "concentration_top2": {
       "noms": [
-        "INST EDUCAT MOTRICE A CASARELLA",
-        "RANDSTAD"
+        "BEAUTIFULSMILE",
+        "INST EDUCAT MOTRICE A CASARELLA"
       ],
       "part": 5
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 16
+        "n": 19
       },
       {
         "nom": "Analyser les performances de l'équipe et proposer des améliorations",
+        "n": 4
+      },
+      {
+        "nom": "Marketing des réseaux sociaux",
         "n": 3
       },
       {
         "nom": "Concevoir des supports de communication et d'image",
-        "n": 2
-      },
-      {
-        "nom": "Elaborer une stratégie de marketing digital",
-        "n": 2
+        "n": 3
       },
       {
         "nom": "Développer l'image et la notoriété de la structure",
-        "n": 2
+        "n": 3
       },
       {
-        "nom": "Techniques de prospection, négociation, vente",
-        "n": 1
+        "nom": "Utiliser les outils numériques",
+        "n": 3
       },
       {
-        "nom": "PERMIS + VEHICULE OBLIGATOIRE",
-        "n": 1
-      },
-      {
-        "nom": "Analyse concurrentielle",
-        "n": 1
-      },
-      {
-        "nom": "Analyse des besoins des clients",
-        "n": 1
+        "nom": "Elaborer une stratégie de marketing digital",
+        "n": 3
       },
       {
         "nom": "Gestion de campagnes publicitaires",
-        "n": 1
+        "n": 2
+      },
+      {
+        "nom": "Planification de campagnes publicitaires",
+        "n": 2
+      },
+      {
+        "nom": "Assurer le suivi des chiffres de vente et réaliser le reporting associé",
+        "n": 2
       }
     ],
     "salaires": {
@@ -2247,19 +2289,19 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 26,
-          "affichent": 13,
-          "mediane": 2600,
+          "total": 29,
+          "affichent": 14,
+          "mediane": 2571,
           "min": 1900,
           "max": 6250,
-          "mediane_annuelle": 31200,
+          "mediane_annuelle": 30852,
           "min_annuel": 22800,
           "max_annuel": 75000
         },
         {
           "nom": "CDD",
-          "total": 12,
-          "affichent": 6,
+          "total": 14,
+          "affichent": 8,
           "mediane": 2292,
           "min": 1867,
           "max": 3500,
@@ -2270,27 +2312,37 @@
       ]
     },
     "outils": {
-      "avec_texte": 38,
+      "avec_texte": 43,
       "liste": [
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 8,
-          "entreprises": 7
+          "offres": 9,
+          "entreprises": 8
         },
         {
           "nom": "Canva",
+          "offres": 9,
+          "entreprises": 7
+        },
+        {
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 7,
+          "entreprises": 7
+        },
+        {
+          "nom": "Emailing / newsletter",
           "offres": 7,
           "entreprises": 6
         },
         {
-          "nom": "Emailing / newsletter",
+          "nom": "Anglais",
           "offres": 6,
           "entreprises": 6
         },
         {
-          "nom": "IA (ChatGPT, IA générative…)",
-          "offres": 6,
-          "entreprises": 6
+          "nom": "PowerPoint",
+          "offres": 7,
+          "entreprises": 5
         },
         {
           "nom": "Pack Office",
@@ -2298,13 +2350,8 @@
           "entreprises": 5
         },
         {
-          "nom": "Anglais",
-          "offres": 5,
-          "entreprises": 5
-        },
-        {
-          "nom": "PowerPoint",
-          "offres": 5,
+          "nom": "Excel",
+          "offres": 7,
           "entreprises": 4
         },
         {
@@ -2318,9 +2365,9 @@
           "entreprises": 4
         },
         {
-          "nom": "Excel",
-          "offres": 4,
-          "entreprises": 3
+          "nom": "Word",
+          "offres": 2,
+          "entreprises": 2
         },
         {
           "nom": "SEO",
@@ -2374,7 +2421,6 @@
         }
       ],
       "absents": [
-        "Word",
         "Figma",
         "Facebook",
         "YouTube",
@@ -2390,13 +2436,13 @@
         "Zapier"
       ]
     },
-    "sans_nom_employeur": 10,
-    "part_competences": 45,
-    "debutant_accepte": 42,
+    "sans_nom_employeur": 11,
+    "part_competences": 47,
+    "debutant_accepte": 37,
     "mots": [
       {
         "nom": "Réseaux sociaux",
-        "offres": 12,
+        "offres": 13,
         "entreprises": 11
       },
       {
@@ -2406,27 +2452,27 @@
       }
     ],
     "variantes": {
-      "titres": 38,
+      "titres": 43,
       "liste": [
         {
           "nom": "Assistant / Assistante marketing",
-          "n": 14
+          "n": 16
         },
         {
           "nom": "Assistant(e) marketing et communication",
-          "n": 3
+          "n": 5
         },
         {
           "nom": "Assistant(e) commercial(e) et marketing",
           "n": 0
         }
       ],
-      "assistant_marketing": 15,
+      "assistant_marketing": 17,
       "avec_digital": 2,
       "avec_alternance": 0,
-      "sans_marketing": 18,
+      "sans_marketing": 19,
       "exemples_sans_marketing": [
-        "Assistant(e) ADV (H/F)",
+        "ASSISTANT ADV F/H",
         "agent de planning (H/F)",
         "Responsable Télévente H/F",
         "Campaign Manager confirmé H/F"
