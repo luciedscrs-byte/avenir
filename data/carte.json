@@ -1,10 +1,10 @@
 {
- "genere_le": "2026-11-24T16:43:04+00:00",
+ "genere_le": "2026-11-25T16:28:37+00:00",
  "regle": "entreprises : département du siège ; offres : département du lieu de travail, vrais CDI / CDD, chaque offre comptée une fois",
  "postes": {
   "assistant-marketing": {
    "libelle": "Assistant marketing",
-   "n": 56,
+   "n": 58,
    "depuis": "2026-10-07"
   }
  },
@@ -147,6 +147,17 @@
    },
    "offres": {
     "total": 0
+   }
+  },
+  "27": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
    }
   },
   "29": {
@@ -370,6 +381,17 @@
     "Agences": 20,
     "Événementiel": 3,
     "total": 264
+   },
+   "offres": {
+    "assistant-marketing": 1,
+    "total": 1
+   }
+  },
+  "53": {
+   "ville": "",
+   "couvert": false,
+   "entreprises": {
+    "total": 0
    },
    "offres": {
     "assistant-marketing": 1,
