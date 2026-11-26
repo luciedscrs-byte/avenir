@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-25T16:28:36+00:00",
+  "genere_le": "2026-11-26T16:01:08+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -59,19 +59,23 @@
         {
           "date": "2026-11-25",
           "total": 38
+        },
+        {
+          "date": "2026-11-26",
+          "total": 39
         }
       ],
       "derniere": {
-        "date": "2026-11-25",
-        "total": 38,
+        "date": "2026-11-26",
+        "total": 39,
         "contrats": {
-          "CDI": 34,
-          "CDD": 4
+          "CDD": 5,
+          "CDI": 34
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 16
+            "n": 17
           },
           {
             "nom": "Hauts-de-France",
@@ -86,17 +90,17 @@
             "n": 3
           },
           {
-            "nom": "Occitanie",
+            "nom": "Nouvelle-Aquitaine",
             "n": 2
           }
         ],
-        "debutant_accepte": 24,
-        "cadre": 34,
+        "debutant_accepte": 21,
+        "cadre": 31,
         "salaire_affiche": {
-          "offres": 17,
-          "mediane_mensuelle": 3835
+          "offres": 18,
+          "mediane_mensuelle": 3792
         },
-        "sans_nom_employeur": 11,
+        "sans_nom_employeur": 9,
         "entreprises": [
           {
             "nom": "ISAGRI",
@@ -115,7 +119,7 @@
             "n": 1
           },
           {
-            "nom": "ADECCO",
+            "nom": "SERPINET CONSEIL RH",
             "n": 1
           }
         ]
@@ -175,22 +179,26 @@
         {
           "date": "2026-11-25",
           "total": 11
+        },
+        {
+          "date": "2026-11-26",
+          "total": 12
         }
       ],
       "derniere": {
-        "date": "2026-11-25",
-        "total": 11,
+        "date": "2026-11-26",
+        "total": 12,
         "contrats": {
-          "CDI": 10,
+          "CDI": 11,
           "CDD": 1
         },
         "regions": [
           {
-            "nom": "Auvergne-Rhône-Alpes",
-            "n": 4
+            "nom": "Île-de-France",
+            "n": 5
           },
           {
-            "nom": "Île-de-France",
+            "nom": "Auvergne-Rhône-Alpes",
             "n": 4
           },
           {
@@ -206,8 +214,8 @@
             "n": 1
           }
         ],
-        "debutant_accepte": 9,
-        "cadre": 18,
+        "debutant_accepte": 8,
+        "cadre": 17,
         "salaire_affiche": {
           "offres": 6,
           "mediane_mensuelle": 3958

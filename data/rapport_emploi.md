@@ -1,8 +1,8 @@
 # Le marché de « Assistant / Assistante marketing » (ROME M1620) — CDI / CDD seulement
 
 - **Requête** : API France Travail — Offres d'emploi v2, codeROME=M1620, France entière ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026
-- **Date d'extraction** : 2026-11-25 · **40 offres**
-- **Extractions disponibles** : 50, du 2026-10-07 au 2026-11-25
+- **Date d'extraction** : 2026-11-26 · **40 offres**
+- **Extractions disponibles** : 51, du 2026-10-07 au 2026-11-26
 
 **Comment ce rapport est fabriqué.** Un script lit le fichier CSV daté du jour (`data/offres_M1620_<date>.csv`) et le texte des annonces, et compte : les offres par région, département et contrat ; les salaires affichés ; les outils cités ; les employeurs. Chaque chiffre vient de ces fichiers, rien n'est saisi à la main, et le rapport se régénère à chaque extraction.
 
@@ -10,31 +10,31 @@
 
 | Région | Offres |
 |---|---|
-| Île-de-France | 13 |
-| Auvergne-Rhône-Alpes | 5 |
-| Hauts-de-France | 5 |
+| Île-de-France | 12 |
+| Auvergne-Rhône-Alpes | 6 |
 | Occitanie | 4 |
+| Hauts-de-France | 4 |
 | Provence-Alpes-Côte d'Azur | 4 |
 | Pays de la Loire | 3 |
 | Corse | 1 |
 | Grand Est | 1 |
+| Centre-Val de Loire | 1 |
 | Normandie | 1 |
-| Nouvelle-Aquitaine | 1 |
 
 | Département | Offres |
 |---|---|
-| 75 | 6 |
-| 69 | 4 |
+| 69 | 5 |
+| 75 | 5 |
 | 92 | 3 |
 | 34 | 2 |
 | 93 | 2 |
 | 94 | 2 |
-| 59 | 2 |
 | 2A | 1 |
 | 62 | 1 |
 | 44 | 1 |
+| 05 | 1 |
 
-Puy-de-Dôme (63) : **0** offre(s). Mentionnent le télétravail dans le texte : **5** sur 40 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
+Puy-de-Dôme (63) : **0** offre(s). Mentionnent le télétravail dans le texte : **3** sur 40 annonces lues (une mention peut l'exclure : c'est un repère, pas un décompte d'offres qui l'autorisent).
 
 ## Contrats
 
@@ -58,22 +58,22 @@ Texte lu pour 40 annonces. Classés par nombre d'**entreprises** distinctes qui 
 
 | Outil | Entreprises | Offres |
 |---|---|---|
-| Canva | 6 | 9 |
-| Adobe (Photoshop, Illustrator, InDesign…) | 6 | 6 |
-| Pack Office | 5 | 7 |
-| PowerPoint | 5 | 6 |
-| IA (ChatGPT, IA générative…) | 5 | 5 |
-| Excel | 4 | 7 |
-| Emailing / newsletter | 4 | 6 |
-| Anglais | 4 | 6 |
+| Canva | 5 | 8 |
+| Pack Office | 5 | 6 |
+| Adobe (Photoshop, Illustrator, InDesign…) | 5 | 5 |
+| Anglais | 5 | 5 |
+| PowerPoint | 4 | 5 |
+| Emailing / newsletter | 4 | 5 |
+| IA (ChatGPT, IA générative…) | 4 | 4 |
+| Excel | 3 | 5 |
 | LinkedIn | 3 | 3 |
 | CRM | 3 | 3 |
-| Word | 2 | 2 |
 | Instagram | 2 | 2 |
 | SEO | 2 | 2 |
 | Google Ads | 2 | 2 |
 | HubSpot | 2 | 2 |
 | WordPress | 2 | 2 |
+| Word | 1 | 1 |
 | Facebook | 1 | 1 |
 | TikTok | 1 | 1 |
 | Google Analytics / GA4 | 1 | 1 |
@@ -84,11 +84,11 @@ Suivis mais cités dans aucune annonce : Figma, YouTube, SEA, Salesforce, Mailch
 
 ## Compétences renseignées par France Travail
 
-Seules 42 % des offres ont ce champ rempli.
+Seules 45 % des offres ont ce champ rempli.
 
 | Compétence | Offres |
 |---|---|
-| Mettre en place des solutions d'amélioration de la performance | 17 |
+| Mettre en place des solutions d'amélioration de la performance | 18 |
 | Marketing des réseaux sociaux | 3 |
 | Concevoir des supports de communication et d'image | 3 |
 | Elaborer une stratégie de marketing digital | 3 |
@@ -103,6 +103,7 @@ Seules 42 % des offres ont ce champ rempli.
 
 | Entreprise | Offres |
 |---|---|
+| VIGNAL SYSTEMS | 1 |
 | BEAUTIFULSMILE | 1 |
 | INST EDUCAT MOTRICE A CASARELLA | 1 |
 | RANDSTAD | 1 |
@@ -112,14 +113,13 @@ Seules 42 % des offres ont ce champ rempli.
 | MANPOWER | 1 |
 | FEDE DEPART ASS LOC ADMR | 1 |
 | TOURIST DEVELOPMENT CORPORATION | 1 |
-| ANDROS | 1 |
 
 13 offres n'ont aucun nom d'employeur et ne sont pas classées.
 
 ## Ce qui étonne dans ces chiffres
 
 - 13 offres sur 40 (32 %) n'ont aucun nom d'employeur : on ne sait pas qui recrute.
-- Aucun employeur ne domine : le plus présent, BEAUTIFULSMILE, publie 1 offres sur 40.
+- Aucun employeur ne domine : le plus présent, VIGNAL SYSTEMS, publie 1 offres sur 40.
 - Le salaire médian affiché en CDI (2550 € brut par mois, 12 offres seulement) est 5 % au-dessus du repère d'insertion (2433 €).
-- Seules 42 % des offres renseignent des compétences dans le champ France Travail, et la plus citée (« Mettre en place des solutions d'amélioration de la performance ») est générique : les outils se lisent surtout dans le texte des annonces.
+- Seules 45 % des offres renseignent des compétences dans le champ France Travail, et la plus citée (« Mettre en place des solutions d'amélioration de la performance ») est générique : les outils se lisent surtout dans le texte des annonces.
 - 18 intitulés sur 40 ne contiennent pas le mot « marketing » : le code M1620 regroupe des postes proches mais pas identiques.

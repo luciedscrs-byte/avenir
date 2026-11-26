@@ -1,6 +1,6 @@
 {
   "vue": "emploi",
-  "genere_le": "2026-11-25T16:28:02+00:00",
+  "genere_le": "2026-11-26T16:00:43+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026",
@@ -252,6 +252,11 @@
     },
     {
       "date": "2026-11-25",
+      "total": 40,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-26",
       "total": 40,
       "alternance": 0
     }
@@ -1813,12 +1818,43 @@
         "Réseaux sociaux": 12,
         "Automatisation / marketing automation": 1
       }
+    },
+    {
+      "date": "2026-11-26",
+      "avec_texte": 40,
+      "outils": {
+        "Canva": 8,
+        "Pack Office": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Anglais": 5,
+        "PowerPoint": 5,
+        "Emailing / newsletter": 5,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Excel": 5,
+        "LinkedIn": 3,
+        "CRM": 3,
+        "Instagram": 2,
+        "SEO": 2,
+        "Google Ads": 2,
+        "HubSpot": 2,
+        "WordPress": 2,
+        "Word": 1,
+        "Facebook": 1,
+        "TikTok": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Automatisation / marketing automation": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-25",
-    "extractions": 50,
+    "au": "2026-11-26",
+    "extractions": 51,
     "flux": [
       {
         "date": "2026-10-08",
@@ -2113,15 +2149,21 @@
         "total": 40,
         "nouvelles": 4,
         "disparues": 7
+      },
+      {
+        "date": "2026-11-26",
+        "total": 40,
+        "nouvelles": 3,
+        "disparues": 3
       }
     ],
-    "vues": 164,
+    "vues": 167,
     "toute_la_periode": 2,
-    "duree_mediane_jours": 6,
-    "n_duree": 89
+    "duree_mediane_jours": 6.0,
+    "n_duree": 92
   },
   "derniere": {
-    "date": "2026-11-25",
+    "date": "2026-11-26",
     "total": 40,
     "alternance": 0,
     "part_salaire_affiche": 50,
@@ -2143,12 +2185,12 @@
     ],
     "departements": [
       {
-        "nom": "75",
-        "n": 6
+        "nom": "69",
+        "n": 5
       },
       {
-        "nom": "69",
-        "n": 4
+        "nom": "75",
+        "n": 5
       },
       {
         "nom": "92",
@@ -2167,10 +2209,6 @@
         "n": 2
       },
       {
-        "nom": "59",
-        "n": 2
-      },
-      {
         "nom": "2A",
         "n": 1
       },
@@ -2181,23 +2219,27 @@
       {
         "nom": "44",
         "n": 1
+      },
+      {
+        "nom": "05",
+        "n": 1
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 13
+        "n": 12
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
-        "n": 5
-      },
-      {
-        "nom": "Hauts-de-France",
-        "n": 5
+        "n": 6
       },
       {
         "nom": "Occitanie",
+        "n": 4
+      },
+      {
+        "nom": "Hauts-de-France",
         "n": 4
       },
       {
@@ -2217,11 +2259,11 @@
         "n": 1
       },
       {
-        "nom": "Normandie",
+        "nom": "Centre-Val de Loire",
         "n": 1
       },
       {
-        "nom": "Nouvelle-Aquitaine",
+        "nom": "Normandie",
         "n": 1
       }
     ],
@@ -2232,10 +2274,14 @@
       "noms": []
     },
     "teletravail": {
-      "offres": 5,
+      "offres": 3,
       "sur": 40
     },
     "entreprises": [
+      {
+        "nom": "VIGNAL SYSTEMS",
+        "n": 1
+      },
       {
         "nom": "BEAUTIFULSMILE",
         "n": 1
@@ -2271,23 +2317,19 @@
       {
         "nom": "TOURIST DEVELOPMENT CORPORATION",
         "n": 1
-      },
-      {
-        "nom": "ANDROS",
-        "n": 1
       }
     ],
     "concentration_top2": {
       "noms": [
-        "BEAUTIFULSMILE",
-        "INST EDUCAT MOTRICE A CASARELLA"
+        "VIGNAL SYSTEMS",
+        "BEAUTIFULSMILE"
       ],
       "part": 5
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 17
+        "n": 18
       },
       {
         "nom": "Marketing des réseaux sociaux",
@@ -2358,43 +2400,43 @@
       "liste": [
         {
           "nom": "Canva",
-          "offres": 9,
-          "entreprises": 6
-        },
-        {
-          "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
-          "offres": 6,
-          "entreprises": 6
+          "offres": 8,
+          "entreprises": 5
         },
         {
           "nom": "Pack Office",
-          "offres": 7,
-          "entreprises": 5
-        },
-        {
-          "nom": "PowerPoint",
           "offres": 6,
           "entreprises": 5
         },
         {
-          "nom": "IA (ChatGPT, IA générative…)",
+          "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
           "offres": 5,
           "entreprises": 5
         },
         {
-          "nom": "Excel",
-          "offres": 7,
+          "nom": "Anglais",
+          "offres": 5,
+          "entreprises": 5
+        },
+        {
+          "nom": "PowerPoint",
+          "offres": 5,
           "entreprises": 4
         },
         {
           "nom": "Emailing / newsletter",
-          "offres": 6,
+          "offres": 5,
           "entreprises": 4
         },
         {
-          "nom": "Anglais",
-          "offres": 6,
+          "nom": "IA (ChatGPT, IA générative…)",
+          "offres": 4,
           "entreprises": 4
+        },
+        {
+          "nom": "Excel",
+          "offres": 5,
+          "entreprises": 3
         },
         {
           "nom": "LinkedIn",
@@ -2405,11 +2447,6 @@
           "nom": "CRM",
           "offres": 3,
           "entreprises": 3
-        },
-        {
-          "nom": "Word",
-          "offres": 2,
-          "entreprises": 2
         },
         {
           "nom": "Instagram",
@@ -2435,6 +2472,11 @@
           "nom": "WordPress",
           "offres": 2,
           "entreprises": 2
+        },
+        {
+          "nom": "Word",
+          "offres": 1,
+          "entreprises": 1
         },
         {
           "nom": "Facebook",
@@ -2479,8 +2521,8 @@
       ]
     },
     "sans_nom_employeur": 13,
-    "part_competences": 42,
-    "debutant_accepte": 42,
+    "part_competences": 45,
+    "debutant_accepte": 45,
     "mots": [
       {
         "nom": "Réseaux sociaux",
@@ -2502,11 +2544,11 @@
         },
         {
           "nom": "Assistant(e) marketing et communication",
-          "n": 3
+          "n": 2
         },
         {
           "nom": "Assistant(e) commercial(e) et marketing",
-          "n": 0
+          "n": 1
         }
       ],
       "assistant_marketing": 15,
