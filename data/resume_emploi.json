@@ -1,6 +1,6 @@
 {
   "vue": "emploi",
-  "genere_le": "2026-11-26T16:00:43+00:00",
+  "genere_le": "2026-11-27T15:49:35+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière ; seulement les vrais CDI et CDD (sans alternance, stage, intérim ni annonce de formation), à partir du 07/10/2026",
@@ -258,6 +258,11 @@
     {
       "date": "2026-11-26",
       "total": 40,
+      "alternance": 0
+    },
+    {
+      "date": "2026-11-27",
+      "total": 39,
       "alternance": 0
     }
   ],
@@ -1849,12 +1854,43 @@
         "Réseaux sociaux": 12,
         "Automatisation / marketing automation": 1
       }
+    },
+    {
+      "date": "2026-11-27",
+      "avec_texte": 39,
+      "outils": {
+        "Canva": 8,
+        "Pack Office": 6,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 5,
+        "Anglais": 5,
+        "PowerPoint": 5,
+        "Emailing / newsletter": 5,
+        "IA (ChatGPT, IA générative…)": 4,
+        "Excel": 5,
+        "LinkedIn": 3,
+        "CRM": 3,
+        "Instagram": 2,
+        "SEO": 2,
+        "Google Ads": 2,
+        "HubSpot": 2,
+        "WordPress": 2,
+        "Word": 1,
+        "Facebook": 1,
+        "TikTok": 1,
+        "Google Analytics / GA4": 1,
+        "Meta Ads / Facebook Ads": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 12,
+        "Automatisation / marketing automation": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-26",
-    "extractions": 51,
+    "au": "2026-11-27",
+    "extractions": 52,
     "flux": [
       {
         "date": "2026-10-08",
@@ -2155,22 +2191,28 @@
         "total": 40,
         "nouvelles": 3,
         "disparues": 3
+      },
+      {
+        "date": "2026-11-27",
+        "total": 39,
+        "nouvelles": 1,
+        "disparues": 2
       }
     ],
     "vues": 167,
     "toute_la_periode": 2,
-    "duree_mediane_jours": 6.0,
-    "n_duree": 92
+    "duree_mediane_jours": 6,
+    "n_duree": 93
   },
   "derniere": {
-    "date": "2026-11-26",
-    "total": 40,
+    "date": "2026-11-27",
+    "total": 39,
     "alternance": 0,
-    "part_salaire_affiche": 50,
+    "part_salaire_affiche": 54,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 27
+        "n": 26
       },
       {
         "nom": "CDD",
@@ -2180,7 +2222,7 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 40
+        "n": 39
       }
     ],
     "departements": [
@@ -2209,6 +2251,10 @@
         "n": 2
       },
       {
+        "nom": "31",
+        "n": 2
+      },
+      {
         "nom": "2A",
         "n": 1
       },
@@ -2218,10 +2264,6 @@
       },
       {
         "nom": "44",
-        "n": 1
-      },
-      {
-        "nom": "05",
         "n": 1
       }
     ],
@@ -2236,7 +2278,7 @@
       },
       {
         "nom": "Occitanie",
-        "n": 4
+        "n": 5
       },
       {
         "nom": "Hauts-de-France",
@@ -2259,11 +2301,11 @@
         "n": 1
       },
       {
-        "nom": "Centre-Val de Loire",
+        "nom": "Normandie",
         "n": 1
       },
       {
-        "nom": "Normandie",
+        "nom": "Bretagne",
         "n": 1
       }
     ],
@@ -2275,7 +2317,7 @@
     },
     "teletravail": {
       "offres": 3,
-      "sur": 40
+      "sur": 39
     },
     "entreprises": [
       {
@@ -2329,7 +2371,7 @@
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 18
+        "n": 19
       },
       {
         "nom": "Marketing des réseaux sociaux",
@@ -2348,6 +2390,10 @@
         "n": 3
       },
       {
+        "nom": "Analyser les performances de l'équipe et proposer des améliorations",
+        "n": 3
+      },
+      {
         "nom": "Développer l'image et la notoriété de la structure",
         "n": 2
       },
@@ -2362,10 +2408,6 @@
       {
         "nom": "Optimiser le référencement naturel (SEO) des sites web",
         "n": 2
-      },
-      {
-        "nom": "Gestion de campagnes publicitaires",
-        "n": 2
       }
     ],
     "salaires": {
@@ -2373,12 +2415,12 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 27,
-          "affichent": 12,
-          "mediane": 2550,
+          "total": 26,
+          "affichent": 13,
+          "mediane": 2600,
           "min": 1900,
           "max": 6250,
-          "mediane_annuelle": 30600,
+          "mediane_annuelle": 31200,
           "min_annuel": 22800,
           "max_annuel": 75000
         },
@@ -2396,7 +2438,7 @@
       ]
     },
     "outils": {
-      "avec_texte": 40,
+      "avec_texte": 39,
       "liste": [
         {
           "nom": "Canva",
@@ -2520,9 +2562,9 @@
         "Zapier"
       ]
     },
-    "sans_nom_employeur": 13,
-    "part_competences": 45,
-    "debutant_accepte": 45,
+    "sans_nom_employeur": 11,
+    "part_competences": 49,
+    "debutant_accepte": 41,
     "mots": [
       {
         "nom": "Réseaux sociaux",
@@ -2536,11 +2578,11 @@
       }
     ],
     "variantes": {
-      "titres": 40,
+      "titres": 39,
       "liste": [
         {
           "nom": "Assistant / Assistante marketing",
-          "n": 14
+          "n": 13
         },
         {
           "nom": "Assistant(e) marketing et communication",
@@ -2551,15 +2593,15 @@
           "n": 1
         }
       ],
-      "assistant_marketing": 15,
+      "assistant_marketing": 14,
       "avec_digital": 2,
       "avec_alternance": 0,
       "sans_marketing": 18,
       "exemples_sans_marketing": [
         "ASSISTANT ADV F/H",
         "agent de planning (H/F)",
-        "Responsable Télévente H/F",
-        "Campaign Manager confirmé H/F"
+        "Campaign Manager confirmé H/F",
+        "ARH - Gestionnaire de paie H/F"
       ]
     }
   }

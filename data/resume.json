@@ -1,6 +1,6 @@
 {
   "vue": "tout",
-  "genere_le": "2026-11-26T16:00:40+00:00",
+  "genere_le": "2026-11-27T15:49:32+00:00",
   "metier": "Assistant / Assistante marketing",
   "code_rome": "M1620",
   "requete": "API France Travail — Offres d'emploi v2, codeROME=M1620, France entière",
@@ -264,6 +264,11 @@
       "date": "2026-11-26",
       "total": 113,
       "alternance": 34
+    },
+    {
+      "date": "2026-11-27",
+      "total": 113,
+      "alternance": 35
     }
   ],
   "serie_outils": [
@@ -2102,12 +2107,47 @@
         "Analyse de données (data)": 2,
         "Transition écologique / RSE": 1
       }
+    },
+    {
+      "date": "2026-11-27",
+      "avec_texte": 113,
+      "outils": {
+        "Canva": 17,
+        "Adobe (Photoshop, Illustrator, InDesign…)": 12,
+        "Anglais": 10,
+        "Pack Office": 11,
+        "LinkedIn": 10,
+        "Emailing / newsletter": 13,
+        "IA (ChatGPT, IA générative…)": 8,
+        "Excel": 10,
+        "SEO": 9,
+        "PowerPoint": 7,
+        "Instagram": 9,
+        "CRM": 8,
+        "Facebook": 7,
+        "TikTok": 4,
+        "Word": 3,
+        "WordPress": 3,
+        "YouTube": 2,
+        "Google Analytics / GA4": 2,
+        "Google Ads": 2,
+        "HubSpot": 2,
+        "Meta Ads / Facebook Ads": 1,
+        "Mailchimp, Brevo, Sendinblue, Klaviyo": 1,
+        "Power BI / Looker Studio": 1
+      },
+      "mots": {
+        "Réseaux sociaux": 35,
+        "Automatisation / marketing automation": 2,
+        "Analyse de données (data)": 2,
+        "Transition écologique / RSE": 1
+      }
     }
   ],
   "mouvement": {
     "du": "2026-10-07",
-    "au": "2026-11-26",
-    "extractions": 51,
+    "au": "2026-11-27",
+    "extractions": 52,
     "flux": [
       {
         "date": "2026-10-08",
@@ -2408,26 +2448,32 @@
         "total": 113,
         "nouvelles": 4,
         "disparues": 8
+      },
+      {
+        "date": "2026-11-27",
+        "total": 113,
+        "nouvelles": 3,
+        "disparues": 3
       }
     ],
-    "vues": 379,
+    "vues": 381,
     "toute_la_periode": 29,
     "duree_mediane_jours": 7,
-    "n_duree": 159
+    "n_duree": 161
   },
   "derniere": {
-    "date": "2026-11-26",
+    "date": "2026-11-27",
     "total": 113,
-    "alternance": 34,
-    "part_salaire_affiche": 26,
+    "alternance": 35,
+    "part_salaire_affiche": 27,
     "contrats": [
       {
         "nom": "CDI",
-        "n": 53
+        "n": 52
       },
       {
         "nom": "CDD",
-        "n": 48
+        "n": 49
       },
       {
         "nom": "Intérim",
@@ -2441,11 +2487,11 @@
     "natures": [
       {
         "nom": "Contrat travail",
-        "n": 78
+        "n": 77
       },
       {
         "nom": "Contrat apprentissage",
-        "n": 23
+        "n": 24
       },
       {
         "nom": "Cont. professionnalisation",
@@ -2463,7 +2509,7 @@
       },
       {
         "nom": "75",
-        "n": 17
+        "n": 18
       },
       {
         "nom": "69",
@@ -2478,8 +2524,12 @@
         "n": 7
       },
       {
+        "nom": "974",
+        "n": 4
+      },
+      {
         "nom": "13",
-        "n": 5
+        "n": 4
       },
       {
         "nom": "34",
@@ -2492,16 +2542,12 @@
       {
         "nom": "83",
         "n": 3
-      },
-      {
-        "nom": "974",
-        "n": 3
       }
     ],
     "regions": [
       {
         "nom": "Île-de-France",
-        "n": 41
+        "n": 42
       },
       {
         "nom": "Auvergne-Rhône-Alpes",
@@ -2509,11 +2555,11 @@
       },
       {
         "nom": "Provence-Alpes-Côte d'Azur",
-        "n": 12
+        "n": 11
       },
       {
         "nom": "Occitanie",
-        "n": 9
+        "n": 10
       },
       {
         "nom": "Hauts-de-France",
@@ -2525,19 +2571,19 @@
       },
       {
         "nom": "Outre-mer",
-        "n": 4
+        "n": 5
       },
       {
         "nom": "Pays de la Loire",
         "n": 4
       },
       {
-        "nom": "Centre-Val de Loire",
-        "n": 4
+        "nom": "Grand Est",
+        "n": 3
       },
       {
         "nom": "Nouvelle-Aquitaine",
-        "n": 4
+        "n": 3
       }
     ],
     "canaux": null,
@@ -2559,7 +2605,7 @@
       },
       {
         "nom": "ISCOD",
-        "n": 11
+        "n": 12
       },
       {
         "nom": "SOLANO",
@@ -2586,11 +2632,11 @@
         "n": 2
       },
       {
-        "nom": "VIGNAL SYSTEMS",
+        "nom": "SM2C",
         "n": 1
       },
       {
-        "nom": "BEAUTIFULSMILE",
+        "nom": "VIGNAL SYSTEMS",
         "n": 1
       }
     ],
@@ -2599,19 +2645,27 @@
         "EFC",
         "ISCOD"
       ],
-      "part": 30
+      "part": 31
     },
     "competences": [
       {
         "nom": "Mettre en place des solutions d'amélioration de la performance",
-        "n": 22
-      },
-      {
-        "nom": "Marketing des réseaux sociaux",
-        "n": 3
+        "n": 23
       },
       {
         "nom": "Concevoir des supports de communication et d'image",
+        "n": 4
+      },
+      {
+        "nom": "Utiliser les outils numériques",
+        "n": 4
+      },
+      {
+        "nom": "Développer l'image et la notoriété de la structure",
+        "n": 3
+      },
+      {
+        "nom": "Marketing des réseaux sociaux",
         "n": 3
       },
       {
@@ -2619,11 +2673,11 @@
         "n": 3
       },
       {
-        "nom": "Utiliser les outils numériques",
+        "nom": "Analyser les performances de l'équipe et proposer des améliorations",
         "n": 3
       },
       {
-        "nom": "Développer l'image et la notoriété de la structure",
+        "nom": "Participer aux phases créatives d'un projet marketing",
         "n": 2
       },
       {
@@ -2633,14 +2687,6 @@
       {
         "nom": "Mener une campagne d'e-mailing",
         "n": 2
-      },
-      {
-        "nom": "Optimiser le référencement naturel (SEO) des sites web",
-        "n": 2
-      },
-      {
-        "nom": "Gestion de campagnes publicitaires",
-        "n": 2
       }
     ],
     "salaires": {
@@ -2648,18 +2694,18 @@
       "groupes": [
         {
           "nom": "CDI",
-          "total": 53,
-          "affichent": 13,
-          "mediane": 2500,
+          "total": 52,
+          "affichent": 14,
+          "mediane": 2550,
           "min": 1350,
           "max": 6250,
-          "mediane_annuelle": 30000,
+          "mediane_annuelle": 30600,
           "min_annuel": 16200,
           "max_annuel": 75000
         },
         {
           "nom": "Alternance",
-          "total": 34,
+          "total": 35,
           "affichent": 3,
           "mediane": 1325,
           "min": 1144,
@@ -2702,8 +2748,8 @@
       "liste": [
         {
           "nom": "Canva",
-          "offres": 15,
-          "entreprises": 10
+          "offres": 17,
+          "entreprises": 11
         },
         {
           "nom": "Adobe (Photoshop, Illustrator, InDesign…)",
@@ -2711,19 +2757,9 @@
           "entreprises": 10
         },
         {
-          "nom": "LinkedIn",
+          "nom": "Anglais",
           "offres": 10,
           "entreprises": 9
-        },
-        {
-          "nom": "Anglais",
-          "offres": 9,
-          "entreprises": 9
-        },
-        {
-          "nom": "Emailing / newsletter",
-          "offres": 13,
-          "entreprises": 8
         },
         {
           "nom": "Pack Office",
@@ -2731,8 +2767,13 @@
           "entreprises": 8
         },
         {
-          "nom": "SEO",
+          "nom": "LinkedIn",
           "offres": 10,
+          "entreprises": 8
+        },
+        {
+          "nom": "Emailing / newsletter",
+          "offres": 13,
           "entreprises": 7
         },
         {
@@ -2746,9 +2787,19 @@
           "entreprises": 6
         },
         {
+          "nom": "SEO",
+          "offres": 9,
+          "entreprises": 6
+        },
+        {
           "nom": "PowerPoint",
           "offres": 7,
           "entreprises": 6
+        },
+        {
+          "nom": "Instagram",
+          "offres": 9,
+          "entreprises": 5
         },
         {
           "nom": "CRM",
@@ -2756,13 +2807,13 @@
           "entreprises": 5
         },
         {
-          "nom": "Instagram",
+          "nom": "Facebook",
           "offres": 7,
-          "entreprises": 4
+          "entreprises": 5
         },
         {
-          "nom": "Facebook",
-          "offres": 5,
+          "nom": "TikTok",
+          "offres": 4,
           "entreprises": 4
         },
         {
@@ -2771,7 +2822,7 @@
           "entreprises": 3
         },
         {
-          "nom": "TikTok",
+          "nom": "WordPress",
           "offres": 3,
           "entreprises": 3
         },
@@ -2796,11 +2847,6 @@
           "entreprises": 2
         },
         {
-          "nom": "WordPress",
-          "offres": 2,
-          "entreprises": 2
-        },
-        {
           "nom": "Meta Ads / Facebook Ads",
           "offres": 1,
           "entreprises": 1
@@ -2814,11 +2860,6 @@
           "nom": "Power BI / Looker Studio",
           "offres": 1,
           "entreprises": 1
-        },
-        {
-          "nom": "Semrush / Ahrefs",
-          "offres": 1,
-          "entreprises": 1
         }
       ],
       "absents": [
@@ -2829,18 +2870,19 @@
         "Prestashop",
         "SQL",
         "Python",
+        "Semrush / Ahrefs",
         "Google Tag Manager",
         "Notion / Trello / Asana",
         "Zapier"
       ]
     },
-    "sans_nom_employeur": 28,
-    "part_competences": 19,
-    "debutant_accepte": 61,
+    "sans_nom_employeur": 26,
+    "part_competences": 20,
+    "debutant_accepte": 58,
     "mots": [
       {
         "nom": "Réseaux sociaux",
-        "offres": 34,
+        "offres": 35,
         "entreprises": 18
       },
       {
@@ -2868,22 +2910,22 @@
         },
         {
           "nom": "Assistant(e) marketing et communication",
-          "n": 9
+          "n": 11
         },
         {
           "nom": "Assistant(e) commercial(e) et marketing",
           "n": 8
         }
       ],
-      "assistant_marketing": 65,
-      "avec_digital": 6,
+      "assistant_marketing": 66,
+      "avec_digital": 5,
       "avec_alternance": 26,
-      "sans_marketing": 32,
+      "sans_marketing": 31,
       "exemples_sans_marketing": [
         "ASSISTANT ADV F/H",
         "Assistant Packaging F/H",
         "agent de planning (H/F)",
-        "Responsable Télévente H/F"
+        "Assistant commercial (H/F)"
       ]
     }
   }

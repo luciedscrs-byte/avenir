@@ -1,5 +1,5 @@
 {
-  "genere_le": "2026-11-26T16:01:08+00:00",
+  "genere_le": "2026-11-27T15:50:03+00:00",
   "regle": "CDI ou CDD seulement ; sans alternance, stage, intérim ni annonce de formation",
   "postes": {
     "responsable-marketing": {
@@ -63,23 +63,23 @@
         {
           "date": "2026-11-26",
           "total": 39
+        },
+        {
+          "date": "2026-11-27",
+          "total": 41
         }
       ],
       "derniere": {
-        "date": "2026-11-26",
-        "total": 39,
+        "date": "2026-11-27",
+        "total": 41,
         "contrats": {
           "CDD": 5,
-          "CDI": 34
+          "CDI": 36
         },
         "regions": [
           {
             "nom": "Île-de-France",
-            "n": 17
-          },
-          {
-            "nom": "Hauts-de-France",
-            "n": 5
+            "n": 19
           },
           {
             "nom": "Auvergne-Rhône-Alpes",
@@ -87,20 +87,24 @@
           },
           {
             "nom": "Grand Est",
-            "n": 3
+            "n": 4
+          },
+          {
+            "nom": "Hauts-de-France",
+            "n": 4
           },
           {
             "nom": "Nouvelle-Aquitaine",
             "n": 2
           }
         ],
-        "debutant_accepte": 21,
-        "cadre": 31,
+        "debutant_accepte": 22,
+        "cadre": 29,
         "salaire_affiche": {
-          "offres": 18,
-          "mediane_mensuelle": 3792
+          "offres": 19,
+          "mediane_mensuelle": 3750
         },
-        "sans_nom_employeur": 9,
+        "sans_nom_employeur": 11,
         "entreprises": [
           {
             "nom": "ISAGRI",
@@ -183,10 +187,14 @@
         {
           "date": "2026-11-26",
           "total": 12
+        },
+        {
+          "date": "2026-11-27",
+          "total": 12
         }
       ],
       "derniere": {
-        "date": "2026-11-26",
+        "date": "2026-11-27",
         "total": 12,
         "contrats": {
           "CDI": 11,
